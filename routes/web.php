@@ -29,7 +29,7 @@ Route::get('/produk_hukum', function () {
     ]);
 });
 
-Route::get('/peraturan_internal_perusahaan', function () {
+Route::get('/produk_hukum/peraturan_internal_perusahaan', function () {
     return view('perinternal', [
         'title' => 'Peraturan Internal'
     ]);

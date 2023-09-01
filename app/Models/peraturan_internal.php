@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class peraturan_internal extends Model
+class Peraturan_internal
 {
-    use HasFactory;
+    static $internal_regulations = [
+        [
+            "numb_reg" => "PB-02/D2/INKA/2020",
+            "date_reg" => "03 Desember 2020",
+            "desc_reg" => "Hari pemungutan suara pemilihan gubernur dan wakil gubernur, bupat dan wakil bupati",
+            "status" => "Berlaku",
+        ],
+        [
+            "numb_reg" => "SE-18/D1/INKA/2020",
+            "date_reg" => "30 November 2020",
+            "desc_reg" => "Pengaturan hari kerja PT Industri Kereta Api (Persero) Tahun 2021"
+        ],
+    ];
 }
