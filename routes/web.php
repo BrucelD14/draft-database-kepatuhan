@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Peraturan_internal;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ Route::get('/produk_hukum', function () {
 
 Route::get('/produk_hukum/peraturan_internal_perusahaan', function () {
     return view('perinternal', [
-        'title' => 'Peraturan Internal'
+        'title' => 'Peraturan Internal',
+        'reg_list' => Peraturan_internal::all()
     ]);
 });
