@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('peraturan_internals', function (Blueprint $table) {
+        Schema::create('internal_regulations', function (Blueprint $table) {
             $table->id();
-            $table->string('no_peraturan');
-            $table->string('deskripsi');
-            $table->date('tanggal_penetapan');
-            $table->enum('status', ['Berlaku', 'Tidak Berlaku']);
-            $table->binary('file_peraturan');
             $table->timestamps();
         });
     }
@@ -27,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('peraturan_internals');
+        Schema::dropIfExists('internal_regulations');
     }
 };

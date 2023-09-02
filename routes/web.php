@@ -1,9 +1,8 @@
 <?php
 
+use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
-use App\Http\Controllers\Peraturan_internalController;
 use App\Http\Controllers\Product_lawController;
-use App\Models\Peraturan_internal;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +24,4 @@ Route::get('/landing', [LandingController::class, 'index']);
 
 Route::get('/produk_hukum', [Product_lawController::class, 'index']);
 
-Route::get('/produk_hukum/peraturan_internal_perusahaan', [Peraturan_internalController::class, 'index']);
+Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index']);

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Peraturan_internal;
+use App\Models\Internal_regulation;
 use Illuminate\Http\Request;
 
-class Peraturan_internalController extends Controller
+class Internal_regulationController extends Controller
 {
     public function index()
     {
         return view('perinternal', [
             'title' => 'Peraturan Internal',
-            'reg_list' => Peraturan_internal::all()
+            'reg_list' => Internal_regulation::all()
         ]);
     }
 }
