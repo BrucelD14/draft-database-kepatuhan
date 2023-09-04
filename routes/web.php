@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\External_regulationController;
 use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Product_lawController;
@@ -25,3 +26,7 @@ Route::get('/landing', [LandingController::class, 'index']);
 Route::get('/produk_hukum', [Product_lawController::class, 'index']);
 
 Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index']);
+
+Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index']);
+
+Route::get('/produk_hukum/peraturan_eksternal', [External_regulationController::class, 'index']);
