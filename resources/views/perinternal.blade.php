@@ -7,11 +7,18 @@
                 {{ $reg->nomor_peraturan }}
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{ $reg->nomor_peraturan }}</h5>
+                <h5 class="card-title">{{ $reg->jenis_peraturan }}</h5>
                 <article>
                     {!! $reg->tentang !!}
                 </article>
-                <btn class="btn btn-primary disabled">{{ $reg->status }}</btn>
+
+                <btn class="btn btn-primary disabled">
+                    @if ($reg->status == 1)
+                        {{ 'Berlaku' }}
+                    @else
+                        {{ 'Tidak Berlaku' }}
+                    @endif
+                </btn>
             </div>
         </div>
     @endforeach

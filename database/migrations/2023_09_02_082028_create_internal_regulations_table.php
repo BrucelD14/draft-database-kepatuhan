@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('internal_regulations', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_peraturan');
-            $table->timestamp('tanggal_ditetapkan')->nullable();
+            $table->timestamp('tanggal_penetapan')->nullable();
             $table->string('slug')->nullable();
             $table->text('tentang');
+            $table->string('jenis_peraturan');
             $table->boolean('status')->default(true);
             $table->string('dokumen');
             $table->timestamp('published_at')->nullable();
