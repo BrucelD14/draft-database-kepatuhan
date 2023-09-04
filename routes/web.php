@@ -3,6 +3,7 @@
 use App\Http\Controllers\External_regulationController;
 use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\Ministerial_regulationController;
 use App\Http\Controllers\Product_lawController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,5 @@ Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationCo
 Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index']);
 
 Route::get('/produk_hukum/peraturan_eksternal', [External_regulationController::class, 'index']);
+
+Route::get('/produk_hukum/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index']);

@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Peraturan Menteri BUMN</h5>
                     <p class="card-text">Judul Peraturan Terbaru</p>
-                    <a href="/produk_hukum/peraturan_internal_perusahaan" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/produk_hukum/peraturan_menteri_bumn" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
         </div>
