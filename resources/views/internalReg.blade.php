@@ -12,13 +12,16 @@
                     {!! $reg->tentang !!}
                 </article>
 
-                <btn class="btn btn-primary disabled">
+                <btn class="btn btn-info disabled">
                     @if ($reg->status == 1)
                         {{ 'Berlaku' }}
                     @else
                         {{ 'Tidak Berlaku' }}
                     @endif
                 </btn>
+                <div class="mt-2">
+                    <strong>Keterangan: </strong> {!! $reg->keterangan !!}
+                </div>
             </div>
         </div>
     @endforeach
