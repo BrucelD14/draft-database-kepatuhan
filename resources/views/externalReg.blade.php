@@ -19,6 +19,9 @@
                         {{ 'Tidak Berlaku' }}
                     @endif
                 </btn>
+                <div class="mt-2">
+                    <strong>Keterangan: </strong> {!! $reg->keterangan !!}
+                </div>
             </div>
         </div>
     @endforeach
