@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('jenis_peraturan');
             $table->boolean('status')->default(true);
             $table->text('keterangan');
-            $table->string('dokumen');
+            $table->string('dokumen')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
