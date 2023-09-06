@@ -19,7 +19,7 @@ class Internal_regulationFactory extends Factory
         return [
             'nomor_peraturan' => fake()->bothify('???-###'),
             'tentang' => fake()->paragraph(),
-            'jenis_peraturan' => 'Peraturan Direksi',
+            'jenis_peraturan' => 'Surat Edaran',
             'keterangan' => fake()->paragraph()
         ];
     }
