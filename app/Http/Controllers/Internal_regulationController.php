@@ -11,7 +11,8 @@ class Internal_regulationController extends Controller
     {
         return view('internalReg', [
             'title' => 'Peraturan Internal',
-            'reg_list' => Internal_regulation::all()
+            // 'reg_list' => Internal_regulation::all(),
+            'reg_list' => Internal_regulation::latest()->get()
         ]);
     }
 }

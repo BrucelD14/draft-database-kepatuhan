@@ -9,9 +9,9 @@ class External_regulationController extends Controller
 {
     public function index()
     {
-        return view('externalReg', [
+        return view('internalReg', [
             'title' => 'Peraturan Eksternal',
-            'reg_list' => External_regulation::all()
+            'reg_list' => External_regulation::latest()->get()
         ]);
     }
 }

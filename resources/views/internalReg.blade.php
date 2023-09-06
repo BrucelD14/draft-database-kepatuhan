@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{ $reg->jenis_peraturan }}</h5>
-                <article>
+                <article class="mb-2 fs-5">
                     {!! $reg->tentang !!}
                 </article>
 
