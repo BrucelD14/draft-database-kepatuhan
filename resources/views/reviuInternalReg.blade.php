@@ -7,12 +7,12 @@
                 Ketentuan Peraturan Perundang-undangan : {{ $reg->kppp }}
             </div>
             <div class="card-body">
-                <h5 class="card-title fw-bold">Ketentuan Peraturan Direksi Eksisting : {{ $reg->kpde }}</h5>
+                <h5 class="card-title fw-bold pb-2">Ketentuan Peraturan Direksi Eksisting : {{ $reg->kpde }}</h5>
                 <article class="fs-6">
-                    Tentang peraturan : {!! $reg->tentang_peraturan !!}
+                    <strong>Tentang peraturan : </strong>{!! $reg->tentang_peraturan !!}
                     <br>
                     <hr>
-                    Keterangan status : {!! $reg->keterangan_status !!}
+                    <strong>Keterangan status : </strong>{!! $reg->keterangan_status !!}
                 </article>
             </div>
         </div>

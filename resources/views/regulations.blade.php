@@ -1,6 +1,17 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/regulations" method="get">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Ketik kata kunci">
+                    <button class="btn btn-info" type="button" id="button-addon2">Cariin boss</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     @foreach ($reg_list as $reg)
         <div class="card mb-2">
             <div class="card-header">
