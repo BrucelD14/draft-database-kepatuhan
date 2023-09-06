@@ -9,7 +9,7 @@ class Ministerial_regulationController extends Controller
 {
     public function index()
     {
-        return view('internalReg', [
+        return view('regulations', [
             'title' => 'Peraturan Menteri BUMN',
             'reg_list' => Ministerial_regulation::latest()->get()
         ]);
