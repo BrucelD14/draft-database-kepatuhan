@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Review Peraturan Internal</h5>
                     <p class="card-text">Judul Review Terbaru</p>
-                    <a href="/produk_hukum/peraturan_internal_perusahaan" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/produk_hukum/reviu_peraturan_internal" class="btn btn-primary">Selengkapnya</a>
                 </div>
             </div>
         </div>

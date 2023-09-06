@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\External_regulation;
 use App\Models\Internal_regulation;
 use App\Models\Ministerial_regulation;
+use App\Models\Review_internalreg;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -74,5 +75,6 @@ class DatabaseSeeder extends Seeder
         Internal_regulation::factory(5)->create();
         External_regulation::factory(5)->create();
         Ministerial_regulation::factory(5)->create();
+        Review_internalreg::factory(3)->create();
     }
 }
