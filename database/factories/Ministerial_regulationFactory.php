@@ -20,7 +20,7 @@ class Ministerial_regulationFactory extends Factory
             'nomor_peraturan' => fake()->bothify('???-###'),
             'tentang' => fake()->paragraph(),
             'jenis_peraturan' => 'Peraturan Menteri BUMN',
-            'keterangan' => fake()->paragraph()
+            'keterangan_status' => fake()->paragraph()
         ];
     }
 }

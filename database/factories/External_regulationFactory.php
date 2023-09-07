@@ -20,7 +20,7 @@ class External_regulationFactory extends Factory
             'nomor_peraturan' => fake()->bothify('???-###'),
             'tentang' => fake()->paragraph(),
             'jenis_peraturan' => 'Undang-undang',
-            'keterangan' => fake()->paragraph()
+            'keterangan_status' => fake()->paragraph()
         ];
     }
 }

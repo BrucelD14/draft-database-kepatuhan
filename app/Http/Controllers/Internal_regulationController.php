@@ -10,11 +10,11 @@ class Internal_regulationController extends Controller
     public function index()
     {
 
-
         return view('regulations', [
             'title' => 'Peraturan Internal',
+            'active' => 'peraturan_internal_perusahaan',
             // 'reg_list' => Internal_regulation::all(),
-            'reg_list' => Internal_regulation::latest()->filter(request(['search']))->get()
+            'reg_list' => Internal_regulation::latest()->filter(request(['search']))->paginate(4)->withQueryString()
         ]);
     }
 }

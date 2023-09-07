@@ -3,7 +3,7 @@
 @section('container')
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="/produk_hukum/peraturan_internal_perusahaan" method="get">
+            <form action="/produk_hukum/{{ $active }}" method="get">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Ketik kata kunci" name="search"
                         value="{{ request('search') }}">
@@ -14,7 +14,7 @@
     </div>
 
     @foreach ($reg_list as $reg)
-        <div class="card mb-2">
+        <div class="card mb-4">
             <div class="card-header">
                 {{ $reg->nomor_peraturan }}
             </div>
@@ -32,9 +32,11 @@
                     @endif
                 </btn>
                 <div class="mt-2">
-                    <strong>Keterangan: </strong> {!! $reg->keterangan !!}
+                    <strong>Keterangan: </strong> {!! $reg->keterangan_status !!}
                 </div>
             </div>
         </div>
     @endforeach
+
+    {{ $reg_list->links() }}
 @endsection

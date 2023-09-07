@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('tentang');
             $table->string('jenis_peraturan');
             $table->boolean('status')->default(true);
-            $table->text('keterangan');
+            $table->text('keterangan_status');
             $table->string('dokumen')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

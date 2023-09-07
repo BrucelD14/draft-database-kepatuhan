@@ -29,8 +29,6 @@ Route::get('/produk_hukum', [Product_lawController::class, 'index']);
 
 Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index']);
 
-Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index']);
-
 Route::get('/produk_hukum/peraturan_eksternal', [External_regulationController::class, 'index']);
 
 Route::get('/produk_hukum/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index']);
