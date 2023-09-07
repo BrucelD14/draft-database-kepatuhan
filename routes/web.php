@@ -3,6 +3,7 @@
 use App\Http\Controllers\External_regulationController;
 use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Ministerial_regulationController;
 use App\Http\Controllers\Product_lawController;
 use App\Http\Controllers\ReviewInternalregController;
@@ -19,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LoginController::class, 'index']);
 
 Route::get('/landing', [LandingController::class, 'index']);
 
