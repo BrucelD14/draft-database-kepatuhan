@@ -8,6 +8,7 @@ use App\Models\External_regulation;
 use App\Models\Internal_regulation;
 use App\Models\Ministerial_regulation;
 use App\Models\Review_internalreg;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,10 +20,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::create([
+            'name' => 'Brucel Duta',
+            'nip' => '12345',
+            'password' => bcrypt('password'),
+        ]);
 
         // Internal_regulation::create([
         //     'nomor_peraturan' => 'PI-E-1',

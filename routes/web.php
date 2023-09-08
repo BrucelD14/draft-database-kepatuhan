@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LoginController::class, 'index']);
+Route::post('/', [LoginController::class, 'authenticate']);
 
 Route::get('/landing', [LandingController::class, 'index']);
 

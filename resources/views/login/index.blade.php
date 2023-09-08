@@ -21,19 +21,38 @@
 <body>
 
     <div class="container">
+        <div class="hero text-center mt-4 p-2 border border-start-0 border-end-0 border-2">
+            <h4>JARINGAN DOKUMENTASI DAN INFORMASI HUKUM (JDIH)</h4>
+            <h2>PT INDUSTRI KERETA API (PERSERO)</h2>
+        </div>
         <div class="row justify-content-center mt-5">
             <div class="col-md-4">
+
+                @if (session()->has('loginError'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('loginError') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
                 <main class="form-signin text-center">
                     <h1 class="h3 mb-3 fw-normal">Please login</h1>
-                    <form>
+                    <form action="/" method="post">
+                        @csrf
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="floatingInput"
-                                placeholder="name@example.com">
-                            <label for="floatingInput">NIP</label>
+                            <input type="number" name="nip" class="form-control @error('nip') is-invalid @enderror"
+                                id="nip" placeholder="nip" autofocus required value="{{ old('email') }}">
+                            <label for="nip">NIP</label>
+                            @error('nip')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                            <input type="password" name="password" class="form-control" id="password"
+                                placeholder="Password" required>
+                            <label for="password">Password</label>
                         </div>
                         <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
                     </form>
