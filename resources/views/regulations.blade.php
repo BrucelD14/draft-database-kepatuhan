@@ -13,30 +13,34 @@
         </div>
     </div>
 
-    @foreach ($reg_list as $reg)
-        <div class="card mb-4">
-            <div class="card-header">
-                Nomor surat : {{ $reg->nomor_peraturan }}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title fw-bold">{{ $reg->jenis_peraturan }}</h5>
-                <article class="mb-2 fs-5">
-                    Tentang : {!! $reg->tentang !!}
-                </article>
+    @if ($reg_list->count())
+        @foreach ($reg_list as $reg)
+            <div class="card mb-4">
+                <div class="card-header">
+                    Nomor surat : {{ $reg->nomor_peraturan }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ $reg->jenis_peraturan }}</h5>
+                    <article class="mb-2 fs-5">
+                        Tentang : {!! $reg->tentang !!}
+                    </article>
 
-                <btn class="btn btn-info disabled">
-                    @if ($reg->status == 1)
-                        {{ 'Berlaku' }}
-                    @else
-                        {{ 'Tidak Berlaku' }}
-                    @endif
-                </btn>
-                <div class="mt-2">
-                    <strong>Keterangan: </strong> {!! $reg->keterangan_status !!}
+                    <btn class="btn btn-info disabled">
+                        @if ($reg->status == 1)
+                            {{ 'Berlaku' }}
+                        @else
+                            {{ 'Tidak Berlaku' }}
+                        @endif
+                    </btn>
+                    <div class="mt-2">
+                        <strong>Keterangan: </strong> {!! $reg->keterangan_status !!}
+                    </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    @else
+        <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
+    @endif
 
     {{ $reg_list->links() }}
 @endsection
