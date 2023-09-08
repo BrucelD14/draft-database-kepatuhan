@@ -20,17 +20,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/landing', [LandingController::class, 'index']);
+Route::get('/landing', [LandingController::class, 'index'])->middleware('auth');
 
-Route::get('/produk_hukum', [Product_lawController::class, 'index']);
+Route::get('/produk_hukum', [Product_lawController::class, 'index'])->middleware('auth');
 
-Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index']);
+Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index'])->middleware('auth');
 
-Route::get('/produk_hukum/peraturan_eksternal', [External_regulationController::class, 'index']);
+Route::get('/produk_hukum/peraturan_eksternal', [External_regulationController::class, 'index'])->middleware('auth');
 
-Route::get('/produk_hukum/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index']);
+Route::get('/produk_hukum/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index'])->middleware('auth');
 
-Route::get('/produk_hukum/reviu_peraturan_internal', [ReviewInternalregController::class, 'index']);
+Route::get('/produk_hukum/reviu_peraturan_internal', [ReviewInternalregController::class, 'index'])->middleware('auth');
