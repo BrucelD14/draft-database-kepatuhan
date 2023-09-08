@@ -7,7 +7,7 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Ketik kata kunci" name="search"
                         value="{{ request('search') }}">
-                    <button class="btn btn-info" type="submit" id="button-addon2">Cariin boss</button>
+                    <button class="btn btn-info" type="submit" id="button-addon2">Cari</button>
                 </div>
             </form>
         </div>
@@ -16,12 +16,12 @@
     @foreach ($reg_list as $reg)
         <div class="card mb-4">
             <div class="card-header">
-                {{ $reg->nomor_peraturan }}
+                Nomor surat : {{ $reg->nomor_peraturan }}
             </div>
             <div class="card-body">
                 <h5 class="card-title fw-bold">{{ $reg->jenis_peraturan }}</h5>
                 <article class="mb-2 fs-5">
-                    {!! $reg->tentang !!}
+                    Tentang : {!! $reg->tentang !!}
                 </article>
 
                 <btn class="btn btn-info disabled">

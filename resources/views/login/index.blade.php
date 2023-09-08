@@ -41,7 +41,7 @@
                         @csrf
                         <div class="form-floating">
                             <input type="number" name="nip" class="form-control @error('nip') is-invalid @enderror"
-                                id="nip" placeholder="nip" autofocus required value="{{ old('email') }}">
+                                id="nip" placeholder="nip" autofocus required value="{{ old('nip') }}">
                             <label for="nip">NIP</label>
                             @error('nip')
                                 <div class="invalid-feedback">
