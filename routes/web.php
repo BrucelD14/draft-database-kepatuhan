@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardInternal_regulationController;
 use App\Http\Controllers\External_regulationController;
 use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
@@ -30,8 +31,10 @@ Route::get('/produk_hukum/peraturan_internal_perusahaan', [Internal_regulationCo
 Route::get('/produk_hukum/peraturan_eksternal', [External_regulationController::class, 'index'])->middleware('auth');
 Route::get('/produk_hukum/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index'])->middleware('auth');
 Route::get('/produk_hukum/reviu_peraturan_internal', [ReviewInternalregController::class, 'index'])->middleware('auth');
+
 Route::get('/dashboard', function () {
   return view('dashboard.index', [
     'title' => 'Dashboard'
   ]);
 })->middleware('auth');
+Route::resource('/dashboard/peraturan_internal', DashboardInternal_regulationController::class)->middleware('auth');
