@@ -26,4 +26,10 @@ class Internal_regulation extends Model
                 ->orWhere('jenis_peraturan', 'like', '%' . $search . '%');
         });
     }
+
+    // // customizing key route
+    // public function getRouteKeyName(): string
+    // {
+    //     return 'slug';
+    // }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Ministerial_regulationController;
 use App\Http\Controllers\Product_lawController;
 use App\Http\Controllers\ReviewInternalregController;
+use App\Models\Internal_regulation;
 use Illuminate\Support\Facades\Route;
 
 /*

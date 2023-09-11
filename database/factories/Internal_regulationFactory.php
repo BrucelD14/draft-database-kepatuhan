@@ -18,6 +18,7 @@ class Internal_regulationFactory extends Factory
     {
         return [
             'nomor_peraturan' => fake()->bothify('???-###'),
+            'slug' => fake()->sentence(mt_rand(3, 6)),
             'tentang' => fake()->paragraph(),
             'jenis_peraturan' => 'Surat Edaran',
             'keterangan_status' => fake()->paragraph()
