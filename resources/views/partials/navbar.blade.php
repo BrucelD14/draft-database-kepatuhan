@@ -8,10 +8,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/produk_hukum">Produk Hukum</a>
+                    <a class="nav-link {{ Request::is('produk_hukum') ? 'active' : '' }}" aria-current="page"
+                        href="/produk_hukum">Produk Hukum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Matriks</a>
+                    <a class="nav-link {{ Request::is('matriks') ? 'active' : '' }}" href="#">Matriks</a>
                 </li>
             </ul>
 

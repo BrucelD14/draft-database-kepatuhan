@@ -18,9 +18,8 @@
         </div>
     </div>
 
-    @if ($reg_list->count())
-        @foreach ($reg_list as $reg)
-            <div class="card mb-4">
+    {{-- <div class="card mb-4">
+        
                 <div class="card-header">
                     Nomor surat : {{ $reg->nomor_peraturan }}
                 </div>
@@ -41,11 +40,48 @@
                         <strong>Keterangan: </strong> {!! $reg->keterangan_status !!}
                     </div>
                 </div>
-            </div>
-        @endforeach
-    @else
-        <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
+            </div> --}}
+
+
+    @if ($reg_list->count())
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="table-info text-center">
+                        <th scope="col">#</th>
+                        <th scope="col">Nomor Peraturan</th>
+                        <th scope="col">Jenis Peraturan</th>
+                        <th scope="col">Tentang</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Keterangan</th>
+                    </tr>
+                </thead>
+
+                @foreach ($reg_list as $reg)
+                    <tbody>
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $reg->nomor_peraturan }}</td>
+                            <td>{{ $reg->jenis_peraturan }}</td>
+                            <td>{!! $reg->tentang !!}</td>
+                            <td>
+                                @if ($reg->status == 1)
+                                    {{ 'Berlaku' }}
+                                @else
+                                    {{ 'Tidak Berlaku' }}
+                                @endif
+                            </td>
+                            <td>{!! $reg->keterangan_status !!}</td>
+                        </tr>
+                        <tr>
+                    </tbody>
+                @endforeach
+            @else
+                <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
     @endif
+    </table>
+    </div>
+
 
     {{ $reg_list->links() }}
 @endsection
