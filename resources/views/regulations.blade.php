@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('container')
+    <div class="row mb-4">
+        <div class="col-md-10">
+            <h2>{{ $title }}</h2>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <form action="/produk_hukum/{{ $active }}" method="get">
