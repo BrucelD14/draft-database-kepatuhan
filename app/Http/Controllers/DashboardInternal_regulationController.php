@@ -13,7 +13,8 @@ class DashboardInternal_regulationController extends Controller
     public function index()
     {
         return view('dashboard.internalReg.index', [
-            'title' => 'Peraturan Internal'
+            'title' => 'Peraturan Internal',
+            'regulations' => Internal_regulation::all(),
         ]);
     }
 
@@ -38,7 +39,11 @@ class DashboardInternal_regulationController extends Controller
      */
     public function show(Internal_regulation $internal_regulation)
     {
-        //
+        return $internal_regulation;
+        return view('dashboard.internalReg.show', [
+            'title' => 'Detail Peraturan',
+            'internalReg' => $internal_regulation
+        ]);
     }
 
     /**
