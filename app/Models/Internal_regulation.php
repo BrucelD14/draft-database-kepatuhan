@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
+// use Spatie\Sluggable\HasSlug;
+// use Spatie\Sluggable\SlugOptions;
+// use Cviebrock\EloquentSluggable\Sluggable;
 
 class Internal_regulation extends Model
 {
     use HasFactory;
-    use Sluggable;
+    // use HasSlug;
+    // use Sluggable;
 
 
     // protected $fillable = ['nomor_peraturan', 'tanggal_ditetapkan', 'tentang', 'status', 'dokumen', 'published_at'];
@@ -30,14 +33,21 @@ class Internal_regulation extends Model
         });
     }
 
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'nomor_peraturan'
-            ]
-        ];
-    }
+    // public function getSlugOptions(): SlugOptions
+    // {
+    //     return SlugOptions::create()
+    //         ->generateSlugsFrom('nomor_peraturan')
+    //         ->saveSlugsTo('slug');
+    // }
+
+    // public function sluggable(): array
+    // {
+    //     return [
+    //         'slug' => [
+    //             'source' => 'nomor_peraturan'
+    //         ]
+    //     ];
+    // }
 
     // // customizing key route
     // public function getRouteKeyName(): string

@@ -4,7 +4,7 @@
         <h1 class="h2">Tambah Peraturan Internal Perusahaan</h1>
     </div>
 
-    <div class="col-lg-8">
+    <div class="col-lg-8 mb-3">
         <form method="post" action="/dashboard/peraturan_internal">
             @csrf
             <div class="mb-3">
@@ -20,8 +20,25 @@
                 <input type="text" class="form-control" id="slug" name="slug">
             </div>
             <div class="mb-3">
+                <label for="tentang" class="form-label">Tentang</label>
+                <input id="tentang" type="hidden" name="tentang">
+                <trix-editor input="tentang"></trix-editor>
+            </div>
+            <div class="mb-3">
                 <label for="jenis_peraturan" class="form-label">Jenis peraturan</label>
                 <input type="text" class="form-control" id="jenis_peraturan" name="jenis_peraturan">
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-select" name="status">
+                    <option value="1">Active</option>
+                    <option value="2">Inactive</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="keterangan_status" class="form-label">Keterangan status</label>
+                <input id="keterangan_status" type="hidden" name="keterangan_status">
+                <trix-editor input="keterangan_status"></trix-editor>
             </div>
             <div class="mb-3">
                 <label for="dokumen" class="form-label">Upload dokumen</label>
@@ -31,3 +48,14 @@
         </form>
     </div>
 @endsection
+
+{{-- <script>
+    const nomor_peraturan = document.querySelector('#nomor_peraturan');
+    const slug = document.querySelector('#slug');
+
+    nomor_peraturan.addEventListener('change', function() {
+        fetch('/dashboard/peraturan_internal/checkSlug?nomor_peraturan=' + nomor_peraturan.value)
+            .then(response => response.json())
+            .then(data => slug.value = data.slug)
+    });
+</script> --}}

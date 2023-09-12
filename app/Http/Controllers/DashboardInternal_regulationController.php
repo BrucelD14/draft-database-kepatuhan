@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Internal_regulation;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardInternal_regulationController extends Controller
 {
@@ -33,7 +34,7 @@ class DashboardInternal_regulationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -71,4 +72,10 @@ class DashboardInternal_regulationController extends Controller
     {
         //
     }
+
+    // public function checkSlug(Request $request)
+    // {
+    //     $slug = SlugService::createSlug(Internal_regulation::class, 'slug', $request->nomor_peraturan);
+    //     return response()->json(['slug' => $slug]);
+    // }
 }
