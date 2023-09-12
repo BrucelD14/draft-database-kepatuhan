@@ -67,6 +67,7 @@
                     </a>
                 </li>
             </ul>
+            <hr class="my-3">
         </div>
     </div>
 </div>

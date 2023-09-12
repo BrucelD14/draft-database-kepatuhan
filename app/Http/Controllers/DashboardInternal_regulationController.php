@@ -39,10 +39,10 @@ class DashboardInternal_regulationController extends Controller
      */
     public function show($id)
     {
-        return Internal_regulation::find($id);
+        // return Internal_regulation::find($id);
         return view('dashboard.internalReg.show', [
             'title' => 'Detail Peraturan',
-            'internalReg' => ''
+            'internalReg' => Internal_regulation::find($id)
         ]);
     }
 
