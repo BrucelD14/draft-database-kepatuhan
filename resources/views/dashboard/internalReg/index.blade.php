@@ -6,6 +6,7 @@
     </div>
     @if ($regulations->count())
         <div class="table-responsive">
+            <a href="/dashboard/peraturan_internal/create" class="btn btn-primary mb-3">Tambah peraturan baru</a>
             <table class="table table-striped table-sm">
                 <thead>
                     <tr class="text-center">

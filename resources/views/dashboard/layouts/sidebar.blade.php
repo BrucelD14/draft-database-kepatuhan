@@ -16,7 +16,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/peraturan_internal') ? 'active' : '' }} d-flex align-items-center gap-2"
+                    <a class="nav-link {{ Request::is('dashboard/peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
                         href="/dashboard/peraturan_internal">
                         <i class="bi bi-file-earmark-text d-flex align-items-center"></i>
                         Peraturan Internal

@@ -23,7 +23,9 @@ class DashboardInternal_regulationController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.internalReg.create', [
+            'title' => 'Tambah Peraturan'
+        ]);
     }
 
     /**

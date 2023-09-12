@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Internal_regulation extends Model
 {
     use HasFactory;
+    use Sluggable;
+
 
     // protected $fillable = ['nomor_peraturan', 'tanggal_ditetapkan', 'tentang', 'status', 'dokumen', 'published_at'];
     protected $guarded = ['id'];
@@ -27,9 +30,19 @@ class Internal_regulation extends Model
         });
     }
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'nomor_peraturan'
+            ]
+        ];
+    }
+
     // // customizing key route
     // public function getRouteKeyName(): string
     // {
     //     return 'slug';
     // }
+
 }
