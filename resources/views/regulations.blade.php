@@ -65,7 +65,7 @@
                             <td>{{ $reg->jenis_peraturan }}</td>
                             <td>{!! $reg->tentang !!}</td>
                             <td>
-                                @if ($reg->status == 1)
+                                @if ($reg->status == 'active')
                                     {{ 'Berlaku' }}
                                 @else
                                     {{ 'Tidak Berlaku' }}

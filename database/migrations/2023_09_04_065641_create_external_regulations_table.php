@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->text('tentang');
             $table->string('jenis_peraturan');
-            $table->boolean('status')->default(true);
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->text('keterangan_status');
             $table->string('dokumen')->nullable();
             $table->timestamp('published_at')->nullable();

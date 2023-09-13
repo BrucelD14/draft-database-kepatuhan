@@ -73,9 +73,9 @@ class DashboardInternal_regulationController extends Controller
         //
     }
 
-    // public function checkSlug(Request $request)
-    // {
-    //     $slug = SlugService::createSlug(Internal_regulation::class, 'slug', $request->nomor_peraturan);
-    //     return response()->json(['slug' => $slug]);
-    // }
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Internal_regulation::class, 'slug', $request->nomor_peraturan);
+        return response()->json(['slug' => $slug]);
+    }
 }

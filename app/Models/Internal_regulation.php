@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 // use Spatie\Sluggable\HasSlug;
 // use Spatie\Sluggable\SlugOptions;
 // use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Internal_regulation extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
     // use HasSlug;
     // use Sluggable;
 
@@ -33,21 +34,14 @@ class Internal_regulation extends Model
         });
     }
 
-    // public function getSlugOptions(): SlugOptions
-    // {
-    //     return SlugOptions::create()
-    //         ->generateSlugsFrom('nomor_peraturan')
-    //         ->saveSlugsTo('slug');
-    // }
-
-    // public function sluggable(): array
-    // {
-    //     return [
-    //         'slug' => [
-    //             'source' => 'nomor_peraturan'
-    //         ]
-    //     ];
-    // }
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'nomor_peraturan'
+            ]
+        ];
+    }
 
     // // customizing key route
     // public function getRouteKeyName(): string

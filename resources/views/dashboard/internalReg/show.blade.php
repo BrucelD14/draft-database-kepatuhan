@@ -12,7 +12,7 @@
             <p class="card-text">Nomor Peraturan : {{ $internalReg->nomor_peraturan }}</p>
             <p class="card-text">Tanggal Penetapan : {{ $internalReg->tanggal_penetapan }}</p>
             <p class="card-text">
-                @if ($internalReg->status == 1)
+                @if ($internalReg->status == 'active')
                     Status Peraturan : <span class="badge bg-info">{{ 'Berlaku' }}</span>
                 @else
                     Status Peraturan : <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>

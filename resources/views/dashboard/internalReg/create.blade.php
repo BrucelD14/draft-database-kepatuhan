@@ -17,7 +17,7 @@
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" id="slug" name="slug">
+                <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
             </div>
             <div class="mb-3">
                 <label for="tentang" class="form-label">Tentang</label>
@@ -47,15 +47,16 @@
             <button type="submit" class="btn btn-primary">Tambah peraturan</button>
         </form>
     </div>
+
+
+    <script>
+        const peraturan = document.querySelector('#nomor_peraturan');
+        const slug = document.querySelector('#slug');
+
+        peraturan.addEventListener('change', function() {
+            fetch('/dashboard/peraturan_internal/checkSlug?nomor_peraturan=' + peraturan.value)
+                .then(response => response.json())
+                .then(data => slug.value = data.slug)
+        });
+    </script>
 @endsection
-
-{{-- <script>
-    const nomor_peraturan = document.querySelector('#nomor_peraturan');
-    const slug = document.querySelector('#slug');
-
-    nomor_peraturan.addEventListener('change', function() {
-        fetch('/dashboard/peraturan_internal/checkSlug?nomor_peraturan=' + nomor_peraturan.value)
-            .then(response => response.json())
-            .then(data => slug.value = data.slug)
-    });
-</script> --}}
