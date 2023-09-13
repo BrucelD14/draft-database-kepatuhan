@@ -9,30 +9,57 @@
             @csrf
             <div class="mb-3">
                 <label for="nomor_peraturan" class="form-label">Nomor peraturan</label>
-                <input type="text" class="form-control" id="nomor_peraturan" name="nomor_peraturan">
+                <input type="text" class="form-control @error('nomor_peraturan') is-invalid @enderror" id="nomor_peraturan"
+                    name="nomor_peraturan" required autofocus value="{{ old('nomor_peraturan') }}">
+                @error('nomor_peraturan')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="tanggal_penetapan" class="form-label">Tanggal penetapan</label>
-                <input type="date" class="form-control" id="tanggal_penetapan" name="tanggal_penetapan">
+                <input type="date" class="form-control @error('tanggal_penetapan') is-invalid @enderror"
+                    id="tanggal_penetapan" name="tanggal_penetapan" required value="{{ old('tanggal_penetapan') }}">
+                @error('tanggal_penetapan')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
+                    required value="{{ old('slug') }}">
+                @error('slug')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="tentang" class="form-label">Tentang</label>
-                <input id="tentang" type="hidden" name="tentang">
+                @error('tentang')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+                <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang') }}">
                 <trix-editor input="tentang"></trix-editor>
             </div>
             <div class="mb-3">
                 <label for="jenis_peraturan" class="form-label">Jenis peraturan</label>
-                <input type="text" class="form-control" id="jenis_peraturan" name="jenis_peraturan">
+                <input type="text" class="form-control @error('jenis_peraturan') is-invalid @enderror"
+                    id="jenis_peraturan" name="jenis_peraturan" required value="{{ old('jenis_peraturan') }}">
+                @error('jenis_peraturan')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select class="form-select" name="status">
                     <option value="1">Active</option>
-                    <option value="2">Inactive</option>
+                    <option value="0">Inactive</option>
                 </select>
             </div>
             <div class="mb-3">

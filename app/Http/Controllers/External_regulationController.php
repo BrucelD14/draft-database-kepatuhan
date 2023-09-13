@@ -12,7 +12,7 @@ class External_regulationController extends Controller
         return view('regulations', [
             'title' => 'Peraturan Eksternal',
             'active' => 'peraturan_eksternal',
-            'reg_list' => External_regulation::latest()->filter(request(['search']))->paginate(3)->withQueryString()
+            'reg_list' => External_regulation::latest()->filter(request(['search']))->paginate(5)->withQueryString()
         ]);
     }
 }

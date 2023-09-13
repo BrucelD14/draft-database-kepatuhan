@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Internal_regulation;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Redirect;
 
 class DashboardInternal_regulationController extends Controller
 {
@@ -34,7 +35,21 @@ class DashboardInternal_regulationController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        // return $request;
+        $validatedData = $request->validate([
+            'nomor_peraturan' => 'required|max:255',
+            'tanggal_penetapan' => 'required',
+            'slug' => 'required|unique:internal_regulations|max:255',
+            'tentang' => 'required',
+            'jenis_peraturan' => 'required',
+            'status' => 'required',
+        ]);
+
+        $validatedData['keterangan_status'] = $request['keterangan_status'];
+
+        Internal_regulation::create($validatedData);
+
+        return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan baru berhasil ditambahkan');
     }
 
     /**

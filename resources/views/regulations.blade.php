@@ -54,6 +54,7 @@
                         <th scope="col">Tentang</th>
                         <th scope="col">Status</th>
                         <th scope="col">Keterangan</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
 
@@ -72,6 +73,8 @@
                                 @endif
                             </td>
                             <td>{!! $reg->keterangan_status !!}</td>
+                            <td><a href="#" class="badge bg-primary text-center"><i class="bi bi-download"></i></a>
+                            </td>
                         </tr>
                         <tr>
                     </tbody>
