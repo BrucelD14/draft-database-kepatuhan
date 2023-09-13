@@ -34,7 +34,14 @@
                                 <a href="/dashboard/peraturan_internal/{{ $regulation->id }}" class="badge bg-info"><i
                                         class="bi bi-eye-fill"></i></a>
                                 <a href="#" class="badge bg-warning"><i class="bi bi-pencil-fill"></i></a>
-                                <a href="#" class="badge bg-danger"><i class="bi bi-trash3-fill"></i></a>
+                                <form action="/dashboard/peraturan_internal/{{ $regulation->id }}" method="post"
+                                    class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="badge bg-danger border-0"
+                                        onclick="return confirm('yakin mau dihapus?')"><i
+                                            class="bi bi-trash3-fill"></i></button>
+                                </form>
                             </td>
                         </tr>
                         <tr>

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Internal_regulation;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\Redirect;
 
 class DashboardInternal_regulationController extends Controller
 {
@@ -48,7 +47,6 @@ class DashboardInternal_regulationController extends Controller
         $validatedData['keterangan_status'] = $request['keterangan_status'];
 
         Internal_regulation::create($validatedData);
-
         return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan baru berhasil ditambahkan');
     }
 
@@ -83,9 +81,11 @@ class DashboardInternal_regulationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Internal_regulation $internal_regulation)
+    public function destroy($id)
     {
-        //
+        // return $id;
+        Internal_regulation::destroy($id);
+        return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan baru telah dihapus');
     }
 
     public function checkSlug(Request $request)

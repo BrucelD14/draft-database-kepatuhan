@@ -8,7 +8,7 @@
         <div class="card-body">
             {{-- <h5 class="card-title">Detail Peraturan Internal Perusahaan</h5> --}}
             <p class="card-text">Jenis Peraturan : {{ $internalReg->jenis_peraturan }}</p>
-            <p class="card-text">Tentang : {{ $internalReg->tentang }}</p>
+            <p class="card-text">Tentang : {!! $internalReg->tentang !!}</p>
             <p class="card-text">Nomor Peraturan : {{ $internalReg->nomor_peraturan }}</p>
             <p class="card-text">Tanggal Penetapan : {{ $internalReg->tanggal_penetapan }}</p>
             <p class="card-text">
@@ -18,7 +18,7 @@
                     Status Peraturan : <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
                 @endif
             </p>
-            <p class="card-text">Detail Status : {{ $internalReg->keterangan_status }}</p>
+            <p class="card-text">Detail Status : {!! $internalReg->keterangan_status !!}</p>
             <a href="#" class="btn btn-primary">Download Dokumen</a>
         </div>
     </div>
