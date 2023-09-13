@@ -4,13 +4,13 @@
         <h1 class="h2">Tambah Peraturan Internal Perusahaan</h1>
     </div>
 
-    <div class="col-lg-8 mb-3">
-        <form method="post" action="/dashboard/peraturan_internal">
+    <div class="col-lg-8">
+        <form method="post" action="/dashboard/peraturan_internal" class="mb-5">
             @csrf
             <div class="mb-3">
                 <label for="nomor_peraturan" class="form-label">Nomor peraturan</label>
-                <input type="text" class="form-control @error('nomor_peraturan') is-invalid @enderror" id="nomor_peraturan"
-                    name="nomor_peraturan" required autofocus value="{{ old('nomor_peraturan') }}">
+                <input type="text" class="form-control @error('nomor_peraturan') is-invalid @enderror"
+                    id="nomor_peraturan" name="nomor_peraturan" required autofocus value="{{ old('nomor_peraturan') }}">
                 @error('nomor_peraturan')
                     <div class="invalid-feedback">
                         {{ $message }}
