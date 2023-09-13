@@ -65,9 +65,12 @@ class DashboardInternal_regulationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Internal_regulation $internal_regulation)
+    public function edit($id)
     {
-        //
+        return view('dashboard.internalReg.edit', [
+            'title' => 'Edit Peraturan',
+            'regulation' => Internal_regulation::find($id),
+        ]);
     }
 
     /**

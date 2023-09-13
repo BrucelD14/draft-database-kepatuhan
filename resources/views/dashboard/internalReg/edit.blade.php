@@ -1,16 +1,18 @@
 @extends('dashboard.layouts.main')
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Tambah Peraturan Internal Perusahaan</h1>
+        <h1 class="h2">Edit Peraturan Internal Perusahaan</h1>
     </div>
 
     <div class="col-lg-8">
-        <form method="post" action="/dashboard/peraturan_internal" class="mb-5">
+        <form method="post" action="/dashboard/peraturan_internal/{{ $regulation->id }}" class="mb-5">
+            @method('put')
             @csrf
             <div class="mb-3">
                 <label for="nomor_peraturan" class="form-label">Nomor peraturan</label>
                 <input type="text" class="form-control @error('nomor_peraturan') is-invalid @enderror"
-                    id="nomor_peraturan" name="nomor_peraturan" required autofocus value="{{ old('nomor_peraturan') }}">
+                    id="nomor_peraturan" name="nomor_peraturan" required autofocus
+                    value="{{ old('nomor_peraturan', $regulation->nomor_peraturan) }}">
                 @error('nomor_peraturan')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -20,7 +22,8 @@
             <div class="mb-3">
                 <label for="tanggal_penetapan" class="form-label">Tanggal penetapan</label>
                 <input type="date" class="form-control @error('tanggal_penetapan') is-invalid @enderror"
-                    id="tanggal_penetapan" name="tanggal_penetapan" required value="{{ old('tanggal_penetapan') }}">
+                    id="tanggal_penetapan" name="tanggal_penetapan" required
+                    value="{{ old('tanggal_penetapan', $regulation->tanggal_penetapan) }}">
                 @error('tanggal_penetapan')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -30,7 +33,7 @@
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                    required value="{{ old('slug') }}">
+                    required value="{{ old('slug', $regulation->slug) }}">
                 @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -42,13 +45,14 @@
                 @error('tentang')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
-                <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang') }}">
+                <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang', $regulation->tentang) }}">
                 <trix-editor input="tentang"></trix-editor>
             </div>
             <div class="mb-3">
                 <label for="jenis_peraturan" class="form-label">Jenis peraturan</label>
                 <input type="text" class="form-control @error('jenis_peraturan') is-invalid @enderror"
-                    id="jenis_peraturan" name="jenis_peraturan" required value="{{ old('jenis_peraturan') }}">
+                    id="jenis_peraturan" name="jenis_peraturan" required
+                    value="{{ old('jenis_peraturan', $regulation->jenis_peraturan) }}">
                 @error('jenis_peraturan')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -65,7 +69,7 @@
             <div class="mb-3">
                 <label for="keterangan_status" class="form-label">Keterangan status</label>
                 <input id="keterangan_status" type="hidden" name="keterangan_status"
-                    value="{{ old('keterangan_status') }}">
+                    value="{{ old('keterangan_status', $regulation->keterangan_status) }}">
                 <trix-editor input="keterangan_status"></trix-editor>
             </div>
             <div class="mb-3">

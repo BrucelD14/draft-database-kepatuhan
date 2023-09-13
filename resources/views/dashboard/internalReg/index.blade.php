@@ -33,7 +33,8 @@
                             <td>
                                 <a href="/dashboard/peraturan_internal/{{ $regulation->id }}" class="badge bg-info"><i
                                         class="bi bi-eye-fill"></i></a>
-                                <a href="#" class="badge bg-warning"><i class="bi bi-pencil-fill"></i></a>
+                                <a href="/dashboard/peraturan_internal/{{ $regulation->id }}/edit"
+                                    class="badge bg-warning"><i class="bi bi-pencil-fill"></i></a>
                                 <form action="/dashboard/peraturan_internal/{{ $regulation->id }}" method="post"
                                     class="d-inline">
                                     @method('delete')
