@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="post" action="/dashboard/peraturan_internal" class="mb-5">
+        <form method="post" action="/dashboard/peraturan_internal" class="mb-5" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="nomor_peraturan" class="form-label">Nomor peraturan</label>
@@ -69,8 +69,8 @@
                 <trix-editor input="keterangan_status"></trix-editor>
             </div>
             <div class="mb-3">
-                <label for="dokumen" class="form-label">Upload dokumen</label>
-                <input type="file" class="form-control" id="dokumen" name="dokumen">
+                <label for="dokumen" class="form-label">Dokumen peraturan</label>
+                <input class="form-control" type="file" id="dokumen" name="dokumen">
             </div>
             <button type="submit" class="btn btn-primary">Tambah Peraturan</button>
         </form>

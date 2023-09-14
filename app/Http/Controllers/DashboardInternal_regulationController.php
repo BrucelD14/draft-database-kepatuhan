@@ -34,7 +34,7 @@ class DashboardInternal_regulationController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
+        return $request->file('dokumen')->store('regulation-documents');
         $validatedData = $request->validate([
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
