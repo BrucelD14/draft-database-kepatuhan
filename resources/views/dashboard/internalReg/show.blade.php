@@ -19,7 +19,12 @@
                 @endif
             </p>
             <p class="card-text">Detail Status : {!! $internalReg->keterangan_status !!}</p>
-            <a href="#" class="btn btn-primary">Download Dokumen</a>
+            {{-- <form action="{{ asset('storage/' . $internalReg->dokumen) }}">
+                @csrf
+                <button class="btn btn-primary" type="submit">Download Dokumen</button>
+            </form> --}}
+            <a href="{{ asset('storage/' . $internalReg->dokumen) }}" target="_blank" class="btn btn-primary">Download
+                Dokumen</a>
         </div>
     </div>
 @endsection

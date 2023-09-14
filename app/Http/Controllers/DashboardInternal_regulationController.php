@@ -34,7 +34,6 @@ class DashboardInternal_regulationController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->file('dokumen')->store('regulation-documents');
         $validatedData = $request->validate([
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
@@ -42,9 +41,12 @@ class DashboardInternal_regulationController extends Controller
             'tentang' => 'required',
             'jenis_peraturan' => 'required',
             'status' => 'required',
+            'keterangan_status' => 'nullable',
+            'dokumen' => 'file',
         ]);
 
-        $validatedData['keterangan_status'] = $request['keterangan_status'];
+        // $validatedData['keterangan_status'] = $request['keterangan_status'];
+        $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents');
 
         Internal_regulation::create($validatedData);
         return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan baru berhasil ditambahkan');
