@@ -76,9 +76,29 @@ class DashboardInternal_regulationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Internal_regulation $internal_regulation)
+    public function update(Request $request, $id)
     {
-        //
+        // return Internal_regulation::find($id);
+
+        $regulation = Internal_regulation::find($id);
+
+        $rules = [
+            'nomor_peraturan' => 'required|max:255',
+            'tanggal_penetapan' => 'required',
+            'tentang' => 'required',
+            'jenis_peraturan' => 'required',
+            'status' => 'required',
+        ];
+
+        if ($request->slug != $regulation->slug) {
+            $rules['slug'] = 'required|unique:internal_regulations|max:255';
+        }
+
+        $validatedData = $request->validate($rules);
+        $validatedData['keterangan_status'] = $request['keterangan_status'];
+
+        Internal_regulation::where('id', $regulation->id)->update($validatedData);
+        return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan telah diperbarui');
     }
 
     /**
@@ -88,7 +108,7 @@ class DashboardInternal_regulationController extends Controller
     {
         // return $id;
         Internal_regulation::destroy($id);
-        return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan baru telah dihapus');
+        return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan telah dihapus');
     }
 
     public function checkSlug(Request $request)

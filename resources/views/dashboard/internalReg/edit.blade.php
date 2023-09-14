@@ -76,7 +76,7 @@
                 <label for="dokumen" class="form-label">Upload dokumen</label>
                 <input type="file" class="form-control" id="dokumen" name="dokumen">
             </div>
-            <button type="submit" class="btn btn-primary">Tambah peraturan</button>
+            <button type="submit" class="btn btn-primary">Edit Peraturan</button>
         </form>
     </div>
 
