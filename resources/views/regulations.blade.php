@@ -44,7 +44,7 @@
 
 
     @if ($reg_list->count())
-        <div class="table-responsive">
+        <div class="table-responsive mb-4">
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-info text-center">
@@ -73,7 +73,8 @@
                                 @endif
                             </td>
                             <td>{!! $reg->keterangan_status !!}</td>
-                            <td><a href="#" class="badge bg-primary text-center"><i class="bi bi-download"></i></a>
+                            <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
+                                    class="badge bg-primary"><i class="bi bi-download"></i></a>
                             </td>
                         </tr>
                         <tr>
