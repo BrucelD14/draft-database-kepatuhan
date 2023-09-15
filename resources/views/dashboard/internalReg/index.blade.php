@@ -11,9 +11,9 @@
         </div>
     @endif
 
+    <a href="/dashboard/peraturan_internal/create" class="btn btn-primary mb-3">Tambah peraturan baru</a>
     @if ($regulations->count())
         <div class="table-responsive">
-            <a href="/dashboard/peraturan_internal/create" class="btn btn-primary mb-3">Tambah peraturan baru</a>
             <table class="table table-striped table-sm">
                 <thead>
                     <tr class="text-center">
@@ -26,11 +26,11 @@
 
                 <tbody class="table-group-divider">
                     @foreach ($regulations as $regulation)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $regulation->nomor_peraturan }}</td>
+                        <tr class="text-center">
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $regulation->nomor_peraturan }}</td>
                             <td>{!! $regulation->tentang !!}</td>
-                            <td>
+                            <td class="text-center">
                                 <a href="/dashboard/peraturan_internal/{{ $regulation->id }}" class="badge bg-info"><i
                                         class="bi bi-eye-fill"></i></a>
                                 <a href="/dashboard/peraturan_internal/{{ $regulation->id }}/edit"

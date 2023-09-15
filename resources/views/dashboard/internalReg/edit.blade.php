@@ -5,7 +5,8 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="post" action="/dashboard/peraturan_internal/{{ $regulation->id }}" class="mb-5">
+        <form method="post" action="/dashboard/peraturan_internal/{{ $regulation->id }}" class="mb-5"
+            enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="mb-3">
@@ -74,6 +75,7 @@
             </div>
             <div class="mb-3">
                 <label for="dokumen" class="form-label">Upload dokumen</label>
+                <input type="hidden" name="oldDokumen" value="{{ $regulation->dokumen }}">
                 <input type="file" class="form-control" id="dokumen" name="dokumen">
             </div>
             <button type="submit" class="btn btn-primary">Edit Peraturan</button>

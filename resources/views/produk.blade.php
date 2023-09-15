@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Peraturan Internal Perusahaan</h5>
                     <p class="card-text">Judul Peraturan Terbaru</p>
-                    <a href="/produk_hukum/peraturan_internal_perusahaan" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/produk_hukum/peraturan_internal_perusahaan" class="btn btn-danger">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Peraturan Eksternal Berkaitan Bisnis Proses</h5>
                     <p class="card-text">Judul Peraturan Terbaru</p>
-                    <a href="/produk_hukum/peraturan_eksternal" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/produk_hukum/peraturan_eksternal" class="btn btn-danger">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Peraturan Menteri BUMN</h5>
                     <p class="card-text">Judul Peraturan Terbaru</p>
-                    <a href="/produk_hukum/peraturan_menteri_bumn" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/produk_hukum/peraturan_menteri_bumn" class="btn btn-danger">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Review Peraturan Internal</h5>
                     <p class="card-text">Judul Review Terbaru</p>
-                    <a href="/produk_hukum/reviu_peraturan_internal" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/produk_hukum/reviu_peraturan_internal" class="btn btn-danger">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Review Peraturan Eksternal</h5>
                     <p class="card-text">Judul Review Terbaru</p>
-                    <a href="/produk_hukum/peraturan_internal_perusahaan" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/produk_hukum/peraturan_internal_perusahaan" class="btn btn-danger">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Format Akses Peraturan SMK3LH</h5>
                     <p class="card-text">Judul Peraturan Terbaru</p>
-                    <a href="/produk_hukum/peraturan_internal_perusahaan" class="btn btn-primary">Selengkapnya</a>
+                    <a href="/produk_hukum/peraturan_internal_perusahaan" class="btn btn-danger">Selengkapnya</a>
                 </div>
             </div>
         </div>

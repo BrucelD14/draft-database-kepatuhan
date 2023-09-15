@@ -71,7 +71,7 @@
             <div class="mb-3">
                 <label for="dokumen" class="form-label">Dokumen peraturan</label>
                 <input class="form-control @error('dokumen') is-invalid @enderror" type="file" id="dokumen"
-                    name="dokumen">
+                    name="dokumen" required>
                 @error('dokumen')
                     <div class="invalid-feedback">
                         {{ $message }}

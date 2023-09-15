@@ -12,7 +12,7 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Ketik kata kunci" name="search"
                         value="{{ request('search') }}">
-                    <button class="btn btn-info" type="submit" id="button-addon2">Cari</button>
+                    <button class="btn btn-danger" type="submit" id="button-addon2">Cari</button>
                 </div>
             </form>
         </div>
@@ -47,7 +47,7 @@
         <div class="table-responsive mb-4">
             <table class="table table-bordered">
                 <thead>
-                    <tr class="table-info text-center">
+                    <tr class="table-danger text-center">
                         <th scope="col">#</th>
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Jenis Peraturan</th>
@@ -61,11 +61,11 @@
                 @foreach ($reg_list as $reg)
                     <tbody>
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $reg->nomor_peraturan }}</td>
-                            <td>{{ $reg->jenis_peraturan }}</td>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $reg->nomor_peraturan }}</td>
+                            <td class="text-center">{{ $reg->jenis_peraturan }}</td>
                             <td>{!! $reg->tentang !!}</td>
-                            <td>
+                            <td class="text-center">
                                 @if ($reg->status == 'active')
                                     {{ 'Berlaku' }}
                                 @else
@@ -74,7 +74,7 @@
                             </td>
                             <td>{!! $reg->keterangan_status !!}</td>
                             <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
-                                    class="badge bg-primary"><i class="bi bi-download"></i></a>
+                                    class="btn btn-danger"><i class="bi bi-download"></i></a>
                             </td>
                         </tr>
                         <tr>

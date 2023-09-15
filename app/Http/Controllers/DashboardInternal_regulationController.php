@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Internal_regulation;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardInternal_regulationController extends Controller
 {
@@ -42,7 +43,7 @@ class DashboardInternal_regulationController extends Controller
             'jenis_peraturan' => 'required',
             'status' => 'required',
             'keterangan_status' => 'nullable',
-            'dokumen' => 'file',
+            'dokumen' => 'required|file',
         ]);
 
         // $validatedData['keterangan_status'] = $request['keterangan_status'];
@@ -90,6 +91,8 @@ class DashboardInternal_regulationController extends Controller
             'tentang' => 'required',
             'jenis_peraturan' => 'required',
             'status' => 'required',
+            'keterangan_status' => 'nullable',
+            'dokumen' => 'file',
         ];
 
         if ($request->slug != $regulation->slug) {
@@ -97,7 +100,13 @@ class DashboardInternal_regulationController extends Controller
         }
 
         $validatedData = $request->validate($rules);
-        $validatedData['keterangan_status'] = $request['keterangan_status'];
+
+        if ($request->file('dokumen')) {
+            if ($request->oldDokumen) {
+                Storage::delete($request->oldDokumen);
+            }
+            $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents');
+        }
 
         Internal_regulation::where('id', $regulation->id)->update($validatedData);
         return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan telah diperbarui');
@@ -108,7 +117,10 @@ class DashboardInternal_regulationController extends Controller
      */
     public function destroy($id)
     {
-        // return $id;
+        $internalRegulation = Internal_regulation::find($id);
+        if ($internalRegulation->dokumen) {
+            Storage::delete($internalRegulation->dokumen);
+        }
         Internal_regulation::destroy($id);
         return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan telah dihapus');
     }
