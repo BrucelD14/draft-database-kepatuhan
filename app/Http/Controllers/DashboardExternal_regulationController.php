@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\External_regulation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardExternal_regulationController extends Controller
 {
@@ -35,38 +36,86 @@ class DashboardExternal_regulationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nomor_peraturan' => 'required|max:255',
+            'tanggal_penetapan' => 'required',
+            'tentang' => 'required',
+            'jenis_peraturan' => 'required',
+            'status' => 'required',
+            'keterangan_status' => 'nullable',
+            'dokumen' => 'required|file',
+        ]);
+
+        $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents', 'public');
+
+        External_regulation::create($validatedData);
+        return redirect('/dashboard/peraturan_eksternal')->with('success', 'Peraturan baru berhasil ditambahkan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(External_regulation $external_regulation)
+    public function show($id)
     {
-        //
+        return view('dashboard.regulations.show', [
+            'title' => 'Detail Peraturan Eksternal',
+            'link' => 'peraturan_eksternal',
+            'regulation' => External_regulation::find($id)
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(External_regulation $external_regulation)
+    public function edit($id)
     {
-        //
+        return view('dashboard.regulations.edit', [
+            'title' => 'Edit Peraturan Eksternal',
+            'link' => 'peraturan_eksternal',
+            'regulation' => External_regulation::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, External_regulation $external_regulation)
+    public function update(Request $request, $id)
     {
-        //
+        $regulation = External_regulation::find($id);
+
+        $rules = [
+            'nomor_peraturan' => 'required|max:255',
+            'tanggal_penetapan' => 'required',
+            'tentang' => 'required',
+            'jenis_peraturan' => 'required',
+            'status' => 'required',
+            'keterangan_status' => 'nullable',
+            'dokumen' => 'file',
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('dokumen')) {
+            if ($request->oldDokumen) {
+                Storage::delete($request->oldDokumen);
+            }
+            $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents', 'public');
+        }
+
+        External_regulation::where('id', $regulation->id)->update($validatedData);
+        return redirect('/dashboard/peraturan_eksternal')->with('success', 'Peraturan telah diperbarui');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(External_regulation $external_regulation)
+    public function destroy($id)
     {
-        //
+        $regulation = External_regulation::find($id);
+        if ($regulation->dokumen) {
+            Storage::delete($regulation->dokumen);
+        }
+        External_regulation::destroy($id);
+        return redirect('/dashboard/peraturan_eksternal')->with('success', 'Peraturan telah dihapus');
     }
 }
