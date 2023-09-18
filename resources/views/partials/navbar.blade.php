@@ -1,14 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-body">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/landing">JDIH INKA</a>
+        <a class="navbar-brand" href="/landing">
+            <img src="img/inka.png" alt="" width="200">
+
+        </a>
+        <a class="navbar-brand" href="https://jdih.bumn.go.id/" target="_blank">
+            <img src="img/bumn.png" alt="" width="200">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav ms-auto" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('produk_hukum') ? 'active' : '' }}" aria-current="page"
+                    <a class="nav-link {{ Request::is('landing') ? 'active' : '' }}" aria-current="page"
+                        href="/landing">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('produk_hukum*') ? 'active' : '' }}" aria-current="page"
                         href="/produk_hukum">Produk Hukum</a>
                 </li>
                 <li class="nav-item">
