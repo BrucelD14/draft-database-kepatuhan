@@ -47,7 +47,7 @@ class DashboardInternal_regulationController extends Controller
         ]);
 
         // $validatedData['keterangan_status'] = $request['keterangan_status'];
-        $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents');
+        $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents', 'public');
 
         Internal_regulation::create($validatedData);
         return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan baru berhasil ditambahkan');
