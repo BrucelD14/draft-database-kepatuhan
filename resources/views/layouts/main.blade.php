@@ -16,7 +16,7 @@
     {{-- my CSS --}}
     <link rel="stylesheet" href="/css/style.css">
 
-    <title>Kepatuhan | {{ $title }}</title>
+    <title>JDIH | {{ $title }}</title>
 </head>
 
 <body>

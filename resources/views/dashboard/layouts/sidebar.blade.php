@@ -30,7 +30,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <a class="nav-link {{ Request::is('dashboard/peraturan_menteri_bumn*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/peraturan_menteri_bumn">
                         <i class="bi bi-file-earmark-minus d-flex align-items-center"></i>
                         Peraturan Menteri BUMN
                     </a>

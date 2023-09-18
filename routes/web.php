@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardExternal_regulationController;
 use App\Http\Controllers\DashboardInternal_regulationController;
+use App\Http\Controllers\DashboardMinisterial_regulationController;
 use App\Http\Controllers\External_regulationController;
 use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
@@ -42,3 +43,4 @@ Route::get('/dashboard', function () {
 // Route::get('dashboard/peraturan_internal/checkSlug', [DashboardInternal_regulationController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/peraturan_internal', DashboardInternal_regulationController::class)->middleware('auth');
 Route::resource('/dashboard/peraturan_eksternal', DashboardExternal_regulationController::class)->middleware('auth');
+Route::resource('/dashboard/peraturan_menteri_bumn', DashboardMinisterial_regulationController::class)->middleware('auth');

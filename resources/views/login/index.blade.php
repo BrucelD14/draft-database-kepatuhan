@@ -23,7 +23,7 @@
     <div class="container">
         <div class="hero text-center mt-4 p-2 border border-start-0 border-end-0 border-2">
             <h4>JARINGAN DOKUMENTASI DAN INFORMASI HUKUM (JDIH)</h4>
-            <h2>PT INDUSTRI KERETA API (PERSERO)</h2>
+            <h2>PT INDUSTRI KERETA API (Persero)</h2>
         </div>
         <div class="row justify-content-center mt-5">
             <div class="col-md-4">

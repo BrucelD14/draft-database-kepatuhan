@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta container="viewport" content="width=device-width, initial-scale=1">
-    <title>Kepatuhan | {{ $title }}</title>
+    <title>JDIH | {{ $title }}</title>
 
 
     <style>
