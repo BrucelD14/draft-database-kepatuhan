@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Internal_regulation;
 use Illuminate\Http\Request;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
+// use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardInternal_regulationController extends Controller
@@ -40,7 +40,7 @@ class DashboardInternal_regulationController extends Controller
         $validatedData = $request->validate([
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
-            'slug' => 'required|unique:internal_regulations|max:255',
+            // 'slug' => 'required|unique:internal_regulations|max:255',
             'tentang' => 'required',
             'jenis_peraturan' => 'required',
             'status' => 'required',
@@ -99,9 +99,9 @@ class DashboardInternal_regulationController extends Controller
             'dokumen' => 'file',
         ];
 
-        if ($request->slug != $regulation->slug) {
-            $rules['slug'] = 'required|unique:internal_regulations|max:255';
-        }
+        // if ($request->slug != $regulation->slug) {
+        //     $rules['slug'] = 'required|unique:internal_regulations|max:255';
+        // }
 
         $validatedData = $request->validate($rules);
 
@@ -129,9 +129,9 @@ class DashboardInternal_regulationController extends Controller
         return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan telah dihapus');
     }
 
-    public function checkSlug(Request $request)
-    {
-        $slug = SlugService::createSlug(Internal_regulation::class, 'slug', $request->nomor_peraturan);
-        return response()->json(['slug' => $slug]);
-    }
+    // public function checkSlug(Request $request)
+    // {
+    //     $slug = SlugService::createSlug(Internal_regulation::class, 'slug', $request->nomor_peraturan);
+    //     return response()->json(['slug' => $slug]);
+    // }
 }

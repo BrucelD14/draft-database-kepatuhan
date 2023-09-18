@@ -27,7 +27,7 @@
                     </div>
                 @enderror
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
                     required value="{{ old('slug') }}">
@@ -36,7 +36,7 @@
                         {{ $message }}
                     </div>
                 @enderror
-            </div>
+            </div> --}}
             <div class="mb-3">
                 <label for="tentang" class="form-label">Tentang</label>
                 @error('tentang')
@@ -83,7 +83,7 @@
     </div>
 
 
-    <script>
+    {{-- <script>
         const peraturan = document.querySelector('#nomor_peraturan');
         const slug = document.querySelector('#slug');
 
@@ -92,5 +92,5 @@
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
         });
-    </script>
+    </script> --}}
 @endsection

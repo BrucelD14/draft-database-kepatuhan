@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardExternal_regulationController;
 use App\Http\Controllers\DashboardInternal_regulationController;
 use App\Http\Controllers\External_regulationController;
 use App\Http\Controllers\Internal_regulationController;
@@ -8,7 +9,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Ministerial_regulationController;
 use App\Http\Controllers\Product_lawController;
 use App\Http\Controllers\ReviewInternalregController;
-use App\Models\Internal_regulation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,5 +39,6 @@ Route::get('/dashboard', function () {
   ]);
 })->middleware('auth');
 
-Route::get('dashboard/peraturan_internal/checkSlug', [DashboardInternal_regulationController::class, 'checkSlug'])->middleware('auth');
+// Route::get('dashboard/peraturan_internal/checkSlug', [DashboardInternal_regulationController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/peraturan_internal', DashboardInternal_regulationController::class)->middleware('auth');
+Route::resource('/dashboard/peraturan_eksternal', DashboardExternal_regulationController::class)->middleware('auth');

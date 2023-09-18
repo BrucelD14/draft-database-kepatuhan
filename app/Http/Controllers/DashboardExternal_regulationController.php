@@ -12,7 +12,11 @@ class DashboardExternal_regulationController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.regulations.index', [
+            'title' => 'Peraturan Eksternal',
+            'link' => 'peraturan_eksternal',
+            'regulations' => External_regulation::all(),
+        ]);
     }
 
     /**
@@ -20,7 +24,10 @@ class DashboardExternal_regulationController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.regulations.create', [
+            'title' => 'Tambah Peraturan Eksternal',
+            'link' => 'peraturan_eksternal',
+        ]);
     }
 
     /**

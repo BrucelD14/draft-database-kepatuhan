@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomor_peraturan');
             $table->timestamp('tanggal_penetapan')->nullable();
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->text('tentang');
             $table->string('jenis_peraturan');
             $table->enum('status', ['active', 'inactive'])->default('active');
