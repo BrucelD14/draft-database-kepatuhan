@@ -2,7 +2,7 @@
 @section('container')
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Peraturan Internal Perusahaan</h1>
+        <h1 class="h2">{{ $title }}</h1>
     </div>
 
     @if (session()->has('success'))
@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <a href="/dashboard/peraturan_internal/create" class="btn btn-primary mb-3">Tambah peraturan baru</a>
+    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah peraturan baru</a>
     @if ($regulations->count())
         <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -31,11 +31,11 @@
                             <td class="text-center">{{ $regulation->nomor_peraturan }}</td>
                             <td>{!! $regulation->tentang !!}</td>
                             <td class="text-center">
-                                <a href="/dashboard/peraturan_internal/{{ $regulation->id }}" class="badge bg-info"><i
+                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i
                                         class="bi bi-eye-fill"></i></a>
-                                <a href="/dashboard/peraturan_internal/{{ $regulation->id }}/edit"
+                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}/edit"
                                     class="badge bg-warning"><i class="bi bi-pencil-fill"></i></a>
-                                <form action="/dashboard/peraturan_internal/{{ $regulation->id }}" method="post"
+                                <form action="/dashboard/{{ $link }}/{{ $regulation->id }}" method="post"
                                     class="d-inline">
                                     @method('delete')
                                     @csrf

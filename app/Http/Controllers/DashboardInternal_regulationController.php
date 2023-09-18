@@ -14,8 +14,9 @@ class DashboardInternal_regulationController extends Controller
      */
     public function index()
     {
-        return view('dashboard.internalReg.index', [
+        return view('dashboard.regulations.index', [
             'title' => 'Peraturan Internal',
+            'link' => 'peraturan_internal',
             'regulations' => Internal_regulation::all(),
         ]);
     }
@@ -25,8 +26,9 @@ class DashboardInternal_regulationController extends Controller
      */
     public function create()
     {
-        return view('dashboard.internalReg.create', [
-            'title' => 'Tambah Peraturan'
+        return view('dashboard.regulations.create', [
+            'title' => 'Tambah Peraturan Internal',
+            'link' => 'peraturan_internal',
         ]);
     }
 
@@ -59,9 +61,10 @@ class DashboardInternal_regulationController extends Controller
     public function show($id)
     {
         // return Internal_regulation::find($id);
-        return view('dashboard.internalReg.show', [
-            'title' => 'Detail Peraturan',
-            'internalReg' => Internal_regulation::find($id)
+        return view('dashboard.regulations.show', [
+            'title' => 'Detail Peraturan Internal',
+            'link' => 'peraturan_internal',
+            'regulation' => Internal_regulation::find($id)
         ]);
     }
 
@@ -70,8 +73,9 @@ class DashboardInternal_regulationController extends Controller
      */
     public function edit($id)
     {
-        return view('dashboard.internalReg.edit', [
-            'title' => 'Edit Peraturan',
+        return view('dashboard.regulations.edit', [
+            'title' => 'Edit Peraturan Internal',
+            'link' => 'peraturan_internal',
             'regulation' => Internal_regulation::find($id),
         ]);
     }
@@ -105,7 +109,7 @@ class DashboardInternal_regulationController extends Controller
             if ($request->oldDokumen) {
                 Storage::delete($request->oldDokumen);
             }
-            $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents');
+            $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents', 'public');
         }
 
         Internal_regulation::where('id', $regulation->id)->update($validatedData);
