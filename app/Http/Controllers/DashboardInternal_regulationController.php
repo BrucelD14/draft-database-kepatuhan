@@ -105,14 +105,31 @@ class DashboardInternal_regulationController extends Controller
 
         $validatedData = $request->validate($rules);
 
-        if ($request->file('dokumen')) {
-            if ($request->oldDokumen) {
-                Storage::delete($request->oldDokumen);
-            }
-            $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents', 'public');
+        // if ($request->file('dokumen')) {
+        //     if ($request->oldDokumen) {
+        //         Storage::delete($request->oldDokumen);
+        //     }
+        //     $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents', 'public');
+        // }
+
+        if ($request->hasFile('dokumen')) {
+            $regulation->nomor_peraturan = $request->nomor_peraturan;
+            $regulation->tanggal_penetapan = $request->tanggal_penetapan;
+            $regulation->tentang = $request->tentang;
+            $regulation->status = $request->status;
+            $regulation->keterangan_status = $request->keterangan_status;
+            $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
+            $regulation->save();
+        } else {
+            $regulation->nomor_peraturan = $request->nomor_peraturan;
+            $regulation->tanggal_penetapan = $request->tanggal_penetapan;
+            $regulation->tentang = $request->tentang;
+            $regulation->status = $request->status;
+            $regulation->keterangan_status = $request->keterangan_status;
+            $regulation->save();
         }
 
-        Internal_regulation::where('id', $regulation->id)->update($validatedData);
+        // Internal_regulation::where('id', $regulation->id)->update($validatedData);
         return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan telah diperbarui');
     }
 

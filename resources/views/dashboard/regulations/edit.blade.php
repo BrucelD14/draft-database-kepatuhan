@@ -24,7 +24,7 @@
                 <label for="tanggal_penetapan" class="form-label">Tanggal penetapan</label>
                 <input type="date" class="form-control @error('tanggal_penetapan') is-invalid @enderror"
                     id="tanggal_penetapan" name="tanggal_penetapan" required
-                    value="{{ old('tanggal_penetapan', $regulation->tanggal_penetapan) }}">
+                    value="{{ date('Y-m-d', strtotime(old('tanggal_penetapan', $regulation->tanggal_penetapan))) }}">
                 @error('tanggal_penetapan')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -73,10 +73,13 @@
                     value="{{ old('keterangan_status', $regulation->keterangan_status) }}">
                 <trix-editor input="keterangan_status"></trix-editor>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="dokumen" class="form-label">Upload dokumen</label>
                 <input type="hidden" name="oldDokumen" value="{{ $regulation->dokumen }}">
                 <input type="file" class="form-control" id="dokumen" name="dokumen">
+                <span class="d-block mt-1">File: <a class="text-decoration-none"
+                        href="{{ Storage::url($regulation->dokumen) }}"
+                        target="_blank">{{ $regulation->dokumen }}</a></span>
             </div>
             <button type="submit" class="btn btn-primary">Edit Peraturan</button>
         </form>
