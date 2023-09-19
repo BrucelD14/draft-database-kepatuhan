@@ -40,7 +40,8 @@
                 <hr class="my-3">
 
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/reviu_peraturan_internal">
                         <i class="bi bi-file-earmark-text-fill d-flex align-items-center"></i>
                         Reviu Peraturan Internal
                     </a>

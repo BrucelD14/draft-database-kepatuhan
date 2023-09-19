@@ -1,6 +1,6 @@
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
     <a class="navbar-brand col-md-3 col-lg-2 text-center" href="/">
-        <img src="img/inkabw_sm.png" alt="" width="100">
+        <img src="/img/inkabw_sm.png" alt="" width="100">
     </a>
 
     <ul class="navbar-nav flex-row d-md-none">

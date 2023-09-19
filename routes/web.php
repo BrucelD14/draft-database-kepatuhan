@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardExternal_regulationController;
 use App\Http\Controllers\DashboardInternal_regulationController;
 use App\Http\Controllers\DashboardMinisterial_regulationController;
+use App\Http\Controllers\DashboardReview_internalRegController;
 use App\Http\Controllers\External_regulationController;
 use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
@@ -44,3 +45,4 @@ Route::get('/dashboard', function () {
 Route::resource('/dashboard/peraturan_internal', DashboardInternal_regulationController::class)->middleware('auth');
 Route::resource('/dashboard/peraturan_eksternal', DashboardExternal_regulationController::class)->middleware('auth');
 Route::resource('/dashboard/peraturan_menteri_bumn', DashboardMinisterial_regulationController::class)->middleware('auth');
+Route::resource('/dashboard/reviu_peraturan_internal', DashboardReview_internalRegController::class)->middleware('auth');
