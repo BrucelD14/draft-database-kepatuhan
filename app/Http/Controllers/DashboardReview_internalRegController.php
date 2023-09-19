@@ -12,7 +12,11 @@ class DashboardReview_internalRegController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.reviewInternal.index', [
+            'title' => 'Reviu Peraturan Internal',
+            'link' => 'reviu_peraturan_internal',
+            'regulations' => Review_internalreg::all(),
+        ]);
     }
 
     /**
