@@ -19,4 +19,9 @@ class Review_internalreg extends Model
                 ->orWhere('kpde', 'like', '%' . $search . '%');
         });
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
