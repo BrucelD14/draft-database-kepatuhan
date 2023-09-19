@@ -8,7 +8,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="/produk_hukum/{{ $active }}" method="get">
+            <form action="/{{ $active }}" method="get">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Ketik kata kunci" name="search"
                         value="{{ request('search') }}">
@@ -47,14 +47,14 @@
         <div class="table-responsive mb-4">
             <table class="table table-bordered">
                 <thead>
-                    <tr class="table-danger text-center">
-                        <th scope="col">#</th>
+                    <tr class="table-danger text-center align-middle">
+                        <th scope="col">No</th>
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Jenis Peraturan</th>
                         <th scope="col">Tentang</th>
                         <th scope="col">Status</th>
                         <th scope="col">Keterangan</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">Dokumen</th>
                     </tr>
                 </thead>
 
@@ -82,9 +82,9 @@
                 @endforeach
             @else
                 <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
+            </table>
+        </div>
     @endif
-    </table>
-    </div>
 
 
     {{ $reg_list->links() }}

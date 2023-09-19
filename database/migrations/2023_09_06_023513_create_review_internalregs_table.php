@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('tentang_peraturan');
             $table->text('keterangan_status');
             $table->boolean('status_publish')->default(false);
-            $table->string('slug')->nullable();
             $table->string('dokumen')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

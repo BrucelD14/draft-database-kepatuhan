@@ -42,10 +42,4 @@ class Internal_regulation extends Model
     //     ];
     // }
 
-    // // customizing key route
-    // public function getRouteKeyName(): string
-    // {
-    //     return 'slug';
-    // }
-
 }
