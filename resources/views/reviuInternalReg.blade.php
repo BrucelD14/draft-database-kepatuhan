@@ -19,58 +19,41 @@
         </div>
     </div>
 
-    @if ($reg_list->count())
-        <div class="table-responsive mb-4">
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="table-danger text-center align-middle">
-                        <th scope="col">No</th>
-                        <th scope="col">Ketentuan Peraturan Perundang-undangan</th>
-                        <th scope="col">Ketentuan Peraturan Direksi Eksisting</th>
-                        <th scope="col">Keterangan</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Dokumen</th>
-                    </tr>
-                </thead>
-
-                @foreach ($reg_list as $reg)
-                    <tbody>
-                        <tr>
-                            <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center">{{ $reg->kppp }}</td>
-                            <td class="text-center">{{ $reg->kpde }}</td>
-                            <td>{!! $reg->tentang_peraturan !!}</td>
-                            <td>{!! $reg->keterangan_status !!}</td>
-                            <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
-                                    class="btn btn-danger"><i class="bi bi-download"></i></a>
-                            </td>
+    <div class="row">
+        @if ($reg_list->count())
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="table-danger text-center align-middle">
+                            <th scope="col">No</th>
+                            <th scope="col">Ketentuan Peraturan Perundang-undangan</th>
+                            <th scope="col">Ketentuan Peraturan Direksi Eksisting</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Dokumen</th>
                         </tr>
-                        <tr>
-                    </tbody>
-                @endforeach
-            @else
-                <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
-            </table>
-        </div>
-    @endif
+                    </thead>
 
-
-    {{-- <div class="card mb-4">
-            <div class="card-header">
-                Ketentuan Peraturan Perundang-undangan : {{ $reg->kppp }}
+                    @foreach ($reg_list as $reg)
+                        <tbody>
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $reg->kppp }}</td>
+                                <td class="text-center">{{ $reg->kpde }}</td>
+                                <td>{!! $reg->tentang_peraturan !!}</td>
+                                <td>{!! $reg->keterangan_status !!}</td>
+                                <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
+                                        class="btn btn-danger"><i class="bi bi-download"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                        </tbody>
+                    @endforeach
+                @else
+                    <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
+                </table>
             </div>
-            <div class="card-body">
-                <h5 class="card-title fw-bold pb-2">Ketentuan Peraturan Direksi Eksisting : {{ $reg->kpde }}</h5>
-                <article class="fs-6">
-                    <strong>Tentang peraturan : </strong>{!! $reg->tentang_peraturan !!}
-                    <br>
-                    <hr>
-                    <strong>Keterangan status : </strong>{!! $reg->keterangan_status !!}
-                </article>
-            </div>
-        </div> --}}
-
-    <div>
-        {{ $reg_list->links() }}
+        @endif
     </div>
+    <div class="">{{ $reg_list->links() }}</div>
 @endsection
