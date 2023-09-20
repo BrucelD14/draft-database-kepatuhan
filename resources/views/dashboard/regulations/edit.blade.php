@@ -74,7 +74,7 @@
                 <trix-editor input="keterangan_status"></trix-editor>
             </div>
             <div class="mb-4">
-                <label for="dokumen" class="form-label">Upload dokumen</label>
+                <label for="dokumen" class="form-label">Dokumen peraturan</label>
                 <input type="hidden" name="oldDokumen" value="{{ $regulation->dokumen }}">
                 <input type="file" class="form-control" id="dokumen" name="dokumen">
                 <span class="d-block mt-1">File: <a class="text-decoration-none"

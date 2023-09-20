@@ -65,17 +65,48 @@ class DashboardReview_internalRegController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Review_internalreg $review_internalreg)
+    public function edit($id)
     {
-        //
+        return view('dashboard.reviewInternal.edit', [
+            'title' => 'Edit Reviu Peraturan Internal',
+            'link' => 'reviu_peraturan_internal',
+            'regulation' => Review_internalreg::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Review_internalreg $review_internalreg)
+    public function update(Request $request, $id)
     {
-        //
+        $regulation = Review_internalreg::find($id);
+
+        $rules = [
+            'kppp' => 'required|max:255',
+            'kpde' => 'required|max:255',
+            'tentang_peraturan' => 'required',
+            'keterangan_status' => 'required',
+            'dokumen' => 'required|file',
+        ];
+
+        $request->validate($rules);
+
+        if ($request->hasFile('dokumen')) {
+            $regulation->kppp = $request->kppp;
+            $regulation->kpde = $request->kpde;
+            $regulation->tentang_peraturan = $request->tentang_peraturan;
+            $regulation->keterangan_status = $request->keterangan_status;
+            $regulation->dokumen = $request->file('dokumen')->store('review-documents', 'public');
+            $regulation->save();
+        } else {
+            $regulation->kppp = $request->kppp;
+            $regulation->kpde = $request->kpde;
+            $regulation->tentang_peraturan = $request->tentang_peraturan;
+            $regulation->keterangan_status = $request->keterangan_status;
+            $regulation->save();
+        }
+
+        return redirect('/dashboard/reviu_peraturan_internal')->with('success', 'Reviu peraturan telah diperbarui');
     }
 
     /**

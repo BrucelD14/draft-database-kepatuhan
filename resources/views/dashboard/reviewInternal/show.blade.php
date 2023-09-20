@@ -23,6 +23,13 @@
             <p class="card-text">Tentang : {!! $regulation->tentang_peraturan !!}</p>
             <p class="card-text">Status : {!! $regulation->keterangan_status !!}</p>
             <p class="card-text">Tanggal Direviu : {{ $regulation->created_at }}</p>
+            <p class="card-text">Editor :
+                @if ($regulation->user_id == null)
+                    <strong>Tidak ada editor</strong>
+                @else
+                    {{ $regulation->user->name }}
+                @endif
+            </p>
             <a href="{{ asset('storage/' . $regulation->dokumen) }}" target="_blank" class="btn btn-primary">Download
                 Dokumen</a>
 
