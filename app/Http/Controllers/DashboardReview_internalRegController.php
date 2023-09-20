@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review_internalreg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardReview_internalRegController extends Controller
 {
@@ -112,8 +113,13 @@ class DashboardReview_internalRegController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Review_internalreg $review_internalreg)
+    public function destroy($id)
     {
-        //
+        $regulation = Review_internalreg::find($id);
+        if ($regulation->dokumen) {
+            Storage::delete($regulation->dokumen);
+        }
+        Review_internalreg::destroy($id);
+        return redirect('/dashboard/reviu_peraturan_internal')->with('success', 'Reviu telah dihapus');
     }
 }
