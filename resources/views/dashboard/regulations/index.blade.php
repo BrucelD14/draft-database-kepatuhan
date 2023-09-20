@@ -17,7 +17,7 @@
             <table class="table table-striped table-sm">
                 <thead>
                     <tr class="text-center">
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Tentang</th>
                         <th scope="col">Aksi</th>

@@ -24,7 +24,10 @@ class DashboardReview_internalRegController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.reviewInternal.create', [
+            'title' => 'Tambah Reviu Peraturan Internal',
+            'link' => 'reviu_peraturan_internal',
+        ]);
     }
 
     /**
@@ -32,15 +35,31 @@ class DashboardReview_internalRegController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'kppp' => 'required|max:255',
+            'kpde' => 'required|max:255',
+            'tentang_peraturan' => 'required',
+            'keterangan_status' => 'required',
+            'dokumen' => 'required|file',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['dokumen'] = $request->file('dokumen')->store('review-documents', 'public');
+
+        Review_internalreg::create($validatedData);
+        return redirect('/dashboard/reviu_peraturan_internal')->with('success', 'Reviu peraturan berhasil ditambahkan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Review_internalreg $review_internalreg)
+    public function show($id)
     {
-        //
+        return view('dashboard.reviewInternal.show', [
+            'title' => 'Detail Reviu Peraturan Internal',
+            'link' => 'reviu_peraturan_internal',
+            'regulation' => Review_internalreg::find($id)
+        ]);
     }
 
     /**

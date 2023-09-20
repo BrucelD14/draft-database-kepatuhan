@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah peraturan baru</a>
+    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah reviu baru</a>
     @if ($regulations->count())
         <div class="table-responsive">
             <table class="table table-striped table-sm">
