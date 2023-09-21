@@ -8,6 +8,7 @@ use App\Models\External_regulation;
 use App\Models\Internal_regulation;
 use App\Models\Ministerial_regulation;
 use App\Models\Review_internalreg;
+use App\Models\ReviewEksternalReg;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -78,5 +79,6 @@ class DatabaseSeeder extends Seeder
         External_regulation::factory(5)->create();
         Ministerial_regulation::factory(5)->create();
         Review_internalreg::factory(5)->create();
+        ReviewEksternalReg::factory(3)->create();
     }
 }

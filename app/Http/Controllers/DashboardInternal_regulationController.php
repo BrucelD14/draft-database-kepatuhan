@@ -40,7 +40,6 @@ class DashboardInternal_regulationController extends Controller
         $validatedData = $request->validate([
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
-            // 'slug' => 'required|unique:internal_regulations|max:255',
             'tentang' => 'required',
             'jenis_peraturan' => 'required',
             'status' => 'required',

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('review_eksternal_regs', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
-            $table->timestamp('tanggal_penetapan');
-            $table->string('jenis_peraturan');
             $table->string('nomor_peraturan');
+            $table->date('tanggal_penetapan');
+            $table->string('jenis_peraturan');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->text('tentang');
             $table->text('ringkasan');

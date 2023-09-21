@@ -32,8 +32,8 @@
                             <th scope="col">Tentang</th>
                             <th scope="col">Ringkasan</th>
                             <th scope="col">Divisi/Unit Terkait</th>
-                            <th scope="col">URL</th>
                             <th scope="col">Edisi</th>
+                            <th scope="col">Dokumen</th>
                         </tr>
                     </thead>
 
@@ -41,10 +41,19 @@
                         <tbody>
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $reg->kppp }}</td>
-                                <td class="text-center">{{ $reg->kpde }}</td>
-                                <td>{!! $reg->tentang_peraturan !!}</td>
-                                <td>{!! $reg->keterangan_status !!}</td>
+                                <td class="text-center">{{ $reg->tanggal_penetapan }}</td>
+                                <td class="text-center">{{ $reg->nomor_peraturan }}</td>
+                                <td class="text-center">
+                                    @if ($reg->status == 'active')
+                                        {{ 'Berlaku' }}
+                                    @else
+                                        {{ 'Tidak Berlaku' }}
+                                    @endif
+                                </td>
+                                <td>{!! $reg->tentang !!}</td>
+                                <td>{!! $reg->ringkasan !!}</td>
+                                <td class="text-center">{{ $reg->divisi }}</td>
+                                <td class="text-center">{{ $reg->tanggal_penetapan }}</td>
                                 <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
                                         class="btn btn-danger"><i class="bi bi-download"></i></a>
                                 </td>
