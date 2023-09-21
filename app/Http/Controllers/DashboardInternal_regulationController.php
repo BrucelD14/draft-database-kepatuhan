@@ -103,7 +103,7 @@ class DashboardInternal_regulationController extends Controller
         //     $rules['slug'] = 'required|unique:internal_regulations|max:255';
         // }
 
-        $validatedData = $request->validate($rules);
+        $request->validate($rules);
 
         // if ($request->file('dokumen')) {
         //     if ($request->oldDokumen) {

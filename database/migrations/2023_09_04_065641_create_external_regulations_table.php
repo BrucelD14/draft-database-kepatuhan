@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('external_regulations', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_peraturan');
-            $table->timestamp('tanggal_penetapan')->nullable();
+            $table->date('tanggal_penetapan')->nullable();
             $table->string('slug')->nullable();
             $table->text('tentang');
             $table->string('jenis_peraturan');

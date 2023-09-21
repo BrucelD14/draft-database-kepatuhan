@@ -18,6 +18,7 @@ class Ministerial_regulationFactory extends Factory
     {
         return [
             'nomor_peraturan' => fake()->bothify('???-###'),
+            'tanggal_penetapan' => fake()->date(),
             'tentang' => fake()->paragraph(),
             'jenis_peraturan' => 'Peraturan Menteri BUMN',
             'keterangan_status' => fake()->paragraph()

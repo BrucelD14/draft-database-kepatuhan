@@ -50,6 +50,7 @@
                     <tr class="table-danger text-center align-middle">
                         <th scope="col">No</th>
                         <th scope="col">Nomor Peraturan</th>
+                        <th scope="col">Tanggal Penetapan</th>
                         <th scope="col">Jenis Peraturan</th>
                         <th scope="col">Tentang</th>
                         <th scope="col">Status</th>
@@ -63,6 +64,7 @@
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="text-center">{{ $reg->nomor_peraturan }}</td>
+                            <td class="text-center">{{ $reg->tanggal_penetapan }}</td>
                             <td class="text-center">{{ $reg->jenis_peraturan }}</td>
                             <td>{!! $reg->tentang !!}</td>
                             <td class="text-center">
