@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // User::create([
-        //     'name' => 'Brucel Duta',
-        //     'nip' => '12345',
-        //     'password' => bcrypt('password'),
-        // ]);
+        User::create([
+            'name' => 'Brucel Duta',
+            'nip' => '12345',
+            'password' => bcrypt('password'),
+        ]);
 
         // Internal_regulation::create([
         //     'nomor_peraturan' => 'PI-E-1',

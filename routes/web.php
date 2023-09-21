@@ -10,6 +10,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Ministerial_regulationController;
 use App\Http\Controllers\Product_lawController;
+use App\Http\Controllers\ReviewEksternalRegController;
 use App\Http\Controllers\ReviewInternalregController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::get('/peraturan_internal_perusahaan', [Internal_regulationController::cla
 Route::get('/peraturan_eksternal', [External_regulationController::class, 'index'])->middleware('auth');
 Route::get('/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index'])->middleware('auth');
 Route::get('/reviu_peraturan_internal', [ReviewInternalregController::class, 'index'])->middleware('auth');
+Route::get('/reviu_peraturan_eksternal', [ReviewEksternalRegController::class, 'index'])->middleware('auth');
 
 Route::get('/dashboard', function () {
   return view('dashboard.index', [
