@@ -35,7 +35,23 @@ class DashboardReviewEksternalRegController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nomor_peraturan' => 'required|max:255',
+            'tanggal_penetapan' => 'required',
+            'jenis_peraturan' => 'required',
+            'status' => 'required',
+            'tentang' => 'required',
+            'ringkasan' => 'required',
+            'divisi' => 'required',
+            'edisi' => 'required',
+            'dokumen' => 'required|file',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['dokumen'] = $request->file('dokumen')->store('review-documents', 'public');
+
+        ReviewEksternalReg::create($validatedData);
+        return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu peraturan berhasil ditambahkan');
     }
 
     /**

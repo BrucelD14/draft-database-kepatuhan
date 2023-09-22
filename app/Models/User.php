@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review_internalreg::class);
     }
+
+    public function reviewEksternalRegs()
+    {
+        return $this->hasMany(ReviewEksternalReg::class);
+    }
 }

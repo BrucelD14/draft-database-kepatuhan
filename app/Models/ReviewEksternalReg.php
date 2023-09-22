@@ -19,4 +19,9 @@ class ReviewEksternalReg extends Model
                 ->orWhere('divisi', 'like', '%' . $search . '%');
         });
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
