@@ -19,8 +19,9 @@
                     <tr class="text-center align-middle">
                         <th scope="col">No</th>
                         <th scope="col">Dibuat pada</th>
-                        <th scope="col">Nomor Peraturan Direksi</th>
+                        <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Perihal</th>
+                        <th scope="col">Status Publish</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -30,8 +31,15 @@
                         <tr class="align-middle">
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="text-center">{{ $regulation->created_at }}</td>
-                            <td class="text-center">{{ $regulation->kpde }}</td>
-                            <td style="text-align:justify">{!! $regulation->tentang_peraturan !!}</td>
+                            <td class="text-center">{{ $regulation->nomor_peraturan }}</td>
+                            <td style="text-align:justify">{!! $regulation->tentang !!}</td>
+                            <td class="text-center">
+                                @if ($regulation->status_publish == '1')
+                                    <span class="badge bg-success">{{ 'Approvel' }}</span>
+                                @else
+                                    <span class="badge bg-secondary">{{ 'Draft' }}</span>
+                                @endif
+                            </td>
                             <td class="text-center">
                                 <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i
                                         class="bi bi-eye-fill"></i></a>

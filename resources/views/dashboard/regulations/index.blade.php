@@ -26,10 +26,10 @@
 
                 <tbody class="table-group-divider">
                     @foreach ($regulations as $regulation)
-                        <tr class="text-center">
+                        <tr class="align-middle">
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="text-center">{{ $regulation->nomor_peraturan }}</td>
-                            <td>{!! $regulation->tentang !!}</td>
+                            <td style="text-align:justify">{!! $regulation->tentang !!}</td>
                             <td class="text-center">
                                 <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i
                                         class="bi bi-eye-fill"></i></a>

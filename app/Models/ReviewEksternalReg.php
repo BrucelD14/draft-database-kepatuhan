@@ -16,7 +16,7 @@ class ReviewEksternalReg extends Model
         $query->when($filters['search'] ?? false, function ($query, $search) {
             return $query->where('tentang', 'like', '%' . $search . '%')
                 ->orWhere('nomor_peraturan', 'like', '%' . $search . '%')
-                ->orWhere('jenis_peraturan', 'like', '%' . $search . '%');
+                ->orWhere('divisi', 'like', '%' . $search . '%');
         });
     }
 }

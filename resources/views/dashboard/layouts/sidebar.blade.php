@@ -47,7 +47,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/reviu_peraturan_eksternal">
                         <i class="bi bi-file-earmark-x-fill d-flex align-items-center"></i>
                         Reviu Peraturan Eksternal
                     </a>
