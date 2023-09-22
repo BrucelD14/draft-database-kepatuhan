@@ -93,19 +93,13 @@ class DashboardExternal_regulationController extends Controller
             'dokumen' => 'file',
         ];
 
-        $validatedData = $request->validate($rules);
-
-        // if ($request->file('dokumen')) {
-        //     if ($request->oldDokumen) {
-        //         Storage::delete($request->oldDokumen);
-        //     }
-        //     $validatedData['dokumen'] = $request->file('dokumen')->store('regulation-documents', 'public');
-        // }
+        $request->validate($rules);
 
         if ($request->hasFile('dokumen')) {
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
+            $regulation->jenis_peraturan = $request->jenis_peraturan;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
@@ -114,6 +108,7 @@ class DashboardExternal_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
+            $regulation->jenis_peraturan = $request->jenis_peraturan;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->save();

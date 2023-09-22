@@ -70,17 +70,60 @@ class DashboardReviewEksternalRegController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ReviewEksternalReg $reviewEksternalReg)
+    public function edit($id)
     {
-        //
+        return view('dashboard.reviewExternal.edit', [
+            'title' => 'Edit Reviu Peraturan Eksternal',
+            'link' => 'reviu_peraturan_eksternal',
+            'regulation' => ReviewEksternalReg::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ReviewEksternalReg $reviewEksternalReg)
+    public function update(Request $request, $id)
     {
-        //
+        $regulation = ReviewEksternalReg::find($id);
+
+        $rules = [
+            'nomor_peraturan' => 'required|max:255',
+            'tanggal_penetapan' => 'required',
+            'jenis_peraturan' => 'required',
+            'status' => 'required',
+            'tentang' => 'required',
+            'ringkasan' => 'required',
+            'divisi' => 'required',
+            'edisi' => 'required',
+            'dokumen' => 'required|file',
+        ];
+
+        $request->validate($rules);
+
+        if ($request->hasFile('dokumen')) {
+            $regulation->nomor_peraturan = $request->nomor_peraturan;
+            $regulation->tanggal_penetapan = $request->tanggal_penetapan;
+            $regulation->jenis_peraturan = $request->jenis_peraturan;
+            $regulation->status = $request->status;
+            $regulation->tentang = $request->tentang;
+            $regulation->ringkasan = $request->ringkasan;
+            $regulation->divisi = $request->divisi;
+            $regulation->edisi = $request->edisi;
+            $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
+            $regulation->save();
+        } else {
+            $regulation->nomor_peraturan = $request->nomor_peraturan;
+            $regulation->tanggal_penetapan = $request->tanggal_penetapan;
+            $regulation->jenis_peraturan = $request->jenis_peraturan;
+            $regulation->status = $request->status;
+            $regulation->tentang = $request->tentang;
+            $regulation->ringkasan = $request->ringkasan;
+            $regulation->divisi = $request->divisi;
+            $regulation->edisi = $request->edisi;
+            $regulation->save();
+        }
+
+        return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu telah diperbarui');
     }
 
     /**

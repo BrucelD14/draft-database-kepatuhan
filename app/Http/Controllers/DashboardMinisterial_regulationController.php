@@ -106,6 +106,7 @@ class DashboardMinisterial_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
+            $regulation->jenis_peraturan = $request->jenis_peraturan;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
@@ -114,6 +115,7 @@ class DashboardMinisterial_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
+            $regulation->jenis_peraturan = $request->jenis_peraturan;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->save();
