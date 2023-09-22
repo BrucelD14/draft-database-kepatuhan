@@ -57,9 +57,13 @@ class DashboardReviewEksternalRegController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ReviewEksternalReg $reviewEksternalReg)
+    public function show($id)
     {
-        //
+        return view('dashboard.reviewExternal.show', [
+            'title' => 'Detail Reviu Peraturan Eksternal',
+            'link' => 'reviu_peraturan_eksternal',
+            'regulation' => ReviewEksternalReg::find($id)
+        ]);
     }
 
     /**

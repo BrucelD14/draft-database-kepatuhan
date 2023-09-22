@@ -35,9 +35,9 @@
                             <td style="text-align:justify">{!! $regulation->tentang !!}</td>
                             <td class="text-center">
                                 @if ($regulation->status_publish == '1')
-                                    <span class="badge bg-success">{{ 'Approvel' }}</span>
+                                    <span class="badge bg-success">Approved</span>
                                 @else
-                                    <span class="badge bg-secondary">{{ 'Draft' }}</span>
+                                    <span class="badge bg-secondary">Draft</span>
                                 @endif
                             </td>
                             <td class="text-center">
