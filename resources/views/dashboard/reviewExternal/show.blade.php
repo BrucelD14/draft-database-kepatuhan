@@ -44,6 +44,7 @@
                     <span class="badge bg-secondary">Draft</span>
                 @endif
             </p>
+            <p class="card-text">Dibuat pada : {{ $regulation->created_at }}</p>
             <a href="{{ asset('storage/' . $regulation->dokumen) }}" target="_blank" class="btn btn-primary">Download
                 Dokumen</a>
 

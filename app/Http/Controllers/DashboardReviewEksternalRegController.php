@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardReviewEksternalRegController extends Controller
 {
@@ -85,8 +86,13 @@ class DashboardReviewEksternalRegController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ReviewEksternalReg $reviewEksternalReg)
+    public function destroy($id)
     {
-        //
+        $regulation = ReviewEksternalReg::find($id);
+        if ($regulation->dokumen) {
+            Storage::delete($regulation->dokumen);
+        }
+        ReviewEksternalReg::destroy($id);
+        return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu telah dihapus');
     }
 }
