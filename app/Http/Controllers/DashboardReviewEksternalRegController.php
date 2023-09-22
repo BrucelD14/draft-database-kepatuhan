@@ -24,7 +24,10 @@ class DashboardReviewEksternalRegController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.reviewExternal.create', [
+            'title' => 'Tambah Reviu Peraturan Eksternal',
+            'link' => 'reviu_peraturan_eksternal',
+        ]);
     }
 
     /**
