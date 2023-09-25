@@ -17,6 +17,7 @@ class ReviewEksternalRegFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => 1,
             'nomor_peraturan' => fake()->bothify('???-###'),
             'tanggal_penetapan' => fake()->date(),
             'jenis_peraturan' => 'Undang-undang',

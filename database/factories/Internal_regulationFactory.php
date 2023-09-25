@@ -17,10 +17,10 @@ class Internal_regulationFactory extends Factory
     public function definition(): array
     {
         return [
+            'jenis_peraturan_internal_id' => mt_rand(1, 2),
             'nomor_peraturan' => fake()->bothify('???-###'),
             'tanggal_penetapan' => fake()->date(),
             'tentang' => fake()->paragraph(),
-            'jenis_peraturan' => 'Surat Edaran',
             'keterangan_status' => fake()->paragraph()
         ];
     }

@@ -53,12 +53,6 @@
                         Reviu Peraturan Eksternal
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                        <i class="bi bi-file-earmark-medical-fill d-flex align-items-center"></i>
-                        Format Akses SMK3LH
-                    </a>
-                </li>
             </ul>
 
             <hr class="my-3">

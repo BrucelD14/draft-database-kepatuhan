@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\External_regulation;
 use App\Models\Internal_regulation;
+use App\Models\JenisPeraturanInternal;
 use App\Models\Ministerial_regulation;
 use App\Models\Review_internalreg;
 use App\Models\ReviewEksternalReg;
@@ -25,6 +26,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Brucel Duta',
             'nip' => '12345',
             'password' => bcrypt('password'),
+        ]);
+
+        JenisPeraturanInternal::create([
+            'nama' => 'Peraturan Direksi'
+        ]);
+        JenisPeraturanInternal::create([
+            'nama' => 'Surat Edaran'
         ]);
 
         // Internal_regulation::create([

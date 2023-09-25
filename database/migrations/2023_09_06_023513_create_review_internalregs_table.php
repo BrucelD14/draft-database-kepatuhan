@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('review_internalregs', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->nullable();
+            $table->foreignId('user_id');
             $table->string('kppp'); //ketentuan peraturan perundang-undangan
             $table->string('kpde'); //ketentuan peraturan direksi eksisting
             $table->text('tentang_peraturan');

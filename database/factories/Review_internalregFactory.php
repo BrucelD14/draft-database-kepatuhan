@@ -17,6 +17,7 @@ class Review_internalregFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => 1,
             'kppp' => fake()->bothify('???-###'),
             'kpde' => fake()->bothify('???-###'),
             'tentang_peraturan' => fake()->paragraph(),
