@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\External_regulation;
+use App\Models\JenisPeraturanEksternal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,7 +14,7 @@ class DashboardExternal_regulationController extends Controller
      */
     public function index()
     {
-        return view('dashboard.regulations.index', [
+        return view('dashboard.externalRegulation.index', [
             'title' => 'Peraturan Eksternal',
             'link' => 'peraturan_eksternal',
             'regulations' => External_regulation::all(),
@@ -25,9 +26,10 @@ class DashboardExternal_regulationController extends Controller
      */
     public function create()
     {
-        return view('dashboard.regulations.create', [
+        return view('dashboard.externalRegulation.create', [
             'title' => 'Tambah Peraturan Eksternal',
             'link' => 'peraturan_eksternal',
+            'jenis_peraturan' => JenisPeraturanEksternal::all()
         ]);
     }
 
@@ -57,7 +59,7 @@ class DashboardExternal_regulationController extends Controller
      */
     public function show($id)
     {
-        return view('dashboard.regulations.show', [
+        return view('dashboard.externalRegulation.show', [
             'title' => 'Detail Peraturan Eksternal',
             'link' => 'peraturan_eksternal',
             'regulation' => External_regulation::find($id)
@@ -69,10 +71,11 @@ class DashboardExternal_regulationController extends Controller
      */
     public function edit($id)
     {
-        return view('dashboard.regulations.edit', [
+        return view('dashboard.externalRegulation.edit', [
             'title' => 'Edit Peraturan Eksternal',
             'link' => 'peraturan_eksternal',
             'regulation' => External_regulation::find($id),
+            'jenis_peraturan' => JenisPeraturanEksternal::all(),
         ]);
     }
 

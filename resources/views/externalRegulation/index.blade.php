@@ -41,7 +41,7 @@
                             <td class="text-center">{{ $reg->nomor_peraturan }}</td>
                             <td class="text-center">{{ $reg->tanggal_penetapan }}</td>
                             <td class="text-center">{{ $reg->jenisPeraturanEksternal->nama }}</td>
-                            <td>{!! $reg->tentang !!}</td>
+                            <td style="text-align:justify">{!! $reg->tentang !!}</td>
                             <td class="text-center">
                                 @if ($reg->status == 'active')
                                     {{ 'Berlaku' }}
@@ -49,7 +49,7 @@
                                     {{ 'Tidak Berlaku' }}
                                 @endif
                             </td>
-                            <td>{!! $reg->keterangan_status !!}</td>
+                            <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
                             <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
                                     class="btn btn-danger"><i class="bi bi-download"></i></a>
                             </td>
