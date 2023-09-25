@@ -65,7 +65,7 @@
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="text-center">{{ $reg->nomor_peraturan }}</td>
                             <td class="text-center">{{ $reg->tanggal_penetapan }}</td>
-                            <td class="text-center">{{ $reg->jenis_peraturan }}</td>
+                            <td class="text-center">{{ $reg->jenisPeraturanInternal->nama }}</td>
                             <td>{!! $reg->tentang !!}</td>
                             <td class="text-center">
                                 @if ($reg->status == 'active')

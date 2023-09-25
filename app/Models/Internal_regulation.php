@@ -4,15 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-// use Spatie\Sluggable\HasSlug;
-// use Spatie\Sluggable\SlugOptions;
-// use Cviebrock\EloquentSluggable\Sluggable;
 
 class Internal_regulation extends Model
 {
     use HasFactory;
-    // use HasSlug;
-    // use Sluggable;
 
 
     // protected $fillable = ['nomor_peraturan', 'tanggal_ditetapkan', 'tentang', 'status', 'dokumen', 'published_at'];
@@ -33,13 +28,8 @@ class Internal_regulation extends Model
         });
     }
 
-    // public function sluggable(): array
-    // {
-    //     return [
-    //         'slug' => [
-    //             'source' => 'nomor_peraturan'
-    //         ]
-    //     ];
-    // }
-
+    public function jenisPeraturanInternal()
+    {
+        return $this->belongsTo(JenisPeraturanInternal::class);
+    }
 }

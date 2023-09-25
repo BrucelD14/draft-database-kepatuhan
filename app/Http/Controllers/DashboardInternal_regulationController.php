@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Internal_regulation;
+use App\Models\JenisPeraturanInternal;
 use Illuminate\Http\Request;
-// use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardInternal_regulationController extends Controller
@@ -29,6 +29,7 @@ class DashboardInternal_regulationController extends Controller
         return view('dashboard.regulations.create', [
             'title' => 'Tambah Peraturan Internal',
             'link' => 'peraturan_internal',
+            'jenis_peraturan' => JenisPeraturanInternal::all(),
         ]);
     }
 
@@ -41,7 +42,7 @@ class DashboardInternal_regulationController extends Controller
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
-            'jenis_peraturan' => 'required',
+            'jenis_peraturan_internal_id' => 'required',
             'status' => 'required',
             'keterangan_status' => 'nullable',
             'dokumen' => 'required|file',
@@ -76,6 +77,7 @@ class DashboardInternal_regulationController extends Controller
             'title' => 'Edit Peraturan Internal',
             'link' => 'peraturan_internal',
             'regulation' => Internal_regulation::find($id),
+            'jenis_peraturan' => JenisPeraturanInternal::all(),
         ]);
     }
 
@@ -84,15 +86,13 @@ class DashboardInternal_regulationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // return Internal_regulation::find($id);
-
         $regulation = Internal_regulation::find($id);
 
         $rules = [
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
-            'jenis_peraturan' => 'required',
+            'jenis_peraturan_internal_id' => 'required',
             'status' => 'required',
             'keterangan_status' => 'nullable',
             'dokumen' => 'file',
@@ -115,7 +115,7 @@ class DashboardInternal_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
-            $regulation->jenis_peraturan = $request->jenis_peraturan;
+            $regulation->jenis_peraturan_internal_id = $request->jenis_peraturan_internal_id;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
@@ -124,7 +124,7 @@ class DashboardInternal_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
-            $regulation->jenis_peraturan = $request->jenis_peraturan;
+            $regulation->jenis_peraturan_internal_id = $request->jenis_peraturan_internal_id;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->save();
