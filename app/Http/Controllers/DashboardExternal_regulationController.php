@@ -40,7 +40,7 @@ class DashboardExternal_regulationController extends Controller
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
-            'jenis_peraturan' => 'required',
+            'jenis_peraturan_eksternal_id' => 'required',
             'status' => 'required',
             'keterangan_status' => 'nullable',
             'dokumen' => 'required|file',
@@ -87,7 +87,7 @@ class DashboardExternal_regulationController extends Controller
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
-            'jenis_peraturan' => 'required',
+            'jenis_peraturan_eksternal_id' => 'required',
             'status' => 'required',
             'keterangan_status' => 'nullable',
             'dokumen' => 'file',
@@ -99,7 +99,7 @@ class DashboardExternal_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
-            $regulation->jenis_peraturan = $request->jenis_peraturan;
+            $regulation->jenis_peraturan_eksternal_id = $request->jenis_peraturan_eksternal_id;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
@@ -108,7 +108,7 @@ class DashboardExternal_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
-            $regulation->jenis_peraturan = $request->jenis_peraturan;
+            $regulation->jenis_peraturan_eksternal_id = $request->jenis_peraturan_eksternal_id;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->save();

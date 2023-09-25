@@ -10,4 +10,9 @@ class JenisPeraturanEksternal extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function externalRegulations()
+    {
+        return $this->hasMany(External_regulation::class);
+    }
 }

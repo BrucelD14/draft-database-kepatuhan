@@ -19,4 +19,9 @@ class External_regulation extends Model
                 ->orWhere('jenis_peraturan', 'like', '%' . $search . '%');
         });
     }
+
+    public function jenisPeraturanEksternal()
+    {
+        return $this->belongsTo(JenisPeraturanEksternal::class);
+    }
 }
