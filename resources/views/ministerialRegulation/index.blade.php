@@ -17,32 +17,6 @@
             </form>
         </div>
     </div>
-
-    {{-- <div class="card mb-4">
-        
-                <div class="card-header">
-                    Nomor surat : {{ $reg->nomor_peraturan }}
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ $reg->jenis_peraturan }}</h5>
-                    <article class="mb-2 fs-5">
-                        Tentang : {!! $reg->tentang !!}
-                    </article>
-
-                    <btn class="btn btn-info disabled">
-                        @if ($reg->status == 1)
-                            {{ 'Berlaku' }}
-                        @else
-                            {{ 'Tidak Berlaku' }}
-                        @endif
-                    </btn>
-                    <div class="mt-2">
-                        <strong>Keterangan: </strong> {!! $reg->keterangan_status !!}
-                    </div>
-                </div>
-            </div> --}}
-
-
     @if ($reg_list->count())
         <div class="table-responsive mb-4">
             <table class="table table-bordered">
@@ -51,7 +25,6 @@
                         <th scope="col">No</th>
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Tanggal Penetapan</th>
-                        <th scope="col">Jenis Peraturan</th>
                         <th scope="col">Tentang</th>
                         <th scope="col">Status</th>
                         <th scope="col">Keterangan</th>
@@ -65,7 +38,6 @@
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="text-center">{{ $reg->nomor_peraturan }}</td>
                             <td class="text-center">{{ $reg->tanggal_penetapan }}</td>
-                            <td class="text-center">{{ $reg->jenisPeraturanInternal->nama }}</td>
                             <td style="text-align:justify">{!! $reg->tentang !!}</td>
                             <td class="text-center">
                                 @if ($reg->status == 'active')
