@@ -18,7 +18,7 @@
         <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
         <div class="card-body">
             <p class="card-text">Tanggal Penetapan : {{ $regulation->tanggal_penetapan }}</p>
-            <p class="card-text">Jenis Peraturan : {{ $regulation->jenis_peraturan }}</p>
+            <p class="card-text">Jenis Peraturan : {{ $regulation->jenisPeraturanEksternal->nama }}</p>
             <p class="card-text">
                 @if ($regulation->status == 'active')
                     Status Peraturan : <span class="badge bg-success">{{ 'Berlaku' }}</span>

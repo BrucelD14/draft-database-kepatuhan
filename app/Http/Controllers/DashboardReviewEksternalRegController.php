@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisPeraturanEksternal;
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -28,6 +29,7 @@ class DashboardReviewEksternalRegController extends Controller
         return view('dashboard.reviewExternal.create', [
             'title' => 'Tambah Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
+            'jenis_peraturan' => JenisPeraturanEksternal::all()
         ]);
     }
 
@@ -39,7 +41,7 @@ class DashboardReviewEksternalRegController extends Controller
         $validatedData = $request->validate([
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
-            'jenis_peraturan' => 'required',
+            'jenis_peraturan_eksternal_id' => 'required',
             'status' => 'required',
             'tentang' => 'required',
             'ringkasan' => 'required',
@@ -76,6 +78,7 @@ class DashboardReviewEksternalRegController extends Controller
             'title' => 'Edit Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
             'regulation' => ReviewEksternalReg::find($id),
+            'jenis_peraturan' => JenisPeraturanEksternal::all(),
         ]);
     }
 
@@ -89,7 +92,7 @@ class DashboardReviewEksternalRegController extends Controller
         $rules = [
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
-            'jenis_peraturan' => 'required',
+            'jenis_peraturan_eksternal_id' => 'required',
             'status' => 'required',
             'tentang' => 'required',
             'ringkasan' => 'required',
@@ -100,21 +103,23 @@ class DashboardReviewEksternalRegController extends Controller
 
         $request->validate($rules);
 
+        // dd($request);
+
         if ($request->hasFile('dokumen')) {
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
-            $regulation->jenis_peraturan = $request->jenis_peraturan;
+            $regulation->jenis_peraturan_eksternal_id = $request->jenis_peraturan_eksternal_id;
             $regulation->status = $request->status;
             $regulation->tentang = $request->tentang;
             $regulation->ringkasan = $request->ringkasan;
             $regulation->divisi = $request->divisi;
             $regulation->edisi = $request->edisi;
-            $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
+            $regulation->dokumen = $request->file('dokumen')->store('review-documents', 'public');
             $regulation->save();
         } else {
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
-            $regulation->jenis_peraturan = $request->jenis_peraturan;
+            $regulation->jenis_peraturan_eksternal_id = $request->jenis_peraturan_eksternal_id;
             $regulation->status = $request->status;
             $regulation->tentang = $request->tentang;
             $regulation->ringkasan = $request->ringkasan;

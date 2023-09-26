@@ -18,12 +18,13 @@ class ReviewEksternalRegFactory extends Factory
     {
         return [
             'user_id' => 1,
+            'jenis_peraturan_eksternal_id' => mt_rand(1, 2),
             'nomor_peraturan' => fake()->bothify('???-###'),
             'tanggal_penetapan' => fake()->date(),
-            'jenis_peraturan' => 'Undang-undang',
             'tentang' => fake()->paragraph(),
             'ringkasan' => fake()->paragraph(),
             'divisi' => 'Manajemen Risiko dan Hukum',
+            'edisi' => fake()->date(),
         ];
     }
 }

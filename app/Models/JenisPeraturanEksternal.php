@@ -15,4 +15,9 @@ class JenisPeraturanEksternal extends Model
     {
         return $this->hasMany(External_regulation::class);
     }
+
+    public function reviewExternalRegulations()
+    {
+        return $this->hasMany(ReviewEksternalReg::class);
+    }
 }

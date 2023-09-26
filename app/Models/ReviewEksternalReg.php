@@ -24,4 +24,9 @@ class ReviewEksternalReg extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function jenisPeraturanEksternal()
+    {
+        return $this->belongsTo(JenisPeraturanEksternal::class);
+    }
 }

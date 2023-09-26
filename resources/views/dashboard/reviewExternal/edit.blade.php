@@ -32,15 +32,16 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="jenis_peraturan" class="form-label">Jenis Peraturan</label>
-                <input type="text" class="form-control @error('jenis_peraturan') is-invalid @enderror"
-                    id="jenis_peraturan" name="jenis_peraturan" required
-                    value="{{ old('jenis_peraturan', $regulation->jenis_peraturan) }}">
-                @error('jenis_peraturan')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
+                <label for="jenis_peraturan_eksternal" class="form-label">Jenis Peraturan</label>
+                <select class="form-select" name="jenis_peraturan_eksternal_id">
+                    @foreach ($jenis_peraturan as $jenis)
+                        @if (old('jenis_peraturan_eksternal_id', $regulation->jenis_peraturan_eksternal_id) == $jenis->id)
+                            <option value="{{ $jenis->id }}" selected>{{ $jenis->nama }}</option>
+                        @else
+                            <option value="{{ $jenis->id }}">{{ $jenis->nama }}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>

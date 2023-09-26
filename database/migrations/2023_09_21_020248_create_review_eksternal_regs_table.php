@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('review_eksternal_regs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('jenis_peraturan_eksternal_id');
             $table->string('nomor_peraturan');
             $table->date('tanggal_penetapan');
-            $table->string('jenis_peraturan');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->text('tentang');
             $table->text('ringkasan');
             $table->string('divisi'); // divisi/unit terkait
-            $table->date('edisi')->nullable(); // berisi bulan dan tahun
+            $table->date('edisi'); // berisi bulan dan tahun
             $table->boolean('status_publish')->default(false)->nullable();
             $table->string('dokumen')->nullable();
             $table->timestamp('published_at')->nullable();
