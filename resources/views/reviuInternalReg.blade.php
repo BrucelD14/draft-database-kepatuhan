@@ -40,8 +40,8 @@
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">{{ $reg->kppp }}</td>
                                 <td class="text-center">{{ $reg->kpde }}</td>
-                                <td>{!! $reg->tentang_peraturan !!}</td>
-                                <td>{!! $reg->keterangan_status !!}</td>
+                                <td style="text-align:justify">{!! $reg->tentang_peraturan !!}</td>
+                                <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
                                 <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
                                         class="btn btn-danger"><i class="bi bi-download"></i></a>
                                 </td>

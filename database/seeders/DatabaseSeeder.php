@@ -43,10 +43,10 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Peraturan Pemerintah'
         ]);
 
-        Internal_regulation::factory(5)->create();
-        External_regulation::factory(5)->create();
-        Ministerial_regulation::factory(5)->create();
-        Review_internalreg::factory(5)->create();
+        Internal_regulation::factory(3)->create();
+        External_regulation::factory(3)->create();
+        Ministerial_regulation::factory(3)->create();
+        Review_internalreg::factory(3)->create();
         ReviewEksternalReg::factory(3)->create();
     }
 }

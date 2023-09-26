@@ -50,8 +50,8 @@
                                         {{ 'Tidak Berlaku' }}
                                     @endif
                                 </td>
-                                <td>{!! $reg->tentang !!}</td>
-                                <td>{!! $reg->ringkasan !!}</td>
+                                <td style="text-align:justify">{!! $reg->tentang !!}</td>
+                                <td style="text-align:justify">{!! $reg->ringkasan !!}</td>
                                 <td class="text-center">{{ $reg->divisi }}</td>
                                 <td class="text-center">{{ $reg->tanggal_penetapan }}</td>
                                 <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
