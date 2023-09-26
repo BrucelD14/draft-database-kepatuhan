@@ -8,6 +8,7 @@ use App\Models\External_regulation;
 use App\Models\Internal_regulation;
 use App\Models\JenisPeraturanEksternal;
 use App\Models\JenisPeraturanInternal;
+use App\Models\KategoriDivisi;
 use App\Models\Ministerial_regulation;
 use App\Models\Review_internalreg;
 use App\Models\ReviewEksternalReg;
@@ -29,12 +30,12 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-        JenisPeraturanInternal::create([
-            'nama' => 'Peraturan Direksi'
-        ]);
-        JenisPeraturanInternal::create([
-            'nama' => 'Surat Edaran'
-        ]);
+        // JenisPeraturanInternal::create([
+        //     'nama' => 'Peraturan Direksi'
+        // ]);
+        // JenisPeraturanInternal::create([
+        //     'nama' => 'Surat Edaran'
+        // ]);
 
         JenisPeraturanEksternal::create([
             'nama' => 'Undang-undang'
@@ -43,10 +44,17 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Peraturan Pemerintah'
         ]);
 
-        Internal_regulation::factory(3)->create();
-        External_regulation::factory(3)->create();
-        Ministerial_regulation::factory(3)->create();
-        Review_internalreg::factory(3)->create();
+        KategoriDivisi::create([
+            'nama' => 'Manajemen Risiko dan Hukum'
+        ]);
+        KategoriDivisi::create([
+            'nama' => 'Riset dan Pengembangan'
+        ]);
+
+        // Internal_regulation::factory(3)->create();
+        // External_regulation::factory(3)->create();
+        // Ministerial_regulation::factory(3)->create();
+        // Review_internalreg::factory(3)->create();
         ReviewEksternalReg::factory(3)->create();
     }
 }

@@ -28,7 +28,7 @@
             </p>
             <p class="card-text">Tentang : {!! $regulation->tentang !!}</p>
             <p class="card-text">Ringkasan : {!! $regulation->ringkasan !!}</p>
-            <p class="card-text">Divisi/Unit Terkait : {{ $regulation->divisi }}</p>
+            <p class="card-text">Divisi/Unit Terkait : {{ $regulation->kategoriDivisis->nama }}</p>
             <p class="card-text">Edisi : {{ $regulation->edisi }}</p>
             <p class="card-text">Editor :
                 @if ($regulation->user_id == null)

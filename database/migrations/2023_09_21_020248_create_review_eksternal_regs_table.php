@@ -20,7 +20,6 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->text('tentang');
             $table->text('ringkasan');
-            $table->string('divisi'); // divisi/unit terkait
             $table->date('edisi'); // berisi bulan dan tahun
             $table->boolean('status_publish')->default(false)->nullable();
             $table->string('dokumen')->nullable();
