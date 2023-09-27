@@ -13,6 +13,7 @@ use App\Http\Controllers\Ministerial_regulationController;
 use App\Http\Controllers\Product_lawController;
 use App\Http\Controllers\ReviewEksternalRegController;
 use App\Http\Controllers\ReviewInternalregController;
+use App\Models\ReviewEksternalReg;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,3 +51,10 @@ Route::resource('/dashboard/peraturan_eksternal', DashboardExternal_regulationCo
 Route::resource('/dashboard/peraturan_menteri_bumn', DashboardMinisterial_regulationController::class)->middleware('auth');
 Route::resource('/dashboard/reviu_peraturan_internal', DashboardReview_internalRegController::class)->middleware('auth');
 Route::resource('/dashboard/reviu_peraturan_eksternal', DashboardReviewEksternalRegController::class)->middleware('auth');
+
+Route::get('/tambah', function () {
+  $reviu = ReviewEksternalReg::find(1);
+  $divisi = ['1'];
+  $reviu->kategoriDivisi()->attach($divisi);
+  return "Sukses tambah data";
+});

@@ -19,7 +19,6 @@ class ReviewEksternalRegFactory extends Factory
         return [
             'user_id' => 1,
             'jenis_peraturan_eksternal_id' => mt_rand(1, 2),
-            'kategori_divisi_id' => mt_rand(1, 2),
             'nomor_peraturan' => fake()->bothify('???-###'),
             'tanggal_penetapan' => fake()->date(),
             'tentang' => fake()->paragraph(),

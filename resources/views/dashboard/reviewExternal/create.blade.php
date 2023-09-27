@@ -59,7 +59,7 @@
                 <input id="ringkasan" type="hidden" name="ringkasan" value="{{ old('ringkasan') }}">
                 <trix-editor input="ringkasan"></trix-editor>
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="divisi" class="form-label">Divisi/Unit Terkait</label>
                 <input type="text" class="form-control @error('divisi') is-invalid @enderror" id="divisi"
                     name="divisi" required value="{{ old('divisi') }}">
@@ -68,7 +68,18 @@
                         {{ $message }}
                     </div>
                 @enderror
+            </div> --}}
+
+            <div class="mb-3">
+                <label for="divisi" class="form-label">Divisi/Unit Terkait</label>
+                <select class="form-select" id="multiple-select-field" name="divisi[]"
+                    data-placeholder="Pilih divisi/unit terkait" multiple required>
+                    @foreach ($kategori_divisi as $divisi)
+                        <option value="{{ $divisi->id }}">{{ $divisi->nama }}</option>
+                    @endforeach
+                </select>
             </div>
+
             <div class="mb-3">
                 <label for="edisi" class="form-label">Edisi</label>
                 <input type="date" class="form-control @error('edisi') is-invalid @enderror" id="edisi"

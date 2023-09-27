@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JenisPeraturanEksternal;
+use App\Models\KategoriDivisi;
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,8 @@ class DashboardReviewEksternalRegController extends Controller
         return view('dashboard.reviewExternal.create', [
             'title' => 'Tambah Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
-            'jenis_peraturan' => JenisPeraturanEksternal::all()
+            'jenis_peraturan' => JenisPeraturanEksternal::all(),
+            'kategori_divisi' => KategoriDivisi::all(),
         ]);
     }
 
@@ -45,15 +47,17 @@ class DashboardReviewEksternalRegController extends Controller
             'status' => 'required',
             'tentang' => 'required',
             'ringkasan' => 'required',
-            'divisi' => 'required',
             'edisi' => 'required',
             'dokumen' => 'required|file',
         ]);
-
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['dokumen'] = $request->file('dokumen')->store('review-documents', 'public');
+        $kategoriDivisi['divisi'] = $request->divisi;
 
         ReviewEksternalReg::create($validatedData);
+        dd($request->id); //hasilnya null
+        // proses input id reviu dan id divisi ke dalam table kategori divisi riviu
+        // cara tangkap id dari reviu yang baru di store
         return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu peraturan berhasil ditambahkan');
     }
 

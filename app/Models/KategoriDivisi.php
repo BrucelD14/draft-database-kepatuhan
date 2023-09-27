@@ -13,6 +13,6 @@ class KategoriDivisi extends Model
 
     public function reviewEksternalRegs()
     {
-        return $this->belongsToMany(ReviewEksternalReg::class);
+        return $this->belongsToMany(ReviewEksternalReg::class, 'kategori_divisi_reviu')->withTimestamps();
     }
 }
