@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-body">
     <div class="container">
         <a class="navbar-brand" href="/landing">
-            <img src="img/inka.png" alt="PT Industri Kereta Api (Persero)" width="200">
+            <img src="/img/inka.png" alt="PT Industri Kereta Api (Persero)" width="200">
 
         </a>
         <a class="navbar-brand" href="https://jdih.bumn.go.id/" target="_blank">
-            <img src="img/bumn.png" alt="Kementerian BUMN" width="200">
+            <img src="/img/bumn.png" alt="Kementerian BUMN" width="200">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
                         aria-current="page" href="/produk_hukum">Produk Hukum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('matriks') ? 'active' : '' }}" href="#">Matriks</a>
+                    <a class="nav-link {{ Request::is('matriks') ? 'active' : '' }}" href="/matriks">Matriks</a>
                 </li>
             </ul>
 

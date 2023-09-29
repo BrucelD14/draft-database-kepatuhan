@@ -10,7 +10,8 @@
             <div class="mb-3">
                 <label for="nomor_peraturan" class="form-label">Nomor Peraturan</label>
                 <input type="text" class="form-control @error('nomor_peraturan') is-invalid @enderror"
-                    id="nomor_peraturan" name="nomor_peraturan" required autofocus value="{{ old('nomor_peraturan') }}">
+                    id="nomor_peraturan" name="nomor_peraturan" required autofocus value="{{ old('nomor_peraturan') }}"
+                    placeholder="Isi nomor peraturan">
                 @error('nomor_peraturan')
                     <div class="invalid-feedback">
                         {{ $message }}

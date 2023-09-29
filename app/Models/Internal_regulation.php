@@ -23,9 +23,10 @@ class Internal_regulation extends Model
 
         $query->when($filters['search'] ?? false, function ($query, $search) {
             return $query->where('tentang', 'like', '%' . $search . '%')
-                ->orWhere('nomor_peraturan', 'like', '%' . $search . '%')
-                ->orWhere('jenis_peraturan', 'like', '%' . $search . '%');
+                ->orWhere('nomor_peraturan', 'like', '%' . $search . '%');
         });
+        // perbaiki pencarian berdasarkan jenis peraturan
+        // ->orWhere('jenis_peraturan', 'like', '%' . $search . '%');
     }
 
     public function jenisPeraturanInternal()

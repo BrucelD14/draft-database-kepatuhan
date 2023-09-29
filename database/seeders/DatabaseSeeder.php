@@ -30,12 +30,12 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-        // JenisPeraturanInternal::create([
-        //     'nama' => 'Peraturan Direksi'
-        // ]);
-        // JenisPeraturanInternal::create([
-        //     'nama' => 'Surat Edaran'
-        // ]);
+        JenisPeraturanInternal::create([
+            'nama' => 'Peraturan Direksi'
+        ]);
+        JenisPeraturanInternal::create([
+            'nama' => 'Surat Edaran'
+        ]);
 
         JenisPeraturanEksternal::create([
             'nama' => 'Undang-undang'
@@ -51,8 +51,8 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Riset dan Pengembangan'
         ]);
 
-        // Internal_regulation::factory(3)->create();
-        // External_regulation::factory(3)->create();
+        Internal_regulation::factory(3)->create();
+        External_regulation::factory(3)->create();
         // Ministerial_regulation::factory(3)->create();
         // Review_internalreg::factory(3)->create();
         ReviewEksternalReg::factory(3)->create();

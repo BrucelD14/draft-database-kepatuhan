@@ -7,6 +7,8 @@ use App\Models\KategoriDivisi;
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\DB;
 
 class DashboardReviewEksternalRegController extends Controller
 {
@@ -40,6 +42,8 @@ class DashboardReviewEksternalRegController extends Controller
      */
     public function store(Request $request)
     {
+        $uuid = Uuid::uuid4();
+
         $validatedData = $request->validate([
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
@@ -50,12 +54,23 @@ class DashboardReviewEksternalRegController extends Controller
             'edisi' => 'required',
             'dokumen' => 'required|file',
         ]);
+        $validatedData['uuid'] = $uuid;
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['dokumen'] = $request->file('dokumen')->store('review-documents', 'public');
-        $kategoriDivisi['divisi'] = $request->divisi;
-
+        $kategoriDivisi = $request->divisi;
         ReviewEksternalReg::create($validatedData);
-        dd($request->id); //hasilnya null
+
+        if (is_array($kategoriDivisi)) {
+            foreach ($kategoriDivisi as $option) {
+                // Simpan setiap nilai ke dalam tabel database
+                DB::table('kategori_divisi_reviu')
+                    ->insert([
+                        'uuid_review_eksternal_reg' => $uuid,
+                        'kategori_divisi_id' => $option,
+                    ]);
+            }
+        }
+        // dd($request->id); //hasilnya null
         // proses input id reviu dan id divisi ke dalam table kategori divisi riviu
         // cara tangkap id dari reviu yang baru di store
         return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu peraturan berhasil ditambahkan');
@@ -69,7 +84,8 @@ class DashboardReviewEksternalRegController extends Controller
         return view('dashboard.reviewExternal.show', [
             'title' => 'Detail Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
-            'regulation' => ReviewEksternalReg::find($id)
+            'regulation' => ReviewEksternalReg::find($id),
+            'divisi' => KategoriDivisi::all()
         ]);
     }
 

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('kategori_divisi_reviu', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_divisi_id')->constrained();
-            $table->foreignId('review_eksternal_reg_id')->constrained();
+            $table->string('uuid_review_eksternal_reg')->constrained('review_eksternal_regs');
+            $table->foreignId('kategori_divisi_id')->constrained('kategori_divisis');
             $table->timestamps();
         });
     }
