@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\DB;
+use App\Models\KategoriDivisiReviu;
 
 class DashboardReviewEksternalRegController extends Controller
 {
@@ -81,11 +82,12 @@ class DashboardReviewEksternalRegController extends Controller
      */
     public function show($id)
     {
+        $data = ReviewEksternalReg::find($id);
         return view('dashboard.reviewExternal.show', [
             'title' => 'Detail Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
             'regulation' => ReviewEksternalReg::find($id),
-            'divisi' => KategoriDivisi::all()
+            'divisi' => KategoriDivisiReviu::where('uuid_review_eksternal_reg', '=', $data['uuid'])->get()
         ]);
     }
 

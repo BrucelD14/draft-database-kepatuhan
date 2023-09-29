@@ -28,7 +28,12 @@
             </p>
             <p class="card-text">Tentang : {!! $regulation->tentang !!}</p>
             <p class="card-text">Ringkasan : {!! $regulation->ringkasan !!}</p>
-            <p class="card-text">Divisi/Unit Terkait : {{ $divisi->reviewEksternalRegs->kategori_divisi_id }}</p>
+            <p class="card-text">Divisi/Unit Terkait :
+                @foreach ($divisi as $item)
+                    <button class="btn btn-outline-danger"
+                        style="cursor:default">{{ $item->kategoriDivisi->nama }}</button>
+                @endforeach
+            </p>
             <p class="card-text">Edisi : {{ $regulation->edisi }}</p>
             <p class="card-text">Editor :
                 @if ($regulation->user_id == null)
