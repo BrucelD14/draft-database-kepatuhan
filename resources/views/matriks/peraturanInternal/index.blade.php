@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('matriks.peraturanInternal.layouts.main')
 
 @section('container')
     <div class="row">
@@ -7,6 +7,6 @@
         </div>
     </div>
     <div class="row justify-content-center text-center py-4">
-
+        <div id="chart"></div>
     </div>
 @endsection
