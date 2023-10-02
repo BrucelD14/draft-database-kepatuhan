@@ -6,7 +6,7 @@
             <h2>{{ $title }}</h2>
         </div>
     </div>
-    <div class="row justify-content-center text-center py-4">
+    <div class="row">
         <div id="chart"></div>
     </div>
 @endsection

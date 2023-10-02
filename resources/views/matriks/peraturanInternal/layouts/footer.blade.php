@@ -10,7 +10,8 @@
         }],
         chart: {
             type: 'bar',
-            height: 350
+            height: 350,
+            width: 800,
         },
         plotOptions: {
             bar: {
