@@ -22,7 +22,7 @@
                         aria-current="page" href="/produk_hukum">Produk Hukum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('matriks') ? 'active' : '' }}" href="/matriks">Matriks</a>
+                    <a class="nav-link {{ Request::is('matriks*') ? 'active' : '' }}" href="/matriks">Matriks</a>
                 </li>
             </ul>
 

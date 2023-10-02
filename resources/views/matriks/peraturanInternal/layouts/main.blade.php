@@ -26,7 +26,7 @@
     }
 
     #chart {
-        max-width: 800px;
+        max-width: 950px;
         margin: 35px auto;
     }
 </style>
