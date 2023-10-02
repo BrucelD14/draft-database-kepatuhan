@@ -30,8 +30,8 @@ class ReviewEksternalReg extends Model
         return $this->belongsTo(JenisPeraturanEksternal::class);
     }
 
-    public function kategoriDivisi()
-    {
-        return $this->belongsToMany(KategoriDivisi::class, 'kategori_divisi_reviu')->withTimestamps();
-    }
+    // public function kategoriDivisi()
+    // {
+    //     return $this->belongsToMany(KategoriDivisi::class, 'kategori_divisi_reviu')->withTimestamps();
+    // }
 }

@@ -64,7 +64,7 @@
                     value="{{ old('ringkasan', $regulation->ringkasan) }}">
                 <trix-editor input="ringkasan"></trix-editor>
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="divisi" class="form-label">Divisi/Unit Terkait</label>
                 <input type="text" class="form-control @error('divisi') is-invalid @enderror" id="divisi"
                     name="divisi" required value="{{ old('divisi', $regulation->divisi) }}">
@@ -73,6 +73,21 @@
                         {{ $message }}
                     </div>
                 @enderror
+            </div> --}}
+            <div class="mb-3">
+                <label for="divisi" class="form-label">Divisi/Unit Terkait</label>
+                <select class="form-select" id="multiple-select-field" name="divisi[]"
+                    data-placeholder="Pilih divisi/unit terkait" multiple required>
+                    @foreach ($kategori_divisi as $item)
+                        @foreach ($divisi as $d)
+                            @if (old('divisi[]', $d->kategori_divisi_id) == $item->id)
+                                <option value="{{ $item->id }}" selected>{{ $item->nama }}</option>
+                            @else
+                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                            @endif
+                        @endforeach
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
                 <label for="edisi" class="form-label">Edisi</label>

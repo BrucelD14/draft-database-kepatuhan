@@ -76,7 +76,11 @@
                 <select class="form-select" id="multiple-select-field" name="divisi[]"
                     data-placeholder="Pilih divisi/unit terkait" multiple required>
                     @foreach ($kategori_divisi as $divisi)
-                        <option value="{{ $divisi->id }}">{{ $divisi->nama }}</option>
+                        @if (old('divisi[]') == $divisi->id)
+                            <option value="{{ $divisi->id }}" selected>{{ $divisi->nama }}</option>
+                        @else
+                            <option value="{{ $divisi->id }}">{{ $divisi->nama }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>

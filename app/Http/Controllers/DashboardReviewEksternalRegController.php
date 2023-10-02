@@ -96,11 +96,14 @@ class DashboardReviewEksternalRegController extends Controller
      */
     public function edit($id)
     {
+        $data = ReviewEksternalReg::find($id);
         return view('dashboard.reviewExternal.edit', [
             'title' => 'Edit Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
             'regulation' => ReviewEksternalReg::find($id),
             'jenis_peraturan' => JenisPeraturanEksternal::all(),
+            'kategori_divisi' => KategoriDivisi::all(),
+            'divisi' => KategoriDivisiReviu::where('uuid_review_eksternal_reg', '=', $data['uuid'])->get()
         ]);
     }
 
@@ -118,7 +121,6 @@ class DashboardReviewEksternalRegController extends Controller
             'status' => 'required',
             'tentang' => 'required',
             'ringkasan' => 'required',
-            'divisi' => 'required',
             'edisi' => 'required',
             'dokumen' => 'required|file',
         ];
@@ -134,7 +136,6 @@ class DashboardReviewEksternalRegController extends Controller
             $regulation->status = $request->status;
             $regulation->tentang = $request->tentang;
             $regulation->ringkasan = $request->ringkasan;
-            $regulation->divisi = $request->divisi;
             $regulation->edisi = $request->edisi;
             $regulation->dokumen = $request->file('dokumen')->store('review-documents', 'public');
             $regulation->save();
@@ -145,9 +146,21 @@ class DashboardReviewEksternalRegController extends Controller
             $regulation->status = $request->status;
             $regulation->tentang = $request->tentang;
             $regulation->ringkasan = $request->ringkasan;
-            $regulation->divisi = $request->divisi;
             $regulation->edisi = $request->edisi;
             $regulation->save();
+        }
+
+        $uuid = $regulation->uuid;
+        $kategoriDivisi = $request->divisi;
+        if (is_array($kategoriDivisi)) {
+            foreach ($kategoriDivisi as $option) {
+                // Simpan setiap nilai ke dalam tabel database
+                DB::table('kategori_divisi_reviu')
+                    ->update([
+                        'uuid_review_eksternal_reg' => $uuid,
+                        'kategori_divisi_id' => $option,
+                    ]);
+            }
         }
 
         return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu telah diperbarui');

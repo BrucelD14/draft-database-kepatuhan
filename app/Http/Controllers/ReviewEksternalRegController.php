@@ -12,7 +12,7 @@ class ReviewEksternalRegController extends Controller
         return view('reviewEksternalReg.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'active' => 'reviu_peraturan_eksternal',
-            'reg_list' => ReviewEksternalReg::latest()->filter(request(['search']))->paginate(5)->withQueryString()
+            'reg_list' => ReviewEksternalReg::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
         ]);
     }
 }

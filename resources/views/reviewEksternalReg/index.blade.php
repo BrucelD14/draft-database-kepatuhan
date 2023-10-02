@@ -31,7 +31,7 @@
                             <th scope="col">Status</th>
                             <th scope="col">Tentang</th>
                             <th scope="col">Ringkasan</th>
-                            <th scope="col">Divisi/Unit Terkait</th>
+                            {{-- <th scope="col">Divisi/Unit Terkait</th> --}}
                             <th scope="col">Edisi</th>
                             <th scope="col">Dokumen</th>
                         </tr>
@@ -52,7 +52,7 @@
                                 </td>
                                 <td style="text-align:justify">{!! $reg->tentang !!}</td>
                                 <td style="text-align:justify">{!! $reg->ringkasan !!}</td>
-                                <td class="text-center">{{ $reg->divisi }}</td>
+                                {{-- <td class="text-center">{{ $reg->divisi }}</td> --}}
                                 <td class="text-center">{{ $reg->tanggal_penetapan }}</td>
                                 <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
                                         class="btn btn-danger"><i class="bi bi-download"></i></a>
