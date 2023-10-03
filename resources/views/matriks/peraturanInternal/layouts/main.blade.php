@@ -18,18 +18,6 @@
 
     <title>JDIH | {{ $title }}</title>
 </head>
-<style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto);
-
-    body {
-        font-family: Roboto, sans-serif;
-    }
-
-    #chart {
-        max-width: 950px;
-        margin: 35px auto;
-    }
-</style>
 
 <body>
 

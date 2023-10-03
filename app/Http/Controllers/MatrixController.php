@@ -9,7 +9,7 @@ class MatrixController extends Controller
     public function index()
     {
         return view('matriks.index', [
-            'title' => 'Matriks Peraturan'
+            'title' => 'Matriks Peraturan',
         ]);
     }
 }

@@ -19,7 +19,7 @@ class Internal_regulationFactory extends Factory
         return [
             'jenis_peraturan_internal_id' => mt_rand(1, 2),
             'nomor_peraturan' => fake()->bothify('???-###'),
-            'tanggal_penetapan' => fake()->date(),
+            'tanggal_penetapan' => fake()->dateTimeBetween('-5 years', 'now'),
             'tentang' => fake()->paragraph(),
             'keterangan_status' => fake()->paragraph()
         ];
