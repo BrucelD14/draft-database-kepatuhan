@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('review_eksternal_regs', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid')->unique()->nullable();
+            $table->string('uuid')->nullable();
             $table->foreignId('user_id');
             $table->foreignId('jenis_peraturan_eksternal_id');
             $table->string('nomor_peraturan');

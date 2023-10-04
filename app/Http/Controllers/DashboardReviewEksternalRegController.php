@@ -122,12 +122,12 @@ class DashboardReviewEksternalRegController extends Controller
             'tentang' => 'required',
             'ringkasan' => 'required',
             'edisi' => 'required',
-            'dokumen' => 'required|file',
+            'dokumen' => 'file',
         ];
 
         $request->validate($rules);
+        // ddd($request);
 
-        // dd($request);
 
         if ($request->hasFile('dokumen')) {
             $regulation->nomor_peraturan = $request->nomor_peraturan;
@@ -156,12 +156,13 @@ class DashboardReviewEksternalRegController extends Controller
             foreach ($kategoriDivisi as $option) {
                 // Simpan setiap nilai ke dalam tabel database
                 DB::table('kategori_divisi_reviu')
-                    ->update([
+                    ->updateOrInsert([
                         'uuid_review_eksternal_reg' => $uuid,
                         'kategori_divisi_id' => $option,
                     ]);
             }
         }
+
 
         return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu telah diperbarui');
     }
@@ -172,10 +173,14 @@ class DashboardReviewEksternalRegController extends Controller
     public function destroy($id)
     {
         $regulation = ReviewEksternalReg::find($id);
+        $uuid = $regulation->uuid;
         if ($regulation->dokumen) {
             Storage::delete($regulation->dokumen);
         }
         ReviewEksternalReg::destroy($id);
+        DB::table('kategori_divisi_reviu')
+            ->where('uuid_review_eksternal_reg', $uuid)
+            ->delete();
         return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu telah dihapus');
     }
 }
