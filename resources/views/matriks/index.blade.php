@@ -20,9 +20,9 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Matriks Peraturan Eksternal PT INKA (Persero)</h4>
-                    <p class="card-text">Menampilkan jumlah peraturan eksternal tahun 2023</p>
-                    <a href="/peraturan_eksternal" class="btn btn-danger">Selengkapnya</a>
+                    <h4 class="card-title">Matriks Reviu Peraturan Eksternal PT INKA (Persero)</h4>
+                    <p class="card-text">Menampilkan jumlah reviu peraturan eksternal tahun 2023</p>
+                    <a href="/matriks/peraturan_eksternal" class="btn btn-danger">Selengkapnya</a>
                 </div>
             </div>
         </div>

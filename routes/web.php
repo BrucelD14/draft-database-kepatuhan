@@ -10,6 +10,7 @@ use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MatrixController;
+use App\Http\Controllers\MatrixExternalRegulationController;
 use App\Http\Controllers\MatrixInternalRegulationController;
 use App\Http\Controllers\Ministerial_regulationController;
 use App\Http\Controllers\Product_lawController;
@@ -42,6 +43,7 @@ Route::get('/reviu_peraturan_internal', [ReviewInternalregController::class, 'in
 Route::get('/reviu_peraturan_eksternal', [ReviewEksternalRegController::class, 'index'])->middleware('auth');
 Route::get('/matriks', [MatrixController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::class, 'index'])->middleware('auth');
+Route::get('/matriks/peraturan_eksternal', [MatrixExternalRegulationController::class, 'index'])->middleware('auth');
 
 Route::get('/dashboard', function () {
   return view('dashboard.index', [

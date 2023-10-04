@@ -55,6 +55,6 @@ class DatabaseSeeder extends Seeder
         External_regulation::factory(3)->create();
         // Ministerial_regulation::factory(3)->create();
         // Review_internalreg::factory(3)->create();
-        ReviewEksternalReg::factory(3)->create();
+        ReviewEksternalReg::factory(15)->create();
     }
 }
