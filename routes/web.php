@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardExternal_regulationController;
 use App\Http\Controllers\DashboardInternal_regulationController;
+use App\Http\Controllers\DashboardJenisPeraturanInternalController;
 use App\Http\Controllers\DashboardMinisterial_regulationController;
 use App\Http\Controllers\DashboardReview_internalRegController;
 use App\Http\Controllers\DashboardReviewEksternalRegController;
@@ -57,6 +58,7 @@ Route::resource('/dashboard/peraturan_eksternal', DashboardExternal_regulationCo
 Route::resource('/dashboard/peraturan_menteri_bumn', DashboardMinisterial_regulationController::class)->middleware('auth');
 Route::resource('/dashboard/reviu_peraturan_internal', DashboardReview_internalRegController::class)->middleware('auth');
 Route::resource('/dashboard/reviu_peraturan_eksternal', DashboardReviewEksternalRegController::class)->middleware('auth');
+Route::resource('/dashboard/jenis_peraturan_internal', DashboardJenisPeraturanInternalController::class)->middleware('auth');
 
 Route::get('/tambah', function () {
   $reviu = ReviewEksternalReg::find(1);

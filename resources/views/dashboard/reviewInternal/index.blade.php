@@ -14,7 +14,7 @@
     <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah reviu baru</a>
     @if ($regulations->count())
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped">
                 <thead>
                     <tr class="text-center align-middle">
                         <th scope="col">No</th>

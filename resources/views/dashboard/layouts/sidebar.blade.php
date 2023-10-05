@@ -53,19 +53,45 @@
                         Reviu Peraturan Eksternal
                     </a>
                 </li>
-            </ul>
 
-            <hr class="my-3">
+                <hr class="my-3">
 
-            <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                        <i class="bi bi-box-arrow-right d-flex align-items-center"></i>
-                        Logout
+                    <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/jenis_peraturan_internal">
+                        <i class="bi bi-collection-fill"></i>
+                        Jenis Peraturan Internal
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/reviu_peraturan_eksternal">
+                        <i class="bi bi-bank"></i>
+                        Jenis Peraturan Eksternal
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/reviu_peraturan_eksternal">
+                        <i class="bi bi-building-fill"></i>
+                        Kategori Divisi
                     </a>
                 </li>
             </ul>
+
             <hr class="my-3">
+
+            <ul class="nav flex-column mb-auto pb-3">
+                <li class="nav-item">
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit" class="nav-link d-flex align-items-center gap-2"><i
+                                class="bi bi-box-arrow-right"></i>
+                            Logout</button>
+                    </form>
+                </li>
+            </ul>
+            {{-- <hr class="my-3"> --}}
         </div>
     </div>
 </div>
