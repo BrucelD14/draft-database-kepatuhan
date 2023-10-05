@@ -48,9 +48,9 @@
                         <tr>
                     @endforeach
                 </tbody>
-            @else
-                <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
+            </table>
+        </div>
+    @else
+        <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
     @endif
-    </table>
-    </div>
 @endsection

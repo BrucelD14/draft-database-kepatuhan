@@ -4,25 +4,40 @@
         <h1 class="h2">{{ $title }}</h1>
     </div>
 
-    <div class="col-md-8">
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">No</th>
-                        <th scope="col">Jenis Peraturan</th>
-                    </tr>
-                </thead>
+    @if (session()->has('success'))
+        <div class="col-md-8">
 
-                <tbody class="table-group-divider">
-                    @foreach ($jenisPeraturan as $item)
-                        <tr class="align-middle">
-                            <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center">{{ $item->nama }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
         </div>
-    </div>
+    @endif
+
+    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah jenis peraturan</a>
+
+    @if ($jenisPeraturan->count())
+        <div class="col-md-8">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">No</th>
+                            <th scope="col">Jenis Peraturan</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="table-group-divider">
+                        @foreach ($jenisPeraturan as $item)
+                            <tr class="align-middle">
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $item->nama }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @else
+        <p class="text-center fs-4 mt-3">Tidak ada jenis peraturan tersedia! <i class="bi bi-emoji-frown"></i></p>
+    @endif
 @endsection
