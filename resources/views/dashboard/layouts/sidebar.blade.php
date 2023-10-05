@@ -71,8 +71,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/reviu_peraturan_eksternal">
+                    <a class="nav-link {{ Request::is('dashboard/kategori_divisi*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/kategori_divisi">
                         <i class="bi bi-building-fill"></i>
                         Kategori Divisi
                     </a>
