@@ -64,8 +64,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/reviu_peraturan_eksternal">
+                    <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/jenis_peraturan_eksternal">
                         <i class="bi bi-bank"></i>
                         Jenis Peraturan Eksternal
                     </a>
