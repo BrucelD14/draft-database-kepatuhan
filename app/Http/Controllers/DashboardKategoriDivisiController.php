@@ -70,8 +70,9 @@ class DashboardKategoriDivisiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(KategoriDivisi $kategoriDivisi)
+    public function destroy($id)
     {
-        //
+        KategoriDivisi::destroy($id);
+        return redirect('/dashboard/kategori_divisi')->with('success', 'Kategori divisi telah dihapus');
     }
 }
