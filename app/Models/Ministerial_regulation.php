@@ -18,4 +18,9 @@ class Ministerial_regulation extends Model
                 ->orWhere('nomor_peraturan', 'like', '%' . $search . '%');
         });
     }
+
+    public function jenisPeraturanMenteri()
+    {
+        return $this->belongsTo(JenisPeraturanMenteri::class);
+    }
 }

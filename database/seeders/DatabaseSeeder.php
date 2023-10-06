@@ -8,6 +8,7 @@ use App\Models\External_regulation;
 use App\Models\Internal_regulation;
 use App\Models\JenisPeraturanEksternal;
 use App\Models\JenisPeraturanInternal;
+use App\Models\JenisPeraturanMenteri;
 use App\Models\KategoriDivisi;
 use App\Models\Ministerial_regulation;
 use App\Models\Review_internalreg;
@@ -43,6 +44,15 @@ class DatabaseSeeder extends Seeder
         JenisPeraturanEksternal::create([
             'nama' => 'Peraturan Pemerintah'
         ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Peraturan Pemerintah'
+        ]);
+        JenisPeraturanMenteri::create([
+            'nama' => 'Peraturan Menteri'
+        ]);
+        JenisPeraturanMenteri::create([
+            'nama' => 'Keputusan Menteri'
+        ]);
 
         KategoriDivisi::create([
             'nama' => 'Manajemen Risiko dan Hukum'
@@ -53,7 +63,7 @@ class DatabaseSeeder extends Seeder
 
         Internal_regulation::factory(15)->create();
         External_regulation::factory(3)->create();
-        // Ministerial_regulation::factory(3)->create();
+        Ministerial_regulation::factory(5)->create();
         // Review_internalreg::factory(3)->create();
         ReviewEksternalReg::factory(15)->create();
     }
