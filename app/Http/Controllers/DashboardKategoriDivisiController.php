@@ -24,7 +24,10 @@ class DashboardKategoriDivisiController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.kategoriDivisi.create', [
+            'title' => 'Kategori Divisi',
+            'link' => 'kategori_divisi',
+        ]);
     }
 
     /**
@@ -32,7 +35,12 @@ class DashboardKategoriDivisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+        ]);
+
+        KategoriDivisi::create($validatedData);
+        return redirect('/dashboard/kategori_divisi')->with('success', 'Kategori divisi berhasil ditambahkan');
     }
 
     /**
