@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah jenis peraturan</a>
+    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah Jenis Peraturan</a>
 
     @if ($jenisPeraturan->count())
         <div class="col-md-8">
