@@ -72,7 +72,6 @@ class DashboardJenisPeraturanInternalController extends Controller
      */
     public function destroy($id)
     {
-        $jenisPeraturanInternal = JenisPeraturanInternal::find($id);
         JenisPeraturanInternal::destroy($id);
         return redirect('/dashboard/jenis_peraturan_internal')->with('success', 'Jenis peraturan telah dihapus');
     }

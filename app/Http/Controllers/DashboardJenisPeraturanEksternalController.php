@@ -70,8 +70,9 @@ class DashboardJenisPeraturanEksternalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JenisPeraturanEksternal $jenisPeraturanEksternal)
+    public function destroy($id)
     {
-        //
+        JenisPeraturanEksternal::destroy($id);
+        return redirect('/dashboard/jenis_peraturan_eksternal')->with('success', 'Jenis peraturan telah dihapus');
     }
 }
