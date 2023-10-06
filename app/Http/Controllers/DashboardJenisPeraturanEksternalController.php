@@ -24,7 +24,10 @@ class DashboardJenisPeraturanEksternalController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.jenisPeraturanEksternal.create', [
+            'title' => 'Jenis Peraturan Eksternal',
+            'link' => 'jenis_peraturan_eksternal',
+        ]);
     }
 
     /**
@@ -32,7 +35,12 @@ class DashboardJenisPeraturanEksternalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+        ]);
+
+        JenisPeraturanEksternal::create($validatedData);
+        return redirect('/dashboard/jenis_peraturan_eksternal')->with('success', 'Jenis peraturan berhasil ditambahkan');
     }
 
     /**
