@@ -54,17 +54,31 @@ class DashboardKategoriDivisiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(KategoriDivisi $kategoriDivisi)
+    public function edit($id)
     {
-        //
+        return view('dashboard.kategoriDivisi.edit', [
+            'title' => 'Kategori Divisi',
+            'link' => 'kategori_divisi',
+            'kategori' => KategoriDivisi::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, KategoriDivisi $kategoriDivisi)
+    public function update(Request $request, $id)
     {
-        //
+        $kategori = KategoriDivisi::find($id);
+
+        $rules = [
+            'nama' => 'required|max:255',
+        ];
+
+        $validatedData = $request->validate($rules);
+        $kategori->update($validatedData);
+
+
+        return redirect('/dashboard/kategori_divisi')->with('success', 'Kategori divisi telah diperbarui');
     }
 
     /**
