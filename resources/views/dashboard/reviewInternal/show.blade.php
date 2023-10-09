@@ -22,7 +22,8 @@
             <p class="card-text">Ketentuan Peraturan Direksi Eksisting : {{ $regulation->kpde }}</p>
             <p class="card-text">Tentang : {!! $regulation->tentang_peraturan !!}</p>
             <p class="card-text">Status : {!! $regulation->keterangan_status !!}</p>
-            <p class="card-text">Tanggal Direviu : {{ $regulation->created_at }}</p>
+            <p class="card-text">Tanggal Direviu :
+                {{ \Carbon\Carbon::parse($regulation->created_at)->translatedFormat('d F Y') }}</p>
             <p class="card-text">Editor :
                 @if ($regulation->user_id == null)
                     <strong>Tidak ada editor</strong>

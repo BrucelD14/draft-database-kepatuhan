@@ -17,7 +17,8 @@
     <div class="card mt-4">
         <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
         <div class="card-body">
-            <p class="card-text">Tanggal Penetapan : {{ $regulation->tanggal_penetapan }}</p>
+            <p class="card-text">Tanggal Penetapan :
+                {{ \Carbon\Carbon::parse($regulation->tanggal_penetapan)->translatedFormat('d F Y') }}</p>
             <p class="card-text">Jenis Peraturan : {{ $regulation->jenisPeraturanEksternal->nama }}</p>
             <p class="card-text">
                 @if ($regulation->status == 'active')
@@ -34,7 +35,8 @@
                         style="cursor:default">{{ $item->kategoriDivisi->nama }}</button>
                 @endforeach
             </p>
-            <p class="card-text">Edisi : {{ $regulation->edisi }}</p>
+            <p class="card-text">Edisi :
+                {{ \Carbon\Carbon::parse($regulation->edisi)->translatedFormat('F Y') }}</p>
             <p class="card-text">Editor :
                 @if ($regulation->user_id == null)
                     <strong>Tidak ada editor</strong>
@@ -49,7 +51,8 @@
                     <span class="badge bg-secondary">Draft</span>
                 @endif
             </p>
-            <p class="card-text">Dibuat pada : {{ $regulation->created_at }}</p>
+            <p class="card-text">Dibuat pada :
+                {{ \Carbon\Carbon::parse($regulation->created_at)->translatedFormat('d F Y') }}</p>
             <a href="{{ asset('storage/' . $regulation->dokumen) }}" target="_blank" class="btn btn-primary">Download
                 Dokumen</a>
 

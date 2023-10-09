@@ -21,7 +21,8 @@
             <p class="card-text">Jenis Peraturan : {{ $regulation->jenisPeraturanInternal->nama }}</p>
             <p class="card-text">Tentang : {!! $regulation->tentang !!}</p>
             <p class="card-text">Nomor Peraturan : {{ $regulation->nomor_peraturan }}</p>
-            <p class="card-text">Tanggal Penetapan : {{ $regulation->tanggal_penetapan }}</p>
+            <p class="card-text">Tanggal Penetapan :
+                {{ \Carbon\Carbon::parse($regulation->tanggal_penetapan)->translatedFormat('d F Y') }}</p>
             <p class="card-text">
                 @if ($regulation->status == 'active')
                     Status Peraturan : <span class="badge bg-success">{{ 'Berlaku' }}</span>

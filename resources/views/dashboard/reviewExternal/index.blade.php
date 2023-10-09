@@ -30,7 +30,8 @@
                     @foreach ($regulations as $regulation)
                         <tr class="align-middle">
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center">{{ $regulation->created_at }}</td>
+                            <td class="text-center">
+                                {{ \Carbon\Carbon::parse($regulation->created_at)->translatedFormat('d F Y') }}</td>
                             <td class="text-center">{{ $regulation->nomor_peraturan }}</td>
                             <td style="text-align:justify">{!! $regulation->tentang !!}</td>
                             <td class="text-center">
