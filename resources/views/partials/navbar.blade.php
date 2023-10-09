@@ -18,7 +18,7 @@
                         href="/landing">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('produk_hukum', 'peraturan_internal_perusahaan', 'peraturan_eksternal', 'peraturan_menteri_bumn', 'reviu_peraturan_internal') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('produk_hukum*', 'peraturan_internal_perusahaan', 'peraturan_eksternal', 'peraturan_menteri_bumn', 'reviu_peraturan_internal') ? 'active' : '' }}"
                         aria-current="page" href="/produk_hukum">Produk Hukum</a>
                 </li>
                 <li class="nav-item">

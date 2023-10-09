@@ -45,10 +45,10 @@ Route::get('/peraturan_internal_perusahaan', [Internal_regulationController::cla
 Route::get('/peraturan_eksternal', [External_regulationController::class, 'index'])->middleware('auth');
 Route::get('/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index'])->middleware('auth');
 Route::get('/reviu_peraturan_internal', [ReviewInternalregController::class, 'index'])->middleware('auth');
-Route::get('/reviu_peraturan_eksternal', [ReviuPeraturanEksternalController::class, 'index'])->middleware('auth');
 Route::get('/matriks', [MatrixController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_eksternal', [MatrixExternalRegulationController::class, 'index'])->middleware('auth');
+Route::resource('/produk_hukum/reviu_peraturan_eksternal', ReviuPeraturanEksternalController::class)->middleware('auth');
 
 Route::get('/dashboard', function () {
   return view('dashboard.index', [

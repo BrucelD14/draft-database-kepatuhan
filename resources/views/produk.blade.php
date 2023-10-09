@@ -54,7 +54,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Review Peraturan Eksternal</h5>
                     <p class="card-text">Judul Review Terbaru</p>
-                    <a href="/reviu_peraturan_eksternal" class="btn btn-danger">Selengkapnya</a>
+                    <a href="/produk_hukum/reviu_peraturan_eksternal" class="btn btn-danger">Selengkapnya</a>
                 </div>
             </div>
         </div>

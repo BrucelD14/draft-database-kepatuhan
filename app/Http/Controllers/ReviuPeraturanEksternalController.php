@@ -14,7 +14,6 @@ class ReviuPeraturanEksternalController extends Controller
     {
         return view('reviewEksternalReg.index', [
             'title' => 'Reviu Peraturan Eksternal',
-            'active' => 'reviu_peraturan_eksternal',
             'link' => 'reviu_peraturan_eksternal',
             'reg_list' => ReviewEksternalReg::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
         ]);
@@ -45,6 +44,7 @@ class ReviuPeraturanEksternalController extends Controller
             'title' => 'Reviu Peraturan Eksternal',
             'active' => 'reviu_peraturan_eksternal',
             'link' => 'reviu_peraturan_eksternal',
+            'regulation' => ReviewEksternalReg::find($id)
         ]);
     }
 

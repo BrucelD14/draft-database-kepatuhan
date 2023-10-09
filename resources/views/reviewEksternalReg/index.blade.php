@@ -9,7 +9,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="/{{ $active }}" method="get">
+            <form action="/produk_hukum/{{ $link }}" method="get">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Ketik kata kunci" name="search"
                         value="{{ request('search') }}">
@@ -50,8 +50,8 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    <a href="/{{ $link }}/{{ $reg->id }}" class="btn btn-outline-danger m-1"><i
-                                            class="bi bi-eye-fill"></i></a>
+                                    <a href="/produk_hukum/{{ $link }}/{{ $reg->id }}" target="_blank"
+                                        class="btn btn-outline-danger m-1"><i class="bi bi-eye-fill"></i></a>
                                     <a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
                                         class="btn btn-danger m-1"><i class="bi bi-download"></i></a>
                                 </td>
