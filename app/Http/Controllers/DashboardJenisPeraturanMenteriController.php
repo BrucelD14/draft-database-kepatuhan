@@ -24,7 +24,10 @@ class DashboardJenisPeraturanMenteriController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.jenisPeraturanMenteri.create', [
+            'title' => 'Jenis Peraturan Menteri',
+            'link' => 'jenis_peraturan_menteri',
+        ]);
     }
 
     /**
@@ -32,7 +35,12 @@ class DashboardJenisPeraturanMenteriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+        ]);
+
+        JenisPeraturanMenteri::create($validatedData);
+        return redirect('/dashboard/jenis_peraturan_menteri')->with('success', 'Jenis peraturan berhasil ditambahkan');
     }
 
     /**
@@ -46,24 +54,38 @@ class DashboardJenisPeraturanMenteriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(JenisPeraturanMenteri $jenisPeraturanMenteri)
+    public function edit($id)
     {
-        //
+        return view('dashboard.jenisPeraturanMenteri.edit', [
+            'title' => 'Jenis Peraturan Menteri',
+            'link' => 'jenis_peraturan_menteri',
+            'jenisPeraturan' => JenisPeraturanMenteri::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JenisPeraturanMenteri $jenisPeraturanMenteri)
+    public function update(Request $request, $id)
     {
-        //
+        $jenisPeraturan = JenisPeraturanMenteri::find($id);
+
+        $rules = [
+            'nama' => 'required|max:255',
+        ];
+
+        $validatedData = $request->validate($rules);
+        $jenisPeraturan->update($validatedData);
+
+        return redirect('/dashboard/jenis_peraturan_menteri')->with('success', 'Jenis peraturan telah diperbarui');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JenisPeraturanMenteri $jenisPeraturanMenteri)
+    public function destroy($id)
     {
-        //
+        JenisPeraturanMenteri::destroy($id);
+        return redirect('/dashboard/jenis_peraturan_menteri')->with('success', 'Jenis peraturan telah dihapus');
     }
 }

@@ -13,22 +13,22 @@
         </div>
     @endif
 
-    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah Divisi</a>
+    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah Jenis Peraturan</a>
 
-    @if ($kategori->count())
+    @if ($jenisPeraturan->count())
         <div class="col-md-8">
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr class="text-center">
                             <th scope="col">No</th>
-                            <th scope="col">Nama Divisi</th>
+                            <th scope="col">Jenis Peraturan</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
 
                     <tbody class="table-group-divider">
-                        @foreach ($kategori as $item)
+                        @foreach ($jenisPeraturan as $item)
                             <tr class="align-middle">
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">{{ $item->nama }}</td>
@@ -43,7 +43,7 @@
             </div>
         </div>
     @else
-        <p class="text-center fs-4 mt-3">Tidak ada kategori divisi tersedia! <i class="bi bi-emoji-frown"></i></p>
+        <p class="text-center fs-4 mt-3">Tidak ada jenis peraturan tersedia! <i class="bi bi-emoji-frown"></i></p>
     @endif
 
 @endsection
