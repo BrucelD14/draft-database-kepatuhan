@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisPeraturanMenteri;
 use App\Models\Ministerial_regulation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -28,6 +29,7 @@ class DashboardMinisterial_regulationController extends Controller
         return view('dashboard.ministerialRegulation.create', [
             'title' => 'Tambah Peraturan Menteri BUMN',
             'link' => 'peraturan_menteri_bumn',
+            'jenis_peraturan' => JenisPeraturanMenteri::all()
         ]);
     }
 
@@ -40,6 +42,7 @@ class DashboardMinisterial_regulationController extends Controller
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
+            'jenis_peraturan_menteri_id' => 'required',
             'status' => 'required',
             'keterangan_status' => 'nullable',
             'dokumen' => 'required|file',
@@ -59,7 +62,7 @@ class DashboardMinisterial_regulationController extends Controller
         return view('dashboard.ministerialRegulation.show', [
             'title' => 'Detail Peraturan Menteri BUMN',
             'link' => 'peraturan_menteri_bumn',
-            'regulation' => Ministerial_regulation::find($id)
+            'regulation' => Ministerial_regulation::find($id),
         ]);
     }
 
@@ -72,6 +75,7 @@ class DashboardMinisterial_regulationController extends Controller
             'title' => 'Edit Peraturan Menteri BUMN',
             'link' => 'peraturan_menteri_bumn',
             'regulation' => Ministerial_regulation::find($id),
+            'jenis_peraturan' => JenisPeraturanMenteri::all(),
         ]);
     }
 
@@ -86,6 +90,7 @@ class DashboardMinisterial_regulationController extends Controller
             'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
+            'jenis_peraturan_menteri_id' => 'required',
             'status' => 'required',
             'keterangan_status' => 'nullable',
             'dokumen' => 'file',
@@ -97,6 +102,7 @@ class DashboardMinisterial_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
+            $regulation->jenis_peraturan_menteri_id = $request->jenis_peraturan_menteri_id;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
@@ -105,6 +111,7 @@ class DashboardMinisterial_regulationController extends Controller
             $regulation->nomor_peraturan = $request->nomor_peraturan;
             $regulation->tanggal_penetapan = $request->tanggal_penetapan;
             $regulation->tentang = $request->tentang;
+            $regulation->jenis_peraturan_menteri_id = $request->jenis_peraturan_menteri_id;
             $regulation->status = $request->status;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->save();

@@ -36,6 +36,18 @@
                 <trix-editor input="tentang"></trix-editor>
             </div>
             <div class="mb-3">
+                <label for="jenis_peraturan_menteri" class="form-label">Jenis Peraturan</label>
+                <select class="form-select" name="jenis_peraturan_menteri_id">
+                    @foreach ($jenis_peraturan as $jenis)
+                        @if (old('jenis_peraturan_menteri_id') == $jenis->id)
+                            <option value="{{ $jenis->id }}" selected>{{ $jenis->nama }}</option>
+                        @else
+                            <option value="{{ $jenis->id }}">{{ $jenis->nama }}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select class="form-select" name="status">
                     <option value="1">Active</option>

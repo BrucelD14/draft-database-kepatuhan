@@ -17,7 +17,7 @@
     <div class="card mt-4">
         <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
         <div class="card-body">
-            {{-- <h5 class="card-title">Detail Peraturan Internal Perusahaan</h5> --}}
+            <p class="card-text">Jenis Peraturan : {{ $regulation->jenisPeraturanMenteri->nama }}</p>
             <p class="card-text">Tentang : {!! $regulation->tentang !!}</p>
             <p class="card-text">Nomor Peraturan : {{ $regulation->nomor_peraturan }}</p>
             <p class="card-text">Tanggal Penetapan : {{ $regulation->tanggal_penetapan }}</p>
