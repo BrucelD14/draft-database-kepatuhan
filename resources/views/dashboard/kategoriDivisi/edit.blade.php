@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="post" action="/dashboard/{{ $link }}/{{ $kategori->id }}" class="mb-5">
+        <form method="post" action="/dashboard/{{ $link }}/{{ $kategori->id }}" class="">
             @method('put')
             @csrf
             <div class="mb-3">
@@ -20,13 +20,15 @@
             </div>
             <div class="">
                 <button type="submit" class="btn btn-primary my-2 me-2">Edit Divisi</button>
-                <form action="/dashboard/{{ $link }}/{{ $kategori->id }}" method="post" class="d-inline">
-                    @method('delete')
-                    @csrf
-                    <button class="btn btn-danger" onclick="return confirm('yakin mau dihapus?')"><i
-                            class="bi bi-trash3-fill"></i> Hapus</button>
-                </form>
             </div>
         </form>
+        <div class="">
+            <form action="/dashboard/{{ $link }}/{{ $kategori->id }}" method="post" class="d-inline">
+                @method('delete')
+                @csrf
+                <button class="btn btn-danger" onclick="return confirm('yakin mau dihapus?')"><i
+                        class="bi bi-trash3-fill"></i> Hapus</button>
+            </form>
+        </div>
     </div>
 @endsection
