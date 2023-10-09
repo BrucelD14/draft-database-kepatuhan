@@ -28,36 +28,32 @@
                             <th scope="col">No</th>
                             <th scope="col">Tanggal Penetapan</th>
                             <th scope="col">Nomor Peraturan</th>
-                            <th scope="col">Status</th>
                             <th scope="col">Tentang</th>
-                            <th scope="col">Ringkasan</th>
-                            {{-- <th scope="col">Divisi/Unit Terkait</th> --}}
-                            <th scope="col">Edisi</th>
-                            <th scope="col">Dokumen</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
 
                     @foreach ($reg_list as $reg)
                         <tbody>
-                            <tr>
+                            <tr class="align-middle">
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">
                                     {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
                                 <td class="text-center">{{ $reg->nomor_peraturan }}</td>
+                                <td style="text-align:justify">{!! $reg->tentang !!}</td>
                                 <td class="text-center">
                                     @if ($reg->status == 'active')
-                                        {{ 'Berlaku' }}
+                                        <span class="badge bg-success">{{ 'Berlaku' }}</span>
                                     @else
-                                        {{ 'Tidak Berlaku' }}
+                                        <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
                                     @endif
                                 </td>
-                                <td style="text-align:justify">{!! $reg->tentang !!}</td>
-                                <td style="text-align:justify">{!! $reg->ringkasan !!}</td>
-                                {{-- <td class="text-center">{{ $reg->divisi }}</td> --}}
-                                <td class="text-center">{{ \Carbon\Carbon::parse($reg->edisi)->translatedFormat('F Y') }}
-                                </td>
-                                <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
-                                        class="btn btn-danger"><i class="bi bi-download"></i></a>
+                                <td class="text-center">
+                                    <a href="/{{ $link }}/{{ $reg->id }}" class="btn btn-outline-danger m-1"><i
+                                            class="bi bi-eye-fill"></i></a>
+                                    <a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
+                                        class="btn btn-danger m-1"><i class="bi bi-download"></i></a>
                                 </td>
                             </tr>
                             <tr>
