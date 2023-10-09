@@ -71,6 +71,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_menteri*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                        href="/dashboard/jenis_peraturan_menteri">
+                        <i class="bi bi-columns-gap"></i>
+                        Jenis Peraturan Menteri
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ Request::is('dashboard/kategori_divisi*') ? 'active' : '' }} d-flex align-items-center gap-2"
                         href="/dashboard/kategori_divisi">
                         <i class="bi bi-building-fill"></i>
