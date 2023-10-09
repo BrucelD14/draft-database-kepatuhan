@@ -54,17 +54,30 @@ class DashboardJenisPeraturanEksternalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(JenisPeraturanEksternal $jenisPeraturanEksternal)
+    public function edit($id)
     {
-        //
+        return view('dashboard.jenisPeraturanEksternal.edit', [
+            'title' => 'Jenis Peraturan Eksternal',
+            'link' => 'jenis_peraturan_eksternal',
+            'jenisPeraturan' => JenisPeraturanEksternal::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JenisPeraturanEksternal $jenisPeraturanEksternal)
+    public function update(Request $request, $id)
     {
-        //
+        $jenisPeraturan = JenisPeraturanEksternal::find($id);
+
+        $rules = [
+            'nama' => 'required|max:255',
+        ];
+
+        $validatedData = $request->validate($rules);
+        $jenisPeraturan->update($validatedData);
+
+        return redirect('/dashboard/jenis_peraturan_eksternal')->with('success', 'Jenis peraturan telah diperbarui');
     }
 
     /**

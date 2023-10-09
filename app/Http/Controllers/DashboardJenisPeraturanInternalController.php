@@ -54,17 +54,30 @@ class DashboardJenisPeraturanInternalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(JenisPeraturanInternal $jenisPeraturanInternal)
+    public function edit($id)
     {
-        //
+        return view('dashboard.jenisPeraturanInternal.edit', [
+            'title' => 'Jenis Peraturan Internal',
+            'link' => 'jenis_peraturan_internal',
+            'jenisPeraturan' => JenisPeraturanInternal::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JenisPeraturanInternal $jenisPeraturanInternal)
+    public function update(Request $request, $id)
     {
-        //
+        $jenisPeraturan = JenisPeraturanInternal::find($id);
+
+        $rules = [
+            'nama' => 'required|max:255',
+        ];
+
+        $validatedData = $request->validate($rules);
+        $jenisPeraturan->update($validatedData);
+
+        return redirect('/dashboard/jenis_peraturan_internal')->with('success', 'Jenis peraturan telah diperbarui');
     }
 
     /**

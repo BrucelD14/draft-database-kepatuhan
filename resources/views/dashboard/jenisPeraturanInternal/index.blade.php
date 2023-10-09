@@ -33,13 +33,8 @@
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">{{ $item->nama }}</td>
                                 <td class="text-center">
-                                    <form action="/dashboard/{{ $link }}/{{ $item->id }}" method="post"
-                                        class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="btn btn-danger" onclick="return confirm('yakin mau dihapus?')"><i
-                                                class="bi bi-trash3-fill"></i></button>
-                                    </form>
+                                    <a href="/dashboard/{{ $link }}/{{ $item->id }}/edit"
+                                        class="btn btn-warning"><i class="bi bi-pencil-fill"></i> Edit</a>
                                 </td>
                             </tr>
                         @endforeach
