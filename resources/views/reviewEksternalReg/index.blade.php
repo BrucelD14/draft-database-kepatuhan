@@ -25,7 +25,6 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-danger text-center align-middle">
-                            <th scope="col">No</th>
                             <th scope="col">Tanggal Penetapan</th>
                             <th scope="col">Nomor Peraturan</th>
                             <th scope="col">Tentang</th>
@@ -37,7 +36,6 @@
                     @foreach ($reg_list as $reg)
                         <tbody>
                             <tr class="align-middle">
-                                <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">
                                     {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
                                 <td class="text-center">{{ $reg->nomor_peraturan }}</td>
@@ -65,5 +63,7 @@
             </div>
         @endif
     </div>
+
     <div class="">{{ $reg_list->links() }}</div>
+
 @endsection

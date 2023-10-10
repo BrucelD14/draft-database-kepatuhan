@@ -50,30 +50,36 @@
                     <option value="0">Inactive</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label for="tentang" class="form-label">Tentang</label>
+                <textarea type="text" class="form-control @error('tentang') is-invalid @enderror" id="tentang" name="tentang"
+                    required value="{{ old('tentang', $regulation->tentang) }}" placeholder="Masukkan perihal peraturan"></textarea>
                 @error('tentang')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-                <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang', $regulation->tentang) }}">
-                <trix-editor input="tentang"></trix-editor>
-            </div>
-            <div class="mb-3">
-                <label for="ringkasan" class="form-label">Ringkasan</label>
-                <input id="ringkasan" type="hidden" name="ringkasan"
-                    value="{{ old('ringkasan', $regulation->ringkasan) }}">
-                <trix-editor input="ringkasan"></trix-editor>
-            </div>
-            {{-- <div class="mb-3">
-                <label for="divisi" class="form-label">Divisi/Unit Terkait</label>
-                <input type="text" class="form-control @error('divisi') is-invalid @enderror" id="divisi"
-                    name="divisi" required value="{{ old('divisi', $regulation->divisi) }}">
-                @error('divisi')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
+            </div>
+
+            {{-- <div class="mb-3">
+                <label for="ringkasan" class="form-label">Ringkasan</label>
+                <input id="ringkasan" type="hidden" name="ringkasan"
+                    value="{{ old('ringkasan', $regulation->ringkasan) }}">
+                <trix-editor input="ringkasan"></trix-editor>
             </div> --}}
+
+            <div class="mb-3">
+                <label for="ringkasan" class="form-label">Ringkasan</label>
+                <textarea type="text" class="form-control @error('ringkasan') is-invalid @enderror" id="ringkasan" name="ringkasan"
+                    required value="{{ old('ringkasan', $regulation->ringkasan) }}" placeholder="Masukkan ringkasan umum peraturan"></textarea>
+                @error('ringkasan')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <div class="mb-3">
                 <label for="divisi" class="form-label">Divisi/Unit Terkait</label>
                 <select class="form-select" id="multiple-select-field" name="divisi[]"

@@ -9,11 +9,11 @@
 
     <div class="card">
         <div class="card-header">
-            <p class="mb-1">{{ $regulation->nomor_peraturan }}</p>
-            <p class="fs-5 fw-bolder">{!! $regulation->tentang !!}</p>
+            <p class="fs-5 fw-bolder mb-1">{{ $regulation->nomor_peraturan }}</p>
+            <p class="mb-1">{!! $regulation->tentang !!}</p>
         </div>
         <div class="card-body">
-            <div class="row align-items-center">
+            {{-- <div class="row align-items-center">
 
                 <div class="col-md-4">
                     <p>Judul</p>
@@ -53,7 +53,51 @@
                         @endforeach
                     </p>
                 </div>
-            </div>
+            </div> --}}
+
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td>Judul</td>
+                        <td class="d-inline-block">: {!! $regulation->tentang !!}</td>
+                    </tr>
+                    <tr>
+                        <td>Nomor Peraturan</td>
+                        <td>: {{ $regulation->nomor_peraturan }}</td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Peraturan</td>
+                        <td>: {{ $regulation->jenisPeraturanEksternal->nama }}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Penetapan</td>
+                        <td>: {{ \Carbon\Carbon::parse($regulation->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
+                    </tr>
+                    <tr>
+                        <td>Status Penetapan</td>
+                        <td>:
+                            @if ($regulation->status == 'active')
+                                <span class="badge bg-success">{{ 'Berlaku' }}</span>
+                            @else
+                                <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ringkasan Umum</td>
+                        <td>: {!! $regulation->ringkasan !!}</td>
+                    </tr>
+                    <tr>
+                        <td>Divisi/Unit Terkait</td>
+                        <td>:
+                            @foreach ($divisi as $item)
+                                <button class="btn btn-outline-danger"
+                                    style="cursor:default">{{ $item->kategoriDivisi->nama }}</button>
+                            @endforeach
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 @endsection
