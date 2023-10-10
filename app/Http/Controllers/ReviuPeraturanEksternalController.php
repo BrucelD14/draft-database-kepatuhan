@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriDivisiReviu;
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
 
@@ -40,11 +41,13 @@ class ReviuPeraturanEksternalController extends Controller
      */
     public function show($id)
     {
+        $data = ReviewEksternalReg::find($id);
         return view('reviewEksternalReg.show', [
             'title' => 'Reviu Peraturan Eksternal',
             'active' => 'reviu_peraturan_eksternal',
             'link' => 'reviu_peraturan_eksternal',
-            'regulation' => ReviewEksternalReg::find($id)
+            'regulation' => ReviewEksternalReg::find($id),
+            'divisi' => KategoriDivisiReviu::where('uuid_review_eksternal_reg', '=', $data['uuid'])->get()
         ]);
     }
 

@@ -51,7 +51,7 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="/produk_hukum/{{ $link }}/{{ $reg->id }}" target="_blank"
-                                        class="btn btn-outline-danger m-1"><i class="bi bi-eye-fill"></i></a>
+                                        class="btn btn-outline-primary m-1"><i class="bi bi-eye-fill"></i></a>
                                     <a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
                                         class="btn btn-danger m-1"><i class="bi bi-download"></i></a>
                                 </td>
