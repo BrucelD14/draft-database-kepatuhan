@@ -9,8 +9,8 @@
 
     <div class="card">
         <div class="card-header">
-            <p class="fs-5 fw-bolder mb-1">{{ $regulation->nomor_peraturan }}</p>
-            <p class="mb-1">{!! $regulation->tentang !!}</p>
+            <p class="fs-5 fw-semibold mb-1">{{ $regulation->nomor_peraturan }}</p>
+            <p class="fs-5 mb-1 fw-bolder">{!! $regulation->tentang !!}</p>
         </div>
         <div class="card-body">
             {{-- <div class="row align-items-center">
