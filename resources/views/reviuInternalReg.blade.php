@@ -25,7 +25,6 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-danger text-center align-middle">
-                            <th scope="col">No</th>
                             <th scope="col">Ketentuan Peraturan Perundang-undangan</th>
                             <th scope="col">Ketentuan Peraturan Direksi Eksisting</th>
                             <th scope="col">Keterangan</th>
@@ -36,8 +35,7 @@
 
                     @foreach ($reg_list as $reg)
                         <tbody>
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
+                            <tr class="align-middle">
                                 <td class="text-center">{{ $reg->kppp }}</td>
                                 <td class="text-center">{{ $reg->kpde }}</td>
                                 <td style="text-align:justify">{!! $reg->tentang_peraturan !!}</td>

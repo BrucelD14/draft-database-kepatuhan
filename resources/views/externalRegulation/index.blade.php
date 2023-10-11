@@ -23,7 +23,6 @@
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-danger text-center align-middle">
-                        <th scope="col">No</th>
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Tanggal Penetapan</th>
                         <th scope="col">Jenis Peraturan</th>
@@ -36,8 +35,7 @@
 
                 @foreach ($reg_list as $reg)
                     <tbody>
-                        <tr>
-                            <td class="text-center">{{ $loop->iteration }}</td>
+                        <tr class="align-middle">
                             <td class="text-center">{{ $reg->nomor_peraturan }}</td>
                             <td class="text-center">
                                 {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
@@ -45,9 +43,9 @@
                             <td style="text-align:justify">{!! $reg->tentang !!}</td>
                             <td class="text-center">
                                 @if ($reg->status == 'active')
-                                    {{ 'Berlaku' }}
+                                    <span class="badge bg-success">{{ 'Berlaku' }}</span>
                                 @else
-                                    {{ 'Tidak Berlaku' }}
+                                    <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
                                 @endif
                             </td>
                             <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
