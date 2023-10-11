@@ -54,6 +54,18 @@
                     </a>
                 </li>
 
+                <li class="nav-item dropdown-center">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-file-earmark-x-fill d-flex align-items-center"></i> Reviu Peraturan Eksternal
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/dashboard/reviu_peraturan_eksternal">Draft</a></li>
+                        <li><a class="dropdown-item" href="/dashboard/approved_reviu_peraturan_eksternal">Approved</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <hr class="my-3">
 
                 <li class="nav-item">

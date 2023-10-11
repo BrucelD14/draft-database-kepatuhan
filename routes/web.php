@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardApprovedReviewEksternalRegController;
 use App\Http\Controllers\DashboardExternal_regulationController;
 use App\Http\Controllers\DashboardInternal_regulationController;
 use App\Http\Controllers\DashboardJenisPeraturanEksternalController;
@@ -66,10 +67,4 @@ Route::resource('/dashboard/jenis_peraturan_internal', DashboardJenisPeraturanIn
 Route::resource('/dashboard/jenis_peraturan_eksternal', DashboardJenisPeraturanEksternalController::class)->middleware('auth');
 Route::resource('/dashboard/jenis_peraturan_menteri', DashboardJenisPeraturanMenteriController::class)->middleware('auth');
 Route::resource('/dashboard/kategori_divisi', DashboardKategoriDivisiController::class)->middleware('auth');
-
-Route::get('/tambah', function () {
-  $reviu = ReviewEksternalReg::find(1);
-  $divisi = ['1'];
-  $reviu->kategoriDivisi()->attach($divisi);
-  return "Sukses tambah data";
-});
+Route::resource('/dashboard/approved_reviu_peraturan_eksternal', DashboardApprovedReviewEksternalRegController::class)->middleware('auth');
