@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 @section('container')
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
         <h1 class="h2">Approved | {{ $title }}</h1>
     </div>
 
@@ -49,7 +49,7 @@
                     @endforeach
                 </tbody>
             @else
-                <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
+                <p class="text-center fs-4 mt-3">No review found <i class="bi bi-emoji-frown"></i></p>
     @endif
     </table>
     </div>

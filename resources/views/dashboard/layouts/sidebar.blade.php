@@ -61,7 +61,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/dashboard/reviu_peraturan_eksternal">Draft</a></li>
-                        <li><a class="dropdown-item" href="/dashboard/approved_reviu_peraturan_eksternal">Approved</a>
+                        <li><a class="dropdown-item" href="/dashboard/approved_reviu">Approved</a>
                         </li>
                     </ul>
                 </li>

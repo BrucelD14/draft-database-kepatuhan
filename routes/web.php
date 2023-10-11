@@ -67,4 +67,4 @@ Route::resource('/dashboard/jenis_peraturan_internal', DashboardJenisPeraturanIn
 Route::resource('/dashboard/jenis_peraturan_eksternal', DashboardJenisPeraturanEksternalController::class)->middleware('auth');
 Route::resource('/dashboard/jenis_peraturan_menteri', DashboardJenisPeraturanMenteriController::class)->middleware('auth');
 Route::resource('/dashboard/kategori_divisi', DashboardKategoriDivisiController::class)->middleware('auth');
-Route::resource('/dashboard/approved_reviu_peraturan_eksternal', DashboardApprovedReviewEksternalRegController::class)->middleware('auth');
+Route::resource('/dashboard/approved_reviu', DashboardApprovedReviewEksternalRegController::class)->middleware('auth');
