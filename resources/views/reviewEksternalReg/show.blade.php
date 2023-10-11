@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card mb-4">
         <div class="card-header">
             <p class="fs-5 fw-semibold mb-1">{{ $regulation->nomor_peraturan }}</p>
             <p class="fs-5 mb-1 fw-bolder">{!! $regulation->tentang !!}</p>
@@ -98,6 +98,9 @@
                     </tr>
                 </tbody>
             </table>
+            <a href="{{ asset('storage/' . $regulation->dokumen) }}" target="_blank" class="btn btn-primary">Download
+                Dokumen
+            </a>
         </div>
     </div>
 @endsection

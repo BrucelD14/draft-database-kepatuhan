@@ -14,7 +14,7 @@
                 class="bi bi-trash3-fill"></i>
             Hapus</button>
     </form>
-    <div class="card mt-4">
+    <div class="card my-4">
         <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
         <div class="card-body">
             <p class="card-text">Tanggal Penetapan :
