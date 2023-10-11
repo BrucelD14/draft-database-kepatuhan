@@ -21,7 +21,7 @@ class DashboardReviewEksternalRegController extends Controller
         return view('dashboard.reviewExternal.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
-            'regulations' => ReviewEksternalReg::all(),
+            'regulations' => ReviewEksternalReg::where('status_publish', 0)->get(),
         ]);
     }
 
