@@ -55,7 +55,8 @@
                 {{ \Carbon\Carbon::parse($regulation->created_at)->translatedFormat('d F Y') }}</p>
             <a href="{{ asset('storage/' . $regulation->dokumen) }}" target="_blank" class="btn btn-primary">Download
                 Dokumen</a>
-            <a href="" class="btn btn-outline-success ms-2" onclick="return confirm('Apakah anda yakin??')">Approve
+            <a href="/dashboard/{{ $link }}/approve/{{ $regulation->id }}" class="btn btn-outline-success ms-2"
+                onclick="return confirm('Apakah anda yakin??')">Approve
                 Reviu</a>
         </div>
     </div>

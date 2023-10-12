@@ -183,4 +183,13 @@ class DashboardReviewEksternalRegController extends Controller
             ->delete();
         return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu telah dihapus');
     }
+
+    public function approve($id)
+    {
+        $reviu = ReviewEksternalReg::find($id);
+        $reviu->status_publish = 1;
+        $reviu->save();
+
+        return redirect('/dashboard/approved_reviu')->with('success', 'Reviu telah disetujui');
+    }
 }

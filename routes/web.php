@@ -49,6 +49,7 @@ Route::get('/reviu_peraturan_internal', [ReviewInternalregController::class, 'in
 Route::get('/matriks', [MatrixController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_eksternal', [MatrixExternalRegulationController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/reviu_peraturan_eksternal/approve/{id}', [DashboardReviewEksternalRegController::class, 'approve'])->middleware('auth');
 Route::resource('/produk_hukum/reviu_peraturan_eksternal', ReviuPeraturanEksternalController::class)->middleware('auth');
 
 Route::get('/dashboard', function () {
