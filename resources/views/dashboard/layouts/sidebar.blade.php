@@ -46,22 +46,24 @@
                         Reviu Peraturan Internal
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
                         href="/dashboard/reviu_peraturan_eksternal">
                         <i class="bi bi-file-earmark-x-fill d-flex align-items-center"></i>
                         Reviu Peraturan Eksternal
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item dropdown-center">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2 {{ Request::is('dashboard/approved_reviu*', 'dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }}"
+                        href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-file-earmark-x-fill d-flex align-items-center"></i> Reviu Peraturan Eksternal
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/dashboard/reviu_peraturan_eksternal">Draft</a></li>
-                        <li><a class="dropdown-item" href="/dashboard/approved_reviu">Approved</a>
+                        <li><a class="dropdown-item {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }}"
+                                href="/dashboard/reviu_peraturan_eksternal">Draft</a></li>
+                        <li><a class="dropdown-item {{ Request::is('dashboard/approved_reviu*') ? 'active' : '' }}"
+                                href="/dashboard/approved_reviu">Approved</a>
                         </li>
                     </ul>
                 </li>
