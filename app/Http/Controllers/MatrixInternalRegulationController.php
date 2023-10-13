@@ -25,6 +25,7 @@ class MatrixInternalRegulationController extends Controller
             'periode' => $dataTahun,
             'peraturanDireksi' => $dataTotalPeraturanDireksi,
             'suratEdaran' => $dataTotalSuratEdaran,
+            'peraturan' => Internal_regulation::all(),
         ]);
     }
 }

@@ -1,13 +1,24 @@
 @extends('matriks.peraturanInternal.layouts.main')
 
 @section('container')
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-md-10">
             <h2>{{ $title }}</h2>
         </div>
     </div>
     <div class="row py-2">
-        {!! $chart->container() !!}
+        <div class="col-md-2 mb-2 ms-1">
+            <label for="tanggal_penetapan" class="form-label">Pilih Tahun</label>
+            <select class="form-select" name="tanggal_penetapan" id="tanggal_penetapan">
+                @foreach ($periode as $item)
+                    <option value="{{ $item }}">{{ $item }}</option>
+                @endforeach
+
+            </select>
+        </div>
+        <div class="col-lg-12">
+            {!! $chart->container() !!}
+        </div>
     </div>
     <div class="row py-3">
         <table class="table table-bordered">

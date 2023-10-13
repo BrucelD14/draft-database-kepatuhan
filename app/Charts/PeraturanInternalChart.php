@@ -47,9 +47,9 @@ class PeraturanInternalChart
             $dataTotalSuratEdaran[] = $totalSuratEdaran;
         };
         return $this->chart->barChart()
-            ->setTitle('Data Peraturan Internal')
+            ->setTitle('Data Peraturan Internal Tahun ' . $tahun)
             ->setSubtitle('Grafik Bulanan')
-            ->addData('Peraturan Internal', $dataTotalPeraturanDireksi)
+            ->addData('Peraturan Direksi', $dataTotalPeraturanDireksi)
             ->addData('Surat Edaran', $dataTotalSuratEdaran)
             ->setColors(['#BF0000', '#1B1B1B',])
             ->setXAxis($dataBulan);
