@@ -55,7 +55,7 @@
                 </li> --}}
 
                 <li class="nav-item dropdown-center">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2 {{ Request::is('dashboard/approved_reviu*', 'dashboard/reviu_peraturan_eksternal*', 'dashboard/draft_reviu') ? 'active' : '' }}"
+                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2 {{ Request::is('dashboard/approved_reviu*', 'dashboard/reviu_peraturan_eksternal*', 'dashboard/draft_reviu*') ? 'active' : '' }}"
                         href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-file-earmark-x-fill d-flex align-items-center"></i> Reviu Peraturan Eksternal
                     </a>

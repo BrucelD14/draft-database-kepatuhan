@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriDivisiReviu;
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
 
@@ -38,9 +39,15 @@ class DashboardDraftReviewEksternalRegController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ReviewEksternalReg $reviewEksternalReg)
+    public function show($id)
     {
-        //
+        $data = ReviewEksternalReg::find($id);
+        return view('dashboard.DraftReviewExternal.show', [
+            'title' => 'Detail Reviu Peraturan Eksternal',
+            'link' => 'draft_reviu',
+            'regulation' => ReviewEksternalReg::find($id),
+            'divisi' => KategoriDivisiReviu::where('uuid_review_eksternal_reg', '=', $data['uuid'])->get()
+        ]);
     }
 
     /**
@@ -65,5 +72,14 @@ class DashboardDraftReviewEksternalRegController extends Controller
     public function destroy(ReviewEksternalReg $reviewEksternalReg)
     {
         //
+    }
+
+    public function approve($id)
+    {
+        $reviu = ReviewEksternalReg::find($id);
+        $reviu->status_publish = 1;
+        $reviu->save();
+
+        return redirect('/dashboard/approved_reviu')->with('success', 'Reviu telah disetujui');
     }
 }
