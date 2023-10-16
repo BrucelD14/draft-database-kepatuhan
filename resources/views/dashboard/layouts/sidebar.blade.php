@@ -62,8 +62,10 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }}"
                                 href="/dashboard/reviu_peraturan_eksternal">Draft</a></li>
-                        <li><a class="dropdown-item {{ Request::is('dashboard/draft_reviu*') ? 'active' : '' }}"
-                                href="/dashboard/draft_reviu">Draft Reviu</a></li>
+                        @can('reviewer')
+                            <li><a class="dropdown-item {{ Request::is('dashboard/draft_reviu*') ? 'active' : '' }}"
+                                    href="/dashboard/draft_reviu">Draft Reviu</a></li>
+                        @endcan
                         <li><a class="dropdown-item {{ Request::is('dashboard/approved_reviu*') ? 'active' : '' }}"
                                 href="/dashboard/approved_reviu">Approved</a>
                         </li>
