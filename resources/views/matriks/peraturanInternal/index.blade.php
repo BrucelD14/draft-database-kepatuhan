@@ -8,13 +8,15 @@
     </div>
     <div class="row py-2">
         <div class="col-md-2 mb-2 ms-1">
-            <label for="tanggal_penetapan" class="form-label">Pilih Tahun</label>
-            <select class="form-select" name="tanggal_penetapan" id="tanggal_penetapan">
-                @foreach ($periode as $item)
-                    <option value="{{ $item }}">{{ $item }}</option>
-                @endforeach
-
-            </select>
+            <form method="GET" id="search-form">
+                <label for="tanggal_penetapan" class="form-label">Pilih Tahun</label>
+                <select class="form-select" name="tahun" id="tanggal_penetapan">
+                    @foreach ($periode as $item)
+                    <option value="{{ $item }}" @if ($tahun == $item) selected @endif>{{ $item }}</option>
+                    @endforeach
+                    
+                </select>
+            </form>
         </div>
         <div class="col-lg-12">
             {!! $chart->container() !!}

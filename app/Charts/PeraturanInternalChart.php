@@ -16,7 +16,7 @@ class PeraturanInternalChart
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build($tahun): \ArielMejiaDev\LarapexCharts\BarChart
     {
         // ===MATRIKS 5 TAHUNAN===
         // $tahun = date('Y');
@@ -37,7 +37,7 @@ class PeraturanInternalChart
         //     ->setXAxis($dataTahun);
 
         // ===MATRIKS BULANAN===
-        $tahun = date('Y');
+        $tahun = $tahun;
         $bulan = date('m');
         for ($i = 1; $i <= $bulan; $i++) {
             $totalPeraturanDireksi = Internal_regulation::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_internal_id', 1)->count();
