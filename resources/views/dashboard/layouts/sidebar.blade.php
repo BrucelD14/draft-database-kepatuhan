@@ -55,13 +55,15 @@
                 </li> --}}
 
                 <li class="nav-item dropdown-center">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2 {{ Request::is('dashboard/approved_reviu*', 'dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }}"
+                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2 {{ Request::is('dashboard/approved_reviu*', 'dashboard/reviu_peraturan_eksternal*', 'dashboard/draft_reviu') ? 'active' : '' }}"
                         href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-file-earmark-x-fill d-flex align-items-center"></i> Reviu Peraturan Eksternal
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }}"
                                 href="/dashboard/reviu_peraturan_eksternal">Draft</a></li>
+                        <li><a class="dropdown-item {{ Request::is('dashboard/draft_reviu*') ? 'active' : '' }}"
+                                href="/dashboard/draft_reviu">Draft Reviu</a></li>
                         <li><a class="dropdown-item {{ Request::is('dashboard/approved_reviu*') ? 'active' : '' }}"
                                 href="/dashboard/approved_reviu">Approved</a>
                         </li>

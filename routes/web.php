@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardApprovedReviewEksternalRegController;
+use App\Http\Controllers\DashboardDraftReviewEksternalRegController;
 use App\Http\Controllers\DashboardExternal_regulationController;
 use App\Http\Controllers\DashboardInternal_regulationController;
 use App\Http\Controllers\DashboardJenisPeraturanEksternalController;
@@ -69,3 +70,4 @@ Route::resource('/dashboard/jenis_peraturan_eksternal', DashboardJenisPeraturanE
 Route::resource('/dashboard/jenis_peraturan_menteri', DashboardJenisPeraturanMenteriController::class)->middleware('auth');
 Route::resource('/dashboard/kategori_divisi', DashboardKategoriDivisiController::class)->middleware('auth');
 Route::resource('/dashboard/approved_reviu', DashboardApprovedReviewEksternalRegController::class)->middleware('auth');
+Route::resource('/dashboard/draft_reviu', DashboardDraftReviewEksternalRegController::class)->middleware('auth');
