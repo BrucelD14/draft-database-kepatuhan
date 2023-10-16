@@ -8,6 +8,7 @@
         </div>
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
             <ul class="nav flex-column">
+
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }} d-flex align-items-center gap-2 "
                         aria-current="page" href="/dashboard">
@@ -15,37 +16,39 @@
                         Dashboard
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/peraturan_internal">
-                        <i class="bi bi-file-earmark-text d-flex align-items-center"></i>
-                        Peraturan Internal
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/peraturan_eksternal">
-                        <i class="bi bi-file-earmark-x d-flex align-items-center"></i>
-                        Peraturan Eksternal
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/peraturan_menteri_bumn*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/peraturan_menteri_bumn">
-                        <i class="bi bi-file-earmark-minus d-flex align-items-center"></i>
-                        Peraturan Menteri BUMN
-                    </a>
-                </li>
+                @can('editor')
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/peraturan_internal">
+                            <i class="bi bi-file-earmark-text d-flex align-items-center"></i>
+                            Peraturan Internal
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/peraturan_eksternal">
+                            <i class="bi bi-file-earmark-x d-flex align-items-center"></i>
+                            Peraturan Eksternal
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/peraturan_menteri_bumn*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/peraturan_menteri_bumn">
+                            <i class="bi bi-file-earmark-minus d-flex align-items-center"></i>
+                            Peraturan Menteri BUMN
+                        </a>
+                    </li>
 
-                <hr class="my-3">
+                    <hr class="my-3">
 
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/reviu_peraturan_internal">
-                        <i class="bi bi-file-earmark-text-fill d-flex align-items-center"></i>
-                        Reviu Peraturan Internal
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/reviu_peraturan_internal">
+                            <i class="bi bi-file-earmark-text-fill d-flex align-items-center"></i>
+                            Reviu Peraturan Internal
+                        </a>
+                    </li>
+                @endcan
                 {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
                         href="/dashboard/reviu_peraturan_eksternal">
@@ -60,8 +63,10 @@
                         <i class="bi bi-file-earmark-x-fill d-flex align-items-center"></i> Reviu Peraturan Eksternal
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }}"
-                                href="/dashboard/reviu_peraturan_eksternal">Draft</a></li>
+                        @can('editor')
+                            <li><a class="dropdown-item {{ Request::is('dashboard/reviu_peraturan_eksternal*') ? 'active' : '' }}"
+                                    href="/dashboard/reviu_peraturan_eksternal">Draft</a></li>
+                        @endcan
                         @can('reviewer')
                             <li><a class="dropdown-item {{ Request::is('dashboard/draft_reviu*') ? 'active' : '' }}"
                                     href="/dashboard/draft_reviu">Draft Reviu</a></li>
@@ -74,37 +79,39 @@
 
                 <hr class="my-3">
 
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/jenis_peraturan_internal">
-                        <i class="bi bi-collection-fill"></i>
-                        Jenis Peraturan Internal
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/jenis_peraturan_eksternal">
-                        <i class="bi bi-bank"></i>
-                        Jenis Peraturan Eksternal
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_menteri*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/jenis_peraturan_menteri">
-                        <i class="bi bi-columns-gap"></i>
-                        Jenis Peraturan Menteri
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/kategori_divisi*') ? 'active' : '' }} d-flex align-items-center gap-2"
-                        href="/dashboard/kategori_divisi">
-                        <i class="bi bi-building-fill"></i>
-                        Kategori Divisi
-                    </a>
-                </li>
-            </ul>
+                @can('editor')
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_internal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/jenis_peraturan_internal">
+                            <i class="bi bi-collection-fill"></i>
+                            Jenis Peraturan Internal
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_eksternal*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/jenis_peraturan_eksternal">
+                            <i class="bi bi-bank"></i>
+                            Jenis Peraturan Eksternal
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/jenis_peraturan_menteri*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/jenis_peraturan_menteri">
+                            <i class="bi bi-columns-gap"></i>
+                            Jenis Peraturan Menteri
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/kategori_divisi*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/kategori_divisi">
+                            <i class="bi bi-building-fill"></i>
+                            Kategori Divisi
+                        </a>
+                    </li>
+                </ul>
 
-            <hr class="my-3">
+                <hr class="my-3">
+            @endcan
 
             <ul class="nav flex-column mb-auto pb-3">
                 <li class="nav-item">
