@@ -6,6 +6,12 @@
 
     <a href="/dashboard/{{ $link }}" class="btn btn-outline-secondary btn-sm"><i
             class="bi bi-arrow-left-circle-fill"></i> Kembali</a>
+    <a href="#" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+            class="bi bi-sticky-fill"></i> Add Note</a>
+
+    {{-- MODAL ADD NOTE --}}
+    @include('dashboard.DraftReviewExternal.layouts.modalAddNote')
+    {{-- END MODAL ADD NOTE --}}
 
     <div class="card my-4">
         <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
