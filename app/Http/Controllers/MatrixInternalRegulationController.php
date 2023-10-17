@@ -25,6 +25,8 @@ class MatrixInternalRegulationController extends Controller
             $dataTotalPeraturanDireksi[] = $totalPeraturanDireksi;
             $dataTotalSuratEdaran[] = $totalSuratEdaran;
         };
+        // dd($chart->build());
+        // dd($tahun);
         return view('matriks.peraturanInternal.index', [
             'title' => 'Matriks Peraturan Internal',
             'chart' => $chart->build($tahun),
