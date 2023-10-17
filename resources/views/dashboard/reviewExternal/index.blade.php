@@ -22,6 +22,7 @@
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Perihal</th>
                         <th scope="col">Status Publish</th>
+                        <th scope="col">Note</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -40,6 +41,20 @@
                                 @else
                                     <span class="badge bg-secondary">Draft</span>
                                 @endif
+                            </td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-success position-relative" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">
+                                    Inbox
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
+                                        99+
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                </button>
+                                {{-- MODAL PESAN --}}
+                                @include('dashboard.reviewExternal.layouts.modal')
+                                {{-- END MODAL PESAN --}}
                             </td>
                             <td class="text-center">
                                 <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i
@@ -64,4 +79,5 @@
     @endif
     </table>
     </div>
+
 @endsection
