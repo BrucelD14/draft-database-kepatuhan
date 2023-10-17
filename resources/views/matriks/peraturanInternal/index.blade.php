@@ -7,15 +7,17 @@
         </div>
     </div>
     <div class="row py-2">
-        <div class="col-md-2 mb-2 ms-1">
+        <div class="col-md-3 mb-2 ms-1">
             <form method="GET" id="search-form">
                 <label for="tanggal_penetapan" class="form-label">Pilih Tahun</label>
-                <select class="form-select" name="tahun" id="tanggal_penetapan">
-                    @foreach ($periode as $item)
-                    <option value="{{ $item }}" @if ($tahun == $item) selected @endif>{{ $item }}</option>
-                    @endforeach
-                    
-                </select>
+                <div class="d-flex align-items-center">
+                    <select class="form-select" name="tahun" id="tanggal_penetapan">
+                        @foreach ($periode as $item)
+                        <option value="{{ $item }}" @if ($tahun == $item) selected @endif>{{ $item }}</option>
+                        @endforeach
+                    </select>
+                    <a href="/matriks/peraturan_internal" class="btn btn-danger ms-2">Reset</a>
+                </div>
             </form>
         </div>
         <div class="col-lg-12">

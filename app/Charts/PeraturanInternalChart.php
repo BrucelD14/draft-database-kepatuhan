@@ -42,7 +42,11 @@ class PeraturanInternalChart
         for ($i = 1; $i <= $bulan; $i++) {
             $totalPeraturanDireksi = Internal_regulation::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_internal_id', 1)->count();
             $totalSuratEdaran = Internal_regulation::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_internal_id', 2)->count();
-            $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
+            if($tahun == date('Y')){
+                $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
+            }else{
+                $dataBulan[] = Carbon::create()->month(12)->translatedFormat('F');
+            }
             $dataTotalPeraturanDireksi[] = $totalPeraturanDireksi;
             $dataTotalSuratEdaran[] = $totalSuratEdaran;
         };
