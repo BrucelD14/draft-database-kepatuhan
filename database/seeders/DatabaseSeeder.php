@@ -29,6 +29,19 @@ class DatabaseSeeder extends Seeder
             'name' => 'Brucel Duta',
             'nip' => '12345',
             'password' => bcrypt('password'),
+            'role' => 'editor'
+        ]);
+        User::create([
+            'name' => 'Violita Zahrah',
+            'nip' => '67890',
+            'password' => bcrypt('password'),
+            'role' => 'reviewer'
+        ]);
+        User::create([
+            'name' => 'Fajar Chan',
+            'nip' => '54321',
+            'password' => bcrypt('password'),
+            'role' => 'reader'
         ]);
 
         JenisPeraturanInternal::create([
@@ -61,10 +74,10 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Riset dan Pengembangan'
         ]);
 
-        // Internal_regulation::factory(15)->create();
-        // External_regulation::factory(3)->create();
-        // Ministerial_regulation::factory(5)->create();
-        // Review_internalreg::factory(3)->create();
-        // ReviewEksternalReg::factory(15)->create();
+        Internal_regulation::factory(5)->create();
+        External_regulation::factory(3)->create();
+        Ministerial_regulation::factory(5)->create();
+        Review_internalreg::factory(3)->create();
+        ReviewEksternalReg::factory(5)->create();
     }
 }

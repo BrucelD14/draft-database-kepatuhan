@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardApprovedReviewEksternalRegController;
+use App\Http\Controllers\DashboardDraftReviewEksternalRegController;
 use App\Http\Controllers\DashboardExternal_regulationController;
 use App\Http\Controllers\DashboardInternal_regulationController;
 use App\Http\Controllers\DashboardJenisPeraturanEksternalController;
@@ -49,23 +50,24 @@ Route::get('/reviu_peraturan_internal', [ReviewInternalregController::class, 'in
 Route::get('/matriks', [MatrixController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_eksternal', [MatrixExternalRegulationController::class, 'index'])->middleware('auth');
-Route::get('/dashboard/reviu_peraturan_eksternal/approve/{id}', [DashboardReviewEksternalRegController::class, 'approve'])->middleware('auth');
+Route::get('/dashboard/draft_reviu/approve/{id}', [DashboardDraftReviewEksternalRegController::class, 'approve'])->middleware('auth');
 Route::resource('/produk_hukum/reviu_peraturan_eksternal', ReviuPeraturanEksternalController::class)->middleware('auth');
 
 Route::get('/dashboard', function () {
   return view('dashboard.index', [
     'title' => 'Dashboard'
   ]);
-})->middleware('auth');
+})->middleware('not_reader');
 
 // Route::get('dashboard/peraturan_internal/checkSlug', [DashboardInternal_regulationController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/peraturan_internal', DashboardInternal_regulationController::class)->middleware('auth');
-Route::resource('/dashboard/peraturan_eksternal', DashboardExternal_regulationController::class)->middleware('auth');
-Route::resource('/dashboard/peraturan_menteri_bumn', DashboardMinisterial_regulationController::class)->middleware('auth');
-Route::resource('/dashboard/reviu_peraturan_internal', DashboardReview_internalRegController::class)->middleware('auth');
-Route::resource('/dashboard/reviu_peraturan_eksternal', DashboardReviewEksternalRegController::class)->middleware('auth');
-Route::resource('/dashboard/jenis_peraturan_internal', DashboardJenisPeraturanInternalController::class)->middleware('auth');
-Route::resource('/dashboard/jenis_peraturan_eksternal', DashboardJenisPeraturanEksternalController::class)->middleware('auth');
-Route::resource('/dashboard/jenis_peraturan_menteri', DashboardJenisPeraturanMenteriController::class)->middleware('auth');
-Route::resource('/dashboard/kategori_divisi', DashboardKategoriDivisiController::class)->middleware('auth');
-Route::resource('/dashboard/approved_reviu', DashboardApprovedReviewEksternalRegController::class)->middleware('auth');
+Route::resource('/dashboard/peraturan_internal', DashboardInternal_regulationController::class)->middleware('is_editor');
+Route::resource('/dashboard/peraturan_eksternal', DashboardExternal_regulationController::class)->middleware('is_editor');
+Route::resource('/dashboard/peraturan_menteri_bumn', DashboardMinisterial_regulationController::class)->middleware('is_editor');
+Route::resource('/dashboard/reviu_peraturan_internal', DashboardReview_internalRegController::class)->middleware('is_editor');
+Route::resource('/dashboard/reviu_peraturan_eksternal', DashboardReviewEksternalRegController::class)->middleware('is_editor');
+Route::resource('/dashboard/jenis_peraturan_internal', DashboardJenisPeraturanInternalController::class)->middleware('is_editor');
+Route::resource('/dashboard/jenis_peraturan_eksternal', DashboardJenisPeraturanEksternalController::class)->middleware('is_editor');
+Route::resource('/dashboard/jenis_peraturan_menteri', DashboardJenisPeraturanMenteriController::class)->middleware('is_editor');
+Route::resource('/dashboard/kategori_divisi', DashboardKategoriDivisiController::class)->middleware('is_editor');
+Route::resource('/dashboard/approved_reviu', DashboardApprovedReviewEksternalRegController::class)->except('create', 'store', 'edit', 'update', 'destroy')->middleware('is_editor', 'is_reviewer');
+Route::resource('/dashboard/draft_reviu', DashboardDraftReviewEksternalRegController::class)->except('create', 'store', 'edit', 'update', 'destroy')->middleware('is_reviewer');

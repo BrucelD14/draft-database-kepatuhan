@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('nip')->unique();
             $table->string('password');
+            $table->enum('role', ['editor', 'reviewer', 'reader'])->default('reader');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -13,10 +13,11 @@
                 <div class="d-flex align-items-center">
                     <select class="form-select" name="tahun" id="tanggal_penetapan">
                         @foreach ($periode as $item)
-                        <option value="{{ $item }}" @if ($tahun == $item) selected @endif>{{ $item }}</option>
+                            <option value="{{ $item }}" @if ($tahun == $item) selected @endif>
+                                {{ $item }}</option>
                         @endforeach
                     </select>
-                    <a href="/matriks/peraturan_internal" class="btn btn-danger ms-2">Reset</a>
+                    <a href="/matriks/peraturan_internal" class="btn btn-outline-danger ms-2">Reset</a>
                 </div>
             </form>
         </div>

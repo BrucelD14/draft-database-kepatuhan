@@ -10,10 +10,11 @@ class MatrixInternalRegulationController extends Controller
 {
     public function index(PeraturanInternalChart $chart, Request $request)
     {
+        // $tahun = date('Y');
         $year = $request->query('tahun');
         if (empty($year)) {
             $tahun = date('Y');
-        }else{
+        } else {
             $tahun = $year;
         }
         $periode = $tahun - 4;

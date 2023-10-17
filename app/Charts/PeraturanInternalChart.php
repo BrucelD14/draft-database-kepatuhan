@@ -38,14 +38,18 @@ class PeraturanInternalChart
 
         // ===MATRIKS BULANAN===
         $tahun = $tahun;
-        $bulan = date('m');
+        if ($tahun == date('Y')) {
+            $bulan = date('m');
+        } else {
+            $bulan = date('m') + 2;
+        }
         for ($i = 1; $i <= $bulan; $i++) {
             $totalPeraturanDireksi = Internal_regulation::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_internal_id', 1)->count();
             $totalSuratEdaran = Internal_regulation::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_internal_id', 2)->count();
-            if($tahun == date('Y')){
+            if ($tahun == date('Y')) {
                 $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
-            }else{
-                $dataBulan[] = Carbon::create()->month(12)->translatedFormat('F');
+            } else {
+                $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
             }
             $dataTotalPeraturanDireksi[] = $totalPeraturanDireksi;
             $dataTotalSuratEdaran[] = $totalSuratEdaran;
