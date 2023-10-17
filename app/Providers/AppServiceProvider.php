@@ -34,5 +34,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('editor', function (User $user) {
             return $user->role === 'editor';
         });
+
+        Gate::define('not_reader', function (User $user) {
+            return $user->role === 'editor' || 'reviewer';
+        });
     }
 }

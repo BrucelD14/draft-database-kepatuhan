@@ -34,7 +34,7 @@
                             Welcome back, {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            @can('editor', 'reviewer')
+                            @can('not_reader')
                                 <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i>
                                         My Dashboard</a></li>
                                 <li>
