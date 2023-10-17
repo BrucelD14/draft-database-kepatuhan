@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 
 class MatrixExternalRegulationController extends Controller
 {
-    public function index(PeraturanEksternalChart $chart)
+    public function index(PeraturanEksternalChart $chart, Request $request)
     {
-        $tahun = date('Y');
+        // $tahun = date('Y');
+        $year = $request->query('tahun');
+        if (empty($year)) {
+            $tahun = date('Y');
+        } else {
+            $tahun = $year;
+        }
         $periode = $tahun - 4;
         for ($i = $periode; $i <= $tahun; $i++) {
             $totalUndangUndang = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 1)->count();
@@ -21,10 +27,11 @@ class MatrixExternalRegulationController extends Controller
         };
         return view('matriks.peraturanEksternal.index', [
             'title' => 'Matriks Reviu Peraturan Eksternal',
-            'chart' => $chart->build(),
+            'chart' => $chart->build($tahun),
             'periode' => $dataTahun,
             'undangUndang' => $dataTotalUndangUndang,
             'peraturanPemerintah' => $dataTotalPeraturanPemerintah,
+            'tahun' => $tahun
         ]);
     }
 }
