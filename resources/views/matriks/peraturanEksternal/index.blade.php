@@ -7,7 +7,23 @@
         </div>
     </div>
     <div class="row py-2">
-        {!! $chart->container() !!}
+        <div class="col-md-3 mb-2 ms-1">
+            <form method="GET" id="search-form">
+                <label for="tanggal_penetapan" class="form-label">Pilih Tahun</label>
+                <div class="d-flex align-items-center">
+                    <select class="form-select" name="tahun" id="tanggal_penetapan">
+                        @foreach ($periode as $item)
+                            <option value="{{ $item }}" @if ($tahun == $item) selected @endif>
+                                {{ $item }}</option>
+                        @endforeach
+                    </select>
+                    <a href="/matriks/peraturan_eksternal" class="btn btn-outline-danger ms-2">Reset</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-12">
+            {!! $chart->container() !!}
+        </div>
     </div>
     <div class="row py-3">
         <table class="table table-bordered">

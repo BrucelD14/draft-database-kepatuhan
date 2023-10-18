@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('catatan_revius', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('nip')->unique();
-            $table->string('password');
-            $table->enum('role', ['editor', 'reviewer', 'reader'])->default('reader');
-            $table->rememberToken();
+            $table->foreignId('reviu_peraturan_eksternal_id');
+            $table->foreignId('user_id');
+            $table->text('pesan_catatan');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('catatan_revius');
     }
 };

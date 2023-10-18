@@ -15,7 +15,7 @@ class PeraturanEksternalChart
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build($tahun): \ArielMejiaDev\LarapexCharts\BarChart
     {
 
         // ====MATRIKS 5 TAHUNAN====
@@ -37,12 +37,20 @@ class PeraturanEksternalChart
         //     ->setXAxis($dataTahun);
 
         // ===MATRIKS BULANAN===
-        $tahun = date('Y');
-        $bulan = date('m');
+        $tahun = $tahun;
+        if ($tahun == date('Y')) {
+            $bulan = date('m');
+        } else {
+            $bulan = date('m') + 2;
+        }
         for ($i = 1; $i <= $bulan; $i++) {
             $totalUndangUndang = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 1)->count();
             $totalPeraturanPemerintah = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 2)->count();
-            $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
+            if ($tahun == date('Y')) {
+                $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
+            } else {
+                $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
+            }
             $dataTotalUndangUndang[] = $totalUndangUndang;
             $dataTotalPeraturanPemerintah[] = $totalPeraturanPemerintah;
         };
