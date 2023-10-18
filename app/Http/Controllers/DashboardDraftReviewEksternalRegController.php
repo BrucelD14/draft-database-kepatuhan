@@ -19,6 +19,7 @@ class DashboardDraftReviewEksternalRegController extends Controller
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'draft_reviu',
             'regulations' => ReviewEksternalReg::where('status_publish', 0)->get(),
+
         ]);
     }
 
