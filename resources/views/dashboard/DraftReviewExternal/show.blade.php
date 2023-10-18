@@ -4,6 +4,12 @@
         <h1 class="h2">{{ $title }}</h1>
     </div>
 
+    @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <a href="/dashboard/{{ $link }}" class="btn btn-outline-secondary btn-sm"><i
             class="bi bi-arrow-left-circle-fill"></i> Kembali</a>
     <a href="#" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i

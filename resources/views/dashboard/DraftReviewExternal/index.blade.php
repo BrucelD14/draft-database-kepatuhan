@@ -5,12 +5,6 @@
         <h1 class="h2">Draft | {{ $title }}</h1>
     </div>
 
-    @if (session()->has('success'))
-        <div class="alert alert-success" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
-
     @if ($regulations->count())
         <div class="table-responsive">
             <table class="table table-striped">

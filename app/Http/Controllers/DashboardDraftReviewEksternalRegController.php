@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\KategoriDivisiReviu;
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
+use App\Models\CatatanReviu;
+
 
 class DashboardDraftReviewEksternalRegController extends Controller
 {
@@ -81,5 +83,22 @@ class DashboardDraftReviewEksternalRegController extends Controller
         $reviu->save();
 
         return redirect('/dashboard/approved_reviu')->with('success', 'Reviu telah disetujui');
+    }
+
+    public function addNote(Request $request, $id)
+    {
+        $reviu = ReviewEksternalReg::find($id);
+
+        $validatedData = $request->validate([
+            'pesan_catatan' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['reviu_peraturan_eksternal_id'] = $reviu->id;
+
+        // dd($validatedData);
+
+        CatatanReviu::create($validatedData);
+        return redirect("/dashboard/draft_reviu/$reviu->id")->with('success', 'Catatan berhasil ditambahkan');
     }
 }
