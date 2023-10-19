@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\CatatanReviu;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ReviewEksternalReg extends Model
 {
@@ -27,6 +29,11 @@ class ReviewEksternalReg extends Model
     public function jenisPeraturanEksternal()
     {
         return $this->belongsTo(JenisPeraturanEksternal::class);
+    }
+
+    public function CatatanReviu(): HasMany
+    {
+        return $this->hasMany(CatatanReviu::class, 'reviu_peraturan_eksternal_id');
     }
 
     // public function kategoriDivisi()
