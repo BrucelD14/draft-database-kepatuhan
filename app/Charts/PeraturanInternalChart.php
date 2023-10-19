@@ -41,7 +41,7 @@ class PeraturanInternalChart
         if ($tahun == date('Y')) {
             $bulan = date('m');
         } else {
-            $bulan = date('m') + 2;
+            $bulan = date('m') + (12 - date('m'));
         }
         for ($i = 1; $i <= $bulan; $i++) {
             $totalPeraturanDireksi = Internal_regulation::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_internal_id', 1)->count();

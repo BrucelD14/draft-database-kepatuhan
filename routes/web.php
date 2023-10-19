@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardApprovedReviewEksternalRegController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardDraftReviewEksternalRegController;
 use App\Http\Controllers\DashboardExternal_regulationController;
 use App\Http\Controllers\DashboardInternal_regulationController;
@@ -52,11 +53,7 @@ Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::c
 Route::get('/matriks/peraturan_eksternal', [MatrixExternalRegulationController::class, 'index'])->middleware('auth');
 Route::resource('/produk_hukum/reviu_peraturan_eksternal', ReviuPeraturanEksternalController::class)->middleware('auth');
 
-Route::get('/dashboard', function () {
-  return view('dashboard.index', [
-    'title' => 'Dashboard'
-  ]);
-})->middleware('not_reader');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('not_reader');
 
 // Route::get('dashboard/peraturan_internal/checkSlug', [DashboardInternal_regulationController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/peraturan_internal', DashboardInternal_regulationController::class)->middleware('is_editor');
