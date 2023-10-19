@@ -1,17 +1,10 @@
 @extends('dashboard.layouts.main')
 @section('container')
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
         <h1 class="h2">Draft | {{ $title }}</h1>
     </div>
 
-    @if (session()->has('success'))
-        <div class="alert alert-success" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah Reviu</a>
     @if ($regulations->count())
         <div class="table-responsive">
             <table class="table table-striped">
@@ -44,31 +37,47 @@
                             </td>
                             <td class="text-center">
                                 <button type="button" class="btn btn-success position-relative" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">
+                                    data-bs-target="#staticBackdrop{{ $regulation->id }}">
                                     Inbox
                                     <span
                                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
-                                        99+
-                                        <span class="visually-hidden">unread messages</span>
+                                        {{ $regulation->CatatanReviu->count() }}
                                     </span>
                                 </button>
                                 {{-- MODAL PESAN --}}
-                                @include('dashboard.reviewExternal.layouts.modal')
+                                {{-- @include('dashboard.DraftReviewExternal.layouts.modal') --}}
+                                <div class="modal fade" id="staticBackdrop{{ $regulation->id }}" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-4" id="staticBackdropLabel">Catatan Reviu</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            @if ($regulation->CatatanReviu->count())
+                                                @foreach ($regulation->CatatanReviu as $item)
+                                                    <div class="modal-body text-start">
+                                                        <p class="mb-1 fw-bolder">{{ $item->user->name }}</p>
+                                                        <p class="mb-0">{{ $item->pesan_catatan }}</p>
+                                                        <p class="mb-0 opacity-75" style="font-size:12px;">
+                                                            {{ $item->created_at->diffForHumans() }}</p>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <p class="mt-1 fw-semibold">Tidak ada catatan reviu!</p>
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {{-- END MODAL PESAN --}}
                             </td>
                             <td class="text-center">
-                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i
-                                        class="bi bi-eye-fill"></i></a>
-                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}/edit"
-                                    class="badge bg-warning"><i class="bi bi-pencil-fill"></i></a>
-                                <form action="/dashboard/{{ $link }}/{{ $regulation->id }}" method="post"
-                                    class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="badge bg-danger border-0"
-                                        onclick="return confirm('yakin mau dihapus?')"><i
-                                            class="bi bi-trash3-fill"></i></button>
-                                </form>
+                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}"
+                                    class="btn btn-outline-primary"><i class="bi bi-eye-fill"></i> Detail</a>
                             </td>
                         </tr>
                         <tr>
@@ -79,5 +88,4 @@
     @endif
     </table>
     </div>
-
 @endsection
