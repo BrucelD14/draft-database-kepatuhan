@@ -69,6 +69,6 @@ Route::resource('/dashboard/jenis_peraturan_eksternal', DashboardJenisPeraturanE
 Route::resource('/dashboard/jenis_peraturan_menteri', DashboardJenisPeraturanMenteriController::class)->middleware('is_editor');
 Route::resource('/dashboard/kategori_divisi', DashboardKategoriDivisiController::class)->middleware('is_editor');
 Route::resource('/dashboard/approved_reviu', DashboardApprovedReviewEksternalRegController::class)->except('create', 'store', 'edit', 'update', 'destroy')->middleware('not_reader');
-Route::resource('/dashboard/draft_reviu', DashboardDraftReviewEksternalRegController::class)->except('edit', 'update', 'destroy')->middleware('is_reviewer');
+Route::resource('/dashboard/draft_reviu', DashboardDraftReviewEksternalRegController::class);
 Route::get('/dashboard/draft_reviu/approve/{id}', [DashboardDraftReviewEksternalRegController::class, 'approve'])->middleware('auth');
 Route::post('/dashboard/tambah_catatan/{id}', [DashboardDraftReviewEksternalRegController::class, 'addNote']);
