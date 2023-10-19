@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index(DashboardChart $chart)
     {
-        return view('dashboard.index', [
+        return view('dashboard.dashboardUtama.index', [
             'title' => 'Dashboard',
             'chart' => $chart->build(),
         ]);

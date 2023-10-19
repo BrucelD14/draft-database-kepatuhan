@@ -102,6 +102,9 @@
             closeOnSelect: false,
         });
     </script>
+    <script src="{{ $chart->cdn() }}"></script>
+
+    {{ $chart->script() }}
 </body>
 
 </html>
