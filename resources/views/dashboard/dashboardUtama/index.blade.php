@@ -14,7 +14,7 @@
                             <i class="bi bi-file-earmark-text d-flex align-items-center"></i>
                         </div>
                     </div>
-                    <p class="card-text mt-2 fs-1 fw-bold">21</p>
+                    <p class="card-text mt-2 fs-1 fw-bold">{{ $sumInternal }}</p>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                             <i class="bi bi-file-earmark-x d-flex align-items-center"></i>
                         </div>
                     </div>
-                    <p class="card-text mt-2 fs-1 fw-bold">21</p>
+                    <p class="card-text mt-2 fs-1 fw-bold">{{ $sumExternal }}</p>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                             <i class="bi bi-file-earmark-minus d-flex align-items-center"></i>
                         </div>
                     </div>
-                    <p class="card-text mt-2 fs-1 fw-bold">21</p>
+                    <p class="card-text mt-2 fs-1 fw-bold">{{ $sumMinisterial }}</p>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                             <i class="bi bi-file-earmark-text-fill d-flex align-items-center"></i>
                         </div>
                     </div>
-                    <p class="card-text mt-2 fs-1 fw-bold">21</p>
+                    <p class="card-text mt-2 fs-1 fw-bold">{{ $sumReviewInternal }}</p>
                 </div>
             </div>
         </div>
@@ -69,8 +69,8 @@
                             <i class="bi bi-file-earmark-x-fill d-flex align-items-center"></i>
                         </div>
                     </div>
-                    <p class="card-text mt-2 fs-1 fw-bold mb-0">21</p>
-                    <p class="m-0 fs-6 opacity-75">17 Approved</p>
+                    <p class="card-text mt-2 fs-1 fw-bold mb-0">{{ $sumReviewExternal }}</p>
+                    <p class="m-0 fs-6 opacity-75">{{ $sumReviewExternalApproved }} Approved</p>
                 </div>
             </div>
         </div>
