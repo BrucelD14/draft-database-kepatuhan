@@ -19,8 +19,8 @@ class MatrixExternalRegulationController extends Controller
         }
         $periode = $tahun - 4;
         for ($i = $periode; $i <= $tahun; $i++) {
-            $totalUndangUndang = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 1)->count();
-            $totalPeraturanPemerintah = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 2)->count();
+            $totalUndangUndang = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 1)->where('status_publish', 1)->count();
+            $totalPeraturanPemerintah = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 2)->where('status_publish', 1)->count();
             $dataTahun[] = $i;
             $dataTotalUndangUndang[] = $totalUndangUndang;
             $dataTotalPeraturanPemerintah[] = $totalPeraturanPemerintah;
