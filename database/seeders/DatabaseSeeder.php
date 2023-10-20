@@ -57,9 +57,6 @@ class DatabaseSeeder extends Seeder
         JenisPeraturanEksternal::create([
             'nama' => 'Peraturan Pemerintah'
         ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Pemerintah'
-        ]);
         JenisPeraturanMenteri::create([
             'nama' => 'Peraturan Menteri'
         ]);
@@ -74,10 +71,10 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Riset dan Pengembangan'
         ]);
 
-        Internal_regulation::factory(5)->create();
-        External_regulation::factory(3)->create();
-        Ministerial_regulation::factory(5)->create();
-        Review_internalreg::factory(3)->create();
-        ReviewEksternalReg::factory(5)->create();
+        // Internal_regulation::factory(5)->create();
+        // External_regulation::factory(3)->create();
+        // Ministerial_regulation::factory(5)->create();
+        // Review_internalreg::factory(3)->create();
+        // ReviewEksternalReg::factory(5)->create();
     }
 }

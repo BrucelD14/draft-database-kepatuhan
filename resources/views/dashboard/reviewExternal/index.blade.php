@@ -5,6 +5,7 @@
         <h1 class="h2">Draft | {{ $title }}</h1>
     </div>
 
+    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah Reviu</a>
     @if ($regulations->count())
         <div class="table-responsive">
             <table class="table table-striped">
