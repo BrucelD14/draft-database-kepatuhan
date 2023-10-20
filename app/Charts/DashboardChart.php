@@ -2,6 +2,7 @@
 
 namespace App\Charts;
 
+use App\Models\ReviewEksternalReg;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class DashboardChart
@@ -15,10 +16,13 @@ class DashboardChart
 
     public function build(): \ArielMejiaDev\LarapexCharts\PieChart
     {
+        $sumReviewExternalDraft = ReviewEksternalReg::where('status_publish', 0)->count();
+        $sumReviewExternalApproved = ReviewEksternalReg::where('status_publish', 1)->count();
+
         return $this->chart->pieChart()
             ->setTitle('Statistik Reviu Peraturan Eksternal')
-            ->setSubtitle('Season 2021.')
-            ->addData([17, 4])
+            ->setSubtitle('*Data Keseluruhan')
+            ->addData([$sumReviewExternalApproved, $sumReviewExternalDraft])
             ->setColors(['#3876BF', '#E1AA74'])
             ->setLabels(['Aproved', 'Draft']);
     }
