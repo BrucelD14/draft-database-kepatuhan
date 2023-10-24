@@ -77,8 +77,18 @@
                                 {{-- END MODAL PESAN --}}
                             </td>
                             <td class="text-center">
-                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}"
-                                    class="btn btn-outline-primary"><i class="bi bi-eye-fill"></i> Detail</a>
+                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i
+                                        class="bi bi-eye-fill"></i></a>
+                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}/edit"
+                                    class="badge bg-warning"><i class="bi bi-pencil-fill"></i></a>
+                                <form action="/dashboard/{{ $link }}/{{ $regulation->id }}" method="post"
+                                    class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="badge bg-danger border-0"
+                                        onclick="return confirm('yakin mau dihapus?')"><i
+                                            class="bi bi-trash3-fill"></i></button>
+                                </form>
                             </td>
                         </tr>
                         <tr>
