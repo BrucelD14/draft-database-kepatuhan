@@ -11,7 +11,9 @@
         </div>
     @endif
 
-    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah Peraturan</a>
+    <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3 me-2">Tambah Peraturan</a>
+    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#importModal">Import
+        Peraturan</button>
     @if ($regulations->count())
         <div class="table-responsive">
             <table class="table table-striped">
@@ -53,4 +55,31 @@
     @else
         <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
     @endif
+
+    {{-- IMPORT MODAL --}}
+    <!-- Modal -->
+    <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Import Peraturan dengan Excel</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group mb-3">
+                            <label for="">Pilih file</label>
+                            <input type="file" class="form-control" name="file">
+                        </div>
+                        <button type="submit" class="btn btn-success me-2">Import</button>
+                        <a href="{{ asset('template-excel-import/test-template1.xlsx') }}" target="_blank"
+                            class="btn btn-outline-success">Download
+                            Template</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- IMPORT MODAL --}}
 @endsection
