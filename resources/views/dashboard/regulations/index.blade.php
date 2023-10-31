@@ -5,11 +5,23 @@
         <h1 class="h2">{{ $title }}</h1>
     </div>
 
+    {{-- PESAN SUKSES --}}
     @if (session()->has('success'))
         <div class="alert alert-success" role="alert">
             {{ session('success') }}
         </div>
     @endif
+    {{-- PESAN SUKSES --}}
+
+    {{-- PESAN ERROR --}}
+    @if (isset($errors) && $errors->any())
+        <div class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        </div>
+    @endif
+    {{-- PESAN ERROR --}}
 
     <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3 me-2">Tambah Peraturan</a>
     <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#importModal">Import
@@ -66,13 +78,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('peraturanInternal.import') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="">Pilih file</label>
-                            <input type="file" class="form-control" name="file">
+                            <input type="file" class="form-control" name="file_import">
                         </div>
-                        <button type="submit" class="btn btn-success me-2">Import</button>
+                        <button class="btn btn-success me-2">Import</button>
                         <a href="{{ asset('template-excel-import/test-template1.xlsx') }}" target="_blank"
                             class="btn btn-outline-success">Download
                             Template</a>
