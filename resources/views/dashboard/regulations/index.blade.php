@@ -82,7 +82,7 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label for="">Pilih file</label>
-                            <input type="file" class="form-control" name="file_import">
+                            <input type="file" class="form-control" name="file">
                         </div>
                         <button class="btn btn-success me-2">Import</button>
                         <a href="{{ asset('template-excel-import/test-template1.xlsx') }}" target="_blank"

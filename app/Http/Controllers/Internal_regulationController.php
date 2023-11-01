@@ -20,7 +20,7 @@ class Internal_regulationController extends Controller
 
     public function import(Request $request)
     {
-        $file = $request->file('file_import')->store('public/import-peraturan-internal');
+        $file = $request->file('file')->store('import-peraturan-internal');
 
         $import = new InternalRegulationImport;
         $import->import($file);
