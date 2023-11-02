@@ -23,7 +23,6 @@
     <section class="section-padding section-bg">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
                     <div class="custom-block bg-white shadow-lg">
                         <a href="topics-detail.html">
