@@ -8,7 +8,7 @@ class LandingController extends Controller
 {
     public function index()
     {
-        return view('landing', [
+        return view('index', [
             'title' => 'Landing Page'
         ]);
     }
