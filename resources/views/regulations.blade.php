@@ -1,47 +1,41 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="row mb-4">
-        <div class="col-md-10">
-            <h2>{{ $title }}</h2>
+    <header class="site-header d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-5 col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/landing">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="/produk_hukum">Produk Hukum</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Peraturan Internal</li>
+                        </ol>
+                    </nav>
+
+                    <h2 class="text-white">{{ $title }}</h2>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form action="/{{ $active }}" method="get">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Ketik kata kunci" name="search"
-                        value="{{ request('search') }}">
-                    <button class="btn btn-danger" type="submit" id="button-addon2">Cari</button>
+    </header>
+
+    <section class="section-padding section-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form action="/{{ $active }}" method="get">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Ketik kata kunci" name="search"
+                                value="{{ request('search') }}">
+                            <button class="btn btn-danger" type="submit" id="button-addon2">Cari</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
-
-    {{-- <div class="card mb-4">
-        
-                <div class="card-header">
-                    Nomor surat : {{ $reg->nomor_peraturan }}
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ $reg->jenis_peraturan }}</h5>
-                    <article class="mb-2 fs-5">
-                        Tentang : {!! $reg->tentang !!}
-                    </article>
-
-                    <btn class="btn btn-info disabled">
-                        @if ($reg->status == 1)
-                            {{ 'Berlaku' }}
-                        @else
-                            {{ 'Tidak Berlaku' }}
-                        @endif
-                    </btn>
-                    <div class="mt-2">
-                        <strong>Keterangan: </strong> {!! $reg->keterangan_status !!}
-                    </div>
-                </div>
-            </div> --}}
-
+    </section>
 
     @if ($reg_list->count())
         <div class="table-responsive mb-4">

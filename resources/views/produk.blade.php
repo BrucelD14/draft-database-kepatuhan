@@ -13,7 +13,7 @@
                         </ol>
                     </nav>
 
-                    <h2 class="text-white">Produk Hukum</h2>
+                    <h2 class="text-white">{{ $title }}</h2>
                 </div>
 
             </div>
