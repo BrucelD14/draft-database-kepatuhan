@@ -163,10 +163,6 @@
                 </div>
 
                 <div class="col-lg-7 col-12 mb-4 mb-lg-0">
-                    {{-- <iframe class="google-map"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.065641062665!2d-122.4230416990949!3d37.80335401520422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858127459fabad%3A0x808ba520e5e9edb7!2sFrancisco%20Park!5e1!3m2!1sen!2sth!4v1684340239744!5m2!1sen!2sth"
-                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3841.320560625069!2d111.52351447641053!3d-7.618051878009855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79bf015ea242bb%3A0xa2f7a9e70e95cddf!2sPT%20Industri%20Kereta%20Api!5e1!3m2!1sen!2sid!4v1698895300949!5m2!1sen!2sid"
                         width="100%" height="370" style="border:0;border-radius:30px;" allowfullscreen=""
