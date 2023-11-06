@@ -37,7 +37,7 @@
                                             free to modify this template for your custom websites.</p>
                                     </div>
 
-                                    <span class="badge bg-design rounded-pill ms-auto">14</span>
+                                    {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
                                 </div>
                             </div>
                         </a>
@@ -57,8 +57,6 @@
                                             Feel
                                             free to modify this template for your custom websites.</p>
                                     </div>
-
-                                    <span class="badge bg-design rounded-pill ms-auto">14</span>
                                 </div>
                             </div>
                         </a>
@@ -79,8 +77,6 @@
                                             Feel
                                             free to modify this template for your custom websites.</p>
                                     </div>
-
-                                    <span class="badge bg-design rounded-pill ms-auto">14</span>
                                 </div>
                             </div>
                         </a>
@@ -99,8 +95,6 @@
                                             Feel
                                             free to modify this template for your custom websites.</p>
                                     </div>
-
-                                    <span class="badge bg-design rounded-pill ms-auto">14</span>
                                 </div>
                             </div>
                         </a>
@@ -121,7 +115,6 @@
                                             Feel
                                             free to modify this template for your custom websites.</p>
                                     </div>
-                                    <span class="badge bg-design rounded-pill ms-auto">14</span>
                                 </div>
                             </div>
                         </a>

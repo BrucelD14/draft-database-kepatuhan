@@ -519,6 +519,43 @@ strong {
   max-width: 150px;
 }
 
+/* SEARCH */
+.search-section {
+  background-color: 
+  #f0f8ff;
+  position: relative;
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.search-section .input-group {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-large);
+  padding: 10px 15px;
+}
+
+.search-section .input-group-text {
+  background-color: transparent;
+  border: 0;
+}
+
+.search-section input[type="search"] {
+  border: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.search-section button[type="submit"] {
+  background-color: var(--primary-color);
+  border: 0;
+  border-radius: var(--border-radius-large) !important;
+  color: var(--white-color);
+  max-width: 150px;
+}
+/* SEARCH */
+
 
 /*---------------------------------------
   TOPICS              
