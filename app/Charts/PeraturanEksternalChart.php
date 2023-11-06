@@ -59,7 +59,7 @@ class PeraturanEksternalChart
             ->setSubtitle('Grafik bulanan')
             ->addData('Undang-Undang', $dataTotalUndangUndang)
             ->addData('Peraturan Pemerintah', $dataTotalPeraturanPemerintah)
-            ->setColors(['#BF0000', '#1B1B1B',])
+            ->setColors(['#FFCC70', '#22668D',])
             ->setXAxis($dataBulan);
     }
 }

@@ -28,7 +28,6 @@
 
     <main>
         @include('partials.navbar')
-
         @yield('container')
     </main>
 
