@@ -248,7 +248,8 @@ strong {
   SITE HEADER              
 -----------------------------------------*/
 .site-header {
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  /* background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%); */
+  background-image: linear-gradient(145deg, #80d0c7 0%, #13547a 100%);
   padding-top: 150px;
   padding-bottom: 80px;
 }
@@ -486,7 +487,9 @@ strong {
   HERO        
 -----------------------------------------*/
 .hero-section {
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background-image: linear-gradient(145deg, #80d0c7 0%, #13547a 100%);
+  /* background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%); */
+  /* background-image: linear-gradient(15deg, #427D9D 0%, #9BBEC8 100%); */
   position: relative;
   overflow: hidden;
   padding-top: 150px;
