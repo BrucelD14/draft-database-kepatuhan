@@ -47,7 +47,7 @@
                 <p class="copyright-text mt-lg-5 mt-4">Copyright © 2023 PT INKA (Persero). All rights reserved.
                     <br><br>
                     <br>
-                    <span class="text-white">Brucel Duta</span>
+                    <span class="text-white">BrucelD14</span>
                 </p>
 
             </div>
