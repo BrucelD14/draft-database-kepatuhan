@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-lg-6 col-12 mt-3 mx-auto">
                     <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <a href="/produk_hukum/reviu_peraturan_eksternal'">
+                        <a href="/reviu_peraturan_eksternal">
                             <div class="d-flex">
                                 <div class="custom-block-topics-listing-info d-flex">
                                     <div>
