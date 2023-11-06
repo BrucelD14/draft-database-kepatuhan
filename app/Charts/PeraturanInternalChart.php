@@ -59,7 +59,7 @@ class PeraturanInternalChart
             ->setSubtitle('Grafik Bulanan')
             ->addData('Peraturan Direksi', $dataTotalPeraturanDireksi)
             ->addData('Surat Edaran', $dataTotalSuratEdaran)
-            ->setColors(['#BF0000', '#1B1B1B',])
+            ->setColors(['#FFCC70', '#22668D',])
             ->setXAxis($dataBulan);
     }
 }

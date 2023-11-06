@@ -9,11 +9,11 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/landing">Beranda</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Matriks</li>
+                            <li class="breadcrumb-item active">Matriks</li>
                         </ol>
                     </nav>
 
-                    <h2 class="text-white">Matriks</h2>
+                    <h2 class="text-white">{{ $title }}</h2>
                 </div>
 
             </div>
@@ -25,15 +25,13 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
                     <div class="custom-block bg-white shadow-lg">
-                        <a href="topics-detail.html">
+                        <a href="/matriks/peraturan_internal">
                             <div class="d-flex">
                                 <div>
                                     <h5 class="mb-2">Matriks Peraturan Internal PT INKA (Persero)</h5>
 
                                     <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
                                 </div>
-
-                                <span class="badge bg-finance rounded-pill ms-auto">30</span>
                             </div>
 
                             <img src="img/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid"

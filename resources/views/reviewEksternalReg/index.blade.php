@@ -10,7 +10,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/landing">Beranda</a></li>
                             <li class="breadcrumb-item"><a href="/produk_hukum">Produk Hukum</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
+                            <li class="breadcrumb-item active">{{ $title }}</li>
                         </ol>
                     </nav>
 
