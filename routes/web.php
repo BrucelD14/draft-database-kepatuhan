@@ -69,6 +69,7 @@ Route::resource('/dashboard/approved_reviu', DashboardApprovedReviewEksternalReg
 Route::resource('/dashboard/draft_reviu', DashboardDraftReviewEksternalRegController::class)->except('edit', 'update', 'destroy')->middleware('is_reviewer');
 Route::get('/dashboard/draft_reviu/approve/{id}', [DashboardDraftReviewEksternalRegController::class, 'approve'])->middleware('auth');
 Route::post('/dashboard/tambah_catatan/{id}', [DashboardDraftReviewEksternalRegController::class, 'addNote']);
+Route::post('/dashboard/tambah_catatan_editor/{id}', [DashboardReviewEksternalRegController::class, 'addNote']);
 
 // IMPORT
 Route::post('import_peraturan_internal', [Internal_regulationController::class, 'import'])->name('peraturanInternal.import');

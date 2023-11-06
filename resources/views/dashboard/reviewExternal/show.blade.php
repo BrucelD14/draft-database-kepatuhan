@@ -3,6 +3,13 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">{{ $title }}</h1>
     </div>
+
+    @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <a href="/dashboard/{{ $link }}" class="btn btn-outline-secondary btn-sm"><i
             class="bi bi-arrow-left-circle-fill"></i> Kembali</a>
     <a href="/dashboard/{{ $link }}/{{ $regulation->id }}/edit" class="btn btn-warning btn-sm"><i
@@ -14,6 +21,36 @@
                 class="bi bi-trash3-fill"></i>
             Hapus</button>
     </form>
+    <a href="#" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+            class="bi bi-sticky-fill"></i> Add Note</a>
+
+    {{-- MODAL ADD NOTE --}}
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4" id="staticBackdropLabel">Tambah Catatan Reviu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="/dashboard/tambah_catatan_editor/{{ $regulation->id }}">
+                    @csrf
+                    <div class="modal-body text-start">
+                        <label for="pesan_catatan" class="form-label">Pesan Catatan</label>
+                        <input type="text" class="form-control" id="pesan_catatan" name="pesan_catatan" required
+                            placeholder="Masukkan pesan catatan">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Add Note</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{-- MODAL ADD NOTE --}}
+
     <div class="card my-4">
         <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
         <div class="card-body">

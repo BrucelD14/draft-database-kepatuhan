@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CatatanReviu;
 use App\Models\JenisPeraturanEksternal;
 use App\Models\KategoriDivisi;
 use App\Models\ReviewEksternalReg;
@@ -182,5 +183,22 @@ class DashboardReviewEksternalRegController extends Controller
             ->where('uuid_review_eksternal_reg', $uuid)
             ->delete();
         return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu telah dihapus');
+    }
+
+    public function addNote(Request $request, $id)
+    {
+        $reviu = ReviewEksternalReg::find($id);
+
+        $validatedData = $request->validate([
+            'pesan_catatan' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['reviu_peraturan_eksternal_id'] = $reviu->id;
+
+        // dd($validatedData);
+
+        CatatanReviu::create($validatedData);
+        return redirect("/dashboard/reviu_peraturan_eksternal/$reviu->id")->with('success', 'Catatan berhasil ditambahkan');
     }
 }
