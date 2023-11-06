@@ -1,64 +1,88 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="row mb-4">
-        <div class="col-md-10">
-            <h2>{{ $title }}</h2>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form action="/{{ $active }}" method="get">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Ketik kata kunci" name="search"
-                        value="{{ request('search') }}">
-                    <button class="btn btn-danger" type="submit" id="button-addon2">Cari</button>
+    <header class="site-header d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-8 col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/landing">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="/produk_hukum">Produk Hukum</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
+                        </ol>
+                    </nav>
+
+                    <h2 class="text-white">{{ $title }}</h2>
                 </div>
-            </form>
-        </div>
-    </div>
-    @if ($reg_list->count())
-        <div class="table-responsive mb-4">
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="table-danger text-center align-middle">
-                        <th scope="col">Nomor Peraturan</th>
-                        <th scope="col">Tanggal Penetapan</th>
-                        <th scope="col">Tentang</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Keterangan</th>
-                        <th scope="col">Dokumen</th>
-                    </tr>
-                </thead>
 
-                @foreach ($reg_list as $reg)
-                    <tbody>
-                        <tr class="align-middle">
-                            <td class="text-center">{{ $reg->nomor_peraturan }}</td>
-                            <td class="text-center">
-                                {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
-                            <td style="text-align:justify">{!! $reg->tentang !!}</td>
-                            <td class="text-center">
-                                @if ($reg->status == 'active')
-                                    <span class="badge bg-success">{{ 'Berlaku' }}</span>
-                                @else
-                                    <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
-                                @endif
-                            </td>
-                            <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
-                            <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
-                                    class="btn btn-danger"><i class="bi bi-download"></i></a>
-                            </td>
+            </div>
+        </div>
+    </header>
+
+    <section class="search-section d-flex justify-content-center align-items-center" id="section_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-12 mx-auto">
+                    <form method="get" class="custom-form pt-2 mb-lg-0 mb-5" role="search">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bi-search" id="basic-addon1"></span>
+                            <input name="keyword" type="search" class="form-control" id="keyword"
+                                placeholder="Kata Kunci Peraturan ..." aria-label="Search">
+                            <button type="submit" class="form-control">Cari</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="" style="padding-bottom: 100px;background-color:#DDF2FD;">
+        <div class="container">
+            @if ($reg_list->count())
+                <table class="table border-dark">
+                    <thead>
+                        <tr class="table-primary text-center align-middle">
+                            <th scope="col">Nomor Peraturan</th>
+                            <th scope="col">Tanggal Penetapan</th>
+                            <th scope="col">Tentang</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">Dokumen</th>
                         </tr>
-                        <tr>
-                    </tbody>
-                @endforeach
+                    </thead>
+                    @foreach ($reg_list as $reg)
+                        <tbody>
+                            <tr class="align-middle">
+                                <td class="text-center">{{ $reg->nomor_peraturan }}</td>
+                                <td class="text-center">
+                                    {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
+                                <td style="text-align:justify">{!! $reg->tentang !!}</td>
+                                <td class="text-center">
+                                    @if ($reg->status == 'active')
+                                        <span class="badge bg-success">{{ 'Berlaku' }}</span>
+                                    @else
+                                        <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
+                                    @endif
+                                </td>
+                                <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
+                                <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
+                                        class="btn btn-danger"><i class="bi bi-download"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                        </tbody>
+                    @endforeach
+                </table>
             @else
-                <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
-            </table>
+                <p class="text-center fs-4">No regulation found <i class="bi bi-emoji-frown"></i></p>
+            @endif
+
         </div>
-    @endif
+    </section>
 
-
-    {{ $reg_list->links() }}
+    {{-- {{ $reg_list->links() }} --}}
 @endsection

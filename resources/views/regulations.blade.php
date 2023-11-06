@@ -40,10 +40,10 @@
     </section>
 
 
-    <section class="section-bg" style="padding-bottom: 100px;">
+    <section class="" style="padding-bottom: 100px;background-color:#DDF2FD;">
         <div class="container">
             @if ($reg_list->count())
-                <table class="table table-bordered">
+                <table class="table border-dark">
                     <thead>
                         <tr class="table-primary text-center align-middle">
                             <th scope="col">Nomor Peraturan</th>

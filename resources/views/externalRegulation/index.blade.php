@@ -40,10 +40,10 @@
     </section>
 
 
-    <section class="section-bg" style="padding-bottom: 100px;">
+    <section class="" style="padding-bottom: 100px;background-color:#DDF2FD;">
         <div class="container">
             @if ($reg_list->count())
-                <table class="table table-bordered">
+                <table class="table border-dark">
                     <thead>
                         <tr class="table-primary text-center align-middle">
                             <th scope="col">Nomor Peraturan</th>
@@ -60,9 +60,8 @@
                             <tr class="align-middle">
                                 <td class="text-center">{{ $reg->nomor_peraturan }}</td>
                                 <td class="text-center">
-                                    {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}
-                                </td>
-                                <td class="text-center">{{ $reg->jenisPeraturanInternal->nama }}</td>
+                                    {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
+                                <td class="text-center">{{ $reg->jenisPeraturanEksternal->nama }}</td>
                                 <td style="text-align:justify">{!! $reg->tentang !!}</td>
                                 <td class="text-center">
                                     @if ($reg->status == 'active')
@@ -73,7 +72,7 @@
                                 </td>
                                 <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
                                 <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
-                                        class="btn btn-outline-primary"><i class="bi bi-download"></i></a>
+                                        class="btn btn-danger"><i class="bi bi-download"></i></a>
                                 </td>
                             </tr>
                             <tr>
