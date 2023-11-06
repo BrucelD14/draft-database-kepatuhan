@@ -29,31 +29,38 @@
                 <li class="nav-item">
                     <a class="nav-link click-scroll" href="/matriks">Matriks</a>
                 </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Extra</a>
-
-                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i>
-                                My Dashboard</a></li>
-                        <li>
-                            {{-- <a class="dropdown-item" href="contact.html"><i class="bi bi-box-arrow-right"></i>
-                              Logout</a> --}}
-                            <form action="/logout" method="post">
-                                @csrf
-                                <button type="submit" class="dropdown-item"
-                                    onclick="return confirm('Yakin mau Logout?')"><i class="bi bi-box-arrow-right"></i>
-                                    Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
             </ul>
 
             <div class="d-none d-lg-block">
                 <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-                <p class="d-inline">{{ auth()->user()->name }}</p>
+                {{-- <p class="d-inline">{{ auth()->user()->name }}</p> --}}
+                <ul class="navbar-nav ms-auto d-inline-block">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            @cannot('reader')
+                                <li><a class="dropdown-item" href="/dashboard"><i
+                                            class="bi bi-layout-text-sidebar-reverse"></i>
+                                        My Dashboard</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                            @endcannot
+                            <li>
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item"
+                                        onclick="return confirm('Yakin mau Logout?')"><i
+                                            class="bi bi-box-arrow-right"></i>
+                                        Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
