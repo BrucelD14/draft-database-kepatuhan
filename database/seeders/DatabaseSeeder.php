@@ -25,56 +25,56 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        User::create([
-            'name' => 'Brucel Duta',
-            'nip' => '12345',
-            'password' => bcrypt('password'),
-            'role' => 'editor'
-        ]);
-        User::create([
-            'name' => 'Violita Zahrah',
-            'nip' => '67890',
-            'password' => bcrypt('password'),
-            'role' => 'reviewer'
-        ]);
-        User::create([
-            'name' => 'Fajar Chan',
-            'nip' => '54321',
-            'password' => bcrypt('password'),
-            'role' => 'reader'
-        ]);
+        // User::create([
+        //     'name' => 'Brucel Duta',
+        //     'nip' => '12345',
+        //     'password' => bcrypt('password'),
+        //     'role' => 'editor'
+        // ]);
+        // User::create([
+        //     'name' => 'Violita Zahrah',
+        //     'nip' => '67890',
+        //     'password' => bcrypt('password'),
+        //     'role' => 'reviewer'
+        // ]);
+        // User::create([
+        //     'name' => 'Fajar Chan',
+        //     'nip' => '54321',
+        //     'password' => bcrypt('password'),
+        //     'role' => 'reader'
+        // ]);
 
-        JenisPeraturanInternal::create([
-            'nama' => 'Peraturan Direksi'
-        ]);
-        JenisPeraturanInternal::create([
-            'nama' => 'Surat Edaran'
-        ]);
+        // JenisPeraturanInternal::create([
+        //     'nama' => 'Peraturan Direksi'
+        // ]);
+        // JenisPeraturanInternal::create([
+        //     'nama' => 'Surat Edaran'
+        // ]);
 
-        JenisPeraturanEksternal::create([
-            'nama' => 'Undang-undang'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Pemerintah'
-        ]);
-        JenisPeraturanMenteri::create([
-            'nama' => 'Peraturan Menteri'
-        ]);
-        JenisPeraturanMenteri::create([
-            'nama' => 'Keputusan Menteri'
-        ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Undang-undang'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Peraturan Pemerintah'
+        // ]);
+        // JenisPeraturanMenteri::create([
+        //     'nama' => 'Peraturan Menteri'
+        // ]);
+        // JenisPeraturanMenteri::create([
+        //     'nama' => 'Keputusan Menteri'
+        // ]);
 
-        KategoriDivisi::create([
-            'nama' => 'Manajemen Risiko dan Hukum'
-        ]);
-        KategoriDivisi::create([
-            'nama' => 'Riset dan Pengembangan'
-        ]);
+        // KategoriDivisi::create([
+        //     'nama' => 'Manajemen Risiko dan Hukum'
+        // ]);
+        // KategoriDivisi::create([
+        //     'nama' => 'Riset dan Pengembangan'
+        // ]);
 
-        // Internal_regulation::factory(5)->create();
+        // Internal_regulation::factory(10)->create();
         // External_regulation::factory(3)->create();
         // Ministerial_regulation::factory(5)->create();
         // Review_internalreg::factory(3)->create();
-        // ReviewEksternalReg::factory(5)->create();
+        ReviewEksternalReg::factory(10)->create();
     }
 }

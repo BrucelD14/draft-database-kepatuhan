@@ -81,8 +81,8 @@
                 <p class="text-center fs-4">No regulation found <i class="bi bi-emoji-frown"></i></p>
             @endif
 
+            {{ $reg_list->links() }}
         </div>
     </section>
 
-    {{-- {{ $reg_list->links() }} --}}
 @endsection
