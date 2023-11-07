@@ -53,30 +53,10 @@
                                     <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
                                         animi necessitatibus aperiam repudiandae nam omnis</p>
 
-                                    <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                    <a href="/matriks/peraturan_eksternal" class="btn custom-btn mt-2 mt-lg-3">Learn
+                                        More</a>
                                 </div>
 
-                                <span class="badge bg-finance rounded-pill ms-auto">25</span>
-                            </div>
-
-                            <div class="social-share d-flex">
-                                <p class="text-white me-4">Share:</p>
-
-                                <ul class="social-icon">
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-twitter"></a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-facebook"></a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-pinterest"></a>
-                                    </li>
-                                </ul>
-
-                                <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
                             </div>
 
                             <div class="section-overlay"></div>
