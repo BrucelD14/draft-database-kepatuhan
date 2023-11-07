@@ -28,7 +28,7 @@
                     <form method="get" class="custom-form pt-2 mb-lg-0 mb-5" role="search">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
-                            <input name="keyword" type="search" class="form-control" id="keyword"
+                            <input name="search" type="search" class="form-control" id="keyword"
                                 placeholder="Kata Kunci Peraturan ..." aria-label="Search">
                             <button type="submit" class="form-control">Cari</button>
                         </div>
@@ -79,7 +79,15 @@
                     @endforeach
                 </table>
             @else
-                <p class="text-center fs-4">No regulation found <i class="bi bi-emoji-frown"></i></p>
+                <p class="text-center fs-4">No review found <i class="bi bi-emoji-frown"></i></p>
+                <div class="row justify-content-center pt-2">
+                    <div class="col-lg-4 text-center">
+                        <a href="/produk_hukum" class="btn btn-secondary me-3"><i class="bi bi-arrow-90deg-left"></i>
+                            Kembali</a>
+                        <a href="/reviu_peraturan_eksternal" class="btn btn-warning"><i class="bi bi-arrow-clockwise"></i>
+                            Refresh</a>
+                    </div>
+                </div>
             @endif
 
             {{ $reg_list->links() }}
