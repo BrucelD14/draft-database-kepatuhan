@@ -19,15 +19,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-5 me-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="/landing">Beranda</a>
+                    <a class="nav-link {{ Request::is('landing') ? 'nav-active' : '' }}" id="nav-beranda"
+                        href="/landing">Beranda</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="/produk_hukum">Produk Hukum</a>
+                    <a class="nav-link {{ Request::is('produk_hukum*', 'peraturan_internal_perusahaan', 'peraturan_eksternal', 'peraturan_menteri_bumn', 'reviu_peraturan_internal') ? 'nav-active' : '' }}"
+                        href="/produk_hukum">Produk
+                        Hukum</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="/matriks">Matriks</a>
+                    <a class="nav-link {{ Request::is('matriks*') ? 'nav-active' : '' }}" href="/matriks">Matriks</a>
                 </li>
             </ul>
 

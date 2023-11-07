@@ -324,8 +324,21 @@ strong {
   padding-bottom: 15px;
 }
 
-.navbar-nav .nav-link.active, 
-.navbar-nav .nav-link:hover {
+.nav-link:hover {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.nav-active {
+  color: var(--primary-color) !important; 
+  border-bottom: 2px solid var(--primary-color);
+}
+
+#nav-beranda {
+  color: white;
+}
+
+#nav-beranda:hover {
   color: var(--primary-color);
 }
 
