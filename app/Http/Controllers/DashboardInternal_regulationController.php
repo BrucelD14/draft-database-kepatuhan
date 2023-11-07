@@ -39,7 +39,7 @@ class DashboardInternal_regulationController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nomor_peraturan' => 'required|max:255',
+            'nomor_peraturan' => 'required|unique:internal_regulations|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
             'jenis_peraturan_internal_id' => 'required',
@@ -89,7 +89,7 @@ class DashboardInternal_regulationController extends Controller
         $regulation = Internal_regulation::find($id);
 
         $rules = [
-            'nomor_peraturan' => 'required|max:255',
+            'nomor_peraturan' => 'required|unique:internal_regulations|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
             'jenis_peraturan_internal_id' => 'required',
