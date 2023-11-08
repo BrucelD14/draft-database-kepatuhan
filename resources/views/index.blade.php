@@ -11,13 +11,9 @@
 
                     <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                         <div class="input-group input-group-lg">
-                            <span class="input-group-text bi-search" id="basic-addon1">
-
-                            </span>
-
+                            <span class="input-group-text bi-search" id="basic-addon1"></span>
                             <input name="keyword" type="search" class="form-control" id="keyword"
                                 placeholder="Peraturan, Reviu, Keputusan, Surat Edaran ..." aria-label="Search">
-
                             <button type="submit" class="form-control">Cari</button>
                         </div>
                     </form>
@@ -179,18 +175,49 @@
                     <p class="d-flex align-items-center mb-1">
                         <span class="me-2">Phone</span>
 
-                        <a href="tel: 305-240-9671" class="site-footer-link">
-                            305-240-9671
+                        <a href="tel: (0351) 452271-74" class="site-footer-link">
+                            (0351) 452271-74
                         </a>
                     </p>
 
-                    <p class="d-flex align-items-center">
+                    <p class="d-flex align-items-center mb-1">
+                        <span class="me-2">Fax</span>
+
+                        <a href="#" class="site-footer-link">
+                            (0351) 452275
+                        </a>
+                    </p>
+
+                    <p class="d-flex align-items-center mb-4">
                         <span class="me-2">Email</span>
 
-                        <a href="mailto:info@company.com" class="site-footer-link">
-                            info@company.com
+                        <a href="mailto:sekretariat@inka.co.id" class="site-footer-link me-2">
+                            sekretariat@inka.co.id
+                        </a>
+                        |
+                        <a href="mailto:marketing@inka.co.id" class="site-footer-link ms-2">
+                            marketing@inka.co.id
                         </a>
                     </p>
+
+                    <ul class="social-icon">
+                        <li class="social-icon-item">
+                            <a href="https://twitter.com/ptinka" class="social-icon-link bi-twitter"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://www.facebook.com/ptinkapersero" class="social-icon-link bi-facebook"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://www.instagram.com/pt_inka/" class="social-icon-link bi-instagram"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://id.linkedin.com/company/pt-industri-kereta-api"
+                                class="social-icon-link bi-linkedin"></a>
+                        </li>
+                    </ul>
                 </div>
 
                 {{-- <div class="col-lg-3 col-md-6 col-12 mx-auto">

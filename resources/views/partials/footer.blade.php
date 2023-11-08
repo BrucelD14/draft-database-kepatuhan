@@ -30,14 +30,26 @@
                 <h6 class="site-footer-title mb-3">Information</h6>
 
                 <p class="text-white d-flex mb-1">
-                    <a href="tel: 305-240-9671" class="site-footer-link">
-                        305-240-9671
+                    <a href="tel: (0351) 452271-74" class="site-footer-link">
+                        (0351) 452271-74
+                    </a>
+                </p>
+
+                <p class="text-white d-flex mb-2">
+                    <a href="#" class="site-footer-link">
+                        (0351) 452275 [Fax]
+                    </a>
+                </p>
+
+                <p class="text-white d-flex mb-1">
+                    <a href="mailto:sekretariat@inka.co.id" class="site-footer-link">
+                        sekretariat@inka.co.id
                     </a>
                 </p>
 
                 <p class="text-white d-flex">
-                    <a href="mailto:info@company.com" class="site-footer-link">
-                        info@company.com
+                    <a href="mailto:marketing@inka.co.id" class="site-footer-link">
+                        marketing@inka.co.id
                     </a>
                 </p>
             </div>
