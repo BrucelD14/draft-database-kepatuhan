@@ -87,7 +87,7 @@ class DashboardExternal_regulationController extends Controller
         $regulation = External_regulation::find($id);
 
         $rules = [
-            'nomor_peraturan' => 'required|unique:external_regulations|max:255',
+            'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
             'jenis_peraturan_eksternal_id' => 'required',

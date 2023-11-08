@@ -60,8 +60,15 @@
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select class="form-select" name="status">
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="visibility" class="form-label">Visibilitas</label>
+                <select class="form-select" name="visibility">
+                    <option value="public">Public</option>
+                    <option value="confidential">Confidential</option>
                 </select>
             </div>
             <div class="mb-3">
