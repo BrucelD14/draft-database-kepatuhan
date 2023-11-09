@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nip')->unique();
             $table->string('password');
             $table->enum('role', ['editor', 'reviewer', 'reader'])->default('reader');
+            $table->string('jabatan');
             $table->rememberToken();
             $table->timestamps();
         });
