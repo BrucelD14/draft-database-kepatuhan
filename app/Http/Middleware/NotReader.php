@@ -15,7 +15,7 @@ class NotReader
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role == 'editor' || auth()->user()->role == 'reviewer') {
+        if (auth()->user()->jabatan === 'Senior Manajer MRH' || auth()->user()->jabatan === 'Manajer KTKP' || auth()->user()->jabatan === 'Staff KTKP') {
             return $next($request);
         } else {
             return abort(403);

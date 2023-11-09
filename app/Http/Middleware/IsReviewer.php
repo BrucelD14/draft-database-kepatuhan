@@ -15,7 +15,7 @@ class IsReviewer
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->role !== 'reviewer') {
+        if (!auth()->check() || auth()->user()->jabatan != 'Senior Manajer MRH') {
             abort(403);
         }
 

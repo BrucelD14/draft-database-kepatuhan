@@ -5,8 +5,6 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
-use App\Models\User;
-use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,17 +24,5 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
         config(['app.locale' => 'id']);
         Carbon::setLocale('id');
-
-        Gate::define('reviewer', function (User $user) {
-            return $user->role === 'reviewer';
-        });
-
-        Gate::define('editor', function (User $user) {
-            return $user->role === 'editor';
-        });
-
-        Gate::define('reader', function (User $user) {
-            return $user->role === 'reader';
-        });
     }
 }
