@@ -48,6 +48,7 @@
                         <tr class="table-primary text-center align-middle">
                             <th scope="col">Nomor Peraturan</th>
                             <th scope="col">Tanggal Penetapan</th>
+                            <th scope="col">Jenis Peraturan</th>
                             <th scope="col">Tentang</th>
                             <th scope="col">Status</th>
                             <th scope="col">Keterangan</th>
@@ -60,6 +61,7 @@
                                 <td class="text-center">{{ $reg->nomor_peraturan }}</td>
                                 <td class="text-center">
                                     {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
+                                <td class="text-center">{{ $reg->jenisPeraturanMenteri->nama }}</td>
                                 <td style="text-align:justify">{!! $reg->tentang !!}</td>
                                 <td class="text-center">
                                     @if ($reg->status == 'active')

@@ -15,7 +15,10 @@
             Hapus</button>
     </form>
     <div class="card mt-4">
-        <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
+        <div class="card-header text-center p-3">
+            <h6 class="">{{ $regulation->nomor_peraturan }}</h6>
+            <h5 class="">{!! $regulation->tentang !!}</h5>
+        </div>
         <div class="card-body">
             {{-- <h5 class="card-title">Detail Peraturan Internal Perusahaan</h5> --}}
             <p class="card-text">Jenis Peraturan : {{ $regulation->jenisPeraturanInternal->nama }}</p>
