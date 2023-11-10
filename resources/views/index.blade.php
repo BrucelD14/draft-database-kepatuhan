@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-8 col-12 mx-auto">
+                <div class="col-lg-10 col-12 mx-auto">
                     <h6 class="text-white text-center">SELAMAT DATANG DI JARINGAN DOKUMENTASI DAN INFORMASI HUKUM
                     </h6>
                     <h3 class="text-white text-center">PT INDUSTRI KERETA API (Persero)</h3>
@@ -33,7 +33,7 @@
 
                 <div class="col-lg-6 col-12 mb-4 mb-lg-0">
                     <div class="custom-block bg-white shadow-lg">
-                        <a href="topics-detail.html">
+                        <a href="/peraturan_internal_perusahaan">
                             <div class="d-flex">
                                 <div>
                                     <h5 class="mb-2 text-center">Peraturan Internal Perusahaan</h5>
@@ -50,22 +50,24 @@
 
                 <div class="col-lg-6 col-12">
                     <div class="custom-block custom-block-overlay">
-                        <div class="d-flex flex-column h-100">
-                            <img src="{{ asset('img/businesswoman-using-tablet-analysis.jpg') }}"
-                                class="custom-block-image img-fluid" alt="">
+                        <a href="/peraturan_eksternal">
+                            <div class="d-flex flex-column h-100">
+                                <img src="{{ asset('img/businesswoman-using-tablet-analysis.jpg') }}"
+                                    class="custom-block-image img-fluid" alt="">
 
-                            <div class="custom-block-overlay-text d-flex">
-                                <div>
-                                    <h5 class="text-white mb-2 text-center">Peraturan Eksternal</h5>
+                                <div class="custom-block-overlay-text d-flex">
+                                    <div>
+                                        <h5 class="text-white mb-2 text-center">Peraturan Eksternal</h5>
 
-                                    <p class="text-white">Topic Listing Template includes homepage, listing page,
-                                        detail page, and contact page. You can feel free to edit and adapt for your
-                                        CMS requirements.</p>
+                                        <p class="text-white">Topic Listing Template includes homepage, listing page,
+                                            detail page, and contact page. You can feel free to edit and adapt for your
+                                            CMS requirements.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="section-overlay"></div>
-                        </div>
+                                <div class="section-overlay"></div>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
