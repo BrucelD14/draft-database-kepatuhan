@@ -3,7 +3,7 @@
         <div class="row">
 
             <div class="col-lg-3 col-12 mb-4 pb-2">
-                <a class="navbar-brand mb-2" href="/landing">
+                <a class="navbar-brand mb-2" href="https://www.inka.co.id/" target="_blank">
                     <img src="/img/inka.png" alt="PT Industri Kereta Api (Persero)" width="200">
                 </a>
             </div>

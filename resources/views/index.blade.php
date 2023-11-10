@@ -9,14 +9,17 @@
                     </h6>
                     <h3 class="text-white text-center">PT INDUSTRI KERETA API (Persero)</h3>
 
-                    <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                    {{-- FORM PENCARIAN --}}
+                    {{-- <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
                             <input name="keyword" type="search" class="form-control" id="keyword"
                                 placeholder="Peraturan, Reviu, Keputusan, Surat Edaran ..." aria-label="Search">
                             <button type="submit" class="form-control">Cari</button>
                         </div>
-                    </form>
+                    </form> --}}
+                    {{-- FORM PENCARIAN --}}
+
                 </div>
 
             </div>
@@ -161,8 +164,8 @@
                 <div class="col-lg-7 col-12 mb-4 mb-lg-0">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3841.320560625069!2d111.52351447641053!3d-7.618051878009855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79bf015ea242bb%3A0xa2f7a9e70e95cddf!2sPT%20Industri%20Kereta%20Api!5e1!3m2!1sen!2sid!4v1698895300949!5m2!1sen!2sid"
-                        width="100%" height="370" style="border:0;border-radius:30px;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        width="100%" height="370" style="border:0;border-radius:30px;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
                 <div class="col-lg-5 col-md-6 col-12 mb-3 mb-lg- mb-md-0">
@@ -202,47 +205,30 @@
 
                     <ul class="social-icon">
                         <li class="social-icon-item">
-                            <a href="https://twitter.com/ptinka" class="social-icon-link bi-twitter"></a>
+                            <a href="https://twitter.com/ptinka" class="social-icon-link bi-twitter" target="_blank"></a>
                         </li>
 
                         <li class="social-icon-item">
-                            <a href="https://www.facebook.com/ptinkapersero" class="social-icon-link bi-facebook"></a>
+                            <a href="https://www.facebook.com/ptinkapersero" class="social-icon-link bi-facebook"
+                                target="_blank"></a>
                         </li>
 
                         <li class="social-icon-item">
-                            <a href="https://www.instagram.com/pt_inka/" class="social-icon-link bi-instagram"></a>
+                            <a href="https://www.instagram.com/pt_inka/" class="social-icon-link bi-instagram"
+                                target="_blank"></a>
                         </li>
 
                         <li class="social-icon-item">
                             <a href="https://id.linkedin.com/company/pt-industri-kereta-api"
-                                class="social-icon-link bi-linkedin"></a>
+                                class="social-icon-link bi-linkedin" target="_blank"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://www.youtube.com/@PTINKAPerseroOfficial" class="social-icon-link bi-youtube"
+                                target="_blank"></a>
                         </li>
                     </ul>
                 </div>
-
-                {{-- <div class="col-lg-3 col-md-6 col-12 mx-auto">
-                        <h4 class="mb-3">Dubai office</h4>
-
-                        <p>Burj Park, Downtown Dubai, United Arab Emirates</p>
-
-                        <hr>
-
-                        <p class="d-flex align-items-center mb-1">
-                            <span class="me-2">Phone</span>
-
-                            <a href="tel: 110-220-3400" class="site-footer-link">
-                                110-220-3400
-                            </a>
-                        </p>
-
-                        <p class="d-flex align-items-center">
-                            <span class="me-2">Email</span>
-
-                            <a href="mailto:info@company.com" class="site-footer-link">
-                                info@company.com
-                            </a>
-                        </p>
-                    </div> --}}
 
             </div>
         </div>
