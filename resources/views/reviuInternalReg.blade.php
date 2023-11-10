@@ -61,7 +61,7 @@
                                 <td style="text-align:justify">{!! $reg->tentang_peraturan !!}</td>
                                 <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
                                 <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
-                                        class="btn btn-danger"><i class="bi bi-download"></i></a>
+                                        class="btn btn-outline-primary"><i class="bi bi-download"></i></a>
                                 </td>
                             </tr>
                             <tr>
