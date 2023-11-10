@@ -15,7 +15,7 @@
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Perihal</th>
                         <th scope="col">Status Publish</th>
-                        <th scope="col">Note</th>
+                        <th scope="col">Inbox</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -38,7 +38,7 @@
                             <td class="text-center">
                                 <button type="button" class="btn btn-success position-relative" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop{{ $regulation->id }}">
-                                    Inbox
+                                    Note
                                     <span
                                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
                                         {{ $regulation->CatatanReviu->count() }}

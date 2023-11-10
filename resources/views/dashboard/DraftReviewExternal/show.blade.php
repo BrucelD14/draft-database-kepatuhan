@@ -20,7 +20,10 @@
     {{-- END MODAL ADD NOTE --}}
 
     <div class="card my-4">
-        <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
+        <div class="card-header text-center p-3">
+            <h6 class="">{{ $regulation->nomor_peraturan }}</h6>
+            <h5 class="">{!! $regulation->tentang !!}</h5>
+        </div>
         <div class="card-body">
             <p class="card-text">Tanggal Penetapan :
                 {{ \Carbon\Carbon::parse($regulation->tanggal_penetapan)->translatedFormat('d F Y') }}</p>
