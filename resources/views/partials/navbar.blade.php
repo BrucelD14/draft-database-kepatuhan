@@ -24,7 +24,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('produk_hukum*', 'peraturan_internal_perusahaan', 'peraturan_eksternal', 'peraturan_menteri_bumn', 'reviu_peraturan_internal', 'reviu_peraturan_eksternal') ? 'nav-active' : '' }}"
+                    <a class="nav-link {{ Request::is('produk_hukum*', 'peraturan_internal_perusahaan*', 'peraturan_eksternal*', 'peraturan_menteri_bumn*', 'reviu_peraturan_internal*', 'reviu_peraturan_eksternal*') ? 'nav-active' : '' }}"
                         href="/produk_hukum">Produk
                         Hukum</a>
                 </li>

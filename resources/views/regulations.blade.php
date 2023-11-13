@@ -51,7 +51,7 @@
                             <th scope="col">Jenis Peraturan</th>
                             <th scope="col">Tentang</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Dokumen</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     @foreach ($reg_list as $reg)
