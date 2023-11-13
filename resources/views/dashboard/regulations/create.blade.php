@@ -68,13 +68,13 @@
                     <option value="inactive">Inactive</option>
                 </select>
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="visibility" class="form-label">Visibilitas</label>
                 <select class="form-select" name="visibility">
                     <option value="public">Public</option>
                     <option value="confidential">Confidential</option>
                 </select>
-            </div>
+            </div> --}}
 
             <div class="mb-3">
                 <label for="keterangan_status" class="form-label">Keterangan status</label>

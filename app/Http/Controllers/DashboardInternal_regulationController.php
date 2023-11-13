@@ -44,7 +44,7 @@ class DashboardInternal_regulationController extends Controller
             'tentang' => 'required',
             'jenis_peraturan_internal_id' => 'required',
             'status' => 'required',
-            'visibility' => 'required',
+            // 'visibility' => 'nullable',
             'keterangan_status' => 'nullable',
             'dokumen' => 'required|file',
         ]);
@@ -95,8 +95,8 @@ class DashboardInternal_regulationController extends Controller
             'tentang' => 'required',
             'jenis_peraturan_internal_id' => 'required',
             'status' => 'required',
-            'visibility' => 'required',
-            'keterangan_status' => 'nullable',
+            // 'visibility' => 'nullable',
+            'keterangan_status' => 'required',
             'dokumen' => 'file',
         ];
 
@@ -119,7 +119,7 @@ class DashboardInternal_regulationController extends Controller
             $regulation->tentang = $request->tentang;
             $regulation->jenis_peraturan_internal_id = $request->jenis_peraturan_internal_id;
             $regulation->status = $request->status;
-            $regulation->visibility = $request->visibility;
+            // $regulation->visibility = $request->visibility;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
             $regulation->save();
@@ -129,7 +129,7 @@ class DashboardInternal_regulationController extends Controller
             $regulation->tentang = $request->tentang;
             $regulation->jenis_peraturan_internal_id = $request->jenis_peraturan_internal_id;
             $regulation->status = $request->status;
-            $regulation->visibility = $request->visibility;
+            // $regulation->visibility = $request->visibility;
             $regulation->keterangan_status = $request->keterangan_status;
             $regulation->save();
         }

@@ -33,18 +33,14 @@
                     Status Peraturan : <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
                 @endif
             </p>
-            <p class="card-text">
+            {{-- <p class="card-text">
                 @if ($regulation->visibility == 'public')
                     Visibilitas : <span class="badge bg-primary">{{ 'Public' }}</span>
                 @else
                     Visibilitas : <span class="badge bg-warning">{{ 'Confidential' }}</span>
                 @endif
-            </p>
+            </p> --}}
             <p class="card-text">Detail Status : {!! $regulation->keterangan_status !!}</p>
-            {{-- <form action="{{ asset('storage/' . $regulation->dokumen) }}">
-                @csrf
-                <button class="btn btn-primary" type="submit">Download Dokumen</button>
-            </form> --}}
             <a href="{{ asset('storage/' . $regulation->dokumen) }}" target="_blank" class="btn btn-primary">Download
                 Dokumen</a>
 

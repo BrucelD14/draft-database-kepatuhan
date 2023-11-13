@@ -51,7 +51,6 @@
                             <th scope="col">Jenis Peraturan</th>
                             <th scope="col">Tentang</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Keterangan</th>
                             <th scope="col">Dokumen</th>
                         </tr>
                     </thead>
@@ -71,7 +70,6 @@
                                         <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
                                     @endif
                                 </td>
-                                <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
                                 <td class="text-center">
                                     <a href="/{{ $active }}/{{ $reg->id }}" target="_blank"
                                         class="btn btn-outline-primary m-1"><i class="bi bi-eye-fill"></i></a>

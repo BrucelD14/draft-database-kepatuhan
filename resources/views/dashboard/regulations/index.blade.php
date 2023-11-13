@@ -34,7 +34,6 @@
                         <th scope="col">No</th>
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Tentang</th>
-                        <th scope="col">Visibilitas</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -46,13 +45,13 @@
                             <td class="text-center">{{ $regulation->nomor_peraturan }}</td>
                             <td style="text-align:justify">{!! $regulation->tentang !!}</td>
 
-                            <td class="text-center">
+                            {{-- <td class="text-center">
                                 @if ($regulation->visibility == 'public')
                                     <span class="badge bg-primary">{{ 'Public' }}</span>
                                 @else
                                     <span class="badge bg-warning">{{ 'Confidential' }}</span>
                                 @endif
-                            </td>
+                            </td> --}}
 
                             <td class="text-center">
                                 <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i

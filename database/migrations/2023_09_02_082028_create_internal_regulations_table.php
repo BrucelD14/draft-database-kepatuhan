@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('tanggal_penetapan')->nullable();
             $table->text('tentang');
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->enum('visibility', ['public', 'confidential'])->default('public');
+            $table->enum('visibility', ['public', 'confidential'])->default('public')->nullable();
             $table->text('keterangan_status')->nullable();
             $table->string('dokumen')->nullable();
             $table->timestamp('published_at')->nullable();
