@@ -34,6 +34,17 @@ class Internal_regulationController extends Controller
         // }
     }
 
+    public function show($id)
+    {
+        $data = Internal_regulation::find($id);
+        return view('internalRegulation.show', [
+            'title' => 'Peraturan Internal',
+            'active' => 'peraturan_internal_perusahaan',
+            'link' => 'peraturan_internal_perusahaan',
+            'regulation' => $data,
+        ]);
+    }
+
     public function import(Request $request)
     {
         $file = $request->file('file')->store('import-peraturan-internal');

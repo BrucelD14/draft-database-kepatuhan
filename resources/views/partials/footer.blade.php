@@ -36,7 +36,7 @@
                 </p>
 
                 <p class="text-white d-flex mb-2">
-                    <a href="#" class="site-footer-link">
+                    <a href="#section_5" class="site-footer-link">
                         (0351) 452275 [Fax]
                     </a>
                 </p>

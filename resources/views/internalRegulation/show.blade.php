@@ -46,7 +46,7 @@
                                         </tr>
                                         <tr>
                                             <td>Jenis Peraturan</td>
-                                            <td>: {{ $regulation->jenisPeraturanEksternal->nama }}</td>
+                                            <td>: {{ $regulation->jenisPeraturanInternal->nama }}</td>
                                         </tr>
                                         <tr>
                                             <td>Tanggal Penetapan</td>
@@ -66,15 +66,15 @@
                                         </tr>
                                         <tr>
                                             <td>Ringkasan Umum</td>
-                                            <td>: {!! $regulation->ringkasan !!}</td>
+                                            <td>: {!! $regulation->keterangan_status !!}</td>
                                         </tr>
                                         <tr>
                                             <td>Divisi/Unit Terkait</td>
                                             <td>:
-                                                @foreach ($divisi as $item)
+                                                {{-- @foreach ($divisi as $item)
                                                     <button class="btn btn-outline-danger"
                                                         style="cursor:default">{{ $item->kategoriDivisi->nama }}</button>
-                                                @endforeach
+                                                @endforeach --}}
                                             </td>
                                         </tr>
                                     </tbody>

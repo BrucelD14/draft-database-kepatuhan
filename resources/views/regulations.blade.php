@@ -72,8 +72,11 @@
                                     @endif
                                 </td>
                                 <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
-                                <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
-                                        class="btn btn-outline-primary"><i class="bi bi-download"></i></a>
+                                <td class="text-center">
+                                    <a href="/{{ $active }}/{{ $reg->id }}" target="_blank"
+                                        class="btn btn-outline-primary m-1"><i class="bi bi-eye-fill"></i></a>
+                                    <a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
+                                        class="btn btn-warning"><i class="bi bi-download"></i></a>
                                 </td>
                             </tr>
                             <tr>

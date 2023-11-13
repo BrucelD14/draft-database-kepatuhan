@@ -48,6 +48,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/landing', [LandingController::class, 'index'])->middleware('auth');
 Route::get('/produk_hukum', [Product_lawController::class, 'index'])->middleware('auth');
 Route::get('/peraturan_internal_perusahaan', [Internal_regulationController::class, 'index'])->middleware('auth');
+Route::get('/peraturan_internal_perusahaan/{id}', [Internal_regulationController::class, 'show'])->middleware('auth');
 Route::get('/peraturan_eksternal', [External_regulationController::class, 'index'])->middleware('auth');
 Route::get('/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index'])->middleware('auth');
 Route::get('/reviu_peraturan_internal', [ReviewInternalregController::class, 'index'])->middleware('auth');
