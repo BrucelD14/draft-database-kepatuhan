@@ -49,8 +49,7 @@
                             <th scope="col">Ketentuan Peraturan Perundang-undangan</th>
                             <th scope="col">Ketentuan Peraturan Direksi Eksisting</th>
                             <th scope="col">Keterangan</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Dokumen</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     @foreach ($reg_list as $reg)
@@ -59,9 +58,11 @@
                                 <td class="text-center">{{ $reg->kppp }}</td>
                                 <td class="text-center">{{ $reg->kpde }}</td>
                                 <td style="text-align:justify">{!! $reg->tentang_peraturan !!}</td>
-                                <td style="text-align:justify">{!! $reg->keterangan_status !!}</td>
-                                <td class="text-center"><a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
-                                        class="btn btn-outline-primary"><i class="bi bi-download"></i></a>
+                                <td class="text-center">
+                                    <a href="/{{ $active }}/{{ $reg->id }}" target="_blank"
+                                        class="btn btn-outline-primary m-1"><i class="bi bi-eye-fill"></i></a>
+                                    <a href="{{ asset('storage/' . $reg->dokumen) }}" target="_blank"
+                                        class="btn btn-warning"><i class="bi bi-download"></i></a>
                                 </td>
                             </tr>
                             <tr>
