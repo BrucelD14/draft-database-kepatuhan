@@ -52,6 +52,7 @@ Route::get('/peraturan_internal_perusahaan/{id}', [Internal_regulationController
 Route::get('/peraturan_eksternal', [External_regulationController::class, 'index'])->middleware('auth');
 Route::get('/peraturan_eksternal/{id}', [External_regulationController::class, 'show'])->middleware('auth');
 Route::get('/peraturan_menteri_bumn', [Ministerial_regulationController::class, 'index'])->middleware('auth');
+Route::get('/peraturan_menteri_bumn/{id}', [Ministerial_regulationController::class, 'show'])->middleware('auth');
 Route::get('/reviu_peraturan_internal', [ReviewInternalregController::class, 'index'])->middleware('auth');
 Route::get('/matriks', [MatrixController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::class, 'index'])->middleware('auth');
