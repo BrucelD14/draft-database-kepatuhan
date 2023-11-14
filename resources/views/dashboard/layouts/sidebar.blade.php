@@ -117,8 +117,8 @@
                 <li class="nav-item">
                     <form action="/logout" method="post">
                         @csrf
-                        <button type="submit" class="nav-link d-flex align-items-center gap-2"><i
-                                class="bi bi-box-arrow-right"></i>
+                        <button type="submit" class="nav-link d-flex align-items-center gap-2"
+                            onclick="return confirm('Yakin mau Logout?')"><i class="bi bi-box-arrow-right"></i>
                             Logout</button>
                     </form>
                 </li>
