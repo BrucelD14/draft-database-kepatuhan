@@ -61,5 +61,6 @@ class PeraturanInternalChart
             ->addData('Surat Edaran', $dataTotalSuratEdaran)
             ->setColors(['#FFCC70', '#22668D',])
             ->setXAxis($dataBulan);
+        // ->setYAxis();
     }
 }
