@@ -12,14 +12,24 @@ class DashboardExternal_regulationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $regulations = External_regulation::latest()->paginate(10)->onEachSide(2)->fragment('reg');
+        $search = $request->query('search');
+
+        if (!empty($search)) {
+            $regulations = External_regulation::where('nomor_peraturan', 'like', '%' . $search . '%')
+                ->orWhere('tentang', 'like', '%' . $search . '%')
+                ->orWhere('keterangan_status', 'like', '%' . $search . '%')
+                ->latest()->paginate(10)->onEachSide(2)->fragment('reg');
+        } else {
+            $regulations = External_regulation::latest()->paginate(10)->fragment('reg')->onEachSide(2);
+        }
 
         return view('dashboard.externalRegulation.index', [
             'title' => 'Peraturan Eksternal',
             'link' => 'peraturan_eksternal',
             'regulations' => $regulations,
+            'search' => $search
         ]);
     }
 

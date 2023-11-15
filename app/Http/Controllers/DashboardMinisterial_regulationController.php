@@ -12,14 +12,24 @@ class DashboardMinisterial_regulationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $regulations = Ministerial_regulation::latest()->paginate(10)->onEachSide(2);
+        $search = $request->query('search');
+
+        if (!empty($search)) {
+            $regulations = Ministerial_regulation::where('nomor_peraturan', 'like', '%' . $search . '%')
+                ->orWhere('tentang', 'like', '%' . $search . '%')
+                ->orWhere('keterangan_status', 'like', '%' . $search . '%')
+                ->latest()->paginate(10)->onEachSide(2)->fragment('reg');
+        } else {
+            $regulations = Ministerial_regulation::latest()->paginate(10)->fragment('reg')->onEachSide(2);
+        }
 
         return view('dashboard.ministerialRegulation.index', [
             'title' => 'Peraturan Menteri BUMN',
             'link' => 'peraturan_menteri_bumn',
             'regulations' => $regulations,
+            'search' => $search
         ]);
     }
 

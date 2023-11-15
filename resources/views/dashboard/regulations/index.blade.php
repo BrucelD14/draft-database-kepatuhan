@@ -26,6 +26,17 @@
     <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3 me-2">Tambah Peraturan</a>
     <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#importModal">Import
         Peraturan</button>
+
+    <div class="col-lg-6">
+        <form method="GET" action="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Ketik kata kunci ..." name="search"
+                    value="{{ $search }}" autofocus>
+                <button class="btn btn-primary px-4" type="submit" id="button-addon2">Cari</button>
+            </div>
+        </form>
+    </div>
+
     @if ($regulations->count())
         <table class="table table-striped">
             <thead>
@@ -74,7 +85,8 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $regulations->links() }}
+        {{-- {{ $regulations->links() }} --}}
+        {!! $regulations->appends(Request::except('page'))->render() !!}
     @else
         <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
     @endif

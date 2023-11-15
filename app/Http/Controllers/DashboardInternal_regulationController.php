@@ -12,13 +12,24 @@ class DashboardInternal_regulationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $regulation = Internal_regulation::latest()->paginate(10)->onEachSide(2)->fragment('reg');
+        $search = $request->query('search');
+
+        if (!empty($search)) {
+            $regulations = Internal_regulation::where('nomor_peraturan', 'like', '%' . $search . '%')
+                ->orWhere('tentang', 'like', '%' . $search . '%')
+                ->orWhere('keterangan_status', 'like', '%' . $search . '%')
+                ->latest()->paginate(10)->fragment('reg')->onEachSide(2);
+        } else {
+            $regulations = Internal_regulation::latest()->paginate(10)->fragment('reg')->onEachSide(2);
+        }
+
         return view('dashboard.regulations.index', [
             'title' => 'Peraturan Internal',
             'link' => 'peraturan_internal',
-            'regulations' => $regulation,
+            'regulations' => $regulations,
+            'search' => $search
         ]);
     }
 
