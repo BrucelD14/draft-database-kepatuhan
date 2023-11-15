@@ -27,25 +27,28 @@
     <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#importModal">Import
         Peraturan</button>
     @if ($regulations->count())
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">No</th>
-                        <th scope="col">Nomor Peraturan</th>
-                        <th scope="col">Tentang</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
+        <table class="table table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">No</th>
+                    <th scope="col">Nomor Peraturan</th>
+                    <th scope="col">Tentang</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+            </thead>
 
-                <tbody class="table-group-divider">
-                    @foreach ($regulations as $regulation)
-                        <tr class="align-middle">
-                            <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center">{{ $regulation->nomor_peraturan }}</td>
-                            <td style="text-align:justify">{!! $regulation->tentang !!}</td>
+            <tbody class="table-group-divider">
+                @php
+                    $numb = 1 + ($regulations->currentPage() - 1) * $regulations->perPage();
+                @endphp
+                @foreach ($regulations as $regulation)
+                    <tr class="align-middle">
+                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                        <td class="text-center">{{ $numb++ }}</td>
+                        <td class="text-center">{{ $regulation->nomor_peraturan }}</td>
+                        <td style="text-align:justify">{!! $regulation->tentang !!}</td>
 
-                            {{-- <td class="text-center">
+                        {{-- <td class="text-center">
                                 @if ($regulation->visibility == 'public')
                                     <span class="badge bg-primary">{{ 'Public' }}</span>
                                 @else
@@ -53,26 +56,25 @@
                                 @endif
                             </td> --}}
 
-                            <td class="text-center">
-                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i
-                                        class="bi bi-eye-fill"></i></a>
-                                <a href="/dashboard/{{ $link }}/{{ $regulation->id }}/edit"
-                                    class="badge bg-warning"><i class="bi bi-pencil-fill"></i></a>
-                                <form action="/dashboard/{{ $link }}/{{ $regulation->id }}" method="post"
-                                    class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="badge bg-danger border-0"
-                                        onclick="return confirm('yakin mau dihapus?')"><i
-                                            class="bi bi-trash3-fill"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                        <td class="text-center">
+                            <a href="/dashboard/{{ $link }}/{{ $regulation->id }}" class="badge bg-info"><i
+                                    class="bi bi-eye-fill"></i></a>
+                            <a href="/dashboard/{{ $link }}/{{ $regulation->id }}/edit" class="badge bg-warning"><i
+                                    class="bi bi-pencil-fill"></i></a>
+                            <form action="/dashboard/{{ $link }}/{{ $regulation->id }}" method="post"
+                                class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="badge bg-danger border-0" onclick="return confirm('yakin mau dihapus?')"><i
+                                        class="bi bi-trash3-fill"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{ $regulations->links() }}
     @else
         <p class="text-center fs-4 mt-3">No regulation found <i class="bi bi-emoji-frown"></i></p>
     @endif

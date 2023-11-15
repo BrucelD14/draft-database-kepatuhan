@@ -14,10 +14,12 @@ class DashboardExternal_regulationController extends Controller
      */
     public function index()
     {
+        $regulations = External_regulation::latest()->paginate(10)->onEachSide(2)->fragment('reg');
+
         return view('dashboard.externalRegulation.index', [
             'title' => 'Peraturan Eksternal',
             'link' => 'peraturan_eksternal',
-            'regulations' => External_regulation::all(),
+            'regulations' => $regulations,
         ]);
     }
 

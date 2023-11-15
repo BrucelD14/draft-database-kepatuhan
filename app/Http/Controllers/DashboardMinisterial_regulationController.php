@@ -14,10 +14,12 @@ class DashboardMinisterial_regulationController extends Controller
      */
     public function index()
     {
+        $regulations = Ministerial_regulation::latest()->paginate(10)->onEachSide(2);
+
         return view('dashboard.ministerialRegulation.index', [
             'title' => 'Peraturan Menteri BUMN',
             'link' => 'peraturan_menteri_bumn',
-            'regulations' => Ministerial_regulation::all(),
+            'regulations' => $regulations,
         ]);
     }
 

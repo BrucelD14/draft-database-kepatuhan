@@ -14,10 +14,11 @@ class DashboardInternal_regulationController extends Controller
      */
     public function index()
     {
+        $regulation = Internal_regulation::latest()->paginate(10)->onEachSide(2)->fragment('reg');
         return view('dashboard.regulations.index', [
             'title' => 'Peraturan Internal',
             'link' => 'peraturan_internal',
-            'regulations' => Internal_regulation::all(),
+            'regulations' => $regulation,
         ]);
     }
 

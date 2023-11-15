@@ -13,10 +13,12 @@ class DashboardReview_internalRegController extends Controller
      */
     public function index()
     {
+        $regulations = Review_internalreg::latest()->paginate(10)->onEachSide(2);
+
         return view('dashboard.reviewInternal.index', [
             'title' => 'Reviu Peraturan Internal',
             'link' => 'reviu_peraturan_internal',
-            'regulations' => Review_internalreg::all(),
+            'regulations' => $regulations,
         ]);
     }
 

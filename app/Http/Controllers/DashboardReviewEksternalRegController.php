@@ -19,10 +19,12 @@ class DashboardReviewEksternalRegController extends Controller
      */
     public function index()
     {
+        $reviews = ReviewEksternalReg::where('status_publish', 0)->get();
+
         return view('dashboard.reviewExternal.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
-            'regulations' => ReviewEksternalReg::where('status_publish', 0)->get(),
+            'regulations' => $reviews,
         ]);
     }
 
