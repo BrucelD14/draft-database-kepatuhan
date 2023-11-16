@@ -24,8 +24,8 @@
     {{-- PESAN ERROR --}}
 
     <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3 me-2">Tambah Peraturan</a>
-    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#importModal">Import
-        Peraturan</button>
+    {{-- <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#importModal">Import
+        Peraturan</button> --}}
 
     <div class="col-lg-6">
         <form method="GET" action="">

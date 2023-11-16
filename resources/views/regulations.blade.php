@@ -10,7 +10,8 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/landing">Beranda</a></li>
                             <li class="breadcrumb-item"><a href="/produk_hukum">Produk Hukum</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
+                            <li class="breadcrumb-item active"><a href="/{{ $active }}">{{ $title }}</a>
+                            </li>
                         </ol>
                     </nav>
 
@@ -93,7 +94,7 @@
                 </div>
             @endif
 
-            {{ $reg_list->links() }}
+            {{ $reg_list->onEachSide(1)->links() }}
         </div>
     </section>
 
