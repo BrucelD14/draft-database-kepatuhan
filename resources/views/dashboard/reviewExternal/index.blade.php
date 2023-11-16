@@ -9,8 +9,8 @@
     <div class="col-lg-6">
         <form method="GET" action="">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Ketik kata kunci ..." name="search" value=""
-                    autofocus>
+                <input type="text" class="form-control" placeholder="Ketik kata kunci ..." name="search"
+                    value="{{ $search }}" autofocus>
                 <button class="btn btn-primary px-4" type="submit" id="button-addon2">Cari</button>
             </div>
         </form>

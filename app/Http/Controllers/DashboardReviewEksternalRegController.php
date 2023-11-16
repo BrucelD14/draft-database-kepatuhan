@@ -30,11 +30,11 @@ class DashboardReviewEksternalRegController extends Controller
             $reviews = ReviewEksternalReg::where('status_publish', 0)->get();
         }
 
-
         return view('dashboard.reviewExternal.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
             'regulations' => $reviews,
+            'search' => $search
         ]);
     }
 
