@@ -6,6 +6,16 @@
     </div>
 
     <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah Reviu</a>
+    <div class="col-lg-6">
+        <form method="GET" action="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Ketik kata kunci ..." name="search" value=""
+                    autofocus>
+                <button class="btn btn-primary px-4" type="submit" id="button-addon2">Cari</button>
+            </div>
+        </form>
+    </div>
+
     @if ($regulations->count())
         <table class="table table-striped">
             <thead>

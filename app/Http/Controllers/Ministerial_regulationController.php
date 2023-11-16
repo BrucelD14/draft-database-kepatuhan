@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 
 class Ministerial_regulationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+
         return view('ministerialRegulation.index', [
             'title' => 'Peraturan Menteri BUMN',
             'active' => 'peraturan_menteri_bumn',
-            'reg_list' => Ministerial_regulation::latest()->filter(request(['search']))->paginate(5)->withQueryString()
+            'reg_list' => Ministerial_regulation::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
+            'search' => $search
         ]);
     }
 

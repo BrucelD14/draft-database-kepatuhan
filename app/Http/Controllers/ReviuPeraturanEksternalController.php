@@ -11,12 +11,15 @@ class ReviuPeraturanEksternalController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+
         return view('reviewEksternalReg.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
             'reg_list' => ReviewEksternalReg::where('status_publish', 1)->latest()->filter(request(['search']))->paginate(5)->withQueryString(),
+            'search' => $search,
         ]);
     }
 

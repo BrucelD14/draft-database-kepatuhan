@@ -9,6 +9,7 @@ class ReviewEksternalRegController extends Controller
 {
     public function index()
     {
+
         return view('reviewEksternalReg.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'active' => 'reviu_peraturan_eksternal',

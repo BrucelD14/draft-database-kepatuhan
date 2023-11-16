@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 
 class ReviewInternalregController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+
         return view('reviuInternalReg', [
             'title' => 'Reviu Peraturan Internal',
             'active' => 'reviu_peraturan_internal',
-            'reg_list' => Review_internalreg::latest()->filter(request(['search']))->paginate(5)->withQueryString()
+            'reg_list' => Review_internalreg::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
+            'search' => $search
         ]);
     }
 

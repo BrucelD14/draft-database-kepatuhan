@@ -9,12 +9,15 @@ use Illuminate\Http\Request;
 
 class Internal_regulationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+
         return view('regulations', [
             'title' => 'Peraturan Internal',
             'active' => 'peraturan_internal_perusahaan',
             'reg_list' => Internal_regulation::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
+            'search' => $search,
         ]);
     }
 

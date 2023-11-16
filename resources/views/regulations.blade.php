@@ -30,7 +30,7 @@
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
                             <input name="search" type="search" class="form-control" id="keyword"
-                                placeholder="Kata Kunci Peraturan ..." aria-label="Search">
+                                placeholder="Kata Kunci Peraturan ..." aria-label="Search" value="{{ $search }}">
                             <button type="submit" class="form-control">Cari</button>
                         </div>
                     </form>
