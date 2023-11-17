@@ -58,7 +58,7 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h5 class="mb-2">Welcome to JDIH PT INKA (Persero)! 👋</h5>
+                        <h5 class="mb-2">Selamat datang di JDIH PT INKA (Persero)! 👋</h5>
                         <p class="mb-4">Please login to your account and start the adventure</p>
 
                         {{-- ERROR ALERT --}}
@@ -74,9 +74,9 @@
                         <form id="formAuthentication" class="mb-3" action="/" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="nip" class="form-label">NIP</label>
+                                <label for="nip" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="email" name="nip"
-                                    placeholder="Enter your nip" autofocus required value="{{ old('nip') }}" />
+                                    placeholder="masukkan username" autofocus required value="{{ old('nip') }}" />
                                 @error('nip')
                                     <div class="invalid-feedback">
                                         {{ $message }}
