@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CatatanReviu;
 use App\Models\JenisPeraturanEksternal;
 use App\Models\KategoriDivisi;
 use App\Models\ReviewEksternalReg;
@@ -16,12 +17,24 @@ class DashboardReviewEksternalRegController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+
+        if (!empty($search)) {
+            $reviews = ReviewEksternalReg::where('nomor_peraturan', 'like', '%' . $search . '%')
+                ->orWhere('tentang', 'like', '%' . $search . '%')
+                ->orWhere('ringkasan', 'like', '%' . $search . '%')
+                ->where('status_publish', 0)->get();
+        } else {
+            $reviews = ReviewEksternalReg::where('status_publish', 0)->get();
+        }
+
         return view('dashboard.reviewExternal.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
-            'regulations' => ReviewEksternalReg::where('status_publish', 0)->get(),
+            'regulations' => $reviews,
+            'search' => $search
         ]);
     }
 
@@ -182,5 +195,22 @@ class DashboardReviewEksternalRegController extends Controller
             ->where('uuid_review_eksternal_reg', $uuid)
             ->delete();
         return redirect('/dashboard/reviu_peraturan_eksternal')->with('success', 'Reviu telah dihapus');
+    }
+
+    public function addNote(Request $request, $id)
+    {
+        $reviu = ReviewEksternalReg::find($id);
+
+        $validatedData = $request->validate([
+            'pesan_catatan' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['reviu_peraturan_eksternal_id'] = $reviu->id;
+
+        // dd($validatedData);
+
+        CatatanReviu::create($validatedData);
+        return redirect("/dashboard/reviu_peraturan_eksternal/$reviu->id")->with('success', 'Catatan berhasil ditambahkan');
     }
 }

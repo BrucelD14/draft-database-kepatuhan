@@ -11,12 +11,24 @@ class DashboardApprovedReviewEksternalRegController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+
+        if (!empty($search)) {
+            $reviews = ReviewEksternalReg::where('nomor_peraturan', 'like', '%' . $search . '%')
+                ->orWhere('tentang', 'like', '%' . $search . '%')
+                ->orWhere('ringkasan', 'like', '%' . $search . '%')
+                ->where('status_publish', 1)->get();
+        } else {
+            $reviews = ReviewEksternalReg::where('status_publish', 1)->get();
+        }
+
         return view('dashboard.approvedReviewExternal.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'approved_reviu',
-            'regulations' => ReviewEksternalReg::where('status_publish', 1)->get(),
+            'regulations' => $reviews,
+            'search' => $search
         ]);
     }
 

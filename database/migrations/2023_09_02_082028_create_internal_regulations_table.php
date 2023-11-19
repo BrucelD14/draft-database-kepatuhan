@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('internal_regulations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jenis_peraturan_internal_id');
-            $table->string('nomor_peraturan');
+            $table->string('nomor_peraturan')->unique();
             $table->date('tanggal_penetapan')->nullable();
             $table->text('tentang');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('visibility', ['public', 'confidential'])->default('public')->nullable();
             $table->text('keterangan_status')->nullable();
             $table->string('dokumen')->nullable();
             $table->timestamp('published_at')->nullable();

@@ -15,7 +15,7 @@
                         <th scope="col">Nomor Peraturan</th>
                         <th scope="col">Perihal</th>
                         <th scope="col">Status Publish</th>
-                        <th scope="col">Note</th>
+                        <th scope="col">Inbox</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -38,10 +38,10 @@
                             <td class="text-center">
                                 <button type="button" class="btn btn-success position-relative" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop{{ $regulation->id }}">
-                                    Inbox
+                                    Note
                                     <span
                                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
-                                        99+
+                                        {{ $regulation->CatatanReviu->count() }}
                                     </span>
                                 </button>
                                 {{-- MODAL PESAN --}}
@@ -56,24 +56,19 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body text-start">
-                                                <p class="mb-1 fw-bolder">Violita Zahrah</p>
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    Fugiat culpa dicta
-                                                    distinctio?</p>
-                                                <p class="mb-0 opacity-75" style="font-size:12px;">2 hour ago</p>
-                                            </div>
-                                            <div class="modal-body text-start">
-                                                <p class="mb-1 fw-bolder">Violita Zahrah</p>
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    Fugiat culpa dicta
-                                                    distinctio?</p>
-                                                <p class="mb-0 opacity-75" style="font-size:12px;">2 hour ago</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
+                                            @if ($regulation->CatatanReviu->count())
+                                                @foreach ($regulation->CatatanReviu as $item)
+                                                    <div class="modal-body text-start">
+                                                        <p class="mb-1 fw-bolder">{{ $item->user->name }}</p>
+                                                        <p class="mb-0">{{ $item->pesan_catatan }}</p>
+                                                        <p class="mb-0 opacity-75" style="font-size:12px;">
+                                                            {{ $item->created_at->diffForHumans() }}</p>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <p class="mt-1 fw-semibold">Tidak ada catatan reviu!</p>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('external_regulations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jenis_peraturan_eksternal_id');
-            $table->string('nomor_peraturan');
+            $table->string('nomor_peraturan')->unique();
             $table->date('tanggal_penetapan')->nullable();
             $table->text('tentang');
             $table->enum('status', ['active', 'inactive'])->default('active');

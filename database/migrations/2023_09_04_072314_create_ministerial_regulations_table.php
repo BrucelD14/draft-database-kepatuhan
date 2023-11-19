@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ministerial_regulations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jenis_peraturan_menteri_id');
-            $table->string('nomor_peraturan');
+            $table->string('nomor_peraturan')->unique();
             $table->date('tanggal_penetapan')->nullable();
             $table->string('slug')->nullable();
             $table->text('tentang');

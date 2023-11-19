@@ -69,6 +69,13 @@
                 </select>
             </div>
             <div class="mb-3">
+                <label for="visibility" class="form-label">Visibilitas</label>
+                <select class="form-select" name="visibility">
+                    <option value="public">Public</option>
+                    <option value="confidential">Confidential</option>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="keterangan_status" class="form-label">Keterangan status</label>
                 <input id="keterangan_status" type="hidden" name="keterangan_status"
                     value="{{ old('keterangan_status', $regulation->keterangan_status) }}">

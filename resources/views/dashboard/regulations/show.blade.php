@@ -15,7 +15,10 @@
             Hapus</button>
     </form>
     <div class="card mt-4">
-        <h5 class="card-header">{{ $regulation->nomor_peraturan }}</h5>
+        <div class="card-header text-center p-3">
+            <h6 class="">{{ $regulation->nomor_peraturan }}</h6>
+            <h5 class="">{!! $regulation->tentang !!}</h5>
+        </div>
         <div class="card-body">
             {{-- <h5 class="card-title">Detail Peraturan Internal Perusahaan</h5> --}}
             <p class="card-text">Jenis Peraturan : {{ $regulation->jenisPeraturanInternal->nama }}</p>
@@ -30,11 +33,14 @@
                     Status Peraturan : <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span>
                 @endif
             </p>
+            {{-- <p class="card-text">
+                @if ($regulation->visibility == 'public')
+                    Visibilitas : <span class="badge bg-primary">{{ 'Public' }}</span>
+                @else
+                    Visibilitas : <span class="badge bg-warning">{{ 'Confidential' }}</span>
+                @endif
+            </p> --}}
             <p class="card-text">Detail Status : {!! $regulation->keterangan_status !!}</p>
-            {{-- <form action="{{ asset('storage/' . $regulation->dokumen) }}">
-                @csrf
-                <button class="btn btn-primary" type="submit">Download Dokumen</button>
-            </form> --}}
             <a href="{{ asset('storage/' . $regulation->dokumen) }}" target="_blank" class="btn btn-primary">Download
                 Dokumen</a>
 

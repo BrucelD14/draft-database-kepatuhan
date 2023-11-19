@@ -12,12 +12,24 @@ class DashboardMinisterial_regulationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+
+        if (!empty($search)) {
+            $regulations = Ministerial_regulation::where('nomor_peraturan', 'like', '%' . $search . '%')
+                ->orWhere('tentang', 'like', '%' . $search . '%')
+                ->orWhere('keterangan_status', 'like', '%' . $search . '%')
+                ->latest()->paginate(10)->onEachSide(2)->fragment('reg');
+        } else {
+            $regulations = Ministerial_regulation::latest()->paginate(10)->fragment('reg')->onEachSide(2);
+        }
+
         return view('dashboard.ministerialRegulation.index', [
             'title' => 'Peraturan Menteri BUMN',
             'link' => 'peraturan_menteri_bumn',
-            'regulations' => Ministerial_regulation::all(),
+            'regulations' => $regulations,
+            'search' => $search
         ]);
     }
 
@@ -39,7 +51,7 @@ class DashboardMinisterial_regulationController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nomor_peraturan' => 'required|max:255',
+            'nomor_peraturan' => 'required|unique:ministerial_regulations|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
             'jenis_peraturan_menteri_id' => 'required',
@@ -87,7 +99,7 @@ class DashboardMinisterial_regulationController extends Controller
         $regulation = Ministerial_regulation::find($id);
 
         $rules = [
-            'nomor_peraturan' => 'required|max:255',
+            'nomor_peraturan' => 'required|unique:ministerial_regulations|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
             'jenis_peraturan_menteri_id' => 'required',

@@ -11,12 +11,25 @@ class DashboardReview_internalRegController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->query('search');
+
+        if (!empty($search)) {
+            $regulations = Review_internalreg::where('kppp', 'like', '%' . $search . '%')
+                ->orWhere('kpde', 'like', '%' . $search . '%')
+                ->orWhere('tentang_peraturan', 'like', '%' . $search . '%')
+                ->orWhere('keterangan_status', 'like', '%' . $search . '%')
+                ->latest()->paginate(10)->onEachSide(2)->fragment('rev');
+        } else {
+            $regulations = Review_internalreg::latest()->paginate(10)->fragment('rev')->onEachSide(2);
+        }
+
         return view('dashboard.reviewInternal.index', [
             'title' => 'Reviu Peraturan Internal',
             'link' => 'reviu_peraturan_internal',
-            'regulations' => Review_internalreg::all(),
+            'regulations' => $regulations,
+            'search' => $search
         ]);
     }
 

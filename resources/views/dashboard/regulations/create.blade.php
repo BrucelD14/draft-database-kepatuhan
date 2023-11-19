@@ -37,14 +37,18 @@
                     </div>
                 @enderror
             </div> --}}
+
             <div class="mb-3">
                 <label for="tentang" class="form-label">Tentang</label>
+                <textarea type="text" class="form-control @error('tentang') is-invalid @enderror" id="tentang" name="tentang"
+                    required value="{{ old('tentang') }}" placeholder="Masukkan judul peraturan"></textarea>
                 @error('tentang')
-                    <p class="text-danger">{{ $message }}</p>
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
                 @enderror
-                <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang') }}">
-                <trix-editor input="tentang"></trix-editor>
             </div>
+
             <div class="mb-3">
                 <label for="jenis_peraturan_internal" class="form-label">Jenis Peraturan</label>
                 <select class="form-select" name="jenis_peraturan_internal_id">
@@ -60,16 +64,30 @@
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select class="form-select" name="status">
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
                 </select>
             </div>
+            {{-- <div class="mb-3">
+                <label for="visibility" class="form-label">Visibilitas</label>
+                <select class="form-select" name="visibility">
+                    <option value="public">Public</option>
+                    <option value="confidential">Confidential</option>
+                </select>
+            </div> --}}
+
             <div class="mb-3">
                 <label for="keterangan_status" class="form-label">Keterangan status</label>
-                <input id="keterangan_status" type="hidden" name="keterangan_status"
-                    value="{{ old('keterangan_status') }}">
-                <trix-editor input="keterangan_status"></trix-editor>
+                <textarea type="text" class="form-control @error('keterangan_status') is-invalid @enderror" id="keterangan_status"
+                    name="keterangan_status" required value="{{ old('keterangan_status') }}"
+                    placeholder="Masukkan status keterangan peraturan"></textarea>
+                @error('keterangan_status')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
+
             <div class="mb-3">
                 <label for="dokumen" class="form-label">Dokumen peraturan</label>
                 <input class="form-control @error('dokumen') is-invalid @enderror" type="file" id="dokumen"

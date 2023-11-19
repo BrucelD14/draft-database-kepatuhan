@@ -15,7 +15,11 @@
             Hapus</button>
     </form>
     <div class="card mt-4">
-        <h5 class="card-header">Reviu Peraturan Internal</h5>
+        {{-- <h5 class="card-header">Reviu Peraturan Internal</h5> --}}
+        <div class="card-header text-center p-3">
+            <h6 class="">{{ $regulation->kpde }}</h6>
+            <h5 class="">{!! $regulation->tentang_peraturan !!}</h5>
+        </div>
         <div class="card-body">
             {{-- <h5 class="card-title">Detail Peraturan Internal Perusahaan</h5> --}}
             <p class="card-text">Ketentuan Peraturan Perundang-undangan : {{ $regulation->kppp }}</p>

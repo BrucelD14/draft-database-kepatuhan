@@ -41,7 +41,7 @@ class PeraturanInternalChart
         if ($tahun == date('Y')) {
             $bulan = date('m');
         } else {
-            $bulan = date('m') + 2;
+            $bulan = date('m') + (12 - date('m'));
         }
         for ($i = 1; $i <= $bulan; $i++) {
             $totalPeraturanDireksi = Internal_regulation::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_internal_id', 1)->count();
@@ -59,7 +59,8 @@ class PeraturanInternalChart
             ->setSubtitle('Grafik Bulanan')
             ->addData('Peraturan Direksi', $dataTotalPeraturanDireksi)
             ->addData('Surat Edaran', $dataTotalSuratEdaran)
-            ->setColors(['#BF0000', '#1B1B1B',])
+            ->setColors(['#FFCC70', '#22668D',])
             ->setXAxis($dataBulan);
+        // ->setYAxis();
     }
 }

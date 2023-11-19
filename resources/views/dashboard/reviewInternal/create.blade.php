@@ -27,21 +27,30 @@
                     </div>
                 @enderror
             </div>
+
             <div class="mb-3">
                 <label for="tentang_peraturan" class="form-label">Tentang</label>
+                <textarea type="text" class="form-control @error('tentang_peraturan') is-invalid @enderror" id="tentang_peraturan"
+                    name="tentang_peraturan" required value="{{ old('tentang_peraturan') }}" placeholder="Masukkan judul peraturan"></textarea>
                 @error('tentang_peraturan')
-                    <p class="text-danger">{{ $message }}</p>
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
                 @enderror
-                <input id="tentang_peraturan" type="hidden" name="tentang_peraturan"
-                    value="{{ old('tentang_peraturan') }}">
-                <trix-editor input="tentang_peraturan"></trix-editor>
             </div>
+
             <div class="mb-3">
-                <label for="keterangan_status" class="form-label">Status</label>
-                <input id="keterangan_status" type="hidden" name="keterangan_status"
-                    value="{{ old('keterangan_status') }}">
-                <trix-editor input="keterangan_status"></trix-editor>
+                <label for="keterangan_status" class="form-label">Keterangan status</label>
+                <textarea type="text" class="form-control @error('keterangan_status') is-invalid @enderror" id="keterangan_status"
+                    name="keterangan_status" required value="{{ old('keterangan_status') }}"
+                    placeholder="Masukkan status keterangan peraturan"></textarea>
+                @error('keterangan_status')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
+
             <div class="mb-3">
                 <label for="dokumen" class="form-label">Dokumen Reviu</label>
                 <input class="form-control @error('dokumen') is-invalid @enderror" type="file" id="dokumen"
