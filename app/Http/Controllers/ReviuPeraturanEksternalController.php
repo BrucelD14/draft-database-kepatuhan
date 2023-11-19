@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriDivisi;
 use App\Models\KategoriDivisiReviu;
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
@@ -11,12 +12,29 @@ class ReviuPeraturanEksternalController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $searchKeyword = $request->input('search');
+        $selectOptionValue = $request->input('selectedCategory');
+
+        $hasilPencarian = ReviewEksternalReg::join('kategori_divisi_reviu', 'kategori_divisi_reviu.uuid_review_eksternal_reg', '=', 'review_eksternal_regs.uuid')
+            ->join('kategori_divisis', 'kategori_divisis.id', '=', 'kategori_divisi_reviu.kategori_divisi_id')
+            ->where(function ($query) use ($searchKeyword, $selectOptionValue) {
+                $query->where('review_eksternal_regs.tentang', 'like', '%' . $searchKeyword . '%')
+                    ->orWhere('review_eksternal_regs.nomor_peraturan', 'like', '%' . $searchKeyword . '%')
+                    ->orWhere('review_eksternal_regs.tanggal_penetapan', 'like', '%' . $searchKeyword . '%');
+            })
+            ->where('kategori_divisis.id', '=', $selectOptionValue)
+            ->select('review_eksternal_regs.*')
+            ->paginate(5);
+
         return view('reviewEksternalReg.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
-            'reg_list' => ReviewEksternalReg::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
+            'reg_list' => $hasilPencarian,
+            'kategori' => KategoriDivisi::get(),
+            'selectOptionValue' => $selectOptionValue,
+            'searchKeyword' => $searchKeyword
         ]);
     }
 
