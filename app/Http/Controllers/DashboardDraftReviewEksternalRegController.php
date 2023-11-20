@@ -15,6 +15,9 @@ class DashboardDraftReviewEksternalRegController extends Controller
      */
     public function index()
     {
+
+        // $data = ReviewEksternalReg::where('status_publish', 0)->first();
+        // dd($data->CatatanReviu);
         return view('dashboard.DraftReviewExternal.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'draft_reviu',

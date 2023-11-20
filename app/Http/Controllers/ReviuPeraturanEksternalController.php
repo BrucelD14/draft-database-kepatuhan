@@ -41,7 +41,7 @@ class ReviuPeraturanEksternalController extends Controller
             'kategori' => KategoriDivisi::get(),
             'selectOptionValue' => $selectOptionValue,
             'selectOptionValueJenis' => $selectOptionValueJenis,
-            'searchKeyword' => $searchKeyword,
+            'searchKeyword' => $searchKeyword
         ]);
     }
 
