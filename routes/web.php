@@ -59,6 +59,7 @@ Route::get('/matriks', [MatrixController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_eksternal', [MatrixExternalRegulationController::class, 'index'])->middleware('auth');
 Route::get('/reviu_peraturan_eksternal', [ReviuPeraturanEksternalController::class, 'index'])->middleware('auth');
+Route::get('/reviu_peraturan_eksternal/{id}', [ReviuPeraturanEksternalController::class, 'show'])->middleware('auth');
 
 // DASHBOARD ROUTE
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('not_reader');
