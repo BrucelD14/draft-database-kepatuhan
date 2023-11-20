@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
         //     'nama' => 'Riset dan Pengembangan'
         // ]);
 
-        Internal_regulation::factory(20)->create();
+        // Internal_regulation::factory(20)->create();
         // External_regulation::factory(20)->create();
         // Ministerial_regulation::factory(30)->create();
         // Review_internalreg::factory(30)->create();

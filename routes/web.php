@@ -58,7 +58,8 @@ Route::get('/reviu_peraturan_internal/{id}', [ReviewInternalregController::class
 Route::get('/matriks', [MatrixController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_eksternal', [MatrixExternalRegulationController::class, 'index'])->middleware('auth');
-Route::resource('/reviu_peraturan_eksternal', ReviuPeraturanEksternalController::class)->except('create', 'store', 'edit', 'update', 'destroy')->middleware('auth');
+// Route::resource('/reviu_peraturan_eksternal', ReviuPeraturanEksternalController::class)->except('create', 'store', 'edit', 'update', 'destroy')->middleware('auth');
+Route::get('/reviu_peraturan_eksternal', [ReviuPeraturanEksternalController::class, 'index'])->middleware('auth');
 // MAIN MENU ROUTE
 
 // DASHBOARD ROUTE

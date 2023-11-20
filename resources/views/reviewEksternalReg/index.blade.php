@@ -21,21 +21,75 @@
         </div>
     </header>
 
-    <section class="search-section d-flex justify-content-center align-items-center" id="section_1">
+    {{-- <section class="search-section d-flex justify-content-center align-items-center" id="section_1">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-12 mx-auto">
-                    <form method="get" class="custom-form pt-2 mb-lg-0 mb-5" role="search">
+                <form method="get" class="custom-form pt-2 mb-lg-0 mb-5 d-flex justify-content-center" role="search">
+                    <div class="col-lg-3 col-12 mx-1 text-end justify-content-end">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
-                            <input name="search" type="search" class="form-control" id="keyword"
-                                placeholder="Kata Kunci Peraturan ..." aria-label="Search" value="{{ $search }}">
+                            <select class="form-select border-0 form-control-lg my-1" name="selectedCategory"
+                                aria-label="Default select example">
+                                <option value="" selected>Kategori Reviu</option>
+                                @foreach ($kategori as $item)
+                                    <option value="{{ $item->id }}"
+                                        {{ $selectOptionValue == $item->id ? 'selected' : '' }}>{{ $item->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 mx-1 text-start justify-content-start">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bi-search" id="basic-addon1"></span>
+                            <input name="search" type="search" class="form-control form-control-lg" id="keyword"
+                                value="{{ $searchKeyword }}" placeholder="Kata Kunci Peraturan ..." aria-label="Search"
+                                name="searchTerm">
                             <button type="submit" class="form-control">Cari</button>
                         </div>
-                    </form>
-                </div>
-
+                    </div>
+                </form>
             </div>
+        </div>
+    </section> --}}
+
+
+    <section class="search-section d-flex justify-content-center align-items-center" id="section_1">
+        <div class="container">
+            <form method="get" class="custom-form pt-2 mb-lg-0 mb-5 d-flex justify-content-center" role="search">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-12 mx-1">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bi-search" id="basic-addon1"></span>
+                            <select class="form-select border-0 form-control-lg my-1" name="selectedCategory"
+                                aria-label="Default select example">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12 mx-1">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bi-search" id="basic-addon1"></span>
+                            <select class="form-select border-0 form-control-lg my-1" name="selectedJenis"
+                                aria-label="Default select example">
+                                <option value="" selected>Jenis Peraturan</option>
+                                @foreach ($jenis as $item)
+                                    <option value="{{ $item->id }}"
+                                        {{ $selectOptionValueJenis == $item->id ? 'selected' : '' }}>
+                                        {{ $item->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-12 mx-1 mt-3">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bi-search" id="basic-addon1"></span>
+                            <input name="search" type="search" class="form-control form-control-lg" id="keyword"
+                                value="{{ $searchKeyword }}" placeholder="Kata Kunci Peraturan ..." aria-label="Search"
+                                name="searchTerm">
+                            <button type="submit" class="form-control">Cari</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 

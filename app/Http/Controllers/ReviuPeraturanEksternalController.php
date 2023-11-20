@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisPeraturanEksternal;
+use App\Models\KategoriDivisi;
 use App\Models\KategoriDivisiReviu;
 use App\Models\ReviewEksternalReg;
 use Illuminate\Http\Request;
@@ -13,13 +15,33 @@ class ReviuPeraturanEksternalController extends Controller
      */
     public function index(Request $request)
     {
-        $search = $request->query('search');
+        $searchKeyword = $request->input('search');
+        $selectOptionValue = $request->input('selectedCategory');
+        $selectOptionValueJenis = $request->input('selectedJenis');
+
+        $hasilPencarian = ReviewEksternalReg::join('kategori_divisi_reviu', 'kategori_divisi_reviu.uuid_review_eksternal_reg', '=', 'review_eksternal_regs.uuid')
+            ->join('kategori_divisis', 'kategori_divisis.id', '=', 'kategori_divisi_reviu.kategori_divisi_id')
+            ->where(function ($query) use ($searchKeyword) {
+                $query->where('review_eksternal_regs.tentang', 'like', '%' . $searchKeyword . '%')
+                    ->orWhere('review_eksternal_regs.nomor_peraturan', 'like', '%' . $searchKeyword . '%')
+                    ->orWhere('review_eksternal_regs.tanggal_penetapan', 'like', '%' . $searchKeyword . '%');
+            })
+            ->where(function ($query) use ($selectOptionValueJenis) {
+                $query->where('kategori_divisis.id', '=', $selectOptionValueJenis)
+                    ->where('review_eksternal_regs.jenis_peraturan_eksternal_id', '=', $selectOptionValueJenis);
+            })
+            ->select('review_eksternal_regs.*')
+            ->paginate(5);
 
         return view('reviewEksternalReg.index', [
             'title' => 'Reviu Peraturan Eksternal',
             'link' => 'reviu_peraturan_eksternal',
-            'reg_list' => ReviewEksternalReg::where('status_publish', 1)->latest()->filter(request(['search']))->paginate(5)->withQueryString(),
-            'search' => $search,
+            'reg_list' => $hasilPencarian,
+            'jenis' => JenisPeraturanEksternal::get(),
+            'kategori' => KategoriDivisi::get(),
+            'selectOptionValue' => $selectOptionValue,
+            'selectOptionValueJenis' => $selectOptionValueJenis,
+            'searchKeyword' => $searchKeyword,
         ]);
     }
 
