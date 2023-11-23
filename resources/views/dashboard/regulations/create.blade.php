@@ -41,7 +41,7 @@
             <div class="mb-3">
                 <label for="tentang" class="form-label">Tentang</label>
                 <textarea type="text" class="form-control @error('tentang') is-invalid @enderror" id="tentang" name="tentang"
-                    required value="{{ old('tentang') }}" placeholder="Masukkan judul peraturan"></textarea>
+                    required placeholder="Masukkan judul peraturan">{{ old('tentang') }}</textarea>
                 @error('tentang')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -61,6 +61,7 @@
                     @endforeach
                 </select>
             </div>
+
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select class="form-select" name="status">
@@ -68,6 +69,7 @@
                     <option value="inactive">Inactive</option>
                 </select>
             </div>
+
             {{-- <div class="mb-3">
                 <label for="visibility" class="form-label">Visibilitas</label>
                 <select class="form-select" name="visibility">
@@ -79,13 +81,26 @@
             <div class="mb-3">
                 <label for="keterangan_status" class="form-label">Keterangan status</label>
                 <textarea type="text" class="form-control @error('keterangan_status') is-invalid @enderror" id="keterangan_status"
-                    name="keterangan_status" required value="{{ old('keterangan_status') }}"
-                    placeholder="Masukkan status keterangan peraturan"></textarea>
+                    name="keterangan_status" required placeholder="Masukkan status keterangan peraturan">{{ old('keterangan_status') }}</textarea>
                 @error('keterangan_status')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="kategori_divisi" class="form-label">Divisi/Unit Pengusul</label>
+                <select class="form-select" name="kategori_divisi_id">
+                    <option value="" selected>None</option>
+                    @foreach ($kategori_divisi as $item)
+                        @if (old('kategori_divisi_id') == $item->id)
+                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                        @else
+                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-3">

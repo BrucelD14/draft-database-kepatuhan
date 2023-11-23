@@ -25,32 +25,32 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // User::create([
-        //     'name' => 'Brucel Duta',
-        //     'nip' => '12345',
-        //     'password' => bcrypt('password'),
-        //     'role' => 'editor',
-        //     'jabatan' => 'Senior Manajer MRH'
-        // ]);
-        // User::create([
-        //     'name' => 'Violita Zahrah',
-        //     'nip' => '67890',
-        //     'password' => bcrypt('password'),
-        //     'role' => 'reviewer',
-        //     'jabatan' => 'Manajer KTKP'
-        // ]);
+        User::create([
+            'name' => 'Brucel Duta',
+            'nip' => '12345',
+            'password' => bcrypt('password'),
+            'role' => 'editor',
+            'jabatan' => 'Senior Manajer MRH'
+        ]);
+        User::create([
+            'name' => 'Violita Zahrah',
+            'nip' => '67890',
+            'password' => bcrypt('password'),
+            'role' => 'reviewer',
+            'jabatan' => 'Manajer KTKP'
+        ]);
         // User::create([
         //     'name' => 'Fajar Chan',
         //     'nip' => '54321',
         //     'password' => bcrypt('password'),
         //     'jabatan' => 'Staff KTKP'
         // ]);
-        // User::create([
-        //     'name' => 'Raga Tri',
-        //     'nip' => '11111',
-        //     'password' => bcrypt('password'),
-        //     'jabatan' => 'Staff MR'
-        // ]);
+        User::create([
+            'name' => 'Raga Tri',
+            'nip' => '11111',
+            'password' => bcrypt('password'),
+            'jabatan' => 'Staff MR'
+        ]);
         // User::create([
         //     'name' => 'Ramadloni',
         //     'nip' => '22222',
@@ -58,32 +58,32 @@ class DatabaseSeeder extends Seeder
         //     'jabatan' => 'Staff Risbang'
         // ]);
 
-        // JenisPeraturanInternal::create([
-        //     'nama' => 'Peraturan Direksi'
-        // ]);
-        // JenisPeraturanInternal::create([
-        //     'nama' => 'Surat Edaran'
-        // ]);
+        JenisPeraturanInternal::create([
+            'nama' => 'Peraturan Direksi'
+        ]);
+        JenisPeraturanInternal::create([
+            'nama' => 'Surat Edaran'
+        ]);
 
-        // JenisPeraturanEksternal::create([
-        //     'nama' => 'Undang-undang'
-        // ]);
-        // JenisPeraturanEksternal::create([
-        //     'nama' => 'Peraturan Pemerintah'
-        // ]);
-        // JenisPeraturanMenteri::create([
-        //     'nama' => 'Peraturan Menteri'
-        // ]);
-        // JenisPeraturanMenteri::create([
-        //     'nama' => 'Keputusan Menteri'
-        // ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Undang-undang'
+        ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Peraturan Pemerintah'
+        ]);
+        JenisPeraturanMenteri::create([
+            'nama' => 'Peraturan Menteri'
+        ]);
+        JenisPeraturanMenteri::create([
+            'nama' => 'Keputusan Menteri'
+        ]);
 
-        // KategoriDivisi::create([
-        //     'nama' => 'Manajemen Risiko dan Hukum'
-        // ]);
-        // KategoriDivisi::create([
-        //     'nama' => 'Riset dan Pengembangan'
-        // ]);
+        KategoriDivisi::create([
+            'nama' => 'Manajemen Risiko dan Hukum'
+        ]);
+        KategoriDivisi::create([
+            'nama' => 'Riset dan Pengembangan'
+        ]);
 
         // Internal_regulation::factory(20)->create();
         // External_regulation::factory(20)->create();

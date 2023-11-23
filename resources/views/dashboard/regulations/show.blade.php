@@ -15,14 +15,16 @@
             Hapus</button>
     </form>
     <div class="card mt-4">
-        <div class="card-header text-center p-3">
+        <div class="card-header text-center p-3 bg-dark text-white">
             <h6 class="">{{ $regulation->nomor_peraturan }}</h6>
             <h5 class="">{!! $regulation->tentang !!}</h5>
         </div>
         <div class="card-body">
             {{-- <h5 class="card-title">Detail Peraturan Internal Perusahaan</h5> --}}
             <p class="card-text">Jenis Peraturan : {{ $regulation->jenisPeraturanInternal->nama }}</p>
-            <p class="card-text">Tentang : {!! $regulation->tentang !!}</p>
+            <p class="card-text">Tentang :
+                {!! $regulation->tentang !!}
+            </p>
             <p class="card-text">Nomor Peraturan : {{ $regulation->nomor_peraturan }}</p>
             <p class="card-text">Tanggal Penetapan :
                 {{ \Carbon\Carbon::parse($regulation->tanggal_penetapan)->translatedFormat('d F Y') }}</p>
@@ -41,6 +43,15 @@
                 @endif
             </p> --}}
             <p class="card-text">Detail Status : {!! $regulation->keterangan_status !!}</p>
+            @if (isset($regulation->kategoriDivisi->nama))
+                <p class="card-text">
+                    Divisi/Unit Pengusul : <button class="btn btn-outline-danger"
+                        style="cursor:default">{{ $regulation->kategoriDivisi->nama }}</button>
+                    {{-- @else
+                    Divisi/Unit Pengusul : <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span> --}}
+                </p>
+            @endif
+            {{-- <p class="card-text">DIvisi/Unit Pengusul : {{ $regulation->kategoriDivisi->nama }}</p> --}}
             <a href="{{ asset('storage/' . $regulation->dokumen) }}" target="_blank" class="btn btn-primary">Download
                 Dokumen</a>
 

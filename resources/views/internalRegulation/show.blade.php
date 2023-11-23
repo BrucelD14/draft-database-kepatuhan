@@ -68,15 +68,15 @@
                                             <td>Status Keterangan</td>
                                             <td>: {!! $regulation->keterangan_status !!}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Divisi/Unit Terkait</td>
-                                            <td>:
-                                                {{-- @foreach ($divisi as $item)
+                                        @if (isset($regulation->kategoriDivisi->nama))
+                                            <tr>
+                                                <td>Divisi/Unit Terkait</td>
+                                                <td>:
                                                     <button class="btn btn-outline-danger"
-                                                        style="cursor:default">{{ $item->kategoriDivisi->nama }}</button>
-                                                @endforeach --}}
-                                            </td>
-                                        </tr>
+                                                        style="cursor:default">{{ $regulation->kategoriDivisi->nama }}</button>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
 

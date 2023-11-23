@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Internal_regulation;
 use App\Models\JenisPeraturanInternal;
+use App\Models\KategoriDivisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -42,6 +43,7 @@ class DashboardInternal_regulationController extends Controller
             'title' => 'Tambah Peraturan Internal',
             'link' => 'peraturan_internal',
             'jenis_peraturan' => JenisPeraturanInternal::all(),
+            'kategori_divisi' => KategoriDivisi::all()
         ]);
     }
 
@@ -58,6 +60,7 @@ class DashboardInternal_regulationController extends Controller
             'status' => 'required',
             // 'visibility' => 'nullable',
             'keterangan_status' => 'nullable',
+            'kategori_divisi_id' => 'nullable',
             'dokumen' => 'required|file',
         ]);
 
@@ -91,6 +94,7 @@ class DashboardInternal_regulationController extends Controller
             'link' => 'peraturan_internal',
             'regulation' => Internal_regulation::find($id),
             'jenis_peraturan' => JenisPeraturanInternal::all(),
+            'kategori_divisi' => KategoriDivisi::all(),
         ]);
     }
 
@@ -109,6 +113,7 @@ class DashboardInternal_regulationController extends Controller
             'status' => 'required',
             // 'visibility' => 'nullable',
             'keterangan_status' => 'required',
+            'kategori_divisi_id' => 'nullable',
             'dokumen' => 'file',
         ];
 
@@ -133,6 +138,7 @@ class DashboardInternal_regulationController extends Controller
             $regulation->status = $request->status;
             // $regulation->visibility = $request->visibility;
             $regulation->keterangan_status = $request->keterangan_status;
+            $regulation->kategori_divisi_id = $request->kategori_divisi_id;
             $regulation->dokumen = $request->file('dokumen')->store('regulation-documents', 'public');
             $regulation->save();
         } else {
@@ -143,6 +149,7 @@ class DashboardInternal_regulationController extends Controller
             $regulation->status = $request->status;
             // $regulation->visibility = $request->visibility;
             $regulation->keterangan_status = $request->keterangan_status;
+            $regulation->kategori_divisi_id = $request->kategori_divisi_id;
             $regulation->save();
         }
 
