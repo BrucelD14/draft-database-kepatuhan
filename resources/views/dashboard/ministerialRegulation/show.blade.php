@@ -3,6 +3,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">{{ $title }}</h1>
     </div>
+
     <a href="/dashboard/{{ $link }}" class="btn btn-outline-secondary btn-sm"><i
             class="bi bi-arrow-left-circle-fill"></i> Kembali</a>
     <a href="/dashboard/{{ $link }}/{{ $regulation->id }}/edit" class="btn btn-warning btn-sm"><i
@@ -14,8 +15,9 @@
                 class="bi bi-trash3-fill"></i>
             Hapus</button>
     </form>
+
     <div class="card mt-4">
-        <div class="card-header text-center p-3">
+        <div class="card-header text-center p-3 bg-dark text-white">
             <h6 class="">{{ $regulation->nomor_peraturan }}</h6>
             <h5 class="">{!! $regulation->tentang !!}</h5>
         </div>

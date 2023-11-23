@@ -59,8 +59,7 @@ Route::get('/matriks', [MatrixController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_internal', [MatrixInternalRegulationController::class, 'index'])->middleware('auth');
 Route::get('/matriks/peraturan_eksternal', [MatrixExternalRegulationController::class, 'index'])->middleware('auth');
 Route::get('/reviu_peraturan_eksternal', [ReviuPeraturanEksternalController::class, 'index'])->middleware('auth');
-// Route::post('/reviu_peraturan_eksternal', [ReviuPeraturanEksternalController::class, 'search'])->name('search.reviu_peraturan_eksterna')->middleware('auth');
-// MAIN MENU ROUTE
+Route::get('/reviu_peraturan_eksternal/{id}', [ReviuPeraturanEksternalController::class, 'show'])->middleware('auth');
 
 // DASHBOARD ROUTE
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('not_reader');
@@ -74,7 +73,7 @@ Route::resource('/dashboard/jenis_peraturan_eksternal', DashboardJenisPeraturanE
 Route::resource('/dashboard/jenis_peraturan_menteri', DashboardJenisPeraturanMenteriController::class)->except('show')->middleware('is_editor');
 Route::resource('/dashboard/kategori_divisi', DashboardKategoriDivisiController::class)->except('show')->middleware('is_editor');
 Route::resource('/dashboard/approved_reviu', DashboardApprovedReviewEksternalRegController::class)->except('create', 'store', 'edit', 'update', 'destroy')->middleware('not_reader');
-Route::resource('/dashboard/draft_reviu', DashboardDraftReviewEksternalRegController::class)->except('edit', 'update', 'destroy')->middleware('is_reviewer');
+Route::resource('/dashboard/draft_reviu', DashboardDraftReviewEksternalRegController::class);
 Route::get('/dashboard/draft_reviu/approve/{id}', [DashboardDraftReviewEksternalRegController::class, 'approve'])->middleware('auth');
 Route::post('/dashboard/tambah_catatan/{id}', [DashboardDraftReviewEksternalRegController::class, 'addNote']);
 Route::post('/dashboard/tambah_catatan_editor/{id}', [DashboardReviewEksternalRegController::class, 'addNote']);

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="/landing">
-            <img src="/img/inka.png" alt="PT Industri Kereta Api (Persero)" width="150">
+            <img src="/img/INKA1.png" alt="PT Industri Kereta Api (Persero)" width="150">
         </a>
         <a class="navbar-brand" href="https://jdih.bumn.go.id/" target="_blank">
             <img src="/img/bumn.png" alt="Kementerian BUMN" width="150">

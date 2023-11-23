@@ -39,24 +39,25 @@ class DatabaseSeeder extends Seeder
             'role' => 'reviewer',
             'jabatan' => 'Manajer KTKP'
         ]);
-        User::create([
-            'name' => 'Fajar Chan',
-            'nip' => '54321',
-            'password' => bcrypt('password'),
-            'jabatan' => 'Staff KTKP'
-        ]);
+        // User::create([
+        //     'name' => 'Fajar Chan',
+        //     'nip' => '54321',
+        //     'password' => bcrypt('password'),
+        //     'jabatan' => 'Staff KTKP'
+        // ]);
         User::create([
             'name' => 'Raga Tri',
             'nip' => '11111',
             'password' => bcrypt('password'),
             'jabatan' => 'Staff MR'
         ]);
-        User::create([
-            'name' => 'Ramadloni',
-            'nip' => '22222',
-            'password' => bcrypt('password'),
-            'jabatan' => 'Staff Risbang'
-        ]);
+
+        // User::create([
+        //     'name' => 'Ramadloni',
+        //     'nip' => '22222',
+        //     'password' => bcrypt('password'),
+        //     'jabatan' => 'Staff Risbang'
+        // ]);
 
         JenisPeraturanInternal::create([
             'nama' => 'Peraturan Direksi'
@@ -85,10 +86,10 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Riset dan Pengembangan'
         ]);
 
-        Internal_regulation::factory(20)->create();
-        External_regulation::factory(20)->create();
-        Ministerial_regulation::factory(30)->create();
-        Review_internalreg::factory(30)->create();
-        ReviewEksternalReg::factory(10)->create();
+        // Internal_regulation::factory(20)->create();
+        // External_regulation::factory(20)->create();
+        // Ministerial_regulation::factory(30)->create();
+        // Review_internalreg::factory(30)->create();
+        // ReviewEksternalReg::factory(10)->create();
     }
 }

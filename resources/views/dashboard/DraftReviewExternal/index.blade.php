@@ -56,19 +56,14 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            @if ($regulation->CatatanReviu->count())
-                                                @foreach ($regulation->CatatanReviu as $item)
-                                                    <div class="modal-body text-start">
-                                                        <p class="mb-1 fw-bolder">{{ $item->user->name }}</p>
-                                                        <p class="mb-0">{{ $item->pesan_catatan }}</p>
-                                                        <p class="mb-0 opacity-75" style="font-size:12px;">
-                                                            {{ $item->created_at->diffForHumans() }}</p>
-                                                    </div>
-                                                @endforeach
-                                            @else
-                                                <p class="mt-1 fw-semibold">Tidak ada catatan reviu!</p>
-                                            @endif
-
+                                            @foreach ($regulation->CatatanReviu as $item)
+                                                <div class="modal-body text-start">
+                                                    <p class="mb-1 fw-bolder">{{ $item->user->name }}</p>
+                                                    <p class="mb-0">{{ $item->pesan_catatan }}</p>
+                                                    <p class="mb-0 opacity-75" style="font-size:12px;">
+                                                        {{ $item->created_at }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

@@ -15,7 +15,7 @@
             Hapus</button>
     </form>
     <div class="card mt-4">
-        <div class="card-header text-center p-3">
+        <div class="card-header text-center p-3 bg-dark text-white">
             <h6 class="">{{ $regulation->nomor_peraturan }}</h6>
             <h5 class="">{!! $regulation->tentang !!}</h5>
         </div>

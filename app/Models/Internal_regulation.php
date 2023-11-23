@@ -35,4 +35,9 @@ class Internal_regulation extends Model
     {
         return $this->belongsTo(JenisPeraturanInternal::class);
     }
+
+    public function kategoriDivisi()
+    {
+        return $this->belongsTo(KategoriDivisi::class);
+    }
 }
