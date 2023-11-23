@@ -51,7 +51,7 @@ class DashboardMinisterial_regulationController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nomor_peraturan' => 'required|unique:ministerial_regulations|max:255',
+            'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
             'jenis_peraturan_menteri_id' => 'required',
@@ -99,7 +99,7 @@ class DashboardMinisterial_regulationController extends Controller
         $regulation = Ministerial_regulation::find($id);
 
         $rules = [
-            'nomor_peraturan' => 'required|unique:ministerial_regulations|max:255',
+            'nomor_peraturan' => 'required|max:255',
             'tanggal_penetapan' => 'required',
             'tentang' => 'required',
             'jenis_peraturan_menteri_id' => 'required',

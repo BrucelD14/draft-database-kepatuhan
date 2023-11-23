@@ -100,7 +100,7 @@ class DashboardReview_internalRegController extends Controller
             'kpde' => 'required|max:255',
             'tentang_peraturan' => 'required',
             'keterangan_status' => 'required',
-            'dokumen' => 'required|file',
+            'dokumen' => 'file',
         ];
 
         $request->validate($rules);

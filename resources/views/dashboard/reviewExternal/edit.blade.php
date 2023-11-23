@@ -54,7 +54,7 @@
             <div class="mb-3">
                 <label for="tentang" class="form-label">Tentang</label>
                 <textarea type="text" class="form-control @error('tentang') is-invalid @enderror" id="tentang" name="tentang"
-                    required value="{{ old('tentang', $regulation->tentang) }}" placeholder="Masukkan perihal peraturan">{{ $regulation->tentang }}</textarea>
+                    required placeholder="Masukkan perihal peraturan">{{ old('tentang', $regulation->tentang) }}</textarea>
                 @error('tentang')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -65,7 +65,7 @@
             <div class="mb-3">
                 <label for="ringkasan" class="form-label">Ringkasan</label>
                 <textarea type="text" class="form-control @error('ringkasan') is-invalid @enderror" id="ringkasan" name="ringkasan"
-                    required value="{{ old('ringkasan', $regulation->ringkasan) }}" placeholder="Masukkan ringkasan umum peraturan">{{ $regulation->ringkasan }}</textarea>
+                    required placeholder="Masukkan ringkasan umum peraturan">{{ old('ringkasan', $regulation->ringkasan) }}</textarea>
                 @error('ringkasan')
                     <div class="invalid-feedback">
                         {{ $message }}

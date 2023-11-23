@@ -31,14 +31,18 @@
                     </div>
                 @enderror
             </div>
+
             <div class="mb-3">
                 <label for="tentang" class="form-label">Tentang</label>
+                <textarea type="text" class="form-control @error('tentang') is-invalid @enderror" id="tentang" name="tentang"
+                    required placeholder="Masukkan judul peraturan">{{ old('tentang', $regulation->tentang) }}</textarea>
                 @error('tentang')
-                    <p class="text-danger">{{ $message }}</p>
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
                 @enderror
-                <input id="tentang" type="hidden" name="tentang" value="{{ old('tentang', $regulation->tentang) }}">
-                <trix-editor input="tentang"></trix-editor>
             </div>
+
             <div class="mb-3">
                 <label for="jenis_peraturan_menteri" class="form-label">Jenis Peraturan</label>
                 <select class="form-select" name="jenis_peraturan_menteri_id">
@@ -58,12 +62,18 @@
                     <option value="0">Inactive</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label for="keterangan_status" class="form-label">Keterangan status</label>
-                <input id="keterangan_status" type="hidden" name="keterangan_status"
-                    value="{{ old('keterangan_status', $regulation->keterangan_status) }}">
-                <trix-editor input="keterangan_status"></trix-editor>
+                <textarea type="text" class="form-control @error('keterangan_status') is-invalid @enderror" id="keterangan_status"
+                    name="keterangan_status" required placeholder="Masukkan status keterangan peraturan">{{ old('keterangan_status', $regulation->keterangan_status) }}</textarea>
+                @error('keterangan_status')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
+
             <div class="mb-4">
                 <label for="dokumen" class="form-label">Dokumen peraturan</label>
                 <input type="hidden" name="oldDokumen" value="{{ $regulation->dokumen }}">

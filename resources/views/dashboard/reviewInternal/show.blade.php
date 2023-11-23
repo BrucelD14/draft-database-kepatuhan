@@ -16,7 +16,7 @@
     </form>
     <div class="card mt-4">
         {{-- <h5 class="card-header">Reviu Peraturan Internal</h5> --}}
-        <div class="card-header text-center p-3">
+        <div class="card-header text-center p-3 bg-dark text-white">
             <h6 class="">{{ $regulation->kpde }}</h6>
             <h5 class="">{!! $regulation->tentang_peraturan !!}</h5>
         </div>

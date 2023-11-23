@@ -29,24 +29,29 @@
                     </div>
                 @enderror
             </div>
+
             <div class="mb-3">
                 <label for="tentang_peraturan" class="form-label">Tentang</label>
+                <textarea type="text" class="form-control @error('tentang_peraturan') is-invalid @enderror" id="tentang_peraturan"
+                    name="tentang_peraturan" required placeholder="Masukkan judul peraturan">{{ old('tentang_peraturan', $regulation->tentang_peraturan) }}</textarea>
                 @error('tentang_peraturan')
-                    <p class="text-danger">{{ $message }}</p>
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
                 @enderror
-                <input id="tentang_peraturan" type="hidden" name="tentang_peraturan"
-                    value="{{ old('tentang_peraturan', $regulation->tentang_peraturan) }}">
-                <trix-editor input="tentang_peraturan"></trix-editor>
             </div>
+
             <div class="mb-3">
-                <label for="keterangan_status" class="form-label">Status</label>
+                <label for="keterangan_status" class="form-label">Keterangan status</label>
+                <textarea type="text" class="form-control @error('keterangan_status') is-invalid @enderror" id="keterangan_status"
+                    name="keterangan_status" required placeholder="Masukkan status keterangan peraturan">{{ old('keterangan_status', $regulation->keterangan_status) }}</textarea>
                 @error('keterangan_status')
-                    <p class="text-danger">{{ $message }}</p>
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
                 @enderror
-                <input id="keterangan_status" type="hidden" name="keterangan_status"
-                    value="{{ old('keterangan_status', $regulation->keterangan_status) }}">
-                <trix-editor input="keterangan_status"></trix-editor>
             </div>
+
             <div class="mb-4">
                 <label for="dokumen" class="form-label">Dokumen Reviu</label>
                 <input type="hidden" name="oldDokumen" value="{{ $regulation->dokumen }}">
