@@ -61,7 +61,7 @@
                                                     <p class="mb-1 fw-bolder">{{ $item->user->name }}</p>
                                                     <p class="mb-0">{{ $item->pesan_catatan }}</p>
                                                     <p class="mb-0 opacity-75" style="font-size:12px;">
-                                                        {{ $item->created_at }}</p>
+                                                        {{ $item->created_at->diffForHumans() }}</p>
                                                 </div>
                                             @endforeach
                                         </div>

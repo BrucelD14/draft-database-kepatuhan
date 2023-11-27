@@ -31,11 +31,12 @@
         <div class="container">
             <div class="row justify-content-center">
 
-                <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+
+                {{-- <div class="col-lg-6 col-12 mb-4 mb-lg-0">
                     <div class="custom-block bg-white shadow-lg">
                         <a href="/peraturan_internal_perusahaan">
                             <div class="d-flex">
-                                <div>
+                                <div class="">
                                     <h5 class="mb-2 text-center">Peraturan Internal Perusahaan</h5>
 
                                     <p class="mb-0">When you search for free CSS templates, you will notice that
@@ -46,28 +47,91 @@
                                 class="custom-block-image img-fluid" alt="">
                         </a>
                     </div>
+                </div> --}}
+
+                <div class="col-lg-6 col-12">
+                    <div class="custom-block custom-block-overlay">
+                        <div class="d-flex flex-column h-100">
+                            <img src="{{ asset('img/young.jpg') }}" class="custom-block-image img-fluid" alt="">
+
+                            <div class="custom-block-overlay-text">
+                                <div>
+                                    <h5 class="text-white mb-2 text-center">Peraturan Internal Perusahaan</h5>
+
+                                    @foreach ($internalRegulations as $item)
+                                        <div class="card bg-transparent border-0" id="card-list-new">
+                                            <a href="/peraturan_eksternal/{{ $item->id }}" target="_blank">
+                                                <div class="card-body">
+                                                    <h6 class="mb-0 fw-bolder" style="font-size: 13px">
+                                                        {{ $item->nomor_peraturan }}</h6>
+                                                    <p class="mb-0 text-white" style="font-size: 16px;">{{ $item->tentang }}
+                                                    </p>
+                                                    <small class="text-white-50"
+                                                        style="font-size: 12px;">{{ $item->created_at->diffForHumans() }}</small>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+
+                                    <a href="/peraturan_eksternal" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                </div>
+                            </div>
+
+                            <div class="section-overlay"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-lg-6 col-12">
                     <div class="custom-block custom-block-overlay">
-                        <a href="/peraturan_eksternal">
-                            <div class="d-flex flex-column h-100">
-                                <img src="{{ asset('img/businesswoman-using-tablet-analysis.jpg') }}"
-                                    class="custom-block-image img-fluid" alt="">
+                        <div class="d-flex flex-column h-100">
+                            <img src="{{ asset('img/businesswoman-using-tablet-analysis.jpg') }}"
+                                class="custom-block-image img-fluid" alt="">
 
-                                <div class="custom-block-overlay-text d-flex">
-                                    <div>
-                                        <h5 class="text-white mb-2 text-center">Peraturan Eksternal</h5>
+                            <div class="custom-block-overlay-text">
+                                <div>
+                                    <h5 class="text-white mb-2 text-center">Peraturan Eksternal</h5>
 
-                                        <p class="text-white">Topic Listing Template includes homepage, listing page,
-                                            detail page, and contact page. You can feel free to edit and adapt for your
-                                            CMS requirements.</p>
-                                    </div>
+                                    @foreach ($eksternalRegulations as $item)
+                                        <div class="card bg-transparent border-0" id="card-list-new">
+                                            <a href="/peraturan_eksternal/{{ $item->id }}" target="_blank">
+                                                <div class="card-body">
+                                                    <h6 class="mb-0 fw-bolder" style="font-size: 13px">
+                                                        {{ $item->nomor_peraturan }}</h6>
+                                                    <p class="mb-0 text-white" style="font-size: 16px;">{{ $item->tentang }}
+                                                    </p>
+                                                    <small class="text-white-50"
+                                                        style="font-size: 12px;">{{ $item->created_at->diffForHumans() }}</small>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+
+                                    {{-- <div class="card bg-transparent border-0" id="card-list-new">
+                                        <a href="">
+                                            <div class="card-body">
+                                                <h6 class="mb-0 fw-bolder" style="font-size: 13px">PER/MBU/3/2020</h6>
+                                                <p class="mb-0 text-white" style="font-size: 16px;">Lorem ipsum dolor sit
+                                                    amet consectetur,
+                                                    adipisicing elit. Tempore suscipit doloribus necessitatibus.</p>
+                                                <small class="text-white-50" style="font-size: 12px;">7 hari yang
+                                                    lalu</small>
+                                            </div>
+                                        </a>
+                                    </div> --}}
+                                    {{-- <a href="" class="text-white">
+                                        <span class="me-3 fw-bolder">PER/MBU/3/2020</span>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Eos,
+                                        vel.
+                                    </a> --}}
+
+                                    <a href="/peraturan_eksternal" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                 </div>
-
-                                <div class="section-overlay"></div>
                             </div>
-                        </a>
+
+                            <div class="section-overlay"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -166,8 +230,8 @@
                 <div class="col-lg-7 col-12 mb-4 mb-lg-0">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3841.320560625069!2d111.52351447641053!3d-7.618051878009855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79bf015ea242bb%3A0xa2f7a9e70e95cddf!2sPT%20Industri%20Kereta%20Api!5e1!3m2!1sen!2sid!4v1698895300949!5m2!1sen!2sid"
-                        width="100%" height="370" style="border:0;border-radius:30px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        width="100%" height="370" style="border:0;border-radius:30px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
                 <div class="col-lg-5 col-md-6 col-12 mb-3 mb-lg- mb-md-0">
