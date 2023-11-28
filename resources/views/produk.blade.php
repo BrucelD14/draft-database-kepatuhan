@@ -32,9 +32,13 @@
                                     <div>
                                         <h5 class="mb-2">Peraturan Internal Perusahaan</h5>
 
-                                        <p class="mb-0">Topic Listing includes home, listing, detail and contact pages.
-                                            Feel
-                                            free to modify this template for your custom websites.</p>
+                                        <hr>
+
+                                        @foreach ($internalReg as $item)
+                                            <h6 class="fs-6">{{ $item->nomor_peraturan }} <span
+                                                    class="badge bg-success">new</span></h6>
+                                            <p class="mb-0">{{ $item->tentang }}</p>
+                                        @endforeach
                                     </div>
 
                                     {{-- <span class="badge bg-design rounded-pill ms-auto">14</span> --}}
@@ -52,10 +56,14 @@
                                     <div>
                                         <h5 class="mb-2">Peraturan Eksternal Berkaitan Bisnis Proses</h5>
 
-                                        <p class="mb-0">Topic Listing includes home, listing, detail and contact
-                                            pages.
-                                            Feel
-                                            free to modify this template for your custom websites.</p>
+                                        <hr>
+
+                                        @foreach ($externalReg as $item)
+                                            <h6 class="fs-6">{{ $item->nomor_peraturan }} <span
+                                                    class="badge bg-success">new</span></h6>
+                                            <p class="mb-0">{{ $item->tentang }}</p>
+                                        @endforeach
+
                                     </div>
                                 </div>
                             </div>
@@ -73,9 +81,14 @@
                                     <div>
                                         <h5 class="mb-2">Peraturan Menteri BUMN</h5>
 
-                                        <p class="mb-0">Topic Listing includes home, listing, detail and contact pages.
-                                            Feel
-                                            free to modify this template for your custom websites.</p>
+                                        <hr>
+
+                                        @foreach ($ministerialReg as $item)
+                                            <h6 class="fs-6">{{ $item->nomor_peraturan }} <span
+                                                    class="badge bg-success">new</span></h6>
+                                            <p class="mb-0">{{ $item->tentang }}</p>
+                                        @endforeach
+
                                     </div>
                                 </div>
                             </div>
@@ -91,9 +104,13 @@
                                     <div>
                                         <h5 class="mb-2">Reviu Peraturan Internal</h5>
 
-                                        <p class="mb-0">Topic Listing includes home, listing, detail and contact pages.
-                                            Feel
-                                            free to modify this template for your custom websites.</p>
+                                        <hr>
+
+                                        @foreach ($internalRev as $item)
+                                            <h6 class="fs-6">{{ $item->kpde }} <span class="badge bg-success">new</span>
+                                            </h6>
+                                            <p class="mb-0">{{ $item->tentang_peraturan }}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -111,9 +128,14 @@
                                     <div>
                                         <h5 class="mb-2">Reviu Peraturan Eksternal</h5>
 
-                                        <p class="mb-0">Topic Listing includes home, listing, detail and contact pages.
-                                            Feel
-                                            free to modify this template for your custom websites.</p>
+                                        <hr>
+
+                                        @foreach ($externalRev as $item)
+                                            <h6 class="fs-6">{{ $item->nomor_peraturan }} <span
+                                                    class="badge bg-success">new</span>
+                                            </h6>
+                                            <p class="mb-0">{{ $item->tentang }}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

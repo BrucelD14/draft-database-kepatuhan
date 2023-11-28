@@ -60,11 +60,11 @@
 
                                     @foreach ($internalRegulations as $item)
                                         <div class="card bg-transparent border-0" id="card-list-new">
-                                            <a href="/peraturan_eksternal/{{ $item->id }}" target="_blank">
+                                            <a href="/peraturan_internal_perusahaan/{{ $item->id }}" target="_blank">
                                                 <div class="card-body">
                                                     <h6 class="mb-0 fw-bolder" style="font-size: 13px">
                                                         {{ $item->nomor_peraturan }}</h6>
-                                                    <p class="mb-0 text-white" style="font-size: 16px;">{{ $item->tentang }}
+                                                    <p class="mb-0 text-white" style="font-size: 17px;">{{ $item->tentang }}
                                                     </p>
                                                     <small class="text-white-50"
                                                         style="font-size: 12px;">{{ $item->created_at->diffForHumans() }}</small>
@@ -73,7 +73,8 @@
                                         </div>
                                     @endforeach
 
-                                    <a href="/peraturan_eksternal" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                    <a href="/peraturan_internal_perusahaan" class="btn custom-btn mt-2 mt-lg-3">Learn
+                                        More</a>
                                 </div>
                             </div>
 
@@ -98,7 +99,7 @@
                                                 <div class="card-body">
                                                     <h6 class="mb-0 fw-bolder" style="font-size: 13px">
                                                         {{ $item->nomor_peraturan }}</h6>
-                                                    <p class="mb-0 text-white" style="font-size: 16px;">{{ $item->tentang }}
+                                                    <p class="mb-0 text-white" style="font-size: 17px;">{{ $item->tentang }}
                                                     </p>
                                                     <small class="text-white-50"
                                                         style="font-size: 12px;">{{ $item->created_at->diffForHumans() }}</small>
