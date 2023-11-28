@@ -25,18 +25,16 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
                     <div class="custom-block bg-white shadow-lg">
-                        <a href="/matriks/peraturan_internal">
-                            <div class="d-flex">
-                                <div>
-                                    <h5 class="mb-2">Matriks Peraturan Internal PT INKA (Persero)</h5>
+                        <div class="d-flex">
+                            <div>
+                                <h5 class="mb-2">Matriks Peraturan Internal PT INKA (Persero)</h5>
 
-                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                </div>
+                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+
+                                <a href="/matriks/peraturan_internal" class="btn custom-btn mt-2 mt-lg-3">Learn
+                                    More</a>
                             </div>
-
-                            <img src="img/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid"
-                                alt="">
-                        </a>
+                        </div>
                     </div>
                 </div>
 
