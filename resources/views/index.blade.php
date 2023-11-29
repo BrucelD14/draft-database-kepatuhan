@@ -182,15 +182,16 @@
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How to find a topic?
+                                    Bagaimana cara menemukan peraturan di Aplikasi JDIH PT INKA (Persero) ?
                                 </button>
                             </h2>
 
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    You can search on Google with <strong>keywords</strong> such as templatemo
-                                    portfolio, templatemo one-page layouts, photography, digital marketing, etc.
+                                    Kamu dapat <strong>menuju ke halaman Produk hukum</strong>, lalu pilih jenis peraturan
+                                    yang ingin kamu temukan. Setelah itu kamu dapat <strong>mengetik kata kunci peraturan
+                                        pada kolom pencarian</strong> halaman tersebut.
                                 </div>
                             </div>
                         </div>
@@ -199,16 +200,14 @@
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Does it need to paid?
+                                    Siapa saja yang dapat mengakses Aplikasi JDIH PT INKA (Persero) ?
                                 </button>
                             </h2>
 
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    You can modify any of this with custom CSS or overriding our default variables.
-                                    It's also worth noting that just about any HTML can go within the
-                                    <code>.accordion-body</code>, though the transition does limit overflow.
+                                    Akses penggunaan Aplikasi JDIH dibatasi hanya untuk pegawai aktif PT INKA (Persero).
                                 </div>
                             </div>
                         </div>
