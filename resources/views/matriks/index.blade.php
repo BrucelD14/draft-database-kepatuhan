@@ -57,7 +57,7 @@
 
                             <div class="custom-block-overlay-text d-flex">
                                 <div>
-                                    <h5 class="text-white mb-5">Matriks Peraturan Eksternal PT INKA (Persero)</h5>
+                                    <h5 class="text-white mb-5">Matriks Reviu Peraturan Eksternal PT INKA (Persero)</h5>
 
                                     <div class="">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"
