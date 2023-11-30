@@ -21,7 +21,7 @@ class DashboardApprovedReviewEksternalRegController extends Controller
                 ->orWhere('ringkasan', 'like', '%' . $search . '%')
                 ->where('status_publish', 1)->get();
         } else {
-            $reviews = ReviewEksternalReg::where('status_publish', 1)->get();
+            $reviews = ReviewEksternalReg::where('status_publish', 1)->latest()->get();
         }
 
         return view('dashboard.approvedReviewExternal.index', [
