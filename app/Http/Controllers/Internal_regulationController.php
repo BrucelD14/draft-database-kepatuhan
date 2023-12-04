@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Imports\InternalRegulationImport;
 use App\Models\Internal_regulation;
+use App\Models\JenisPeraturanEksternal;
+use App\Models\KategoriDivisi;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,6 +20,8 @@ class Internal_regulationController extends Controller
             'active' => 'peraturan_internal_perusahaan',
             'reg_list' => Internal_regulation::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
             'search' => $search,
+            'jenis' => JenisPeraturanEksternal::get(),
+            'kategori' => KategoriDivisi::get(),
         ]);
     }
 
