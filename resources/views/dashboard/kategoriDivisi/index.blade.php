@@ -22,6 +22,7 @@
                     <thead>
                         <tr class="text-center">
                             <th scope="col">No</th>
+                            <th scope="col">Kode Divisi</th>
                             <th scope="col">Nama Divisi</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -31,7 +32,8 @@
                         @foreach ($kategori as $item)
                             <tr class="align-middle">
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $item->nama }}</td>
+                                <td class="text-center">{{ $item->div_code }}</td>
+                                <td class="text-center">{{ $item->div_name }}</td>
                                 <td class="text-center">
                                     <a href="/dashboard/{{ $link }}/{{ $item->id }}/edit"
                                         class="btn btn-warning"><i class="bi bi-pencil-fill"></i> Edit</a>

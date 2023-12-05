@@ -17,7 +17,7 @@ class Product_lawController extends Controller
         $externalReg = External_regulation::latest()->limit(1)->get();
         $ministerialReg = Ministerial_regulation::latest()->limit(1)->get();
         $internalRev = Review_internalreg::latest()->limit(1)->get();
-        $externalRev = ReviewEksternalReg::latest()->limit(1)->get();
+        $externalRev = ReviewEksternalReg::latest()->where('status_publish', 1)->limit(1)->get();
 
         return view('produk', [
             'title' => 'Produk Hukum',

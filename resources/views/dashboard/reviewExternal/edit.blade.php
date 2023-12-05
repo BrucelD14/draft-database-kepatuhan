@@ -80,9 +80,9 @@
                     @foreach ($kategori_divisi as $item)
                         @foreach ($divisi as $d)
                             @if (old('divisi[]', $d->kategori_divisi_id) == $item->id)
-                                <option value="{{ $item->id }}" selected>{{ $item->nama }}</option>
+                                <option value="{{ $item->id }}" selected>{{ $item->div_name }}</option>
                             @else
-                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                <option value="{{ $item->id }}">{{ $item->div_name }}</option>
                             @endif
                         @endforeach
                     @endforeach

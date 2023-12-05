@@ -73,7 +73,7 @@
                                             <td>:
                                                 @foreach ($divisi as $item)
                                                     <button class="btn btn-outline-danger"
-                                                        style="cursor:default">{{ $item->kategoriDivisi->nama }}</button>
+                                                        style="cursor:default">{{ $item->kategoriDivisi->div_name }}</button>
                                                 @endforeach
                                             </td>
                                         </tr>

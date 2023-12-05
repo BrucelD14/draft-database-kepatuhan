@@ -76,9 +76,9 @@
                     data-placeholder="Pilih divisi/unit terkait" multiple required>
                     @foreach ($kategori_divisi as $divisi)
                         @if (old('divisi[]') == $divisi->id)
-                            <option value="{{ $divisi->id }}" selected>{{ $divisi->nama }}</option>
+                            <option value="{{ $divisi->id }}" selected>{{ $divisi->div_name }}</option>
                         @else
-                            <option value="{{ $divisi->id }}">{{ $divisi->nama }}</option>
+                            <option value="{{ $divisi->id }}">{{ $divisi->div_name }}</option>
                         @endif
                     @endforeach
                 </select>

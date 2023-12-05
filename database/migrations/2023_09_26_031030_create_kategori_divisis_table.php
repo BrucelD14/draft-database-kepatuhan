@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('kategori_divisis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('div_code');
+            $table->string('div_name');
             $table->timestamps();
         });
     }

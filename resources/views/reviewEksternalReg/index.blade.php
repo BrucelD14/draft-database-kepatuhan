@@ -30,10 +30,11 @@
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
                             <select class="form-select border-0 form-control-lg my-1" name="selectedCategory"
                                 aria-label="Default select example">
-                                <option value="" selected>Kategori Reviu</option>
+                                <option value="" selected>Kategori Divisi</option>
                                 @foreach ($kategori as $item)
                                     <option value="{{ $item->id }}"
-                                        {{ $selectOptionValue == $item->id ? 'selected' : '' }}>{{ $item->nama }}</option>
+                                        {{ $selectOptionValue == $item->id ? 'selected' : '' }}>{{ $item->div_name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>

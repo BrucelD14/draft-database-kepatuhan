@@ -97,9 +97,9 @@
                     <option value="" selected>None</option>
                     @foreach ($kategori_divisi as $item)
                         @if (old('kategori_divisi_id') == $item->id)
-                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                            <option value="{{ $item->id }}">{{ $item->div_name }}</option>
                         @else
-                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                            <option value="{{ $item->id }}">{{ $item->div_name }}</option>
                         @endif
                     @endforeach
                 </select>

@@ -39,7 +39,8 @@
             <p class="card-text">Ringkasan : {!! $regulation->ringkasan !!}</p>
             <p class="card-text">Divisi/Unit Terkait :
                 @foreach ($divisi as $item)
-                    <button class="btn btn-outline-danger" style="cursor:default">{{ $item->kategoriDivisi->nama }}</button>
+                    <button class="btn btn-outline-danger"
+                        style="cursor:default">{{ $item->kategoriDivisi->div_name }}</button>
                 @endforeach
             </p>
             <p class="card-text">Edisi :

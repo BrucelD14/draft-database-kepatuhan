@@ -43,10 +43,10 @@
                 @endif
             </p> --}}
             <p class="card-text">Detail Status : {!! $regulation->keterangan_status !!}</p>
-            @if (isset($regulation->kategoriDivisi->nama))
+            @if (isset($regulation->kategoriDivisi->div_name))
                 <p class="card-text">
                     Divisi/Unit Pengusul : <button class="btn btn-outline-danger"
-                        style="cursor:default">{{ $regulation->kategoriDivisi->nama }}</button>
+                        style="cursor:default">{{ $regulation->kategoriDivisi->div_name }}</button>
                     {{-- @else
                     Divisi/Unit Pengusul : <span class="badge bg-warning">{{ 'Tidak Berlaku' }}</span> --}}
                 </p>

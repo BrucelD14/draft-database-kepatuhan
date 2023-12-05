@@ -36,7 +36,8 @@ class DashboardKategoriDivisiController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required|max:255',
+            'div_code' => 'required|max:255',
+            'div_name' => 'required|max:255',
         ]);
 
         KategoriDivisi::create($validatedData);
@@ -71,7 +72,8 @@ class DashboardKategoriDivisiController extends Controller
         $kategori = KategoriDivisi::find($id);
 
         $rules = [
-            'nama' => 'required|max:255',
+            'div_code' => 'required|max:255',
+            'div_name' => 'required|max:255',
         ];
 
         $validatedData = $request->validate($rules);

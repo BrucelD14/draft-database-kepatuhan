@@ -68,12 +68,12 @@
                                             <td>Status Keterangan</td>
                                             <td>: {!! $regulation->keterangan_status !!}</td>
                                         </tr>
-                                        @if (isset($regulation->kategoriDivisi->nama))
+                                        @if (isset($regulation->kategoriDivisi->div_name))
                                             <tr>
                                                 <td>Divisi/Unit Terkait</td>
                                                 <td>:
                                                     <button class="btn btn-outline-danger"
-                                                        style="cursor:default">{{ $regulation->kategoriDivisi->nama }}</button>
+                                                        style="cursor:default">{{ $regulation->kategoriDivisi->div_name }}</button>
                                                 </td>
                                             </tr>
                                         @endif

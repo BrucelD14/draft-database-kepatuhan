@@ -25,32 +25,32 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        User::create([
-            'name' => 'Brucel Duta',
-            'nip' => '12345',
-            'password' => bcrypt('password'),
-            'role' => 'editor',
-            'jabatan' => 'Senior Manajer MRH'
-        ]);
-        User::create([
-            'name' => 'Violita Zahrah',
-            'nip' => '67890',
-            'password' => bcrypt('password'),
-            'role' => 'reviewer',
-            'jabatan' => 'Manajer KTKP'
-        ]);
+        // User::create([
+        //     'name' => 'Brucel Duta',
+        //     'nip' => '12345',
+        //     'password' => bcrypt('password'),
+        //     'role' => 'editor',
+        //     'jabatan' => 'Senior Manajer MRH'
+        // ]);
+        // User::create([
+        //     'name' => 'Violita Zahrah',
+        //     'nip' => '67890',
+        //     'password' => bcrypt('password'),
+        //     'role' => 'reviewer',
+        //     'jabatan' => 'Manajer KTKP'
+        // ]);
         // User::create([
         //     'name' => 'Fajar Chan',
         //     'nip' => '54321',
         //     'password' => bcrypt('password'),
         //     'jabatan' => 'Staff KTKP'
         // ]);
-        User::create([
-            'name' => 'Raga Tri',
-            'nip' => '11111',
-            'password' => bcrypt('password'),
-            'jabatan' => 'Staff MR'
-        ]);
+        // User::create([
+        //     'name' => 'Raga Tri',
+        //     'nip' => '11111',
+        //     'password' => bcrypt('password'),
+        //     'jabatan' => 'Staff MR'
+        // ]);
 
         // User::create([
         //     'name' => 'Ramadloni',
@@ -79,12 +79,18 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Keputusan Menteri'
         ]);
 
-        KategoriDivisi::create([
-            'nama' => 'Manajemen Risiko dan Hukum'
-        ]);
-        KategoriDivisi::create([
-            'nama' => 'Riset dan Pengembangan'
-        ]);
+        // KategoriDivisi::create([
+        //     'div_code' => 'MRH-001',
+        //     'div_name' => 'Manajemen Risiko dan Hukum'
+        // ]);
+        // KategoriDivisi::create([
+        //     'div_code' => 'RISBANG-002',
+        //     'div_name' => 'Riset dan Pengembangan'
+        // ]);
+        // KategoriDivisi::create([
+        //     'div_code' => 'SEKPER-003',
+        //     'div_name' => 'Sekretaris Perusahaan'
+        // ]);
 
         // Internal_regulation::factory(20)->create();
         // External_regulation::factory(20)->create();
