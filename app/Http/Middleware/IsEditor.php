@@ -15,10 +15,15 @@ class IsEditor
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() || auth()->user()->jabatan === 'Manajer KTKP' || auth()->user()->jabatan === 'Staff KTKP') {
-            return $next($request);
-        } else {
+        // if (auth()->check() || auth()->user()->jabatan === 'Manajer KTKP' || auth()->user()->jabatan === 'Staff KTKP') {
+        //     return $next($request);
+        // } else {
+        //     abort(403);
+        // }
+
+        if (!auth()->check() || auth()->user()->nip != 'editor_JDIH_INKA') {
             abort(403);
         }
+        return $next($request);
     }
 }

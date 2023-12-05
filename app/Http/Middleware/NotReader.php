@@ -15,7 +15,13 @@ class NotReader
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->jabatan === 'Senior Manajer MRH' || auth()->user()->jabatan === 'Manajer KTKP' || auth()->user()->jabatan === 'Staff KTKP') {
+        // if (auth()->user()->jabatan === 'Senior Manajer MRH' || auth()->user()->jabatan === 'Manajer KTKP' || auth()->user()->jabatan === 'Staff KTKP') {
+        //     return $next($request);
+        // } else {
+        //     return abort(403);
+        // }
+
+        if (auth()->user()->nip === 'approval_JDIH_INKA' || auth()->user()->nip === 'editor_JDIH_INKA') {
             return $next($request);
         } else {
             return abort(403);

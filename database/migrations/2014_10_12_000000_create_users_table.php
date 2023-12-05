@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('nip')->nullable();
             $table->string('name');
-            $table->string('nip')->unique();
+            $table->foreignId('job_id')->nullable();
             $table->string('password');
-            $table->enum('role', ['editor', 'reviewer', 'reader'])->default('reader');
-            $table->string('jabatan');
             $table->rememberToken();
             $table->timestamps();
         });

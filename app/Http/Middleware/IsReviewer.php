@@ -15,7 +15,10 @@ class IsReviewer
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->jabatan != 'Senior Manajer MRH') {
+        // if (!auth()->check() || auth()->user()->jabatan != 'Senior Manajer MRH') {
+        //     abort(403);
+        // }
+        if (!auth()->check() || auth()->user()->nip != 'approval_JDIH_INKA') {
             abort(403);
         }
 

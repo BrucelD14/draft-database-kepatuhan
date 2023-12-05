@@ -51,13 +51,24 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('password'),
         //     'jabatan' => 'Staff MR'
         // ]);
-
-        // User::create([
-        //     'name' => 'Ramadloni',
-        //     'nip' => '22222',
-        //     'password' => bcrypt('password'),
-        //     'jabatan' => 'Staff Risbang'
-        // ]);
+        User::create([
+            'nip' => 'approval_JDIH_INKA',
+            'name' => 'Approval JDIH INKA',
+            'job_id' => null,
+            'password' => bcrypt('password'),
+        ]);
+        User::create([
+            'nip' => 'editor_JDIH_INKA',
+            'name' => 'Editor JDIH INKA',
+            'job_id' => null,
+            'password' => bcrypt('password'),
+        ]);
+        User::create([
+            'nip' => '12345',
+            'name' => 'Brucel Duta',
+            'job_id' => '2',
+            'password' => bcrypt('password'),
+        ]);
 
         JenisPeraturanInternal::create([
             'nama' => 'Peraturan Direksi'
@@ -79,18 +90,18 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Keputusan Menteri'
         ]);
 
-        // KategoriDivisi::create([
-        //     'div_code' => 'MRH-001',
-        //     'div_name' => 'Manajemen Risiko dan Hukum'
-        // ]);
-        // KategoriDivisi::create([
-        //     'div_code' => 'RISBANG-002',
-        //     'div_name' => 'Riset dan Pengembangan'
-        // ]);
-        // KategoriDivisi::create([
-        //     'div_code' => 'SEKPER-003',
-        //     'div_name' => 'Sekretaris Perusahaan'
-        // ]);
+        KategoriDivisi::create([
+            'div_code' => 'MRH-001',
+            'div_name' => 'Manajemen Risiko dan Hukum'
+        ]);
+        KategoriDivisi::create([
+            'div_code' => 'RISBANG-002',
+            'div_name' => 'Riset dan Pengembangan'
+        ]);
+        KategoriDivisi::create([
+            'div_code' => 'SEKPER-003',
+            'div_name' => 'Sekretaris Perusahaan'
+        ]);
 
         // Internal_regulation::factory(20)->create();
         // External_regulation::factory(20)->create();
