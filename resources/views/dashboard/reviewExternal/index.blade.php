@@ -5,6 +5,12 @@
         <h1 class="h2">Draft | {{ $title }}</h1>
     </div>
 
+    @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <a href="/dashboard/{{ $link }}/create" class="btn btn-primary mb-3">Tambah Reviu</a>
     <div class="col-lg-6">
         <form method="GET" action="">
