@@ -16,8 +16,9 @@ class JobPositionImport implements ToModel, WithStartRow
     public function model(array $row)
     {
         return new JobPosition([
-            'job_code' => $row[0],
-            'job_name' => $row[1],
+            'job_id' => $row[0],
+            'job_code' => $row[1],
+            'job_name' => $row[2],
         ]);
     }
 

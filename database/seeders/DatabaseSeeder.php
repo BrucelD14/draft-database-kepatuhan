@@ -90,18 +90,18 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Keputusan Menteri'
         ]);
 
-        KategoriDivisi::create([
-            'div_code' => 'MRH-001',
-            'div_name' => 'Manajemen Risiko dan Hukum'
-        ]);
-        KategoriDivisi::create([
-            'div_code' => 'RISBANG-002',
-            'div_name' => 'Riset dan Pengembangan'
-        ]);
-        KategoriDivisi::create([
-            'div_code' => 'SEKPER-003',
-            'div_name' => 'Sekretaris Perusahaan'
-        ]);
+        // KategoriDivisi::create([
+        //     'div_code' => 'MRH-001',
+        //     'div_name' => 'Manajemen Risiko dan Hukum'
+        // ]);
+        // KategoriDivisi::create([
+        //     'div_code' => 'RISBANG-002',
+        //     'div_name' => 'Riset dan Pengembangan'
+        // ]);
+        // KategoriDivisi::create([
+        //     'div_code' => 'SEKPER-003',
+        //     'div_name' => 'Sekretaris Perusahaan'
+        // ]);
 
         // Internal_regulation::factory(20)->create();
         // External_regulation::factory(20)->create();
