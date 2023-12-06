@@ -102,7 +102,7 @@ class DashboardKategoriDivisiController extends Controller
 
         Excel::import(new DivisiImport, $request->file('importir_divisi')->store('importir'));
 
-        return redirect('/dashboard/importir')->with('success', 'Berhasil Import');
+        return redirect('/dashboard/importir')->with('success', 'Berhasil Import Divisi');
         // return back();
     }
 }

@@ -15,6 +15,7 @@ use App\Http\Controllers\DashboardReviewEksternalRegController;
 use App\Http\Controllers\External_regulationController;
 use App\Http\Controllers\ImportirController;
 use App\Http\Controllers\Internal_regulationController;
+use App\Http\Controllers\JobPositionImportController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MatrixController;
@@ -81,3 +82,4 @@ Route::post('/dashboard/tambah_catatan_editor/{id}', [DashboardReviewEksternalRe
 // Route::post('import_peraturan_internal', [Internal_regulationController::class, 'import'])->name('peraturanInternal.import');
 Route::get('dashboard/importir', [ImportirController::class, 'index']);
 Route::post('/divisi_import', [DashboardKategoriDivisiController::class, 'import'])->name('divisiimport.store');
+Route::post('/job_position_import', JobPositionImportController::class)->name('jobpositionimport.store');

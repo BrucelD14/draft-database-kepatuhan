@@ -22,13 +22,27 @@
         </div>
     @endif
     {{-- PESAN ERROR --}}
-
-    <form action="{{ route('divisiimport.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <h5>IMPORTIR DIVISI</h5>
-        <div class="input-group">
-            <input type="file" class="form-control" id="inputGroupFile04" name="importir_divisi">
-            <button class="btn btn-outline-success" type="submit" id="inputGroupFileAddon04">Import</button>
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <form action="{{ route('divisiimport.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <h5>IMPORTIR DIVISI</h5>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="inputGroupFile04" name="importir_divisi">
+                    <button class="btn btn-outline-success" type="submit" id="inputGroupFileAddon04">Import</button>
+                </div>
+            </form>
         </div>
-    </form>
+
+        <div class="col-lg-8 mb-4">
+            <form action="{{ route('jobpositionimport.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <h5>IMPORTIR JOB POSITION</h5>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="inputGroupFile04" name="importir_job_position">
+                    <button class="btn btn-outline-primary" type="submit" id="inputGroupFileAddon04">Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

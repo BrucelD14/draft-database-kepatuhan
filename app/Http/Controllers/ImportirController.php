@@ -9,7 +9,7 @@ class ImportirController extends Controller
     public function index()
     {
         return view('dashboard.importir.index', [
-            'title' => 'IMPORT FILE',
+            'title' => 'IMPORTIR FILE',
         ]);
     }
 }
