@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nip')->nullable();
             $table->string('name');
-            $table->foreignId('job_id')->nullable();
+            $table->string('job_id')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

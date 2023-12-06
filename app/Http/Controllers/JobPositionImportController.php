@@ -19,6 +19,6 @@ class JobPositionImportController extends Controller
 
         Excel::import(new JobPositionImport, $request->file('importir_job_position')->store('importir'));
 
-        return redirect('/dashboard/importir')->with('success', 'Berhasil Import Job Position');
+        return redirect('/dashboard/importir')->with('success', 'Berhasil Import Job Positions');
     }
 }

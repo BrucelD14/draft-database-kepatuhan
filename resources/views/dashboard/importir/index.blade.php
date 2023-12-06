@@ -44,5 +44,16 @@
                 </div>
             </form>
         </div>
+
+        <div class="col-lg-8 mb-4">
+            <form action="{{ route('userimport.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <h5>IMPORTIR USER</h5>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="inputGroupFile04" name="importir_user">
+                    <button class="btn btn-outline-danger" type="submit" id="inputGroupFileAddon04">Import</button>
+                </div>
+            </form>
+        </div>
     </div>
 @endsection
