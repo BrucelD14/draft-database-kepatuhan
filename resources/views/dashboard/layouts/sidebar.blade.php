@@ -108,6 +108,13 @@
                             Kategori Divisi
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/importir*') ? 'active' : '' }} d-flex align-items-center gap-2"
+                            href="/dashboard/importir">
+                            <i class="bi bi-cloud-arrow-up-fill"></i>
+                            Importir
+                        </a>
+                    </li>
                 </ul>
 
                 <hr class="my-3">

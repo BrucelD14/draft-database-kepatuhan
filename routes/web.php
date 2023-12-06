@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardMinisterial_regulationController;
 use App\Http\Controllers\DashboardReview_internalRegController;
 use App\Http\Controllers\DashboardReviewEksternalRegController;
 use App\Http\Controllers\External_regulationController;
+use App\Http\Controllers\ImportirController;
 use App\Http\Controllers\Internal_regulationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
@@ -21,10 +22,8 @@ use App\Http\Controllers\MatrixExternalRegulationController;
 use App\Http\Controllers\MatrixInternalRegulationController;
 use App\Http\Controllers\Ministerial_regulationController;
 use App\Http\Controllers\Product_lawController;
-use App\Http\Controllers\ReviewEksternalRegController;
 use App\Http\Controllers\ReviewInternalregController;
 use App\Http\Controllers\ReviuPeraturanEksternalController;
-use App\Models\ReviewEksternalReg;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,5 +78,6 @@ Route::post('/dashboard/tambah_catatan/{id}', [DashboardDraftReviewEksternalRegC
 Route::post('/dashboard/tambah_catatan_editor/{id}', [DashboardReviewEksternalRegController::class, 'addNote']);
 
 // IMPORT
-Route::post('import_peraturan_internal', [Internal_regulationController::class, 'import'])->name('peraturanInternal.import');
-// DASHBOARD ROUTE
+// Route::post('import_peraturan_internal', [Internal_regulationController::class, 'import'])->name('peraturanInternal.import');
+Route::get('dashboard/importir', [ImportirController::class, 'index']);
+Route::post('/divisi_import', [DashboardKategoriDivisiController::class, 'import'])->name('divisiimport.store');

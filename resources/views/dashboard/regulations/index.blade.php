@@ -93,7 +93,7 @@
 
     {{-- IMPORT MODAL --}}
     <!-- Modal -->
-    <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -115,6 +115,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- IMPORT MODAL --}}
 @endsection

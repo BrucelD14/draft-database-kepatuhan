@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\DivisiImport;
 use App\Models\KategoriDivisi;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardKategoriDivisiController extends Controller
 {
@@ -90,5 +92,17 @@ class DashboardKategoriDivisiController extends Controller
     {
         KategoriDivisi::destroy($id);
         return redirect('/dashboard/kategori_divisi')->with('success', 'Kategori divisi telah dihapus');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'importir_divisi' => 'required|mimes:xlsx,xls',
+        ]);
+
+        Excel::import(new DivisiImport, $request->file('importir_divisi')->store('importir'));
+
+        return redirect('/dashboard/importir')->with('success', 'Berhasil Import');
+        // return back();
     }
 }

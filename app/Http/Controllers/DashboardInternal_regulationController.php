@@ -169,10 +169,4 @@ class DashboardInternal_regulationController extends Controller
         Internal_regulation::destroy($id);
         return redirect('/dashboard/peraturan_internal')->with('success', 'Peraturan telah dihapus');
     }
-
-    // public function checkSlug(Request $request)
-    // {
-    //     $slug = SlugService::createSlug(Internal_regulation::class, 'slug', $request->nomor_peraturan);
-    //     return response()->json(['slug' => $slug]);
-    // }
 }
