@@ -32,12 +32,12 @@
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
                             <select class="form-select border-0 form-control-lg my-1" name="selectedCategory"
                                 aria-label="Default select example">
-                                <option value="" selected>Kategori Reviu</option>
-                                {{-- @foreach ($kategori as $item)
+                                <option value="" selected>Kategori Divisi</option>
+                                @foreach ($kategori as $item)
                                     <option value="{{ $item->id }}"
-                                        {{ $selectOptionValue == $item->id ? 'selected' : '' }}>{{ $item->nama }}
+                                        {{ $selectOptionValue == $item->id ? 'selected' : '' }}>{{ $item->div_name }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -49,11 +49,11 @@
                             <select class="form-select border-0 form-control-lg my-1" name="selectedJenis"
                                 aria-label="Default select example">
                                 <option value="" selected>Jenis Peraturan</option>
-                                {{-- @foreach ($jenis as $item)
+                                @foreach ($jenis as $item)
                                     <option value="{{ $item->id }}"
                                         {{ $selectOptionValueJenis == $item->id ? 'selected' : '' }}>{{ $item->nama }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
                             <input name="search" type="search" class="form-control" id="keyword"
-                                placeholder="Kata Kunci Peraturan ..." aria-label="Search" value="{{ $search }}">
+                                placeholder="Kata Kunci Peraturan ..." aria-label="Search" value="{{ $searchKeyword }}">
                             <button type="submit" class="form-control">Cari</button>
                         </div>
                     </div>
