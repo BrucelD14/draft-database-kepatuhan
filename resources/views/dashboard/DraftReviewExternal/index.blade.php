@@ -44,6 +44,7 @@
                                         {{ $regulation->CatatanReviu->count() }}
                                     </span>
                                 </button>
+
                                 {{-- MODAL PESAN --}}
                                 {{-- @include('dashboard.DraftReviewExternal.layouts.modal') --}}
                                 <div class="modal fade" id="staticBackdrop{{ $regulation->id }}" data-bs-backdrop="static"
@@ -67,8 +68,8 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 {{-- END MODAL PESAN --}}
+
                             </td>
                             <td class="text-center">
                                 <a href="/dashboard/{{ $link }}/{{ $regulation->id }}"

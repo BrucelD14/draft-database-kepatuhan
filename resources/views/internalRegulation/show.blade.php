@@ -70,7 +70,7 @@
                                         </tr>
                                         @if (isset($regulation->kategoriDivisi->div_name))
                                             <tr>
-                                                <td>Divisi/Unit Terkait</td>
+                                                <td>Divisi/Unit Pengusul</td>
                                                 <td>:
                                                     <button class="btn btn-outline-danger"
                                                         style="cursor:default">{{ $regulation->kategoriDivisi->div_name }}</button>
