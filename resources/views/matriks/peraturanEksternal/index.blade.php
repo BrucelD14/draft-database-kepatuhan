@@ -75,6 +75,27 @@
                                 <td>{{ $item }}</td>
                             @endforeach
                         </tr>
+                        <tr class="text-center">
+                            <th scope="row">3</th>
+                            <td>Peraturan Pemerintah Pengganti Undang-Undang</td>
+                            @foreach ($perPu as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
+                        <tr class="text-center">
+                            <th scope="row">4</th>
+                            <td>Peraturan Presiden</td>
+                            @foreach ($perPres as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
+                        <tr class="text-center">
+                            <th scope="row">5</th>
+                            <td>Instruksi Presiden</td>
+                            @foreach ($inPres as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
                     </tbody>
                 </table>
             </div>

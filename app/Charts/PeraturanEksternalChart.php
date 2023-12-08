@@ -46,20 +46,31 @@ class PeraturanEksternalChart
         for ($i = 1; $i <= $bulan; $i++) {
             $totalUndangUndang = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 1)->where('status_publish', 1)->count();
             $totalPeraturanPemerintah = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 2)->where('status_publish', 1)->count();
+            $totalPerPu = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 3)->where('status_publish', 1)->count();
+            $totalPerPres = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 4)->where('status_publish', 1)->count();
+            $totalInPres = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 5)->where('status_publish', 1)->count();
+
             if ($tahun == date('Y')) {
                 $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
             } else {
                 $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
             }
+
             $dataTotalUndangUndang[] = $totalUndangUndang;
             $dataTotalPeraturanPemerintah[] = $totalPeraturanPemerintah;
+            $dataTotalPerPu[] = $totalPerPu;
+            $dataTotalPerPres[] = $totalPerPres;
+            $dataTotalInPres[] = $totalInPres;
         };
         return $this->chart->barChart()
             ->setTitle('Data Reviu Peraturan Eksternal Tahun ' . $tahun)
             ->setSubtitle('Grafik bulanan')
-            ->addData('Undang-Undang', $dataTotalUndangUndang)
-            ->addData('Peraturan Pemerintah', $dataTotalPeraturanPemerintah)
-            ->setColors(['#FFCC70', '#22668D',])
+            ->addData('UU', $dataTotalUndangUndang)
+            ->addData('PP', $dataTotalPeraturanPemerintah)
+            ->addData('PERPU', $dataTotalPerPu)
+            ->addData('PERPRES', $dataTotalPerPres)
+            ->addData('INPRES', $dataTotalInPres)
+            ->setColors(['#FFCC70', '#22668D', '#22634D', '#45124D', '#56321A',])
             ->setXAxis($dataBulan);
     }
 }
