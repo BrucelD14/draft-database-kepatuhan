@@ -96,6 +96,48 @@
                                 <td>{{ $item }}</td>
                             @endforeach
                         </tr>
+                        <tr class="text-center">
+                            <th scope="row">6</th>
+                            <td>Keputusan Presiden</td>
+                            @foreach ($kepPres as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
+                        <tr class="text-center">
+                            <th scope="row">7</th>
+                            <td>Surat Edaran Sekretaris Kementerian</td>
+                            @foreach ($sesMen as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
+                        <tr class="text-center">
+                            <th scope="row">8</th>
+                            <td>Peraturan Mahkamah Agung</td>
+                            @foreach ($perMa as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
+                        <tr class="text-center">
+                            <th scope="row">9</th>
+                            <td>Putusan Mahkamah Konstitusi</td>
+                            @foreach ($putusanMK as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
+                        <tr class="text-center">
+                            <th scope="row">10</th>
+                            <td>Peraturan Menteri</td>
+                            @foreach ($perMen as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
+                        <tr class="text-center">
+                            <th scope="row">11</th>
+                            <td>Keputusan Menteri</td>
+                            @foreach ($kepMen as $item)
+                                <td>{{ $item }}</td>
+                            @endforeach
+                        </tr>
                     </tbody>
                 </table>
             </div>

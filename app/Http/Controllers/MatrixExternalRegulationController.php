@@ -25,6 +25,13 @@ class MatrixExternalRegulationController extends Controller
             $totalPerPu = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 3)->where('status_publish', 1)->count();
             $totalPerPres = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 4)->where('status_publish', 1)->count();
             $totalInPres = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 5)->where('status_publish', 1)->count();
+            $totalKepPres = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 6)->where('status_publish', 1)->count();
+            $totalSesMen = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 7)->where('status_publish', 1)->count();
+            $totalPerMa = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 8)->where('status_publish', 1)->count();
+            $totalPutusanMK = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 9)->where('status_publish', 1)->count();
+            $totalPerMen = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 10)->where('status_publish', 1)->count();
+            $totalKepMen = ReviewEksternalReg::whereYear('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 11)->where('status_publish', 1)->count();
+
 
             $dataTahun[] = $i;
             $dataTotalUndangUndang[] = $totalUndangUndang;
@@ -32,6 +39,12 @@ class MatrixExternalRegulationController extends Controller
             $dataTotalPerPu[] = $totalPerPu;
             $dataTotalPerPres[] = $totalPerPres;
             $dataTotalInPres[] = $totalInPres;
+            $dataTotalKepPres[] = $totalKepPres;
+            $dataTotalSesMen[] = $totalSesMen;
+            $dataTotalPerMa[] = $totalPerMa;
+            $dataTotalPutusanMK[] = $totalPutusanMK;
+            $dataTotalPerMen[] = $totalPerMen;
+            $dataTotalKepMen[] = $totalKepMen;
         };
         return view('matriks.peraturanEksternal.index', [
             'title' => 'Matriks Reviu Peraturan Eksternal',
@@ -42,6 +55,12 @@ class MatrixExternalRegulationController extends Controller
             'perPu' => $dataTotalPerPu,
             'perPres' => $dataTotalPerPres,
             'inPres' => $dataTotalInPres,
+            'kepPres' => $dataTotalKepPres,
+            'sesMen' => $dataTotalSesMen,
+            'perMa' => $dataTotalPerMa,
+            'putusanMK' => $dataTotalPutusanMK,
+            'perMen' => $dataTotalPerMen,
+            'kepMen' => $dataTotalKepMen,
             'tahun' => $tahun
         ]);
     }

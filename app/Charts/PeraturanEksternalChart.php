@@ -49,6 +49,12 @@ class PeraturanEksternalChart
             $totalPerPu = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 3)->where('status_publish', 1)->count();
             $totalPerPres = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 4)->where('status_publish', 1)->count();
             $totalInPres = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 5)->where('status_publish', 1)->count();
+            $totalKepPres = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 6)->where('status_publish', 1)->count();
+            $totalSesMen = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 7)->where('status_publish', 1)->count();
+            $totalPerMa = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 8)->where('status_publish', 1)->count();
+            $totalPutusanMK = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 9)->where('status_publish', 1)->count();
+            $totalPerMen = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 10)->where('status_publish', 1)->count();
+            $totalKepMen = ReviewEksternalReg::whereYear('tanggal_penetapan', $tahun)->whereMonth('tanggal_penetapan', $i)->where('jenis_peraturan_eksternal_id', 11)->where('status_publish', 1)->count();
 
             if ($tahun == date('Y')) {
                 $dataBulan[] = Carbon::create()->month($i)->translatedFormat('F');
@@ -61,6 +67,12 @@ class PeraturanEksternalChart
             $dataTotalPerPu[] = $totalPerPu;
             $dataTotalPerPres[] = $totalPerPres;
             $dataTotalInPres[] = $totalInPres;
+            $dataTotalKepPres[] = $totalKepPres;
+            $dataTotalSesMen[] = $totalSesMen;
+            $dataTotalPerma[] = $totalPerMa;
+            $dataTotalPutusanMK[] = $totalPutusanMK;
+            $dataTotalPerMen[] = $totalPerMen;
+            $dataTotalKepMen[] = $totalKepMen;
         };
         return $this->chart->barChart()
             ->setTitle('Data Reviu Peraturan Eksternal Tahun ' . $tahun)
@@ -70,7 +82,13 @@ class PeraturanEksternalChart
             ->addData('PERPU', $dataTotalPerPu)
             ->addData('PERPRES', $dataTotalPerPres)
             ->addData('INPRES', $dataTotalInPres)
-            ->setColors(['#FFCC70', '#22668D', '#22634D', '#45124D', '#56321A',])
+            ->addData('KEPPRES', $dataTotalKepPres)
+            ->addData('SESMEN', $dataTotalSesMen)
+            ->addData('PERMA', $dataTotalPerma)
+            ->addData('Putusan MK', $dataTotalPutusanMK)
+            ->addData('PERMEN', $dataTotalPerMen)
+            ->addData('KEPMEN', $dataTotalKepMen)
+            ->setColors(['#FFCC70', '#22668D', '#22634D', '#45124D', '#56321A', '#563476', '#DDF120', '#22118D', '#32318A', '#12318C', '#51621D'])
             ->setXAxis($dataBulan);
     }
 }
