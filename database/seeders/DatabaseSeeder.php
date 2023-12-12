@@ -58,10 +58,10 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Undang-Undang'
         ]);
         JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Pemerintah Pengganti Undang-Undang'
+            'nama' => 'Peraturan Pemerintah'
         ]);
         JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Pemerintah'
+            'nama' => 'Peraturan Pemerintah Pengganti Undang-Undang'
         ]);
         JenisPeraturanEksternal::create([
             'nama' => 'Peraturan Presiden'
