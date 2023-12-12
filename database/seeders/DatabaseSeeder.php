@@ -25,51 +25,27 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // User::create([
-        //     'name' => 'Brucel Duta',
-        //     'nip' => '12345',
-        //     'password' => bcrypt('password'),
-        //     'role' => 'editor',
-        //     'jabatan' => 'Senior Manajer MRH'
-        // ]);
-        // User::create([
-        //     'name' => 'Violita Zahrah',
-        //     'nip' => '67890',
-        //     'password' => bcrypt('password'),
-        //     'role' => 'reviewer',
-        //     'jabatan' => 'Manajer KTKP'
-        // ]);
-        // User::create([
-        //     'name' => 'Fajar Chan',
-        //     'nip' => '54321',
-        //     'password' => bcrypt('password'),
-        //     'jabatan' => 'Staff KTKP'
-        // ]);
-        // User::create([
-        //     'name' => 'Raga Tri',
-        //     'nip' => '11111',
-        //     'password' => bcrypt('password'),
-        //     'jabatan' => 'Staff MR'
-        // ]);
+        // USER
         User::create([
             'nip' => 'approval_JDIH_INKA',
             'name' => 'Approval JDIH INKA',
             'job_id' => null,
-            'password' => bcrypt('password'),
+            'password' => bcrypt('inkaindonesia02'),
         ]);
         User::create([
             'nip' => 'editor_JDIH_INKA',
             'name' => 'Editor JDIH INKA',
             'job_id' => null,
-            'password' => bcrypt('password'),
+            'password' => bcrypt('inkaindonesia01'),
         ]);
-        User::create([
-            'nip' => '12345',
-            'name' => 'Brucel Duta',
-            'job_id' => '2',
-            'password' => bcrypt('password'),
-        ]);
+        // User::create([
+        //     'nip' => '12345',
+        //     'name' => 'Brucel Duta',
+        //     'job_id' => '2',
+        //     'password' => bcrypt('password'),
+        // ]);
 
+        // JENIS PERATURAN INTERNAL
         JenisPeraturanInternal::create([
             'nama' => 'Peraturan Direksi'
         ]);
@@ -77,31 +53,51 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Surat Edaran'
         ]);
 
+        // JENIS PERATURAN EKSTERNAL
         JenisPeraturanEksternal::create([
-            'nama' => 'Undang-undang'
+            'nama' => 'Undang-Undang'
+        ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Peraturan Pemerintah Pengganti Undang-Undang'
         ]);
         JenisPeraturanEksternal::create([
             'nama' => 'Peraturan Pemerintah'
         ]);
-        JenisPeraturanMenteri::create([
+        JenisPeraturanEksternal::create([
+            'nama' => 'Peraturan Presiden'
+        ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Instruksi Presiden'
+        ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Keputusan Presiden'
+        ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Surat Edaran Sekretaris Kementerian'
+        ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Peraturan Mahkamah Agung'
+        ]);
+        JenisPeraturanEksternal::create([
+            'nama' => 'Putusan Mahkamah Konstitusi'
+        ]);
+        JenisPeraturanEksternal::create([
             'nama' => 'Peraturan Menteri'
         ]);
-        JenisPeraturanMenteri::create([
+        JenisPeraturanEksternal::create([
             'nama' => 'Keputusan Menteri'
         ]);
 
-        // KategoriDivisi::create([
-        //     'div_code' => 'MRH-001',
-        //     'div_name' => 'Manajemen Risiko dan Hukum'
-        // ]);
-        // KategoriDivisi::create([
-        //     'div_code' => 'RISBANG-002',
-        //     'div_name' => 'Riset dan Pengembangan'
-        // ]);
-        // KategoriDivisi::create([
-        //     'div_code' => 'SEKPER-003',
-        //     'div_name' => 'Sekretaris Perusahaan'
-        // ]);
+        // JENIS PERATURAN MENTERI
+        JenisPeraturanMenteri::create([
+            'nama' => 'Peraturan Menteri BUMN'
+        ]);
+        JenisPeraturanMenteri::create([
+            'nama' => 'Surat Edaran Menteri BUMN'
+        ]);
+        JenisPeraturanMenteri::create([
+            'nama' => 'Keputusan Menteri BUMN'
+        ]);
 
         // Internal_regulation::factory(20)->create();
         // External_regulation::factory(20)->create();
