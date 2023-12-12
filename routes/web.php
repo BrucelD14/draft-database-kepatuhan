@@ -81,7 +81,7 @@ Route::post('/dashboard/tambah_catatan_editor/{id}', [DashboardReviewEksternalRe
 
 // IMPORT
 // Route::post('import_peraturan_internal', [Internal_regulationController::class, 'import'])->name('peraturanInternal.import');
-Route::get('dashboard/importir', [ImportirController::class, 'index']);
+Route::get('dashboard/importir', [ImportirController::class, 'index'])->middleware('auth');
 Route::post('/divisi_import', [DashboardKategoriDivisiController::class, 'import'])->name('divisiimport.store');
 Route::post('/job_position_import', JobPositionImportController::class)->name('jobpositionimport.store');
 Route::post('/user_import', UserImportController::class)->name('userimport.store');

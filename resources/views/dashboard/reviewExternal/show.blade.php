@@ -23,6 +23,14 @@
     </form>
     <a href="#" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
             class="bi bi-sticky-fill"></i> Add Note</a>
+    <button type="button" class="btn btn-success position-relative" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop{{ $regulation->id }}"><i class="bi bi-stickies-fill"></i>
+        Note
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
+            {{ $regulation->CatatanReviu->count() }}
+        </span>
+    </button>
+
 
     {{-- MODAL ADD NOTE --}}
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -48,8 +56,30 @@
             </div>
         </div>
     </div>
-
     {{-- MODAL ADD NOTE --}}
+
+    {{-- MODAL PESAN --}}
+    {{-- @include('dashboard.DraftReviewExternal.layouts.modal') --}}
+    <div class="modal fade" id="staticBackdrop{{ $regulation->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4" id="staticBackdropLabel">Catatan Reviu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @foreach ($regulation->CatatanReviu as $item)
+                    <div class="modal-body text-start">
+                        <p class="mb-1 fw-bolder">{{ $item->user->name }}</p>
+                        <p class="mb-0">{{ $item->pesan_catatan }}</p>
+                        <p class="mb-0 opacity-75" style="font-size:12px;">
+                            {{ $item->created_at->diffForHumans() }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL PESAN --}}
 
     <div class="card my-4">
         <div class="card-header text-center p-3 bg-dark text-white">
