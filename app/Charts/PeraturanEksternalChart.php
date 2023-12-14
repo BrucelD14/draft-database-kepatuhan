@@ -88,7 +88,8 @@ class PeraturanEksternalChart
             ->addData('Putusan MK', $dataTotalPutusanMK)
             ->addData('PERMEN', $dataTotalPerMen)
             ->addData('KEPMEN', $dataTotalKepMen)
-            ->setColors(['#186F65', '#B5CB99', '#FCE09B', '#B2533E', '#A9A9A9', '#FECDA6', '#FF9130', '#FF5B22', '#8ACDD7', '#FA7070', '#9ED2BE'])
+            // ->setColors(['#186F65', '#B5CB99', '#FCE09B', '#B2533E', '#A9A9A9', '#FECDA6', '#FF9130', '#FF5B22', '#8ACDD7', '#FA7070', '#9ED2BE'])
+            ->setColors(['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#6f00ff', '#964b00', '#bf00ff', '#a9a9a9', '#ff1493', '#add8e6'])
             ->setXAxis($dataBulan);
     }
 }
