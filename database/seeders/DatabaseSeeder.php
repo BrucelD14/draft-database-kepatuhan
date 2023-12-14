@@ -26,78 +26,93 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         // USER
-        User::create([
-            'nip' => 'approval_JDIH_INKA',
-            'name' => 'Approval JDIH INKA',
-            'job_id' => null,
-            'password' => bcrypt('inkaindonesia02'),
-        ]);
-        User::create([
-            'nip' => 'editor_JDIH_INKA',
-            'name' => 'Editor JDIH INKA',
-            'job_id' => null,
-            'password' => bcrypt('inkaindonesia01'),
-        ]);
         // User::create([
-        //     'nip' => '12345',
-        //     'name' => 'Brucel Duta',
-        //     'job_id' => '2',
-        //     'password' => bcrypt('password'),
+        //     'nip' => 'approval_JDIH_INKA',
+        //     'name' => 'Approval JDIH INKA',
+        //     'job_id' => null,
+        //     'password' => bcrypt('inkaindonesia02'),
         // ]);
+        // User::create([
+        //     'nip' => 'editor_JDIH_INKA',
+        //     'name' => 'Editor JDIH INKA',
+        //     'job_id' => null,
+        //     'password' => bcrypt('inkaindonesia01'),
+        // ]);
+        User::create([
+            'nip' => '992300004',
+            'name' => 'RIDWAN AL ROSSID BUDYANTORO',
+            'job_id' => 150,
+            'password' => bcrypt('992300004'),
+        ]);
+        User::create([
+            'nip' => '442300032',
+            'name' => 'ELISA WINDI DAMAYANTI',
+            'job_id' => 160,
+            'password' => bcrypt('442300032'),
+        ]);
+        User::create([
+            'nip' => '442300057',
+            'name' => 'MUTIA AYU APRILIA PUTRI',
+            'job_id' => 160,
+            'password' => bcrypt('442300057'),
+        ]);
+
+
+
 
         // JENIS PERATURAN INTERNAL
-        JenisPeraturanInternal::create([
-            'nama' => 'Peraturan Direksi'
-        ]);
-        JenisPeraturanInternal::create([
-            'nama' => 'Surat Edaran'
-        ]);
+        // JenisPeraturanInternal::create([
+        //     'nama' => 'Peraturan Direksi'
+        // ]);
+        // JenisPeraturanInternal::create([
+        //     'nama' => 'Surat Edaran'
+        // ]);
 
         // JENIS PERATURAN EKSTERNAL
-        JenisPeraturanEksternal::create([
-            'nama' => 'Undang-Undang'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Pemerintah'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Pemerintah Pengganti Undang-Undang'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Presiden'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Instruksi Presiden'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Keputusan Presiden'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Surat Edaran Sekretaris Kementerian'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Mahkamah Agung'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Putusan Mahkamah Konstitusi'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Peraturan Menteri'
-        ]);
-        JenisPeraturanEksternal::create([
-            'nama' => 'Keputusan Menteri'
-        ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Undang-Undang'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Peraturan Pemerintah'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Peraturan Pemerintah Pengganti Undang-Undang'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Peraturan Presiden'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Instruksi Presiden'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Keputusan Presiden'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Surat Edaran Sekretaris Kementerian'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Peraturan Mahkamah Agung'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Putusan Mahkamah Konstitusi'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Peraturan Menteri'
+        // ]);
+        // JenisPeraturanEksternal::create([
+        //     'nama' => 'Keputusan Menteri'
+        // ]);
 
         // JENIS PERATURAN MENTERI
-        JenisPeraturanMenteri::create([
-            'nama' => 'Peraturan Menteri BUMN'
-        ]);
-        JenisPeraturanMenteri::create([
-            'nama' => 'Surat Edaran Menteri BUMN'
-        ]);
-        JenisPeraturanMenteri::create([
-            'nama' => 'Keputusan Menteri BUMN'
-        ]);
+        // JenisPeraturanMenteri::create([
+        //     'nama' => 'Peraturan Menteri BUMN'
+        // ]);
+        // JenisPeraturanMenteri::create([
+        //     'nama' => 'Surat Edaran Menteri BUMN'
+        // ]);
+        // JenisPeraturanMenteri::create([
+        //     'nama' => 'Keputusan Menteri BUMN'
+        // ]);
 
         // Internal_regulation::factory(20)->create();
         // External_regulation::factory(20)->create();
