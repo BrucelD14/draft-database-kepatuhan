@@ -80,7 +80,7 @@
                                 <td class="text-center">{{ $reg->nomor_peraturan }}</td>
                                 <td class="text-center">
                                     {{ \Carbon\Carbon::parse($reg->tanggal_penetapan)->translatedFormat('d F Y') }}</td>
-                                <td class="text-center">{{ $reg->jenisPeraturanMenteri->nama }}</td>
+                                <td class="text-center">{{ $reg->jenis_nama }}</td>
                                 <td style="text-align:justify">{!! $reg->tentang !!}</td>
                                 <td class="text-center">
                                     @if ($reg->status == 'active')

@@ -12,6 +12,21 @@ class Ministerial_regulationController extends Controller
     {
         $searchKeyword = $request->input('search');
         $selectOptionValueJenis = $request->input('selectedJenis');
+        $hasilPencarian = Ministerial_regulation::join('jenis_peraturan_menteris', 'jenis_peraturan_menteris.id', '=', 'ministerial_regulations.jenis_peraturan_menteri_id')
+            ->select('ministerial_regulations.id', 'ministerial_regulations.nomor_peraturan', 'ministerial_regulations.tanggal_penetapan', 'ministerial_regulations.tentang', 'ministerial_regulations.status', 'ministerial_regulations.dokumen', 'jenis_peraturan_menteris.id as jenis_id', 'jenis_peraturan_menteris.nama as jenis_nama')
+            ->when($searchKeyword, function ($query) use ($searchKeyword) {
+                $query->where(function ($innerQuery) use ($searchKeyword) {
+                    $innerQuery->where('ministerial_regulations.tentang', 'like', '%' . $searchKeyword . '%')
+                        ->orWhere('ministerial_regulations.nomor_peraturan', 'like', '%' . $searchKeyword . '%')
+                        ->orWhere('ministerial_regulations.keterangan_status', 'like', '%' . $searchKeyword . '%')
+                        ->orWhere('ministerial_regulations.tanggal_penetapan', 'like', '%' . $searchKeyword . '%');
+                });
+            })
+            ->when($selectOptionValueJenis, function ($query) use ($selectOptionValueJenis) {
+                $query->where('jenis_peraturan_menteris.id', '=', $selectOptionValueJenis);
+            })
+            ->orderBy('tanggal_penetapan', 'desc')
+            ->paginate(5);
 
         return view('ministerialRegulation.index', [
             'title' => 'Peraturan Menteri BUMN',
@@ -19,19 +34,7 @@ class Ministerial_regulationController extends Controller
             'searchKeyword' => $searchKeyword,
             'jenis' => JenisPeraturanMenteri::get(),
             'selectOptionValueJenis' => $selectOptionValueJenis,
-            'reg_list' => Ministerial_regulation::join('jenis_peraturan_menteris', 'jenis_peraturan_menteris.id', '=', 'ministerial_regulations.jenis_peraturan_menteri_id')
-                ->when($searchKeyword, function ($query) use ($searchKeyword) {
-                    $query->where(function ($innerQuery) use ($searchKeyword) {
-                        $innerQuery->where('ministerial_regulations.tentang', 'like', '%' . $searchKeyword . '%')
-                            ->orWhere('ministerial_regulations.nomor_peraturan', 'like', '%' . $searchKeyword . '%')
-                            ->orWhere('ministerial_regulations.keterangan_status', 'like', '%' . $searchKeyword . '%')
-                            ->orWhere('ministerial_regulations.tanggal_penetapan', 'like', '%' . $searchKeyword . '%');
-                    });
-                })
-                ->when($selectOptionValueJenis, function ($query) use ($selectOptionValueJenis) {
-                    $query->where('jenis_peraturan_menteris.id', '=', $selectOptionValueJenis);
-                })
-                ->paginate(5)
+            'reg_list' => $hasilPencarian,
         ]);
     }
 
